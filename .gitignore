@@ -1,0 +1,11 @@
+Thumbs.db
+.DS_Store
+.DS_Store?
+*.bak
+.index.db
+.index.json
+/fsh-generated
+/input-cache
+/output
+/temp
+/template
