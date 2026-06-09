@@ -101,7 +101,7 @@ Instance: messageheader-referral
 InstanceOf: HgReferralMessageHeaderAmbulanceHAP
 Usage: #example
 Title: "MessageHeader - ambulance referral"
-* eventCoding = HgMessageEventCS#ambulance-referral-to-gp
+* eventCoding = HgMessageEventCS#ambulance-referral-to-hap
 * focus = Reference(servicerequest-referral)
 * sender = Reference(org-rav)
 * source.endpoint = "https://ambulance.example.nl/fhir"

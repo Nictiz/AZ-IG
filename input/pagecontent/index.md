@@ -1,11 +1,19 @@
 ### Scope
 
-This Implementation Guide covers the referral from an ambulance professional to a general
-practitioner (GP) or GP out-of-hours post (HAP), known in the Richtlijn Gegevensuitwisseling
-acute zorg as the Ambulanceverwijzing (messages 23 and 24, AMB to HA/HAP). It corresponds to
-section 2.16 of the Nictiz functional design and to scenarios 5a and 5b of the richtlijn. The
-exchange is one directional (PUSH): the ambulance sends, the GP or HAP receives. The intended
-audience is software developers building sending or receiving systems.
+This Implementation Guide covers the referral from an ambulance professional to a GP
+out-of-hours post (HAP), known in the
+[Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)
+as the Ambulanceverwijzing (message 24, AMB naar HAP). It corresponds to
+[section 2.16 of the Nictiz functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)
+and to scenario 5b of the richtlijn. The exchange is one directional (PUSH):
+the ambulance sends, the HAP receives. The intended audience is software developers building
+sending or receiving systems.
+
+Message 23 (AMB naar HA, referral to the regular GP) is out of scope for this version. It
+follows the same FHIR pattern and can be accommodated later by adding a parallel
+`hg-Referral*-AmbulanceHA` use-case layer on the same generic base profiles, together with a
+new `ambulance-referral-to-ha` event code in `HgMessageEventCS`. No changes to the existing
+HAP profiles would be required.
 
 ### Design choices
 
@@ -14,7 +22,7 @@ name and address structures, and organisation and practitioner modelling follow 
 keeps the IG aligned with the wider Dutch FHIR ecosystem.
 
 Workflow request resource. The referral is modelled as a `ServiceRequest` on FHIR core, with
-`intent` fixed to `order`. The ambulance is the `requester` and the GP or HAP is the `performer`.
+`intent` fixed to `order`. The ambulance is the `requester` and the HAP is the `performer`.
 This follows the FHIR workflow request pattern.
 
 No Task, for now. We deliberately omit `Task` and follow the ad-hoc workflow pattern, in which
@@ -35,7 +43,7 @@ is not used.
 
 ### Profile layering and naming
 
-Following the Nictiz profiling guidelines, profiles are organised in two layers. A generic,
+Following the [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4), profiles are organised in two layers. A generic,
 open-world layer on FHIR core carries the reusable referral structure with no cardinality
 tightening and no `mustSupport`: `hg-ReferralServiceRequest`, `hg-ReferralComposition`,
 `hg-ReferralDocumentReference`, `hg-ReferralMessageHeader` and `hg-ReferralBundle`. A use-case
@@ -57,7 +65,7 @@ dataset's exact multiplicities.
 Instead of `mustSupport`, support expectations are expressed with the FHIR Obligations framework,
 following the IKNL PZP and HL7 AU Core pattern. Two system actors are defined as
 `ActorDefinition` resources: `hg-ActorSender` (the ambulance/RAV system that produces and pushes
-the message) and `hg-ActorReceiver` (the GP/HAP system that consumes it). Obligation-marked
+the message) and `hg-ActorReceiver` (the HAP system that consumes it). Obligation-marked
 elements carry, via the `obligation` extension, a `SHALL:populate-if-known` obligation for the
 Sender (it must populate the element when it knows a value) and a `SHALL:no-error` obligation for
 the Receiver (it must accept the element without error). This makes the producer and consumer
@@ -70,7 +78,7 @@ References are kept open. Where the dataset binds a reference to an nl-core buil
 transaction-specific zib profile is added *next to* the base FHIR resource type rather than
 replacing it: for example `ServiceRequest.subject` is `Reference(Patient or hg-Patient-AmbulanceHAP)`
 and `requester`/`performer` allow `PractitionerRole`/`Organization` next to their hg- profiles.
-This follows the Nictiz guideline of adding the target profile beside the core type, so a sender
+This follows the [Nictiz profiling guideline](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4) of adding the target profile beside the core type, so a sender
 that holds only a plain core resource still conforms, while a sender that can produce the richer
 nl-core-based profile is recognised. We deliberately do not slice references by `targetProfile`
 here: there are no per-target cardinalities or mappings that would require it, and a single slice
@@ -80,7 +88,7 @@ future transaction needs to constrain individual targets separately.
 ### Resource map
 
 The `hg-ReferralMessageHeader-AmbulanceHAP` focuses the `hg-ReferralServiceRequest-AmbulanceHAP`. The ServiceRequest references the
-patient (`subject`), the ambulance (`requester`) and the GP or HAP (`performer`), and carries the
+patient (`subject`), the ambulance (`requester`) and the HAP (`performer`), and carries the
 clinical content through `supportingInfo`: a `hg-ReferralComposition-AmbulanceHAP` for the referral note
 (reason, instituted treatment, diagnosis or conclusion) and, when documents are attached, one or
 more `hg-ReferralDocumentReference-AmbulanceHAP` resources referenced directly. The dataset's CommunicatieItem wrapper
@@ -115,6 +123,14 @@ These need confirmation before the profiles are finalised.
   inside the Ambulanceverwijzing to the HAP. The `hg-ReferralDocumentReference-AmbulanceHAP` constraints should be
   reconciled with that once published.
 
+### Dependencies
+
+| Package | Version | Purpose |
+|---|---|---|
+| [nictiz.fhir.nl.r4.nl-core](https://simplifier.net/packages/nictiz.fhir.nl.r4.nl-core) | 0.12.0-beta.4 | nl-core base profiles (Patient, Organization, PractitionerRole, …) |
+| [nictiz.fhir.nl.r4.zib2020](https://simplifier.net/packages/nictiz.fhir.nl.r4.zib2020) | 0.12.0-beta.4 | zib2020 profiles; declared explicitly because Sushi does not pull this transitive dependency of nl-core on its own |
+| [hl7.fhir.uv.tools.r4](https://packages.fhir.org/hl7.fhir.uv.tools.r4/1.1.2) | 1.1.2 | Required for `ActorDefinition` to resolve in R4 |
+
 ### Building this IG
 
 The profiles are authored in FSH and compiled with Sushi, then built with the HL7 IG Publisher.
@@ -125,3 +141,14 @@ walks that ancestry, so the zib2020 package must be loaded. Sushi does not pull 
 dependency on its own, so zib2020 is declared explicitly in sushi-config.yaml alongside nl-core,
 at the same version. With both declared, the build runs clean. No snapshot generation step is
 needed; differential-only packages are sufficient.
+
+### References
+
+1. Nictiz. *Richtlijn Gegevensuitwisseling Acute Zorg versie 4*. 2022. [PDF](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)
+2. Nictiz. *Ontwerp Acute Zorg — Functioneel ontwerp*. [https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg)
+3. Nictiz. *Ontwerp Acute Zorg — Ambulanceverwijzing (AMB → HA/HAP), section 2.16*. [https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)
+4. Nictiz. *Nictiz FHIR Implementation Guide R4*. [https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4)
+5. Nictiz. *FHIR Profiling Guidelines R4*. [https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4)
+6. Nictiz. *nl-core FHIR R4 package* (nictiz.fhir.nl.r4.nl-core 0.12.0-beta.4). [https://simplifier.net/packages/nictiz.fhir.nl.r4.nl-core](https://simplifier.net/packages/nictiz.fhir.nl.r4.nl-core)
+7. Nictiz. *zib2020 FHIR R4 package* (nictiz.fhir.nl.r4.zib2020 0.12.0-beta.4). [https://simplifier.net/packages/nictiz.fhir.nl.r4.zib2020](https://simplifier.net/packages/nictiz.fhir.nl.r4.zib2020)
+8. HL7. *FHIR Tools R4 package* (hl7.fhir.uv.tools.r4 1.1.2). [https://packages.fhir.org/hl7.fhir.uv.tools.r4/1.1.2](https://packages.fhir.org/hl7.fhir.uv.tools.r4/1.1.2)

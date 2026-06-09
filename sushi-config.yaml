@@ -1,7 +1,7 @@
 id: nictiz.fhir.nl.r4.acutezorg-ambulanceverwijzing
 canonical: http://nictiz.nl/fhir
 name: AcuteZorg
-title: "Acute Zorg - Ambulanceverwijzing (AMB naar HA/HAP)"
+title: "Acute Zorg - Ambulanceverwijzing naar HAP (AMB naar HAP)"
 status: draft
 version: 0.1.0
 fhirVersion: 4.0.1
@@ -9,9 +9,10 @@ copyrightYear: 2026+
 releaseLabel: ci-build
 publisher:
   name: Nictiz
-description: "Implementation Guide for the ambulance to GP / GP out-of-hours post (HAP) referral (Ambulanceverwijzing, AMB to HA/HAP) in FHIR R4, built on nl-core."
+description: "Implementation Guide for the ambulance to GP out-of-hours post (HAP) referral (Ambulanceverwijzing, AMB naar HAP) in FHIR R4, built on nl-core."
 menu:
   Home: index.html
+  Functional Design: functional-design.html
 dependencies:
   nictiz.fhir.nl.r4.nl-core: 0.12.0-beta.4
   nictiz.fhir.nl.r4.zib2020: 0.12.0-beta.4

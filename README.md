@@ -1,7 +1,9 @@
-# Acute Zorg - Ambulanceverwijzing (AMB to HA/HAP)
+# Acute Zorg - Ambulanceverwijzing naar HAP (AMB naar HAP)
 
-FHIR R4 Implementation Guide for the ambulance to GP / GP out-of-hours post (HAP) referral,
-built on nl-core, authored in FHIR Shorthand (FSH).
+FHIR R4 Implementation Guide for the ambulance to GP out-of-hours post (HAP) referral
+(message 24 from the Richtlijn Gegevensuitwisseling Acute Zorg), built on nl-core, authored
+in FHIR Shorthand (FSH). Message 23 (AMB to HA) is out of scope for this version but follows
+the same FHIR pattern and can be added as a parallel use-case layer later.
 
 ## Identity
 

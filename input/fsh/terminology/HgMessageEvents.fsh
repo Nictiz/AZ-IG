@@ -4,7 +4,7 @@ Title: "HG message events"
 Description: "Message event codes for the acute-zorg referral PUSH transactions."
 * ^caseSensitive = true
 * ^content = #complete
-* #ambulance-referral-to-gp "Ambulance referral to GP/HAP"
+* #ambulance-referral-to-hap "Ambulance referral to HAP"
 
 ValueSet: HgMessageEventVS
 Id: hg-message-event

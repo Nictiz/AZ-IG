@@ -28,7 +28,7 @@ Instance: hg-ActorReceiver
 InstanceOf: ActorDefinition
 Usage: #definition
 Title: "HG Referral Receiver (GP/HAP)"
-Description: "The receiving system in the ambulance referral PUSH: the GP or GP out-of-hours post (HAP) system that consumes the referral message."
+Description: "The receiving system in the ambulance referral PUSH: the GP out-of-hours post (HAP) system that consumes the referral message."
 * url = "http://nictiz.nl/fhir/ActorDefinition/hg-ActorReceiver"
 * name = "HgActorReceiver"
 * status = #active
