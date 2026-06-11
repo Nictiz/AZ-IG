@@ -41,7 +41,8 @@ browsable IG with structured profiles, examples, and conformance resources - not
 ## Building
 
 This IG is built automatically by the [HL7 auto IG builder](https://github.com/FHIR/auto-ig-builder)
-on every push to the main branch. The published output is available at the canonical URL.
+on every push. Builds for all branches are available at:
+https://build.fhir.org/ig/Nictiz/AZ-IG/branches/
 
 To build locally, run the standard IG Publisher scripts included in the repository:
 
