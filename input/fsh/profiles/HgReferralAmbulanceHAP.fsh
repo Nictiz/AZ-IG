@@ -101,7 +101,7 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * date insert Obligation
 * title 1..1
 * title insert Obligation
-* section contains treatmentGiven 0..1 and diagnosisConclusion 0..1
+* section contains treatmentGiven 0..* and diagnosisConclusion 0..1
 * section[treatmentGiven] ^short = "TreatmentGiven"
 * section[treatmentGiven] ^alias[0] = "IngesteldeBehandeling"
 * section[treatmentGiven] ^definition = "Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht."
@@ -126,19 +126,23 @@ Title: "HG Referral DocumentReference - Ambulance to HAP"
 Description: "Attached document for the ambulance to GP out-of-hours post (HAP) referral. The folded CommunicatieItem category and sender are carried on `category` and `author`."
 * . ^short = "CommunicationItem"
 * . ^alias[0] = "CommunicatieItem"
+* masterIdentifier 1..1
 * masterIdentifier ^short = "DocumentIdentification"
 * masterIdentifier ^alias[0] = "DocumentIdentificatie"
 * masterIdentifier ^definition = "Het identificatienummer van het document."
 * masterIdentifier insert Obligation
+* identifier 1..1
 * identifier ^short = "DocumentSetIdentification"
 * identifier ^alias[0] = "DocumentSetIdentificatie"
 * identifier ^definition = "Identificatienummer van de set waar het document toe behoort."
 * identifier insert Obligation
+* type 1..1
 * type ^short = "DocumentType"
 * type ^alias[0] = "DocumentType"
 * type ^definition = "Geeft aan welk type document is toegevoegd. Op dit moment is de BSA lijst gekoppeld vanuit de Ambulance."
 * type insert Obligation
 * category insert Obligation
+* author 1..1
 * author ^short = "CommunicationSender"
 * author ^alias[0] = "CommunicatieAfzender"
 * author only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
@@ -153,6 +157,7 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
 * content.attachment.data ^alias[0] = "DocumentInhoud"
 * content.attachment.data ^definition = "Geeft de inhoud van de bijlage (blob)."
 * content.attachment.data insert Obligation
+* content.attachment.title 1..1
 * content.attachment.title ^short = "DocumentName"
 * content.attachment.title ^alias[0] = "DocumentNaam"
 * content.attachment.title ^definition = "De bestandsnaam die het document heeft bij de verzender."

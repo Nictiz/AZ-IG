@@ -7,9 +7,9 @@
 // ART-DECOR transaction puts on the building blocks (Patient, HealthProfessional,
 // HealthcareProvider), plus obligations for sender/receiver.
 //
-// NOTE: the exact minima below are a first, defensible cut (enough to identify
-// the patient and the sending/receiving organisations). They should be
-// reconciled against the published dataset's per-element multiplicities.
+// Cardinalities follow the published AMB-HAP transaction (4.145, 2025-06-10):
+// identifier 1..1 (BSN required; 1..* here to allow additional FHIR identifiers),
+// name 0..1, gender 1..1, birthDate 0..1.
 // =============================================================================
 
 Profile: HgPatientAmbulanceHAP
@@ -19,10 +19,10 @@ Title: "HG Patient - Ambulance to HAP"
 Description: "Patient in the ambulance to GP out-of-hours post (HAP) referral. Derived from nl-core-Patient; the patient SHALL be identifiable so the HAP can match the referral to a person."
 * identifier 1..*
 * identifier insert Obligation
-* name 1..*
 * name insert Obligation
-* birthDate insert Obligation
+* gender 1..1
 * gender insert Obligation
+* birthDate insert Obligation
 
 Profile: HgHealthcareProviderOrganizationAmbulanceHAP
 Parent: $nlcore-Organization
@@ -31,6 +31,7 @@ Title: "HG HealthcareProvider Organization - Ambulance to HAP"
 Description: "Sending (RAV) and receiving (HAP) organisation in the ambulance referral. Derived from nl-core-HealthcareProvider-Organization; an identifier (e.g. URA) is required so the organisation is unambiguously addressable."
 * identifier 1..*
 * identifier insert Obligation
+* name 1..1
 * name insert Obligation
 
 Profile: HgHealthProfessionalPractitionerRoleAmbulanceHAP
