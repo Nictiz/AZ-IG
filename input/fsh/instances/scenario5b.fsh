@@ -52,6 +52,8 @@ Usage: #example
 Title: "ServiceRequest - ambulance referral to HAP"
 * status = #active
 * intent = #order
+* code = $sct#11131000146102
+* category[referralType] = $sct#3457005
 * subject = Reference(patient-patrick)
 * authoredOn = "2026-06-08T11:15:00+02:00"
 * requester = Reference(prole-ambulance)
@@ -89,6 +91,8 @@ Title: "DocumentReference - ECG attachment"
 * status = #current
 * masterIdentifier.system = "urn:ietf:rfc:3986"
 * masterIdentifier.value = "urn:uuid:1b1f4f9e-0000-4000-8000-000000000001"
+* identifier.system = "urn:ietf:rfc:3986"
+* identifier.value = "urn:uuid:1b1f4f9e-0000-4000-8000-000000000002"
 * type.text = "ECG"
 * category.text = "Bijlage"
 * author = Reference(prole-ambulance)

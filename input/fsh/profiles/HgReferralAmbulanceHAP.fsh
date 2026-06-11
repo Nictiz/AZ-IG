@@ -21,6 +21,12 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 * status insert Obligation
 * intent 1..1
 * intent insert Obligation
+* code = $sct#11131000146102
+* category ^slicing.discriminator[0].type = #pattern
+* category ^slicing.discriminator[0].path = "$this"
+* category ^slicing.rules = #open
+* category contains referralType 1..1
+* category[referralType] = $sct#3457005
 * category ^short = "MessageType"
 * category ^alias[0] = "TypeBericht"
 * category ^definition = "Geeft het type bericht dat verstuurd wordt door de verzender."
@@ -64,6 +70,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 * reasonCode ^definition = "Geeft de reden van de verwijzing of de update. Hierbij is de beschrijving als vrije tekst op aangeven van het NHG verplicht. Daarnaast kan er ook een ICPC-code van de episode worden meegestuurd, al dan niet aangevuld met meer details over de vastlegging van de ICPC."
 * reasonCode insert Obligation
 * supportingInfo 1..*
+* supportingInfo only Reference(Resource or HgReferralCompositionAmbulanceHAP or HgReferralDocumentReferenceAmbulanceHAP)
 * supportingInfo ^short = "ClinicalContent"
 * supportingInfo ^alias[0] = "Kern"
 * supportingInfo ^alias[1] = "CommunicatieItem"

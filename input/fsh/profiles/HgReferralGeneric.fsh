@@ -25,8 +25,8 @@ Description: "Generic referral request (workflow 'request' on FHIR core ServiceR
 // category/messageType slice in its own use case layer.
 * intent = #order
 * subject only Reference(Patient or $nlcore-Patient)
-* requester only Reference(PractitionerRole or Organization or $nlcore-PractitionerRole or $nlcore-Organization)
-* performer only Reference(PractitionerRole or Organization or $nlcore-PractitionerRole or $nlcore-Organization)
+* requester only Reference(Practitioner or PractitionerRole or Organization or $nlcore-Practitioner or $nlcore-PractitionerRole or $nlcore-Organization)
+* performer only Reference(Practitioner or PractitionerRole or Organization or $nlcore-Practitioner or $nlcore-PractitionerRole or $nlcore-Organization)
 * supportingInfo only Reference(Resource or HgReferralComposition or HgReferralDocumentReference)
 
 Profile: HgReferralComposition
@@ -45,7 +45,7 @@ Description: "Generic referral note carrying the textual rubrieken as Compositio
 // layer defines its own named section slices with the codes appropriate for that transaction.
 * type = $loinc#57133-1 "Referral note"
 * subject only Reference(Patient or $nlcore-Patient)
-* author only Reference(PractitionerRole or Organization or $nlcore-PractitionerRole or $nlcore-Organization)
+* author only Reference(Practitioner or PractitionerRole or Organization or $nlcore-Practitioner or $nlcore-PractitionerRole or $nlcore-Organization)
 * section ^slicing.discriminator.type = #pattern
 * section ^slicing.discriminator.path = "code"
 * section ^slicing.rules = #open
@@ -55,7 +55,7 @@ Parent: DocumentReference
 Id: hg-ReferralDocumentReference
 Title: "HG Referral DocumentReference"
 Description: "Generic attached document for a referral (for example an ECG or photo). Open-world base for the use case layer."
-* author only Reference(PractitionerRole or Organization or $nlcore-PractitionerRole or $nlcore-Organization)
+* author only Reference(Practitioner or PractitionerRole or Organization or $nlcore-Practitioner or $nlcore-PractitionerRole or $nlcore-Organization)
 
 Profile: HgReferralMessageHeader
 Parent: MessageHeader
