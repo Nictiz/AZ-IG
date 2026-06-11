@@ -20,17 +20,14 @@ Parent: Composition
 Id: hg-ReferralComposition
 Title: "HG Referral Composition"
 Description: "Generic referral note carrying the textual rubrieken as Composition sections. Open-world base for the use-case layer."
+// Fixed here assuming all acute-zorg referral compositions are referral notes.
+// If a future use case requires a different document type, move this to the use-case layer.
 * type = $loinc#57133-1 "Referral note"
 * subject only Reference(Patient or $nlcore-Patient)
 * author only Reference(PractitionerRole or Organization or $nlcore-PractitionerRole or $nlcore-Organization)
 * section ^slicing.discriminator.type = #pattern
 * section ^slicing.discriminator.path = "code"
 * section ^slicing.rules = #open
-* section contains treatmentGiven 0..1 and diagnosisConclusion 0..1
-* section[treatmentGiven].code = $sct#182991002
-* section[treatmentGiven].extension contains HgExtTextValue named treatmentGivenTextValue 0..1
-* section[diagnosisConclusion].code = $sct#60022001
-* section[diagnosisConclusion].extension contains HgExtTextValue named diagnosisConclusionTextValue 0..1
 
 Profile: HgReferralDocumentReference
 Parent: DocumentReference

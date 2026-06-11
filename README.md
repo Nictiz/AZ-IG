@@ -9,7 +9,7 @@ the same FHIR pattern and can be added as a parallel use-case layer later.
 
 - Canonical base: `http://nictiz.nl/fhir` (shared Nictiz base; artifacts are disambiguated
   by the `hg-` id prefix, e.g. `http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest`).
-- Package id: `nictiz.fhir.nl.r4.acutezorg-ambulanceverwijzing`.
+- Package id: `nictiz.fhir.nl.r4.acutezorg`.
 
 ## Layout
 

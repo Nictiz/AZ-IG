@@ -53,9 +53,14 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * date insert Obligation
 * title 1..1
 * title insert Obligation
+* section contains treatmentGiven 0..1 and diagnosisConclusion 0..1
+* section[treatmentGiven].code = $sct#182991002
+* section[treatmentGiven].extension contains HgExtTextValue named treatmentGivenTextValue 0..1
 * section[treatmentGiven] insert Obligation
 * section[treatmentGiven].extension[treatmentGivenTextValue] 1..1
 * section[treatmentGiven].extension[treatmentGivenTextValue] insert Obligation
+* section[diagnosisConclusion].code = $sct#60022001
+* section[diagnosisConclusion].extension contains HgExtTextValue named diagnosisConclusionTextValue 0..1
 * section[diagnosisConclusion] insert Obligation
 * section[diagnosisConclusion].extension[diagnosisConclusionTextValue] 1..1
 * section[diagnosisConclusion].extension[diagnosisConclusionTextValue] insert Obligation

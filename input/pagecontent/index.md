@@ -1,19 +1,26 @@
 ### Scope
 
-This Implementation Guide covers the referral from an ambulance professional to a GP
-out-of-hours post (HAP), known in the
+This Implementation Guide provides FHIR R4 profiles and guidance for information exchange in
+acute care settings in the Netherlands, following the
 [Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)
-as the Ambulanceverwijzing (message 24, AMB naar HAP). It corresponds to
-[section 2.16 of the Nictiz functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)
-and to scenario 5b of the richtlijn. The exchange is one directional (PUSH):
-the ambulance sends, the HAP receives. The intended audience is software developers building
-sending or receiving systems.
+and the [Nictiz functional design for Acute Zorg](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg).
+All profiles are built on nl-core (zib2020, R4) and follow the
+[Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4).
 
-Message 23 (AMB naar HA, referral to the regular GP) is out of scope for this version. It
-follows the same FHIR pattern and can be accommodated later by adding a parallel
-`hg-Referral*-AmbulanceHA` use-case layer on the same generic base profiles, together with a
-new `ambulance-referral-to-ha` event code in `HgMessageEventCS`. No changes to the existing
-HAP profiles would be required.
+The IG is organised in two layers. A generic layer defines open-world profiles that are
+reusable across acute-zorg referral use cases. Use-case layers derive from these and add
+the cardinalities, obligations, terminology bindings and dataset mappings specific to each
+transaction.
+
+The intended audience is software developers building sending or receiving systems for acute
+care information exchange in the Netherlands.
+
+#### Use cases
+
+| Use case | Message | Status |
+|---|---|---|
+| [Ambulanceverwijzing naar HAP](functional-design.html) (AMB naar HAP) | Message 24 | Included in this version |
+| Ambulanceverwijzing naar HA (AMB naar HA) | Message 23 | Planned - follows the same pattern; will add a parallel `hg-Referral*-AmbulanceHA` layer and a new event code |
 
 ### Design choices
 
@@ -31,12 +38,12 @@ conceivable that a future version, or other referral use cases that need richer 
 status tracking, will add a `Task` to mediate request and fulfilment. The current profiles are
 designed so that this can be introduced without reworking the referral content.
 
-Exchange paradigm. The referral is exchanged as FHIR Messaging: a `Bundle` of type `message`
-with a `MessageHeader` that carries the event and focuses the `ServiceRequest`. This fits the
-LSP, which routes messages in a store-and-forward manner, and it matches the event-driven nature
-of an ambulance handover. A transaction bundle (REST against the receiver) or a document bundle
-(a static, attestable letter) were the alternatives; messaging was chosen as the closest fit to
-the target infrastructure.
+Exchange paradigm. The exchange paradigm has not yet been decided. Three options are under
+consideration: FHIR Messaging (a Bundle of type `message` with a `MessageHeader`), RESTful
+(individual resources POSTed to a FHIR server), and FHIR Document (a Bundle of type
+`document`). The profiles in this IG are designed to remain valid under all three options.
+See the [Data Exchange](data-exchange.html) page for a full description of each option and
+the server and client requirements.
 
 Terminology. Bindings use zib and nl-core value sets where available. NHG-specific terminology
 is not used.
@@ -145,8 +152,8 @@ needed; differential-only packages are sufficient.
 ### References
 
 1. Nictiz. *Richtlijn Gegevensuitwisseling Acute Zorg versie 4*. 2022. [PDF](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)
-2. Nictiz. *Ontwerp Acute Zorg — Functioneel ontwerp*. [https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg)
-3. Nictiz. *Ontwerp Acute Zorg — Ambulanceverwijzing (AMB → HA/HAP), section 2.16*. [https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)
+2. Nictiz. *Ontwerp Acute Zorg - Functioneel ontwerp*. [https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg)
+3. Nictiz. *Ontwerp Acute Zorg - Ambulanceverwijzing (AMB → HA/HAP), section 2.16*. [https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)
 4. Nictiz. *Nictiz FHIR Implementation Guide R4*. [https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4)
 5. Nictiz. *FHIR Profiling Guidelines R4*. [https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4)
 6. Nictiz. *nl-core FHIR R4 package* (nictiz.fhir.nl.r4.nl-core 0.12.0-beta.4). [https://simplifier.net/packages/nictiz.fhir.nl.r4.nl-core](https://simplifier.net/packages/nictiz.fhir.nl.r4.nl-core)
