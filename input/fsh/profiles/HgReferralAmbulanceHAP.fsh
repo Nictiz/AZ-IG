@@ -11,9 +11,9 @@ Parent: HgReferralServiceRequest
 Id: hg-ReferralServiceRequest-AmbulanceHAP
 Title: "HG Referral ServiceRequest - Ambulance to HAP"
 Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanceverwijzing, AMB naar HAP, message 24)."
-* ^short = "Referral"
-* ^alias[0] = "Envelop"
-* ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
+* . ^short = "Referral"
+* . ^alias[0] = "Envelop"
+* . ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
 * status 1..1
 * status ^short = "DestinationStatus"
 * status ^alias[0] = "Bestemmingsstatus"
@@ -80,9 +80,9 @@ Parent: HgReferralComposition
 Id: hg-ReferralComposition-AmbulanceHAP
 Title: "HG Referral Composition - Ambulance to HAP"
 Description: "Referral note for the ambulance to GP out-of-hours post (HAP) referral."
-* ^short = "ClinicalContent"
-* ^alias[0] = "Kern"
-* ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
+* . ^short = "ClinicalContent"
+* . ^alias[0] = "Kern"
+* . ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
 * status 1..1
 * status insert Obligation
 * subject 1..1
@@ -124,8 +124,8 @@ Parent: HgReferralDocumentReference
 Id: hg-ReferralDocumentReference-AmbulanceHAP
 Title: "HG Referral DocumentReference - Ambulance to HAP"
 Description: "Attached document for the ambulance to GP out-of-hours post (HAP) referral. The folded CommunicatieItem category and sender are carried on `category` and `author`."
-* ^short = "CommunicationItem"
-* ^alias[0] = "CommunicatieItem"
+* . ^short = "CommunicationItem"
+* . ^alias[0] = "CommunicatieItem"
 * masterIdentifier ^short = "DocumentIdentification"
 * masterIdentifier ^alias[0] = "DocumentIdentificatie"
 * masterIdentifier ^definition = "Het identificatienummer van het document."
