@@ -9,3 +9,11 @@ Thumbs.db
 /output
 /temp
 /template
+
+# Windows build scripts
+*.bat
+
+# Local publisher scripts (not needed; HL7 auto IG builder handles CI builds)
+_updatePublisher.sh
+_gencontinuous.sh
+_build.sh
