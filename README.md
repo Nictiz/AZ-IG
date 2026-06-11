@@ -5,7 +5,7 @@ following the Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022). Built o
 (zib2020, R4) and authored in FHIR Shorthand (FSH).
 
 The first use case is the ambulance to GP out-of-hours post referral (AMB naar HAP, message 24).
-Message 23 (AMB naar HA) follows the same pattern and is planned as a parallel use-case layer.
+Message 23 (AMB naar HA) follows the same pattern and is planned as a parallel use case layer.
 
 **Status: under development - no official release yet.**
 This is the first Nictiz IG published as a proper HL7 FHIR Implementation Guide (using the HL7
@@ -24,10 +24,10 @@ browsable IG with structured profiles, examples, and conformance resources - not
 - `sushi-config.yaml` - project configuration, dependencies, and menu
 - `input/fsh/aliases.fsh` - canonical URL and code system aliases
 - `input/fsh/profiles/` - generic `hg-Referral*` layer (FHIR core based) and the
-  `hg-Referral*-AmbulanceHAP` use-case layer derived from it
+  `hg-Referral*-AmbulanceHAP` use case layer derived from it
 - `input/fsh/extensions/` - TextValue extension for free-text rubrieken
 - `input/fsh/terminology/` - message event CodeSystem and ValueSet
-- `input/fsh/mappings/` - dataset traceability mappings attached to the use-case profiles
+- `input/fsh/mappings/` - dataset traceability mappings attached to the use case profiles
 - `input/fsh/instances/` - scenario 5b example set including the message bundle
 - `input/fsh/actors/` - ActorDefinition resources for sender and receiver
 - `input/fsh/capabilities/` - CapabilityStatement resources

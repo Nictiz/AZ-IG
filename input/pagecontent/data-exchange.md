@@ -31,7 +31,7 @@ referenced resources are included in the same bundle. The sender transmits the b
 receiver's `$process-message` endpoint or via a store-and-forward intermediary (e.g. the LSP).
 
 **Profiles used:** `hg-ReferralBundle-AmbulanceHAP`, `hg-ReferralMessageHeader-AmbulanceHAP`,
-and the use-case profiles for the enclosed resources.
+and the use case profiles for the enclosed resources.
 
 **Fits well when:** the infrastructure is event-driven or store-and-forward (e.g. LSP/XDS);
 the receiver does not expose a FHIR REST endpoint; the transaction must be atomic and
@@ -91,7 +91,7 @@ operations. The `ServiceRequest` is the focal resource; `Composition`, `Document
 `Patient`, `Organization`, and `PractitionerRole` are either bundled in a transaction bundle
 or posted separately. The receiver exposes a FHIR server.
 
-**Profiles used:** the use-case profiles for all individual resources; no MessageHeader or
+**Profiles used:** the use case profiles for all individual resources; no MessageHeader or
 message Bundle.
 
 **Fits well when:** the receiver already hosts a FHIR server; query and update patterns are
@@ -147,7 +147,7 @@ that organises the clinical content. The bundle is an immutable, attestable clin
 that can be stored and exchanged as a unit.
 
 **Profiles used:** `hg-ReferralComposition-AmbulanceHAP` as the document anchor; a document
-`Bundle` (not the messaging `hg-ReferralBundle-AmbulanceHAP`); the use-case profiles for
+`Bundle` (not the messaging `hg-ReferralBundle-AmbulanceHAP`); the use case profiles for
 enclosed resources.
 
 **Fits well when:** the referral needs to be stored as a legal or attestable document;
@@ -212,7 +212,7 @@ Regardless of paradigm, the sending system (ambulance / RAV) must be able to:
 - Populate all obligation-marked elements it has a value for (`SHALL:populate-if-known`)
 - Produce a conformant `hg-ReferralComposition-AmbulanceHAP` carrying the referral note sections
 - Attach supporting documents as `hg-ReferralDocumentReference-AmbulanceHAP` instances when available
-- Populate patient, organisation, and professional resources conformant to the use-case zib profiles
+- Populate patient, organisation, and professional resources conformant to the use case zib profiles
 
 Under **Option 1 (Messaging):** additionally produce a conformant `hg-ReferralBundle-AmbulanceHAP`
 and `hg-ReferralMessageHeader-AmbulanceHAP`, and transmit the bundle to the receiver's endpoint.

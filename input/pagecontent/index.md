@@ -22,13 +22,32 @@ care information exchange in the Netherlands.
 | [Ambulanceverwijzing naar HAP](functional-design.html) (AMB naar HAP) | Message 24 | Included in this version |
 | Ambulanceverwijzing naar HA (AMB naar HA) | Message 23 | Planned - follows the same pattern; will add a parallel `hg-Referral*-AmbulanceHA` layer and a new event code |
 
-> **Note on the generic profile layer.**
-> The generic `hg-Referral*` profiles in this IG were originally developed as part of the
-> [`nictiz.fhir.nl.r4.elz`](https://simplifier.net/packages/nictiz.fhir.nl.r4.elz/) package and have been copied here to serve as the open-world base
-> layer for the Acute Zorg umbrella IG. In a future version, `nictiz.fhir.nl.r4.elz` will be
-> updated to depend on this IG for those profiles rather than maintaining its own copy. It is
-> also possible that the generic profiles will be extracted into a dedicated package at that
-> point, if other IGs outside the Acute Zorg scope need to reuse them.
+**Relationship to nictiz.fhir.nl.r4.elz.**
+The [`nictiz.fhir.nl.r4.elz`](https://simplifier.net/packages/nictiz.fhir.nl.r4.elz/) package
+contains profiles with the same canonical IDs (`hg-ReferralServiceRequest`,
+`hg-ReferralComposition`). These are not the same profiles. The generic layer in this IG was
+developed independently and intentionally diverges from ELZ in several places:
+
+- `hg-ReferralServiceRequest`: the ELZ profile fixes `status` to `#completed` and defines a
+  `category` slice with a primary-care-specific OID coding. Both are omitted here as they are
+  ELZ-specific; use case layers in this IG add their own `category` slice and `status`
+  constraints where needed.
+- `hg-ReferralComposition`: the ELZ profile defines a detailed Envelope/Core section hierarchy
+  specific to primary care (CarePath, RequiredConsultationFacilities, MessageReason, etc.).
+  Section structure has proven to be use case specific, so no named sections are defined at the
+  generic layer; each use case adds its own section slices.
+- `hg-ReferralTask`: present in ELZ. Not yet defined here; will be added when a use case
+  requires explicit workflow tracking.
+- `hg-ReferralMessageHeader`, `hg-ReferralBundle`, `hg-ReferralDocumentReference`: present in
+  this IG, not in ELZ.
+
+Note that `nictiz.fhir.nl.r4.elz` is also not in a final state. The differences described above
+are therefore not blocking, but they do need to be reconciled before either package reaches a
+stable release. As part of that reconciliation, ELZ should adopt the same two-layer pattern used
+here: a generic open-world base profile and a separate use case layer that adds the primary-care-
+specific constraints (category slice, status, section structure). In a future version,
+`nictiz.fhir.nl.r4.elz` should depend on this IG for the shared generic profiles rather than
+maintaining its own copies.
 
 ### Design decisions
 

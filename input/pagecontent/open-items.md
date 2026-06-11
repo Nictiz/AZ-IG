@@ -22,7 +22,7 @@ These items need confirmation or resolution before the profiles can be finalised
   `57133-1` (Referral note) on the assumption that all acute-zorg referral compositions are
   referral notes. This should be verified against the ELZ profiles (`nictiz.fhir.nl.r4.elz`)
   before finalising; if any use case requires a different document type, the fixed value must
-  move to the use-case layer.
+  move to the use case layer.
 
 - **Zib profile cardinalities.** The cardinalities on `hg-Patient-AmbulanceHAP`,
   `hg-HealthcareProvider-Organization-AmbulanceHAP`, and
@@ -49,5 +49,5 @@ These items need confirmation or resolution before the profiles can be finalised
 
 - **Message 23 (AMB naar HA).** The referral from ambulance to regular GP (message 23) is out
   of scope for this version. It follows the same FHIR pattern and can be added as a parallel
-  `hg-Referral*-AmbulanceHA` use-case layer with a new `ambulance-referral-to-ha` event code.
+  `hg-Referral*-AmbulanceHA` use case layer with a new `ambulance-referral-to-ha` event code.
   No changes to the existing HAP profiles would be required.

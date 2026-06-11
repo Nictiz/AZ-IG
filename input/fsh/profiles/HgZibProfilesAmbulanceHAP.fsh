@@ -2,7 +2,7 @@
 // Transaction-specific zib profiles (Ambulanceverwijzing, AMB -> HAP).
 //
 // Per the Nictiz profiling guidelines, cardinalities and conformance for the
-// participating zibs are applied at the use-case (information standard specific)
+// participating zibs are applied at the use case (information standard specific)
 // layer, derived from the nl-core profiles. These carry the cardinalities the
 // ART-DECOR transaction puts on the building blocks (Patient, HealthProfessional,
 // HealthcareProvider), plus obligations for sender/receiver.
