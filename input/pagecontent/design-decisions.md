@@ -90,6 +90,25 @@ here: there are no per-target cardinalities or mappings that would require it, a
 with multiple `targetProfile`s has known tooling limitations. Slicing can be added later if a
 future transaction needs to constrain individual targets separately.
 
+#### Why nl-core profiles are listed alongside FHIR core types
+
+When a reference constraint lists only an nl-core profile - for example `Reference(nl-core-Patient)`
+- a FHIR validator will require the referenced resource to declare conformance to that profile
+(via `meta.profile` or by passing validation against it). A plain R4 Patient resource without
+nl-core constraints would fail, even if all the clinically relevant fields are present. By
+writing `Reference(Patient or nl-core-Patient)`, both a bare FHIR R4 Patient and a resource
+that additionally satisfies nl-core are accepted, keeping the profile open to senders that do
+not (yet) produce nl-core-profiled resources.
+
+This applies at both layers. The generic profiles include the base FHIR R4 type alongside every
+nl-core equivalent (`Patient or nl-core-Patient`, `Practitioner or nl-core-Practitioner`,
+`PractitionerRole or nl-core-PractitionerRole`, `Organization or nl-core-Organization`) so
+the generic layer does not impose a Dutch-specific dependency. The use case profiles further
+add the use case-specific zib profiles beside both core and nl-core types. A resource conforming
+to a use case-specific profile also satisfies nl-core and by extension FHIR core, so the
+hierarchy is consistent: stricter profiles are always offered *in addition to* less strict ones,
+never as sole alternatives.
+
 ### Resource map
 
 The `hg-ReferralMessageHeader-AmbulanceHAP` focuses the `hg-ReferralServiceRequest-AmbulanceHAP`. The ServiceRequest references the

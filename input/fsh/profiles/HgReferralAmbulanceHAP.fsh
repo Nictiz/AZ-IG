@@ -144,11 +144,11 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
 * identifier ^definition = "Identificatienummer van de set waar het document toe behoort."
 * identifier insert Obligation
 * type 1..1
+* type from urn:oid:2.16.840.1.113883.2.4.3.11.60.55.11.16 (required)
 * type ^short = "DocumentType"
 * type ^alias[0] = "DocumentType"
 * type ^definition = "Geeft aan welk type document is toegevoegd. Op dit moment is de BSA lijst gekoppeld vanuit de Ambulance."
 * type insert Obligation
-* category insert Obligation
 * author 1..1
 * author ^short = "CommunicationSender"
 * author ^alias[0] = "CommunicatieAfzender"
