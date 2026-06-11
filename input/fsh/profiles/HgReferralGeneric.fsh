@@ -2,6 +2,13 @@
 // Generic referral layer (open world, FHIR core based, no mustSupport).
 // Reusable across the acute-zorg referral use cases. Use-case profiles derive
 // from these and add cardinalities, mustSupport and dataset mappings.
+//
+// Dependency note: the nictiz.fhir.nl.r4.elz package references these profiles.
+// The correct dependency direction is ELZ -> Acute Zorg, not the reverse.
+// These profiles belong here as the core of the Acute Zorg umbrella IG; moving
+// them to ELZ would invert ownership, introduce ELZ beta instability into this
+// IG, and risk a circular dependency. If ELZ needs a stable anchor, it should
+// pin to a released version of nictiz.fhir.nl.r4.acutezorg.
 // =============================================================================
 
 Profile: HgReferralServiceRequest
