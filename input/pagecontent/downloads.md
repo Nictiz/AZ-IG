@@ -20,4 +20,11 @@ Or declare it as a dependency in your `package.json`:
 
 #### Direct download
 
-{% include downloads.xhtml %}
+| Artifact | Description |
+|---|---|
+| [package.tgz](package.tgz) | npm package (FHIR package registry format) |
+| [full-ig.zip](full-ig.zip) | Full IG as a zip archive |
+| [definitions.json.zip](definitions.json.zip) | All resource definitions in JSON |
+| [definitions.xml.zip](definitions.xml.zip) | All resource definitions in XML |
+| [expansions.json.zip](expansions.json.zip) | ValueSet expansions in JSON |
+| [expansions.xml.zip](expansions.xml.zip) | ValueSet expansions in XML |
