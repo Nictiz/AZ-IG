@@ -13,19 +13,6 @@ These items need confirmation or resolution before the profiles can be finalised
 - **`ServiceRequest.reasonCode`.** Currently text only. A coded binding can be added once
   section 2.16 of the functional design specifies one.
 
-- **Netherlands-edition SNOMED code on `ServiceRequest.code`.** The fixed code
-  `11131000146102` is a Netherlands-edition SNOMED CT code (the `1000146` namespace). The
-  international terminology server (tx.fhir.org) cannot validate it and the IG build reports it
-  as an unknown code. This is expected for NL-edition content; it is not an error in the
-  profile. To resolve the build finding, validation should run against the Netherlands edition
-  of SNOMED CT (the NRC/Nationale Terminologieserver) rather than the international edition.
-  The category code `3457005` (Referral) is international and validates normally. This single
-  issue accounts for all remaining build errors: it is reported on the `ServiceRequest.code`
-  pattern (profile) and on the example instance, and it cascades into a reference-match error on
-  `MessageHeader.focus` (the validator cannot confirm the referenced ServiceRequest conforms to
-  its profile while the code is unresolvable). All of these clear once validation runs against
-  the Netherlands edition of SNOMED CT.
-
 - **Document specification reconciliation.** Section 3.3 of the Nictiz functional design
   specifies the document inside the Ambulanceverwijzing to the HAP. The constraints on
   `hg-ReferralDocumentReference-AmbulanceHAP` should be reconciled against that section once

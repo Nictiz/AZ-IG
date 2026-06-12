@@ -30,5 +30,9 @@ applyExtensionMetadataToRoot: false
 parameters:
   show-inherited-invariants: false
   excludettl: true
+  # Validate SNOMED CT against the Netherlands edition (module 11000146104) so NL-edition
+  # codes such as 11131000146102 resolve on tx.fhir.org instead of the International edition.
+  # The edition/version is set in the referenced expansion Parameters resource.
+  path-expansion-params: '../../expansion-params.json'
 instanceOptions:
   manualSliceOrdering: true

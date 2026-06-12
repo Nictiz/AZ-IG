@@ -33,6 +33,13 @@ the server and client requirements.
 
 Bindings use zib and nl-core value sets where available.
 
+Some SNOMED CT codes in this IG (for example `11131000146102` on `ServiceRequest.code`) belong to
+the Netherlands edition (module `11000146104`) rather than the International edition. The build
+therefore pins the SNOMED edition for validation through an expansion-parameters resource
+(`expansion-params.json`, referenced from `sushi-config.yaml` via `path-expansion-params`), so
+the terminology server resolves these codes against the Netherlands edition. When a newer NL
+edition is adopted, update the version URI in `expansion-params.json`.
+
 ### Profile layering and naming
 
 Following the [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4), profiles are organised in two layers. A generic,
