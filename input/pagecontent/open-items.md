@@ -29,6 +29,13 @@ These items need confirmation or resolution before the profiles can be finalised
   `hg-HealthProfessional-PractitionerRole-AmbulanceHAP` are a first defensible cut. They
   should be reconciled against the published dataset's per-element multiplicities.
 
+### IG infrastructure
+
+- **Downloads page.** A dedicated Downloads page should be added once the IG is published at
+  a stable URL. It should include the npm install command for `nictiz.fhir.nl.r4.acutezorg`,
+  direct links to `package.tgz`, `full-ig.zip`, and the JSON/XML definition zips generated
+  by the IG Publisher.
+
 ### Architecture
 
 - **Canonical URL conflict with ELZ.** The generic `hg-Referral*` profiles in this IG share
