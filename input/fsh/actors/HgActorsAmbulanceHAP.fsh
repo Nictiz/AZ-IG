@@ -10,18 +10,12 @@
 Instance: hg-ActorSender-AmbulanceHAP
 InstanceOf: ActorDefinition
 Usage: #definition
-Title: "HG Referral Sender - Ambulanceverwijzing (AMBS, AZP-AVS)"
+Title: "hg referral Sender - Ambulanceverwijzing (AMBS, AZP-AVS)"
 Description: "Ambulance management system (AMBS) that produces and transmits the Ambulanceverwijzing to the GP/HAP."
 * url = "http://nictiz.nl/fhir/ActorDefinition/hg-ActorSender-AmbulanceHAP"
 * name = "HgActorSenderAmbulanceHAP"
 * status = #active
 * type = #system
-* publisher = "Nictiz"
-* contact[+].name = "Nictiz"
-* contact[=].telecom[+].system = #url
-* contact[=].telecom[=].value = "https://www.nictiz.nl/"
-* contact[=].telecom[+].system = #email
-* contact[=].telecom[=].value = "info@nictiz.nl"
 * documentation = """The HG Referral Sender is the system role fulfilled by an ambulance management system (AMBS). It is responsible for the transaction **Sturen Ambulanceverwijzing**.
 
 In the Dutch functional design ([Ontwerp Acute Zorg, section 2.16](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)), this role is identified as **Acute Zorg Proces - Ambulanceverwijzing Sturend** with system role code **AZP-AVS**.
@@ -32,18 +26,12 @@ An HG Referral Sender **SHALL** populate obligation-marked elements when it has 
 Instance: hg-ActorReceiver-AmbulanceHAP
 InstanceOf: ActorDefinition
 Usage: #definition
-Title: "HG Referral Receiver - Ambulanceverwijzing (HIS/HAPIS, AZP-AVO)"
+Title: "hg referral Receiver - Ambulanceverwijzing (HIS/HAPIS, AZP-AVO)"
 Description: "GP information system (HIS) or GP out-of-hours post information system (HAPIS) that accepts the Ambulanceverwijzing from the ambulance."
 * url = "http://nictiz.nl/fhir/ActorDefinition/hg-ActorReceiver-AmbulanceHAP"
 * name = "HgActorReceiverAmbulanceHAP"
 * status = #active
 * type = #system
-* publisher = "Nictiz"
-* contact[+].name = "Nictiz"
-* contact[=].telecom[+].system = #url
-* contact[=].telecom[=].value = "https://www.nictiz.nl/"
-* contact[=].telecom[+].system = #email
-* contact[=].telecom[=].value = "info@nictiz.nl"
 * documentation = """The HG Referral Receiver is the system role fulfilled by a GP information system (HIS) or a GP out-of-hours post information system (HAPIS). It is responsible for the transaction **Ontvangen Ambulanceverwijzing**.
 
 In the Dutch functional design ([Ontwerp Acute Zorg, section 2.16](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)), this role is identified as **Acute Zorg Proces - Ambulanceverwijzing Ontvangend** with system role code **AZP-AVO**.

@@ -15,7 +15,7 @@
 Profile: HgPatientAmbulanceHAP
 Parent: $nlcore-Patient
 Id: hg-Patient-AmbulanceHAP
-Title: "HG Patient - Ambulance to HAP"
+Title: "hg Patient - Ambulance to HAP"
 Description: "Patient in the ambulance to GP out-of-hours post (HAP) referral. Derived from nl-core-Patient; the patient SHALL be identifiable so the HAP can match the referral to a person."
 * identifier 1..*
 * identifier insert Obligation
@@ -27,7 +27,7 @@ Description: "Patient in the ambulance to GP out-of-hours post (HAP) referral. D
 Profile: HgHealthcareProviderOrganizationAmbulanceHAP
 Parent: $nlcore-Organization
 Id: hg-HealthcareProvider-Organization-AmbulanceHAP
-Title: "HG HealthcareProvider Organization - Ambulance to HAP"
+Title: "hg HealthcareProvider Organization - Ambulance to HAP"
 Description: "Sending (RAV) and receiving (HAP) organisation in the ambulance referral. Derived from nl-core-HealthcareProvider-Organization; an identifier (e.g. URA) is required so the organisation is unambiguously addressable."
 * identifier 1..*
 * identifier insert Obligation
@@ -37,7 +37,7 @@ Description: "Sending (RAV) and receiving (HAP) organisation in the ambulance re
 Profile: HgHealthProfessionalPractitionerRoleAmbulanceHAP
 Parent: $nlcore-PractitionerRole
 Id: hg-HealthProfessional-PractitionerRole-AmbulanceHAP
-Title: "HG HealthProfessional PractitionerRole - Ambulance to HAP"
+Title: "hg HealthProfessional PractitionerRole - Ambulance to HAP"
 Description: "Role of the sending ambulance professional in the referral. Derived from nl-core-HealthProfessional-PractitionerRole."
 * practitioner insert Obligation
 * organization insert Obligation

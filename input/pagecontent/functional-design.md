@@ -17,7 +17,39 @@ The information exchanged covers patient identification, the reason for referral
 
 The functional design is formalised in a machine-readable dataset in [ART-DECOR](https://decor.nictiz.nl/ad/#/hg-), the standard Dutch platform for defining healthcare information datasets.
 
-The ART-DECOR project (`hg-`, published under the ELZ namespace) was originally established for primary care (Eerstelijnszorg/ELZ) information exchange - GP referrals, paramedic referrals, and related primary care transactions. The `hg-` project code and the `hg-dataelement-NNNN` element identifier series both reflect this primary care origin. Over time, the project scope was widened to also cover acute care use cases, including ambulance referrals. The ambulance-to-HAP transaction defined in this IG is part of that wider scope; the element IDs it uses are allocated in the same shared catalogue and carry the same `hg-` prefix for that reason.
+**Relationship to ELZ.**
+
+The [`nictiz.fhir.nl.r4.elz`](https://simplifier.net/packages/nictiz.fhir.nl.r4.elz/) package
+is the FHIR implementation of the primary care (Eerstelijnszorg/ELZ) transactions
+in the same ART-DECOR project (`hg-`) that this IG uses for the AMB-HAP transaction. The shared
+ART-DECOR project was originally established for primary care exchanges (GP referrals, paramedic
+referrals); it has since been widened to cover acute care use cases including ambulance referrals.
+Because both IGs draw on the same `hg-` project, they share element IDs (`hg-dataelement-NNNN`),
+the `hg-` canonical prefix, and - in the current state - overlapping profile IDs
+(`hg-ReferralServiceRequest`, `hg-ReferralComposition`). These are not the same profiles. The
+generic layer in this IG was developed independently and intentionally diverges from ELZ in
+several places:
+
+- `hg-ReferralServiceRequest`: the ELZ profile fixes `status` to `#completed` and defines a
+  `category` slice with a primary-care-specific OID coding. Both are omitted here as they are
+  ELZ specific; use case layers in this IG add their own `category` slice and `status`
+  constraints where needed.
+- `hg-ReferralComposition`: the ELZ profile defines a detailed Envelope/Core section hierarchy
+  specific to primary care (CarePath, RequiredConsultationFacilities, MessageReason, etc.).
+  Section structure has proven to be use case specific, so no named sections are defined at the
+  generic layer; each use case adds its own section slices.
+- `hg-ReferralTask`: present in ELZ. Not yet defined here; will be added when a use case
+  requires explicit workflow tracking.
+- `hg-ReferralMessageHeader`, `hg-ReferralBundle`, `hg-ReferralDocumentReference`: present in
+  this IG, not in ELZ.
+
+Note that `nictiz.fhir.nl.r4.elz` is also not in a final state. The differences described above
+are therefore not blocking, but they do need to be reconciled before either package reaches a
+stable release. As part of that reconciliation, ELZ should adopt the same two-layer pattern used
+here: a generic open-world base profile and a separate use case layer that adds the primary-care-
+specific constraints (category slice, status, section structure). In a future version,
+`nictiz.fhir.nl.r4.elz` should depend on this IG for the shared generic profiles rather than
+maintaining its own copies.
 
 There are two distinct ART-DECOR artefacts relevant to this IG:
 

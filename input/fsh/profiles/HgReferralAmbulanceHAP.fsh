@@ -9,9 +9,9 @@
 Profile: HgReferralServiceRequestAmbulanceHAP
 Parent: HgReferralServiceRequest
 Id: hg-ReferralServiceRequest-AmbulanceHAP
-Title: "HG Referral ServiceRequest - Ambulance to HAP"
+Title: "hg referral ServiceRequest - Ambulance to HAP"
 Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanceverwijzing, AMB naar HAP, message 24)."
-* . ^short = "Referral"
+* . ^short = "Envelope"
 * . ^alias[0] = "Envelop"
 * . ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
 * status 1..1
@@ -44,7 +44,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 * subject insert Obligation
 * authoredOn 1..1
 * authoredOn ^short = "SendDateTime"
-* authoredOn ^alias[0] = "DatumTijdVerzenden"
+* authoredOn ^alias[0] = "Datum en tijd"
 * authoredOn ^definition = "Geeft het tijdstip waarop de verzender het bericht afrondt en aanbiedt voor verzending."
 * authoredOn insert Obligation
 * requester 1..1
@@ -85,7 +85,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 Profile: HgReferralCompositionAmbulanceHAP
 Parent: HgReferralComposition
 Id: hg-ReferralComposition-AmbulanceHAP
-Title: "HG Referral Composition - Ambulance to HAP"
+Title: "hg referral Composition - Ambulance to HAP"
 Description: "Referral note for the ambulance to GP out-of-hours post (HAP) referral."
 * . ^short = "Core"
 * . ^alias[0] = "Kern"
@@ -129,7 +129,7 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 Profile: HgReferralDocumentReferenceAmbulanceHAP
 Parent: HgReferralDocumentReference
 Id: hg-ReferralDocumentReference-AmbulanceHAP
-Title: "HG Referral DocumentReference - Ambulance to HAP"
+Title: "hg referral DocumentReference - Ambulance to HAP"
 Description: "Attached document for the ambulance to GP out-of-hours post (HAP) referral. The folded CommunicatieItem category and sender are carried on `category` and `author`."
 * . ^short = "CommunicationItem"
 * . ^alias[0] = "CommunicatieItem"
@@ -177,9 +177,9 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
 Profile: HgReferralMessageHeaderAmbulanceHAP
 Parent: HgReferralMessageHeader
 Id: hg-ReferralMessageHeader-AmbulanceHAP
-Title: "HG Referral MessageHeader - Ambulance to HAP"
+Title: "hg referral MessageHeader - Ambulance to HAP"
 Description: "MessageHeader for the ambulance to GP out-of-hours post (HAP) referral PUSH."
-* eventCoding = HgMessageEventCS#ambulance-referral-to-hap
+* eventCoding = HgMessageEvent#ambulance-referral-to-hap
 * focus 1..1
 * focus insert Obligation
 * sender 1..1
@@ -190,7 +190,7 @@ Description: "MessageHeader for the ambulance to GP out-of-hours post (HAP) refe
 Profile: HgReferralBundleAmbulanceHAP
 Parent: HgReferralBundle
 Id: hg-ReferralBundle-AmbulanceHAP
-Title: "HG Referral Bundle - Ambulance to HAP"
+Title: "hg referral Bundle - Ambulance to HAP"
 Description: "Message bundle for the ambulance to GP out-of-hours post (HAP) referral PUSH."
 * type = #message
 * timestamp 1..1

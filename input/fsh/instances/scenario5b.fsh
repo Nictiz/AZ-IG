@@ -3,7 +3,7 @@
 // patient Patrick to the GP out-of-hours post (HAP) after on-scene care.
 // ---------------------------------------------------------------------------
 
-Instance: patient-patrick
+Instance: hg-Patient-AmbulanceHAP-patrick
 InstanceOf: HgPatientAmbulanceHAP
 Usage: #example
 Title: "Patient - Patrick (scenario 5b)"
@@ -15,22 +15,22 @@ Title: "Patient - Patrick (scenario 5b)"
 * gender = #male
 * birthDate = "1944-03-10"
 
-Instance: practitioner-ambu
+Instance: Practitioner-hg-ambu
 InstanceOf: Practitioner
 Usage: #example
 Title: "Practitioner - ambulance nurse"
 * meta.profile = "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner"
 * name.text = "A. Ambulance"
 
-Instance: prole-ambulance
+Instance: hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu
 InstanceOf: HgHealthProfessionalPractitionerRoleAmbulanceHAP
 Usage: #example
 Title: "PractitionerRole - ambulance nurse"
-* practitioner = Reference(practitioner-ambu)
-* organization = Reference(org-rav)
+* practitioner = Reference(Practitioner-hg-ambu)
+* organization = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-rav)
 * code.text = "Ambulanceverpleegkundige"
 
-Instance: org-rav
+Instance: hg-HealthcareProvider-Organization-AmbulanceHAP-rav
 InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - Regionale Ambulancevoorziening"
@@ -38,7 +38,7 @@ Title: "Organization - Regionale Ambulancevoorziening"
 * identifier.value = "00000001"
 * name = "RAV Utrecht"
 
-Instance: org-hap
+Instance: hg-HealthcareProvider-Organization-AmbulanceHAP-hap
 InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - Huisartsenpost"
@@ -46,7 +46,7 @@ Title: "Organization - Huisartsenpost"
 * identifier.value = "00000002"
 * name = "Huisartsenpost Utrecht"
 
-Instance: servicerequest-referral
+Instance: hg-ReferralServiceRequest-AmbulanceHAP-referral
 InstanceOf: HgReferralServiceRequestAmbulanceHAP
 Usage: #example
 Title: "ServiceRequest - ambulance referral to HAP"
@@ -54,24 +54,24 @@ Title: "ServiceRequest - ambulance referral to HAP"
 * intent = #order
 * code = $sct#11131000146102
 * category[referralType] = $sct#3457005
-* subject = Reference(patient-patrick)
+* subject = Reference(hg-Patient-AmbulanceHAP-patrick)
 * authoredOn = "2026-06-08T11:15:00+02:00"
-* requester = Reference(prole-ambulance)
-* performer = Reference(org-hap)
+* requester = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
+* performer = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-hap)
 * reasonCode.text = "Controleconsult gevraagd na ambulancezorg (maagklachten)."
 * patientInstruction = "Maak een afspraak op de huisartsenpost voor een controleconsult."
-* supportingInfo = Reference(composition-referral)
-* supportingInfo[+] = Reference(documentreference-ecg)
+* supportingInfo = Reference(hg-ReferralComposition-AmbulanceHAP-referral)
+* supportingInfo[+] = Reference(hg-ReferralDocumentReference-AmbulanceHAP-ecg)
 
-Instance: composition-referral
+Instance: hg-ReferralComposition-AmbulanceHAP-referral
 InstanceOf: HgReferralCompositionAmbulanceHAP
 Usage: #example
 Title: "Composition - ambulance referral note"
 * status = #final
 * type = $loinc#57133-1 "Referral note"
-* subject = Reference(patient-patrick)
+* subject = Reference(hg-Patient-AmbulanceHAP-patrick)
 * date = "2026-06-08T11:15:00+02:00"
-* author = Reference(prole-ambulance)
+* author = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
 * title = "Ambulanceverwijzing naar huisartsenpost"
 * section[treatmentGiven].title = "Ingestelde behandeling"
 * section[treatmentGiven].code = $sct#182991002
@@ -84,7 +84,7 @@ Title: "Composition - ambulance referral note"
 * section[diagnosisConclusion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Waarschijnlijk maagklachten. Controle door huisarts gewenst.</div>"
 * section[diagnosisConclusion].extension[diagnosisConclusionTextValue].valueString = "Waarschijnlijk maagklachten. Controle door huisarts gewenst."
 
-Instance: documentreference-ecg
+Instance: hg-ReferralDocumentReference-AmbulanceHAP-ecg
 InstanceOf: HgReferralDocumentReferenceAmbulanceHAP
 Usage: #example
 Title: "DocumentReference - ECG attachment"
@@ -95,43 +95,43 @@ Title: "DocumentReference - ECG attachment"
 * identifier.value = "urn:uuid:1b1f4f9e-0000-4000-8000-000000000002"
 * type.text = "ECG"
 * category.text = "Bijlage"
-* author = Reference(prole-ambulance)
+* author = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
 * content.attachment.contentType = #application/pdf
 * content.attachment.data = "JVBERi0xLjQK"
 * content.attachment.title = "12-afleidingen ECG"
 * content.attachment.creation = "2026-06-08T11:05:00+02:00"
 
-Instance: messageheader-referral
+Instance: hg-ReferralMessageHeader-AmbulanceHAP-referral
 InstanceOf: HgReferralMessageHeaderAmbulanceHAP
 Usage: #example
 Title: "MessageHeader - ambulance referral"
-* eventCoding = HgMessageEventCS#ambulance-referral-to-hap
-* focus = Reference(servicerequest-referral)
-* sender = Reference(org-rav)
+* eventCoding = HgMessageEvent#ambulance-referral-to-hap
+* focus = Reference(hg-ReferralServiceRequest-AmbulanceHAP-referral)
+* sender = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-rav)
 * source.endpoint = "https://ambulance.example.nl/fhir"
 * destination.endpoint = "https://hap.example.nl/fhir"
 
-Instance: bundle-referral
+Instance: hg-ReferralBundle-AmbulanceHAP-referral
 InstanceOf: HgReferralBundleAmbulanceHAP
 Usage: #example
 Title: "Bundle - ambulance referral message (scenario 5b)"
 * type = #message
 * timestamp = "2026-06-08T11:15:05+02:00"
-* entry[+].fullUrl = "http://nictiz.nl/fhir/MessageHeader/messageheader-referral"
-* entry[=].resource = messageheader-referral
-* entry[+].fullUrl = "http://nictiz.nl/fhir/ServiceRequest/servicerequest-referral"
-* entry[=].resource = servicerequest-referral
-* entry[+].fullUrl = "http://nictiz.nl/fhir/Composition/composition-referral"
-* entry[=].resource = composition-referral
-* entry[+].fullUrl = "http://nictiz.nl/fhir/Patient/patient-patrick"
-* entry[=].resource = patient-patrick
-* entry[+].fullUrl = "http://nictiz.nl/fhir/Practitioner/practitioner-ambu"
-* entry[=].resource = practitioner-ambu
-* entry[+].fullUrl = "http://nictiz.nl/fhir/PractitionerRole/prole-ambulance"
-* entry[=].resource = prole-ambulance
-* entry[+].fullUrl = "http://nictiz.nl/fhir/Organization/org-rav"
-* entry[=].resource = org-rav
-* entry[+].fullUrl = "http://nictiz.nl/fhir/Organization/org-hap"
-* entry[=].resource = org-hap
-* entry[+].fullUrl = "http://nictiz.nl/fhir/DocumentReference/documentreference-ecg"
-* entry[=].resource = documentreference-ecg
+* entry[+].fullUrl = "http://nictiz.nl/fhir/MessageHeader/hg-ReferralMessageHeader-AmbulanceHAP-referral"
+* entry[=].resource = hg-ReferralMessageHeader-AmbulanceHAP-referral
+* entry[+].fullUrl = "http://nictiz.nl/fhir/ServiceRequest/hg-ReferralServiceRequest-AmbulanceHAP-referral"
+* entry[=].resource = hg-ReferralServiceRequest-AmbulanceHAP-referral
+* entry[+].fullUrl = "http://nictiz.nl/fhir/Composition/hg-ReferralComposition-AmbulanceHAP-referral"
+* entry[=].resource = hg-ReferralComposition-AmbulanceHAP-referral
+* entry[+].fullUrl = "http://nictiz.nl/fhir/Patient/hg-Patient-AmbulanceHAP-patrick"
+* entry[=].resource = hg-Patient-AmbulanceHAP-patrick
+* entry[+].fullUrl = "http://nictiz.nl/fhir/Practitioner/Practitioner-hg-ambu"
+* entry[=].resource = Practitioner-hg-ambu
+* entry[+].fullUrl = "http://nictiz.nl/fhir/PractitionerRole/hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu"
+* entry[=].resource = hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu
+* entry[+].fullUrl = "http://nictiz.nl/fhir/Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-rav"
+* entry[=].resource = hg-HealthcareProvider-Organization-AmbulanceHAP-rav
+* entry[+].fullUrl = "http://nictiz.nl/fhir/Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-hap"
+* entry[=].resource = hg-HealthcareProvider-Organization-AmbulanceHAP-hap
+* entry[+].fullUrl = "http://nictiz.nl/fhir/DocumentReference/hg-ReferralDocumentReference-AmbulanceHAP-ecg"
+* entry[=].resource = hg-ReferralDocumentReference-AmbulanceHAP-ecg

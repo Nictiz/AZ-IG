@@ -2,10 +2,10 @@
 
 ### Ad-hoc workflow pattern
 
-This IG uses the FHIR ad-hoc workflow pattern. The ambulance system (sender) constructs a
-`ServiceRequest` and pushes it to the HAP system (receiver) as a FHIR message. The receiver acts
-on the request directly - there is no separate coordination resource mediating between the two
-parties.
+This IG uses the [FHIR R4 ad-hoc workflow pattern](https://hl7.org/fhir/R4/workflow-ad-hoc.html).
+The ambulance system (sender) constructs a `ServiceRequest` and pushes it to the HAP system
+(receiver) as a FHIR message. The receiver acts on the request directly - there is no separate
+coordination resource mediating between the two parties.
 
 This matches the operational reality of the ambulance-to-HAP referral: it is a one-shot handover.
 The ambulance crew sends the referral and the HAP receives it; there is no protocol-level

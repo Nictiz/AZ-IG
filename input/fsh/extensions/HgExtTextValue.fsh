@@ -1,6 +1,6 @@
 Extension: HgExtTextValue
 Id: hg-ext-TextValue
-Title: "HG Referral text value"
+Title: "hg referral text value"
 Description: "Carries the free-text content of a referral rubriek (a Composition section)."
 * ^context[+].type = #element
 * ^context[=].expression = "Composition.section"

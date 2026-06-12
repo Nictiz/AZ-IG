@@ -11,7 +11,7 @@
 Instance: hg-CapabilityStatement-Sender
 InstanceOf: CapabilityStatement
 Usage: #definition
-Title: "HG Referral Sender Capability Statement"
+Title: "hg referral Sender Capability Statement"
 Description: "Requirements on the sending system (ambulance/Regionale Ambulancevoorziening) for the Acute Zorg referral push. The sender produces and transmits the referral. The specific exchange paradigm (FHIR Messaging, RESTful, or FHIR Document) is not yet determined; this statement will be updated once chosen."
 * url = "http://nictiz.nl/fhir/CapabilityStatement/hg-CapabilityStatement-Sender"
 * name = "HgCapabilityStatementSender"
@@ -47,7 +47,7 @@ Description: "Requirements on the sending system (ambulance/Regionale Ambulancev
 Instance: hg-CapabilityStatement-Receiver
 InstanceOf: CapabilityStatement
 Usage: #definition
-Title: "HG Referral Receiver Capability Statement"
+Title: "hg referral Receiver Capability Statement"
 Description: "Requirements on the receiving system (GP out-of-hours post, HAP) for the Acute Zorg referral push. The receiver accepts and processes the referral. The specific exchange paradigm (FHIR Messaging, RESTful, or FHIR Document) is not yet determined; this statement will be updated once chosen."
 * url = "http://nictiz.nl/fhir/CapabilityStatement/hg-CapabilityStatement-Receiver"
 * name = "HgCapabilityStatementReceiver"

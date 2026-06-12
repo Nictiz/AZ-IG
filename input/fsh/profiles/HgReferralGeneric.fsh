@@ -14,7 +14,7 @@
 Profile: HgReferralServiceRequest
 Parent: ServiceRequest
 Id: hg-ReferralServiceRequest
-Title: "HG Referral ServiceRequest"
+Title: "hg referral ServiceRequest"
 Description: "Generic referral request (workflow 'request' on FHIR core ServiceRequest) for Acute Zorg referrals. Open-world: nl-core targets are added next to the base resources; cardinalities and mustSupport are left to the use case layer."
 // status: deliberately not fixed to #completed here. The ELZ (primary care) use case
 // documents status as always 'completed' (referral is done when sent), but other use cases
@@ -32,7 +32,7 @@ Description: "Generic referral request (workflow 'request' on FHIR core ServiceR
 Profile: HgReferralComposition
 Parent: Composition
 Id: hg-ReferralComposition
-Title: "HG Referral Composition"
+Title: "hg referral Composition"
 Description: "Generic referral note carrying the textual rubrieken as Composition sections. Open-world base for the use case layer."
 // Fixed here assuming all Acute Zorg referral compositions are referral notes.
 // If a future use case requires a different document type, move this to the use case layer.
@@ -53,14 +53,14 @@ Description: "Generic referral note carrying the textual rubrieken as Compositio
 Profile: HgReferralDocumentReference
 Parent: DocumentReference
 Id: hg-ReferralDocumentReference
-Title: "HG Referral DocumentReference"
+Title: "hg referral DocumentReference"
 Description: "Generic attached document for a referral (for example an ECG or photo). Open-world base for the use case layer."
 * author only Reference(Practitioner or PractitionerRole or Organization or $nlcore-Practitioner or $nlcore-PractitionerRole or $nlcore-Organization)
 
 Profile: HgReferralMessageHeader
 Parent: MessageHeader
 Id: hg-ReferralMessageHeader
-Title: "HG Referral MessageHeader"
+Title: "hg referral MessageHeader"
 Description: "Generic MessageHeader for a referral PUSH. Focuses the referral ServiceRequest; the event is fixed at the use case layer."
 * event[x] only Coding
 * focus only Reference(HgReferralServiceRequest)
@@ -69,7 +69,7 @@ Description: "Generic MessageHeader for a referral PUSH. Focuses the referral Se
 Profile: HgReferralBundle
 Parent: Bundle
 Id: hg-ReferralBundle
-Title: "HG Referral Bundle"
+Title: "hg referral Bundle"
 Description: "Generic message bundle for a referral PUSH. The first entry SHALL be the MessageHeader."
 * type = #message
 
