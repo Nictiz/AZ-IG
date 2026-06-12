@@ -22,6 +22,7 @@ menu:
   Open Items: open-items.html
   Artifacts: artifacts.html
   Downloads: downloads.html
+  History: history.html
 dependencies:
   nictiz.fhir.nl.r4.nl-core: 0.12.0-beta.4
   nictiz.fhir.nl.r4.zib2020: 0.12.0-beta.4

@@ -1,0 +1,15 @@
+{
+  "package-id": "nictiz.fhir.nl.r4.acutezorg",
+  "title": "Acute Zorg",
+  "canonical": "http://nictiz.nl/fhir",
+  "introduction": "FHIR R4 Implementation Guide for information exchange in acute care settings in the Netherlands (Acute Zorg), built on nl-core. Covers push-based referral transactions following the Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022).",
+  "list": [
+    {
+      "version": "current",
+      "desc": "Continuous Integration Build (latest in version control)",
+      "path": "http://nictiz.nl/fhir",
+      "status": "ci-build",
+      "current": true
+    }
+  ]
+}
