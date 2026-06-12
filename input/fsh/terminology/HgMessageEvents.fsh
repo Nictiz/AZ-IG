@@ -1,6 +1,6 @@
 CodeSystem: HgMessageEvent
 Id: hg-message-event
-Title: "hg message events"
+Title: "hg message event codes"
 Description: "Message event codes for the Acute Zorg referral PUSH transactions."
 * ^caseSensitive = true
 * ^content = #complete

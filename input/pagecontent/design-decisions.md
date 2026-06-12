@@ -1,5 +1,3 @@
-## Design decisions
-
 This page documents the key modeling and conformance choices made in this IG. It is intended for
 profile authors, reviewers, and implementers who want to understand the rationale behind the
 structure, not just the rules.
@@ -68,9 +66,11 @@ functional approaches or workflow adaptations beyond the FHIR layer.
 ### Conformance via obligations
 
 Instead of `mustSupport`, support expectations are expressed with the FHIR Obligations framework,
-following the IKNL PZP and HL7 AU Core pattern. Two system actors are defined as
-`ActorDefinition` resources: `hg-ActorSender` (the ambulance/RAV system that produces and pushes
-the message) and `hg-ActorReceiver` (the HAP system that consumes it). Obligation-marked
+following the IKNL PZP and HL7 AU Core pattern. Two system actors are defined per use case as
+`ActorDefinition` resources: for the Ambulanceverwijzing these are `hg-ActorSender-AmbulanceHAP`
+(the ambulance/RAV system that produces and pushes the message) and `hg-ActorReceiver-AmbulanceHAP`
+(the HAP system that consumes it). The reusable `Obligation` rule set references them through
+aliases, so each use case supplies its own sender and receiver actors. Obligation-marked
 elements carry, via the `obligation` extension, a `SHALL:populate-if-known` obligation for the
 Sender (it must populate the element when it knows a value) and a `SHALL:no-error` obligation for
 the Receiver (it must accept the element without error). This makes the producer and consumer
@@ -111,14 +111,9 @@ never as sole alternatives.
 
 ### Resource map
 
-The `hg-ReferralMessageHeader-AmbulanceHAP` focuses the `hg-ReferralServiceRequest-AmbulanceHAP`. The ServiceRequest references the
-patient (`subject`), the ambulance (`requester`) and the HAP (`performer`), and carries the
-clinical content through `supportingInfo`: a `hg-ReferralComposition-AmbulanceHAP` for the referral note
-(reason, instituted treatment, diagnosis or conclusion) and, when documents are attached, one or
-more `hg-ReferralDocumentReference-AmbulanceHAP` resources referenced directly. The dataset's CommunicatieItem wrapper
-is folded into `DocumentReference` (its category on `category`, its sender on `author`); the
-recipient is the referral's `performer`. The example set under scenario 5b shows a complete
-message bundle.
+The resource map - which resources participate, how they reference each other, and which
+profile constrains each - is on the [Data Model](data-model.html#message-structure) page,
+together with a profile table and a worked example.
 
 ### Dataset traceability
 

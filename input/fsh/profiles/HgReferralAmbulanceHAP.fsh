@@ -1,5 +1,5 @@
 // =============================================================================
-// Use-case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic
+// Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic
 // hg-Referral profiles, tightens cardinalities, applies obligations (in place of
 // mustSupport) and fixes the message event. Dataset mappings live here (see
 // DatasetMappings.fsh). Reference targets keep the core resource type alongside
@@ -108,6 +108,11 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * date insert Obligation
 * title 1..1
 * title insert Obligation
+// Re-declare the section slicing (inherited from the generic parent) so the snapshot
+// generator anchors the slice child elements (.code, .extension) in this profile.
+* section ^slicing.discriminator[0].type = #pattern
+* section ^slicing.discriminator[0].path = "code"
+* section ^slicing.rules = #open
 * section contains treatmentGiven 0..* and diagnosisConclusion 0..1
 * section[treatmentGiven] ^short = "SetTreatment"
 * section[treatmentGiven] ^alias[0] = "IngesteldeBehandeling"
@@ -181,6 +186,7 @@ Title: "hg referral MessageHeader - Ambulance to HAP"
 Description: "MessageHeader for the ambulance to GP out-of-hours post (HAP) referral PUSH."
 * eventCoding = HgMessageEvent#ambulance-referral-to-hap
 * focus 1..1
+* focus only Reference(HgReferralServiceRequestAmbulanceHAP)
 * focus insert Obligation
 * sender 1..1
 * sender only Reference(Organization or HgHealthcareProviderOrganizationAmbulanceHAP)

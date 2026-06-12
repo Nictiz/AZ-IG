@@ -33,7 +33,7 @@ Profile: HgReferralComposition
 Parent: Composition
 Id: hg-ReferralComposition
 Title: "hg referral Composition"
-Description: "Generic referral note carrying the textual rubrieken as Composition sections. Open-world base for the use case layer."
+Description: "Generic referral note carrying the textual *rubrieken* as Composition sections. Open-world base for the use case layer."
 // Fixed here assuming all Acute Zorg referral compositions are referral notes.
 // If a future use case requires a different document type, move this to the use case layer.
 //
@@ -42,13 +42,12 @@ Description: "Generic referral note carrying the textual rubrieken as Compositio
 // profile defines an Envelope/Core section hierarchy with sections such as CarePath,
 // RequiredConsultationFacilities, MessageReason, SetTreatment, ProposedProcedure, and
 // FurtherImportant, none of which apply directly to the ambulance use case. Each use case
-// layer defines its own named section slices with the codes appropriate for that transaction.
+// layer defines its own section slicing (discriminator and named slices) with the codes
+// appropriate for that transaction; the slicing is intentionally NOT declared here so the
+// use case profile owns it and its snapshot anchors the slice children correctly.
 * type = $loinc#57133-1 "Referral note"
 * subject only Reference(Patient or $nlcore-Patient)
 * author only Reference(Practitioner or PractitionerRole or Organization or $nlcore-Practitioner or $nlcore-PractitionerRole or $nlcore-Organization)
-* section ^slicing.discriminator.type = #pattern
-* section ^slicing.discriminator.path = "code"
-* section ^slicing.rules = #open
 
 Profile: HgReferralDocumentReference
 Parent: DocumentReference

@@ -2,8 +2,8 @@
 
 This IG covers referral transactions from the
 [Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf).
-Each use case maps to a specific message in the richtlijn and is implemented as a separate
-use-case layer on top of the generic `hg-Referral*` profiles.
+Each use case maps to a specific message in the *richtlijn* and is implemented as a separate
+use case layer on top of the generic `hg-Referral*` profiles.
 
 | Use case | Message | Status |
 |---|---|---|
@@ -15,7 +15,7 @@ use-case layer on top of the generic `hg-Referral*` profiles.
 ### Ambulanceverwijzing naar HAP (AMB naar HAP)
 
 Handover of a patient by an ambulance professional to a GP out-of-hours post (HAP,
-huisartsenpost) after on-scene care. The exchange is one-directional (PUSH): the ambulance/RAV
+*huisartsenpost*) after on-scene care. The exchange is one-directional (PUSH): the ambulance/RAV
 sends, the HAP receives.
 
 **Functional design:** [Section 2.16 of the Nictiz functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29) - see also the [Functional Design](functional-design.html) page in this IG.
@@ -31,7 +31,11 @@ sends, the HAP receives.
 - [hg referral Receiver CapabilityStatement](CapabilityStatement-hg-CapabilityStatement-Receiver.html)
 
 **Profiles:** see [Artifacts](artifacts.html#structures-resource-profiles) for the full list of
-`hg-Referral*-AmbulanceHAP` profiles.
+`hg-Referral*-AmbulanceHAP` profiles, and the [Data Model](data-model.html) page for the message
+structure, profile table, and conformance guidance.
+
+**Example:** a complete worked referral (scenario 5b) is available under
+[Artifacts](artifacts.html).
 
 **Data exchange:** see [Data Exchange](data-exchange.html) for the exchange paradigm options and
 sender/receiver requirements for this use case.
@@ -41,5 +45,5 @@ sender/receiver requirements for this use case.
 ### Ambulanceverwijzing naar HA (AMB naar HA)
 
 Handover of a patient by an ambulance professional to a GP (HA, huisarts). Follows the same
-pattern as AMB naar HAP; will add a parallel `hg-Referral*-AmbulanceHA` use-case layer and a
+pattern as AMB naar HAP; will add a parallel `hg-Referral*-AmbulanceHA` use case layer and a
 new message event code. Not yet defined in this version.

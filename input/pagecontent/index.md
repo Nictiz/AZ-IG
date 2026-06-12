@@ -8,7 +8,7 @@ All profiles are built on nl-core (zib2020, R4) and follow the
 [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4) and the [Nictiz FHIR R4 Implementation Guide](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4).
 
 The IG is organised in two layers. A generic layer defines open-world profiles that are
-reusable across referral use cases. Use-case layers derive from these and add
+reusable across referral use cases. Use case layers derive from these and add
 the cardinalities, obligations, terminology bindings and dataset mappings specific to each
 transaction.
 
@@ -35,8 +35,9 @@ profile links per use case, is on the [Use cases](use-cases.html) page.
 ### Design decisions
 
 Key modeling and conformance choices - profile layering, the obligations framework, open-world
-reference modelling, resource map, and dataset traceability - are documented on the
-[Design Decisions](design-decisions.html) page.
+reference modelling, and dataset traceability - are documented on the
+[Design Decisions](design-decisions.html) page. The resource map, profile table, and
+conformance/validation guidance are on the [Data Model](data-model.html) page.
 
 ### Open items
 

@@ -4,12 +4,12 @@ The information exchange described in this Implementation Guide is defined by tw
 
 - The **Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)** ([PDF](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)) is the policy-level guideline that establishes which data must be exchanged between parties in acute care settings in the Netherlands. It defines the scenarios, parties, and content requirements at a clinical level.
 
-- The **Ontwerp Gegevensuitwisseling Acute Zorg** ([functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg)) is the Nictiz functional design document that translates the richtlijn into structured, implementable information exchange specifications. It defines datasets, message structures, and exchange directions for each use case.
+- The **Ontwerp Gegevensuitwisseling Acute Zorg** ([functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg)) is the Nictiz functional design document that translates the *richtlijn* into structured, implementable information exchange specifications. It defines datasets, message structures, and exchange directions for each use case.
 
-### Use case: Ambulanceverwijzing (AMB → HAP), section 2.16
+### Use case: Ambulanceverwijzing (AMB naar HAP), section 2.16
 
 [Section 2.16 of the functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)
-covers the handover of a patient by an ambulance professional to a GP out-of-hours post (HAP, huisartsenpost) after on-scene care. This corresponds to message 24 in the richtlijn (AMB naar HAP). The exchange is one-directional (PUSH): the ambulance/Regionale Ambulancevoorziening (RAV) sends, the HAP receives.
+covers the handover of a patient by an ambulance professional to a GP out-of-hours post (HAP, *huisartsenpost*) after on-scene care. This corresponds to message 24 in the *richtlijn* (AMB naar HAP). The exchange is one-directional (PUSH): the ambulance/Regionale Ambulancevoorziening (RAV) sends, the HAP receives.
 
 The information exchanged covers patient identification, the reason for referral, the treatment instituted on scene, the clinical conclusion or working diagnosis, and any supporting documents such as an ECG or photograph. The HAP uses this information to prepare for the patient's arrival and to match the referral to the patient.
 

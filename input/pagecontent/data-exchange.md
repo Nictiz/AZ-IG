@@ -2,7 +2,7 @@
 
 This page currently covers the data exchange architecture for the **Ambulanceverwijzing**
 (AMB to HAP) use case. As additional use cases are added to this IG, their exchange
-architecture will be described here or on separate pages. See [Use Cases](use-cases.html) for
+architecture will be described here or on separate pages. See [Use cases](use-cases.html) for
 an overview of all use cases and their status.
 
 The exchange is one-directional (PUSH): the sending system produces and transmits a referral;

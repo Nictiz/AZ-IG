@@ -12,6 +12,9 @@ Title: "Patient - Patrick (scenario 5b)"
 * name.use = #official
 * name.family = "de Vries"
 * name.given = "Patrick"
+// nl-core-NameInformation requires the iso21090-EN-qualifier (givenOrInitial) on each given name
+* name.given[0].extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name.given[0].extension[0].valueCode = #BR
 * gender = #male
 * birthDate = "1944-03-10"
 
