@@ -1,7 +1,7 @@
 CodeSystem: HgMessageEventCS
 Id: hg-message-event
 Title: "HG message events"
-Description: "Message event codes for the acute-zorg referral PUSH transactions."
+Description: "Message event codes for the Acute Zorg referral PUSH transactions."
 * ^caseSensitive = true
 * ^content = #complete
 * #ambulance-referral-to-hap "Ambulance referral to HAP"
@@ -9,5 +9,5 @@ Description: "Message event codes for the acute-zorg referral PUSH transactions.
 ValueSet: HgMessageEventVS
 Id: hg-message-event
 Title: "HG message events"
-Description: "Message event codes for the acute-zorg referral PUSH transactions."
+Description: "Message event codes for the Acute Zorg referral PUSH transactions."
 * include codes from system HgMessageEventCS

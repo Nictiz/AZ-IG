@@ -78,7 +78,7 @@ Title: "Composition - ambulance referral note"
 * section[treatmentGiven].text.status = #generated
 * section[treatmentGiven].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Antacidum toegediend, klachten verminderd.</div>"
 * section[treatmentGiven].extension[treatmentGivenTextValue].valueString = "Antacidum toegediend, klachten verminderd."
-* section[diagnosisConclusion].title = "Diagnose / conclusie"
+* section[diagnosisConclusion].title = "Diagnose/conclusie"
 * section[diagnosisConclusion].code = $sct#60022001
 * section[diagnosisConclusion].text.status = #generated
 * section[diagnosisConclusion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Waarschijnlijk maagklachten. Controle door huisarts gewenst.</div>"

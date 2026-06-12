@@ -2,7 +2,7 @@
 // (id 2.16.840.1.113883.2.4.3.11.60.103.1.1, effectiveDate 2020-10-19).
 // Per Nictiz profiling guidelines, mappings live on the use case layer.
 //
-// The underlying ART-DECOR dataset is shared across all acute-zorg use cases: element
+// The underlying ART-DECOR dataset is shared across all Acute Zorg use cases: element
 // IDs (hg-dataelement-NNNN) are allocated once and reused across transactions. Not every
 // element appears in every transaction. Where a mapping below covers an element that is
 // defined in the shared dataset but not explicitly constrained in AMB-HAP transaction
@@ -48,7 +48,7 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * subject -> "hg-dataelement-1676" "Patient"
 * author -> "hg-dataelement-5089" "Verzender"
 * section[treatmentGiven].extension[treatmentGivenTextValue] -> "hg-dataelement-1711" "IngesteldeBehandeling"
-* section[diagnosisConclusion].extension[diagnosisConclusionTextValue] -> "hg-dataelement-1749" "Diagnose / Conclusie"
+* section[diagnosisConclusion].extension[diagnosisConclusionTextValue] -> "hg-dataelement-1749" "Diagnose/Conclusie"
 
 Mapping: HgReferralDocumentReferenceAmbulanceHAPDataset
 Source: HgReferralDocumentReferenceAmbulanceHAP

@@ -9,5 +9,5 @@ Alias: $nlcore-Organization = http://nictiz.nl/fhir/StructureDefinition/nl-core-
 Alias: $nlcore-ContactPerson = http://nictiz.nl/fhir/StructureDefinition/nl-core-ContactPerson
 // Obligation framework
 Alias: $obligation = http://hl7.org/fhir/StructureDefinition/obligation
-Alias: $hg-ActorSender = http://nictiz.nl/fhir/ActorDefinition/hg-ActorSender
-Alias: $hg-ActorReceiver = http://nictiz.nl/fhir/ActorDefinition/hg-ActorReceiver
+Alias: $hg-ActorSender = http://nictiz.nl/fhir/ActorDefinition/hg-ActorSender-AmbulanceHAP
+Alias: $hg-ActorReceiver = http://nictiz.nl/fhir/ActorDefinition/hg-ActorReceiver-AmbulanceHAP

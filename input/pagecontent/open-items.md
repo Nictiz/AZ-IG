@@ -19,7 +19,7 @@ These items need confirmation or resolution before the profiles can be finalised
   published.
 
 - **`HgReferralComposition.type` fixed value.** The generic layer fixes `type` to LOINC
-  `57133-1` (Referral note) on the assumption that all acute-zorg referral compositions are
+  `57133-1` (Referral note) on the assumption that all Acute Zorg referral compositions are
   referral notes. This should be verified against the ELZ profiles (`nictiz.fhir.nl.r4.elz`)
   before finalising; if any use case requires a different document type, the fixed value must
   move to the use case layer.

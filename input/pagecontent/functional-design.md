@@ -9,15 +9,19 @@ The information exchange described in this Implementation Guide is defined by tw
 ### Use case: Ambulanceverwijzing (AMB → HAP), section 2.16
 
 [Section 2.16 of the functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)
-covers the handover of a patient by an ambulance professional to a GP out-of-hours post (HAP, huisartsenpost) after on-scene care. This corresponds to message 24 in the richtlijn (AMB naar HAP). The exchange is one-directional (PUSH): the ambulance / Regionale Ambulancevoorziening (RAV) sends, the HAP receives.
+covers the handover of a patient by an ambulance professional to a GP out-of-hours post (HAP, huisartsenpost) after on-scene care. This corresponds to message 24 in the richtlijn (AMB naar HAP). The exchange is one-directional (PUSH): the ambulance/Regionale Ambulancevoorziening (RAV) sends, the HAP receives.
 
 The information exchanged covers patient identification, the reason for referral, the treatment instituted on scene, the clinical conclusion or working diagnosis, and any supporting documents such as an ECG or photograph. The HAP uses this information to prepare for the patient's arrival and to match the referral to the patient.
 
 ### ART-DECOR dataset
 
-The functional design is formalised in a machine-readable dataset in [ART-DECOR](https://decor.nictiz.nl/ad/#/hg-), the standard Dutch platform for defining healthcare information datasets. There are two distinct ART-DECOR artefacts relevant to this IG:
+The functional design is formalised in a machine-readable dataset in [ART-DECOR](https://decor.nictiz.nl/ad/#/hg-), the standard Dutch platform for defining healthcare information datasets.
 
-**Dataset** - the shared catalogue of data element definitions across all acute-zorg use cases. Element identifiers (`hg-dataelement-NNNN`) are allocated here and reused across transactions.
+The ART-DECOR project (`hg-`, published under the ELZ namespace) was originally established for primary care (Eerstelijnszorg/ELZ) information exchange - GP referrals, paramedic referrals, and related primary care transactions. The `hg-` project code and the `hg-dataelement-NNNN` element identifier series both reflect this primary care origin. Over time, the project scope was widened to also cover acute care use cases, including ambulance referrals. The ambulance-to-HAP transaction defined in this IG is part of that wider scope; the element IDs it uses are allocated in the same shared catalogue and carry the same `hg-` prefix for that reason.
+
+There are two distinct ART-DECOR artefacts relevant to this IG:
+
+**Dataset** - the shared catalogue of data element definitions, originally primary care and now widened to all participating acute care use cases. Element identifiers (`hg-dataelement-NNNN`) are allocated here once and reused across transactions.
 
 OID: `2.16.840.1.113883.2.4.3.11.60.103.1.1`, effective date 2020-10-19 - [view in ART-DECOR](https://decor.nictiz.nl/ad/#/hg-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.103.1.1/2020-10-19T17:52:39)
 

@@ -128,13 +128,17 @@ naar huisartsenpost (OID 2.16.840.1.113883.2.4.3.11.60.103.1.1), under the ident
 [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4).
 FHIR elements point at the dataset data-element ids (`hg-dataelement-NNNN`).
 
-The ART-DECOR dataset is **shared across all acute-zorg use cases**: element IDs are allocated once
-and reused across transactions. Not every element appears in every transaction. Some elements -
-such as TypeBericht (hg-dataelement-1685) and Urgentie (hg-dataelement-1702) - are defined in the
-shared dataset and modeled in the ELZ/primary-care transaction but are not explicitly constrained
-in the AMB-HAP transaction 4.145. Where a mapping is included for such an element but no further
-cardinality, obligation, or binding tightening is applied, the mapping serves as a traceability
-link only. The functional design describes the intended use.
+The ART-DECOR project (`hg-`, ELZ) was originally established for primary care
+(Eerstelijnszorg/ELZ) information exchange. Its shared dataset catalogue - including
+the `hg-dataelement-NNNN` identifier series - reflects that origin. The project scope was later
+widened to cover acute care use cases such as ambulance referrals. The AMB-HAP transaction
+(4.145) is part of this wider scope; its element IDs come from the same shared catalogue and
+therefore carry the same `hg-` prefix. Some elements in the catalogue were defined for primary
+care transactions (ELZ) and are not explicitly constrained in AMB-HAP transaction 4.145 - for
+example TypeBericht (hg-dataelement-1685) and Urgentie (hg-dataelement-1702). Where a mapping is
+included for such an element but no further cardinality, obligation, or binding tightening is
+applied, the mapping serves as a traceability link only. The functional design describes the
+intended use.
 
 Because the CommunicatieItem wrapper was folded into `DocumentReference`, its sender
 (CommunicatieAfzender, hg-dataelement-5464) is mapped onto `DocumentReference.author`. The

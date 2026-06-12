@@ -1,8 +1,8 @@
 ### Overview
 
-This page describes the data exchange architecture for acute-zorg referrals. The exchange is
+This page describes the data exchange architecture for Acute Zorg referrals. The exchange is
 always one-directional (PUSH): the sending system produces and transmits a referral; the
-receiving system accepts and processes it. The sender is the ambulance / Regionale
+receiving system accepts and processes it. The sender is the ambulance/Regionale
 Ambulancevoorziening (RAV) system; the receiver is the GP out-of-hours post (HAP) system.
 
 The specific exchange paradigm - how the FHIR resources are packaged and transmitted - has not
@@ -197,7 +197,7 @@ Content-Type: application/fhir+json
 
 The exchange paradigm has not yet been selected. The decision will be driven by the target
 infrastructure (LSP, direct FHIR connectivity, document repository) and by alignment with
-other acute-zorg use cases in this IG. This page will be updated once a paradigm is chosen.
+other Acute Zorg use cases in this IG. This page will be updated once a paradigm is chosen.
 
 The CapabilityStatements (`hg-CapabilityStatement-Sender` and `hg-CapabilityStatement-Receiver`)
 currently reflect paradigm-neutral requirements and will be refined once the paradigm is fixed.
@@ -206,7 +206,7 @@ currently reflect paradigm-neutral requirements and will be refined once the par
 
 ### What the sender must support
 
-Regardless of paradigm, the sending system (ambulance / RAV) must be able to:
+Regardless of paradigm, the sending system (ambulance/RAV) must be able to:
 
 - Produce a conformant `hg-ReferralServiceRequest-AmbulanceHAP` as the focal resource
 - Populate all obligation-marked elements it has a value for (`SHALL:populate-if-known`)

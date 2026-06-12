@@ -1,6 +1,6 @@
 // =============================================================================
 // Generic referral layer (open world, FHIR core based, no mustSupport).
-// Reusable across the acute-zorg referral use cases. Use case profiles derive
+// Reusable across the Acute Zorg referral use cases. Use case profiles derive
 // from these and add cardinalities, mustSupport and dataset mappings.
 //
 // Dependency note: the nictiz.fhir.nl.r4.elz package references these profiles.
@@ -15,7 +15,7 @@ Profile: HgReferralServiceRequest
 Parent: ServiceRequest
 Id: hg-ReferralServiceRequest
 Title: "HG Referral ServiceRequest"
-Description: "Generic referral request (workflow 'request' on FHIR core ServiceRequest) for acute-zorg referrals. Open-world: nl-core targets are added next to the base resources; cardinalities and mustSupport are left to the use case layer."
+Description: "Generic referral request (workflow 'request' on FHIR core ServiceRequest) for Acute Zorg referrals. Open-world: nl-core targets are added next to the base resources; cardinalities and mustSupport are left to the use case layer."
 // status: deliberately not fixed to #completed here. The ELZ (primary care) use case
 // documents status as always 'completed' (referral is done when sent), but other use cases
 // may use different values. Status is the responsibility of the use case layer.
@@ -34,7 +34,7 @@ Parent: Composition
 Id: hg-ReferralComposition
 Title: "HG Referral Composition"
 Description: "Generic referral note carrying the textual rubrieken as Composition sections. Open-world base for the use case layer."
-// Fixed here assuming all acute-zorg referral compositions are referral notes.
+// Fixed here assuming all Acute Zorg referral compositions are referral notes.
 // If a future use case requires a different document type, move this to the use case layer.
 //
 // Section structure: deliberately left open at this layer. Experience from the ELZ (primary

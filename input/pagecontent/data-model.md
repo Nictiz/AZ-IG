@@ -34,7 +34,7 @@ and organisation, and the receiving HAP.
 | `authoredOn` | 1..1 | dateTime | Date and time the referral was created |
 | `requester` | 1..1 | Reference(PractitionerRole \| Organization \| hg-HealthProfessional-PractitionerRole-AmbulanceHAP \| hg-HealthcareProvider-Organization-AmbulanceHAP) | Sending ambulance professional or RAV organisation |
 | `performer` | 1..1 | Reference(PractitionerRole \| Organization \| hg-HealthProfessional-PractitionerRole-AmbulanceHAP \| hg-HealthcareProvider-Organization-AmbulanceHAP) | Receiving HAP organisation |
-| `reasonCode` | 1..1 | CodeableConcept | Reason for the referral (redenBericht / context) |
+| `reasonCode` | 1..1 | CodeableConcept | Reason for the referral (redenBericht/context) |
 | `supportingInfo` | 1..* | Reference(hg-ReferralComposition-AmbulanceHAP \| hg-ReferralDocumentReference-AmbulanceHAP) | Referral note and any attached documents |
 | `patientInstruction` | 0..1 | string | Instructions agreed with the patient (afgesprokenMetPatient) |
 
@@ -117,6 +117,41 @@ nl-core-HealthcareProvider-Organization.
 |---|---|---|---|
 | `identifier` | 1..* | Identifier | Organisation identifier, e.g. URA (`http://fhir.nl/fhir/NamingSystem/ura`) |
 | `name` | 0..1 | string | Organisation name |
+
+---
+
+### Dutch-English element name mapping
+
+The ART-DECOR dataset is Dutch-only. The table below documents how each Dutch dataset element
+name maps to the English `short` value used in this IG, and notes where the translation aligns
+with the ELZ FHIR profiles (`nictiz.fhir.nl.r4.elz`).
+
+| Dutch dataset name | English `short` (this IG) | ELZ alignment |
+|---|---|---|
+| Envelop | Referral | ELZ uses "Envelope" on a Composition section; no ELZ equivalent on ServiceRequest root |
+| Bestemmingsstatus | DestinationStatus | AMB-HAP specific - not in ELZ |
+| TypeBericht | MessageType | Aligned with ELZ |
+| Urgentie | Urgency | Aligned with ELZ |
+| Patient | Patient | Aligned with ELZ |
+| Datum en tijd | SendDateTime | Aligned with ELZ (`short`); alias aligned with ELZ as `DatumTijdVerzenden` |
+| Verzender | Sender | Aligned with ELZ |
+| Ontvanger | Recipient | Aligned with ELZ |
+| RedenBericht | MessageReason | Aligned with ELZ |
+| Context | Context | Aligned with ELZ (same in Dutch and English) |
+| Kern | Core | Aligned with ELZ |
+| IngesteldeBehandeling | SetTreatment | Aligned with ELZ |
+| Diagnose/Conclusie | DiagnosisConclusion | AMB-HAP specific - not in ELZ |
+| AfgesprokenMetPatient | AgreedWithPatient | AMB-HAP specific - not in ELZ |
+| CommunicatieItem | CommunicationItem | Not in ELZ |
+| CommunicatieAfzender | CommunicationSender | Not in ELZ |
+| Document | (folded into DocumentReference root) | Not in ELZ |
+| DocumentIdentificatie | DocumentIdentification | Not in ELZ |
+| DocumentSetIdentificatie | DocumentSetIdentification | Not in ELZ |
+| DocumentType | DocumentType | Not in ELZ (same in Dutch and English) |
+| DocumentBestandtype | DocumentMediaType | Not in ELZ |
+| DocumentInhoud | DocumentContent | Not in ELZ |
+| DocumentNaam | DocumentName | Not in ELZ |
+| DocumentCreatieDatumTijd | DocumentCreationDateTime | Not in ELZ |
 
 ---
 

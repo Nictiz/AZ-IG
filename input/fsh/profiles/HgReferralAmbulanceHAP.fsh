@@ -44,7 +44,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 * subject insert Obligation
 * authoredOn 1..1
 * authoredOn ^short = "SendDateTime"
-* authoredOn ^alias[0] = "Datum en tijd"
+* authoredOn ^alias[0] = "DatumTijdVerzenden"
 * authoredOn ^definition = "Geeft het tijdstip waarop de verzender het bericht afrondt en aanbiedt voor verzending."
 * authoredOn insert Obligation
 * requester 1..1
@@ -71,7 +71,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 * reasonCode insert Obligation
 * supportingInfo 1..*
 * supportingInfo only Reference(Resource or HgReferralCompositionAmbulanceHAP or HgReferralDocumentReferenceAmbulanceHAP)
-* supportingInfo ^short = "ClinicalContent"
+* supportingInfo ^short = "Core"
 * supportingInfo ^alias[0] = "Kern"
 * supportingInfo ^alias[1] = "CommunicatieItem"
 * supportingInfo ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
@@ -87,7 +87,7 @@ Parent: HgReferralComposition
 Id: hg-ReferralComposition-AmbulanceHAP
 Title: "HG Referral Composition - Ambulance to HAP"
 Description: "Referral note for the ambulance to GP out-of-hours post (HAP) referral."
-* . ^short = "ClinicalContent"
+* . ^short = "Core"
 * . ^alias[0] = "Kern"
 * . ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
 * status 1..1
@@ -109,7 +109,7 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * title 1..1
 * title insert Obligation
 * section contains treatmentGiven 0..* and diagnosisConclusion 0..1
-* section[treatmentGiven] ^short = "TreatmentGiven"
+* section[treatmentGiven] ^short = "SetTreatment"
 * section[treatmentGiven] ^alias[0] = "IngesteldeBehandeling"
 * section[treatmentGiven] ^definition = "Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht."
 * section[treatmentGiven].code = $sct#182991002
@@ -118,7 +118,7 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * section[treatmentGiven].extension[treatmentGivenTextValue] 1..1
 * section[treatmentGiven].extension[treatmentGivenTextValue] insert Obligation
 * section[diagnosisConclusion] ^short = "DiagnosisConclusion"
-* section[diagnosisConclusion] ^alias[0] = "Diagnose / Conclusie"
+* section[diagnosisConclusion] ^alias[0] = "Diagnose/Conclusie"
 * section[diagnosisConclusion] ^definition = "Geeft de diagnose en/of conclusie."
 * section[diagnosisConclusion].code = $sct#60022001
 * section[diagnosisConclusion].extension contains HgExtTextValue named diagnosisConclusionTextValue 0..1

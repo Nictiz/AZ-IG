@@ -12,8 +12,24 @@ reusable across referral use cases. Use-case layers derive from these and add
 the cardinalities, obligations, terminology bindings and dataset mappings specific to each
 transaction.
 
-The intended audience of thit IG is software developers building sending or receiving systems for acute
+The intended audience of this IG is software developers building sending or receiving systems for acute
 care information exchange in the Netherlands.
+
+#### Language
+
+This IG is written in English. The underlying functional design and ART-DECOR dataset are in Dutch,
+and Dutch terms appear throughout the IG where they originate from those sources:
+
+- `alias` values on profile elements carry the Dutch dataset element name (e.g. `Bestemmingsstatus`,
+  `RedenBericht`) taken directly from ART-DECOR, to preserve traceability to the source.
+- `definition` texts are taken from the ART-DECOR dataset omschrijving and left in Dutch.
+- `short` descriptors are English translations authored in this IG. Where an equivalent element
+  exists in the ELZ FHIR profiles (`nictiz.fhir.nl.r4.elz`), the same English term is used for
+  consistency. Elements specific to the AMB-HAP transaction have no ELZ equivalent and are
+  translated independently.
+
+A full Dutch-English mapping of dataset element names to the `short` values used in this IG is
+provided on the [Data Model](data-model.html#dutch-english-element-name-mapping) page.
 
 #### Use cases
 
@@ -24,9 +40,15 @@ care information exchange in the Netherlands.
 
 **Relationship to nictiz.fhir.nl.r4.elz.**
 The [`nictiz.fhir.nl.r4.elz`](https://simplifier.net/packages/nictiz.fhir.nl.r4.elz/) package
-contains profiles with the same canonical IDs (`hg-ReferralServiceRequest`,
-`hg-ReferralComposition`). These are not the same profiles. The generic layer in this IG was
-developed independently and intentionally diverges from ELZ in several places:
+is the FHIR implementation of the primary care (Eerstelijnszorg/ELZ) transactions
+in the same ART-DECOR project (`hg-`) that this IG uses for the AMB-HAP transaction. The shared
+ART-DECOR project was originally established for primary care exchanges (GP referrals, paramedic
+referrals); it has since been widened to cover acute care use cases including ambulance referrals.
+Because both IGs draw on the same `hg-` project, they share element IDs (`hg-dataelement-NNNN`),
+the `hg-` canonical prefix, and - in the current state - overlapping profile IDs
+(`hg-ReferralServiceRequest`, `hg-ReferralComposition`). These are not the same profiles. The
+generic layer in this IG was developed independently and intentionally diverges from ELZ in
+several places:
 
 - `hg-ReferralServiceRequest`: the ELZ profile fixes `status` to `#completed` and defines a
   `category` slice with a primary-care-specific OID coding. Both are omitted here as they are
