@@ -1,3 +1,4 @@
+// NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // =============================================================================
 // Obligation RuleSet - reusable across all referral use case profiles.
 //

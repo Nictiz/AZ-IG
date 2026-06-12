@@ -52,6 +52,13 @@ A number of profile decisions and architectural choices are still pending. See t
 
 The profiles are authored in FSH and compiled with Sushi, then built with the HL7 IG Publisher.
 
+### Authoring note
+
+The authors use AI to help structure the narrative pages and to correct grammar - keeping the
+English from sliding into Dunglish. The explanatory comments in the FSH source are AI-generated
+for convenience. The authors remain responsible for the content, and review everything before
+publication.
+
 ### References
 
 1. Nictiz. *Richtlijn Gegevensuitwisseling Acute Zorg versie 4*. 2022. [PDF](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)

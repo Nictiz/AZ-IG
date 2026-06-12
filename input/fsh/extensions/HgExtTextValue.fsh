@@ -1,3 +1,4 @@
+// NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 Extension: HgExtTextValue
 Id: hg-ext-TextValue
 Title: "hg referral text value"

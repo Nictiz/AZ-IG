@@ -1,3 +1,4 @@
+// NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 CodeSystem: HgMessageEvent
 Id: hg-message-event
 Title: "hg message event codes"

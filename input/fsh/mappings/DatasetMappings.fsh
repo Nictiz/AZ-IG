@@ -1,3 +1,4 @@
+// NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // Mappings to the ART-DECOR dataset "Verwijzing ambulance naar huisartsenpost"
 // (id 2.16.840.1.113883.2.4.3.11.60.103.1.1, effectiveDate 2020-10-19).
 // Per Nictiz profiling guidelines, mappings live on the use case layer.

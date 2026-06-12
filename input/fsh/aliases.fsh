@@ -1,3 +1,4 @@
+// NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 Alias: $sct = http://snomed.info/sct
 Alias: $loinc = http://loinc.org
 Alias: $bsn = http://fhir.nl/fhir/NamingSystem/bsn

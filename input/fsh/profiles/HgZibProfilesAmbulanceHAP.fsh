@@ -1,3 +1,4 @@
+// NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // =============================================================================
 // Transaction-specific zib profiles (Ambulanceverwijzing, AMB -> HAP).
 //

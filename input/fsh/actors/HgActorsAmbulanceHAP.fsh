@@ -1,3 +1,4 @@
+// NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // =============================================================================
 // Use case actors for Ambulanceverwijzing (AMB -> HAP, message 24).
 //

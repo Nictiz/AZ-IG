@@ -1,3 +1,4 @@
+// NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // =============================================================================
 // Generic referral layer (open world, FHIR core based, no mustSupport).
 // Reusable across the Acute Zorg referral use cases. Use case profiles derive

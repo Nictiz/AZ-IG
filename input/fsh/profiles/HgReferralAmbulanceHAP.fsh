@@ -1,3 +1,4 @@
+// NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // =============================================================================
 // Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic
 // hg-Referral profiles, tightens cardinalities, applies obligations (in place of
