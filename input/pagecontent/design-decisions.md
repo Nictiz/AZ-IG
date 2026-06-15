@@ -72,8 +72,7 @@ functional approaches or workflow adaptations beyond the FHIR layer.
 
 ### Conformance via obligations
 
-Instead of `mustSupport`, support expectations are expressed with the FHIR Obligations framework,
-following the IKNL PZP and HL7 AU Core pattern. Two system actors are defined per use case as
+Instead of `mustSupport`, support expectations are expressed with the FHIR Obligations framework. Two system actors are defined per use case as
 `ActorDefinition` resources: for the Ambulanceverwijzing these are `hg-ActorSender-AmbulanceHAP`
 (the ambulance/RAV system that produces and pushes the message) and `hg-ActorReceiver-AmbulanceHAP`
 (the HAP system that consumes it). The reusable `Obligation` rule set references them through
@@ -106,16 +105,10 @@ per-target dataelements are therefore recorded as element-level mappings (the *z
 the Organization reached via the sending PractitionerRole's `.organization`). targetProfile
 slicing would be the right tool for a future repeatable reference.
 
-Note: nl-core provides a `pattern-NlCoreHealthProfessionalReference` datatype profile (applied via
-`type.profile`) for typing references to a zib HealthProfessional, but it is not present in the
-pinned nl-core release (`0.12.0-beta.4`; last seen in `0.10.0-beta.1`). References are therefore
-typed by listing the PractitionerRole/Organization target profiles directly, which is how
-nl-core 0.12 itself models these references.
-
 #### Why nl-core profiles are listed alongside FHIR core types
 
-When a reference constraint lists only an nl-core profile - for example `Reference(nl-core-Patient)`
-- a FHIR validator will require the referenced resource to declare conformance to that profile
+When a reference constraint lists only an nl-core profile \- for example `Reference(nl-core-Patient)`
+\- a FHIR validator will require the referenced resource to declare conformance to that profile
 (via `meta.profile` or by passing validation against it). A plain R4 Patient resource without
 nl-core constraints would fail, even if all the clinically relevant fields are present. By
 writing `Reference(Patient or nl-core-Patient)`, both a bare FHIR R4 Patient and a resource
@@ -146,8 +139,8 @@ naar huisartsenpost (OID 2.16.840.1.113883.2.4.3.11.60.103.1.1), under the ident
 FHIR elements point at the dataset data-element ids (`hg-dataelement-NNNN`).
 
 The ART-DECOR project (`hg-`, ELZ) was originally established for primary care
-(Eerstelijnszorg/ELZ) information exchange. Its shared dataset catalogue - including
-the `hg-dataelement-NNNN` identifier series - reflects that origin. The project scope was later
+(Eerstelijnszorg/ELZ) information exchange. Its shared dataset catalogue \- including
+the `hg-dataelement-NNNN` identifier series \- reflects that origin. The project scope was later
 widened to cover acute care use cases such as ambulance referrals. The AMB-HAP transaction
 (4.145) is part of this wider scope; its element IDs come from the same shared catalogue and
 therefore carry the same `hg-` prefix. Some elements in the catalogue were defined for primary

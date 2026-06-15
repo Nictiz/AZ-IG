@@ -31,12 +31,12 @@ a formal actor in this IG.
 The referral is wrapped in a `Bundle` of type `message`. The first entry is a `MessageHeader`
 that identifies the event and focuses the `ServiceRequest`. All referenced resources are
 included in the same bundle. The sender transmits the bundle to the receiver's
-`$process-message` endpoint or via a store-and-forward intermediary (e.g. the LSP).
+`$process-message` endpoint or via a store-and-forward intermediary.
 
 **Profiles used:** the use case Bundle and MessageHeader profiles (`hg-ReferralBundle-*` and
 `hg-ReferralMessageHeader-*`), and the use case profiles for the enclosed resources.
 
-**Fits well when:** the infrastructure is event-driven or store-and-forward (e.g. LSP/XDS);
+**Fits well when:** the infrastructure is event-driven or store-and-forward;
 the receiver does not expose a FHIR REST endpoint; the transaction must be atomic and
 self-contained.
 
@@ -83,8 +83,7 @@ less suited for workflow tracking or status updates.
 ### Decision status
 
 The exchange paradigm has not yet been selected. The decision will be driven by the target
-infrastructure (LSP, direct FHIR connectivity, document repository) and by alignment with
-other Acute Zorg use cases in this IG. This page will be updated once a paradigm is chosen.
+infrastructure and by alignment with other Acute Zorg use cases in this IG. This page will be updated once a paradigm is chosen.
 
 The CapabilityStatements (`hg-CapabilityStatement-Sender` and `hg-CapabilityStatement-Receiver`)
 currently reflect paradigm-neutral requirements and will be refined once the paradigm is fixed.

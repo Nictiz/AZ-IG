@@ -2,7 +2,7 @@
 // =============================================================================
 // Obligation RuleSet - reusable across all referral use case profiles.
 //
-// Following the FHIR Obligations framework (and the IKNL PZP/AU-Core pattern),
+// Following the FHIR Obligations framework,
 // support expectations are expressed as obligations bound to actors rather than
 // the single mustSupport boolean.
 //
