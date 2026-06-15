@@ -25,6 +25,11 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * priority -> "hg-dataelement-1702" "Urgentie"
 * subject -> "hg-dataelement-1676" "Patient"
 * authoredOn -> "hg-dataelement-1684" "Datum en tijd"
+// Verzender/Ontvanger map to multiple dataelements (generic + zorgverlener + zorgaanbieder).
+// These references are max-1 (one sender, one recipient), which FHIR does not allow to be
+// sliced, so the per-target dataelements are recorded as element-level mappings rather than on
+// targetProfile slices. zorgverlener = the PractitionerRole target; zorgaanbieder = the
+// Organization it belongs to (reached via PractitionerRole.organization).
 * requester -> "hg-dataelement-5089" "Verzender"
 * requester -> "hg-dataelement-5398" "Verzender (zorgverlener)"
 * requester -> "hg-dataelement-5391" "Verzender (zorgaanbieder)"

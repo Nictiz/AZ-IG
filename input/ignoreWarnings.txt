@@ -17,10 +17,11 @@
 %'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider'%
 %'http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressUse'%
 %'http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressType'%
+%'http://nictiz.nl/fhir/StructureDefintion/nl-core-ContactPerson'%
 
 # Expected consequence of the open-world reference modelling (see Design Decisions): references
 # list the base resource type alongside a profile of it, so a profiled example instance also
 # satisfies the base-type option and the validator reports it matching more than one choice.
 # This is intentional (it lets a sender submit either a bare core resource or a profiled one)
 # and is a warning, not a defect. Matched as a case-insensitive substring.
-%found multiple matching profiles for%
+Reference_REF_MultipleMatches

@@ -12,6 +12,14 @@
 // pin to a released version of nictiz.fhir.nl.r4.acutezorg.
 // =============================================================================
 
+// Per profiling guideline 13.2.2 (Referencing zib HealthProfessional): reference the
+// PractitionerRole as the entry point (it resolves to the Practitioner); keep the base
+// Practitioner/PractitionerRole open and do NOT add nl-core-HealthProfessional-Practitioner as a
+// target profile. This RuleSet carries the guideline's prescribed implementer guidance and is
+// inserted on every reference that points to a health professional.
+RuleSet: HealthProfessionalRefComment
+* ^comment = "Each occurrence of the zib HealthProfessional is normally represented by _two_ FHIR resources: a PractitionerRole resource (instance of [nl-core-HealthProfessional-PractitionerRole](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole)) and a Practitioner resource (instance of [nl-core-HealthProfessional-Practitioner](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner)). The Practitioner resource is referenced from the PractitionerRole instance. For this reason, sending systems should fill the reference to the PractitionerRole instance here, and not the Practitioner resource. Receiving systems can then retrieve the reference to the Practitioner resource from that PractitionerRole instance. In rare circumstances, there is only a Practitioner instance, in which case it is that instance which will be referenced here. However, since this should be the exception, the nl-core-HealthProfessional-Practitioner profile is not explicitly mentioned as a target profile."
+
 Profile: HgReferralServiceRequest
 Parent: ServiceRequest
 Id: hg-ReferralServiceRequest
@@ -25,9 +33,11 @@ Description: "Generic referral request (workflow 'request' on FHIR core ServiceR
 // specific OID coding. That slice is not carried here; each use case adds its own
 // category/messageType slice in its own use case layer.
 * intent = #order
-* subject only Reference(Patient or $nlcore-Patient)
-* requester only Reference(Practitioner or PractitionerRole or Organization or $nlcore-Practitioner or $nlcore-PractitionerRole or $nlcore-Organization)
-* performer only Reference(Practitioner or PractitionerRole or Organization or $nlcore-Practitioner or $nlcore-PractitionerRole or $nlcore-Organization)
+* subject only Reference(Patient or Group or Location or Device or $nlcore-Patient)
+* requester only Reference(Practitioner or PractitionerRole or Organization or Patient or RelatedPerson or Device or $nlcore-PractitionerRole or $nlcore-Organization or $nlcore-Patient or $nlcore-ContactPerson)
+* requester insert HealthProfessionalRefComment
+* performer only Reference(Practitioner or PractitionerRole or Organization or CareTeam or HealthcareService or Patient or Device or RelatedPerson or $nlcore-PractitionerRole or $nlcore-Organization or $nlcore-Patient or $nlcore-ContactPerson)
+* performer insert HealthProfessionalRefComment
 * supportingInfo only Reference(Resource or HgReferralComposition or HgReferralDocumentReference)
 
 Profile: HgReferralComposition
@@ -47,15 +57,17 @@ Description: "Generic referral note carrying the textual *rubrieken* as Composit
 // appropriate for that transaction; the slicing is intentionally NOT declared here so the
 // use case profile owns it and its snapshot anchors the slice children correctly.
 * type = $loinc#57133-1 "Referral note"
-* subject only Reference(Patient or $nlcore-Patient)
-* author only Reference(Practitioner or PractitionerRole or Organization or $nlcore-Practitioner or $nlcore-PractitionerRole or $nlcore-Organization)
+* subject only Reference(Resource or $nlcore-Patient)
+* author only Reference(Practitioner or PractitionerRole or Device or Patient or RelatedPerson or Organization or $nlcore-PractitionerRole or $nlcore-Organization or $nlcore-Patient or $nlcore-ContactPerson)
+* author insert HealthProfessionalRefComment
 
 Profile: HgReferralDocumentReference
 Parent: DocumentReference
 Id: hg-ReferralDocumentReference
 Title: "hg referral DocumentReference"
 Description: "Generic attached document for a referral (for example an ECG or photo). Open-world base for the use case layer."
-* author only Reference(Practitioner or PractitionerRole or Organization or $nlcore-Practitioner or $nlcore-PractitionerRole or $nlcore-Organization)
+* author only Reference(Practitioner or PractitionerRole or Organization or Device or Patient or RelatedPerson or $nlcore-PractitionerRole or $nlcore-Organization or $nlcore-Patient or $nlcore-ContactPerson)
+* author insert HealthProfessionalRefComment
 
 Profile: HgReferralMessageHeader
 Parent: MessageHeader
@@ -64,7 +76,8 @@ Title: "hg referral MessageHeader"
 Description: "Generic MessageHeader for a referral PUSH. Focuses the referral ServiceRequest; the event is fixed at the use case layer."
 * event[x] only Coding
 * focus only Reference(HgReferralServiceRequest)
-* sender only Reference(Organization or $nlcore-Organization)
+* sender only Reference(Practitioner or PractitionerRole or Organization or $nlcore-PractitionerRole or $nlcore-Organization)
+* sender insert HealthProfessionalRefComment
 
 Profile: HgReferralBundle
 Parent: Bundle

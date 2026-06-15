@@ -92,10 +92,25 @@ replacing it: for example `ServiceRequest.subject` is `Reference(Patient or hg-P
 and `requester`/`performer` allow `PractitionerRole`/`Organization` next to their hg- profiles.
 This follows the [Nictiz profiling guideline](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4) of adding the target profile beside the core type, so a sender
 that holds only a plain core resource still conforms, while a sender that can produce the richer
-nl-core-based profile is recognised. We deliberately do not slice references by `targetProfile`
-here: there are no per-target cardinalities or mappings that would require it, and a single slice
-with multiple `targetProfile`s has known tooling limitations. Slicing can be added later if a
-future transaction needs to constrain individual targets separately.
+nl-core-based profile is recognised.
+
+[§6.2 of the profiling guideline](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4)
+recommends slicing a reference by `targetProfile` (`discriminator.type = profile`,
+`discriminator.path = resolve()`) to attach per-target mappings to the functional model. That
+mechanism requires the reference to be repeatable (max > 1), because FHIR does not permit slicing
+an element with max = 1. In this transaction the references that carry a per-target distinction -
+`ServiceRequest.requester` (Verzender) and `ServiceRequest.performer` (Ontvanger), each mapping to
+a *zorgverlener* (PractitionerRole) and a *zorgaanbieder* (Organization) dataelement - are
+constrained to exactly one sender and one recipient (`1..1`), so they cannot be sliced. Their
+per-target dataelements are therefore recorded as element-level mappings (the *zorgaanbieder* is
+the Organization reached via the sending PractitionerRole's `.organization`). targetProfile
+slicing would be the right tool for a future repeatable reference.
+
+Note: nl-core provides a `pattern-NlCoreHealthProfessionalReference` datatype profile (applied via
+`type.profile`) for typing references to a zib HealthProfessional, but it is not present in the
+pinned nl-core release (`0.12.0-beta.4`; last seen in `0.10.0-beta.1`). References are therefore
+typed by listing the PractitionerRole/Organization target profiles directly, which is how
+nl-core 0.12 itself models these references.
 
 #### Why nl-core profiles are listed alongside FHIR core types
 
