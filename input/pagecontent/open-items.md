@@ -36,6 +36,16 @@ These items need confirmation or resolution before the profiles can be finalised
   direct links to `package.tgz`, `full-ig.zip`, and the JSON/XML definition zips generated
   by the IG Publisher.
 
+- **Publication (version history and publication status).** Version history is deferred to the
+  formal publication process, which maintains `package-list.json` and the generated history page
+  in the published webroot; it is intentionally not committed to the IG source root (the IG
+  Publisher flags a root `package-list.json`). Until the IG is published, the build emits two
+  expected, harmless publication-status messages that are not counted in the QA totals: "Error
+  fetching package-list from http://nictiz.nl/fhir" (the Publisher probes the canonical for prior
+  versions and receives the Nictiz HTML site instead of JSON) and "No publication request found"
+  (no `publication-request.json`, which only exists during a formal publication run). Both
+  resolve at publication time and need no action meanwhile.
+
 ### Architecture
 
 - **Canonical URL conflict with ELZ.** The generic `hg-Referral*` profiles in this IG share
