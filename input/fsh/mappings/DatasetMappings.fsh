@@ -68,6 +68,7 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * masterIdentifier -> "hg-dataelement-5473" "DocumentIdentificatie"
 * identifier -> "hg-dataelement-5474" "DocumentSetIdentificatie"
 * type -> "hg-dataelement-5554" "DocumentType"
+* category -> "hg-dataelement-5463" "CommunicatieCategorie"
 // CommunicatieAfzender (5464) is folded onto author.
 // CommunicatieGeadresseerde (5468) has no direct FHIR field; the referral performer covers
 // that role implicitly.

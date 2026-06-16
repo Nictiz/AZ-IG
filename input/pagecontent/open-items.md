@@ -2,28 +2,18 @@ These items need confirmation or resolution before the profiles can be finalised
 
 ### Profiles
 
-- **`DocumentReference.category` binding.** Left open pending a suitable zib, nl-core, or
-  generic value set. The original Nictiz profile bound the CommunicatieItem category to an
-  NHG-derived set, which is out of scope here.
+- **`DocumentReference.category` binding.** `category` (CommunicatieCategorie,
+  hg-dataelement-5463) is modelled and mapped to the dataset, but **no value set is bound yet** -
+  left open pending a suitable zib, nl-core, or generic value set. The original Nictiz profile
+  bound the CommunicatieItem category to an NHG-derived set, which is out of scope here.
 
-- **`ServiceRequest.reasonCode`.** Currently text only. A coded binding can be added once
-  section 2.16 of the functional design specifies one.
-
-- **Document specification reconciliation.** Section 3.3 of the Nictiz functional design
-  specifies the document inside the Ambulanceverwijzing to the HAP. The constraints on
-  `hg-ReferralDocumentReference-AmbulanceHAP` should be reconciled against that section once
-  published.
-
-- **`HgReferralComposition.type` fixed value.** The generic layer fixes `type` to LOINC
-  `57133-1` (Referral note) on the assumption that all Acute Zorg referral compositions are
-  referral notes. This should be verified against the ELZ profiles (`nictiz.fhir.nl.r4.elz`)
-  before finalising; if any use case requires a different document type, the fixed value must
-  move to the use case layer.
-
-- **Zib profile cardinalities.** The cardinalities on `hg-Patient-AmbulanceHAP`,
-  `hg-HealthcareProvider-Organization-AmbulanceHAP`, and
-  `hg-HealthProfessional-PractitionerRole-AmbulanceHAP` are a first defensible cut. They
-  should be reconciled against the published dataset's per-element multiplicities.
+- **`ServiceRequest.reasonCode` coding.** The dataset carries the reason as free text
+  (RedenBericht / Context, hg-dataelement-1872 / hg-dataelement-1710): per the NHG the free-text
+  description is mandatory and an ICPC code of the episode may optionally accompany it. This maps
+  to `reasonCode.text` (the free text) plus an optional `reasonCode.coding` (ICPC) when a code is
+  sent. A free-text-only `CodeableConcept` (text, no coding) is valid in FHIR, so no
+  `data-absent-reason` is needed. Open: whether to constrain `reasonCode.coding` to an ICPC
+  binding (or slice) once the dataset/transaction fixes the code system.
 
 ### IG infrastructure
 

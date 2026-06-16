@@ -71,6 +71,9 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 * reasonCode ^alias[0] = "RedenBericht"
 * reasonCode ^alias[1] = "Context"
 * reasonCode ^definition = "Geeft de reden van de verwijzing of de update. Hierbij is de beschrijving als vrije tekst op aangeven van het NHG verplicht. Daarnaast kan er ook een ICPC-code van de episode worden meegestuurd, al dan niet aangevuld met meer details over de vastlegging van de ICPC."
+// The NHG mandates the free-text description; coding (ICPC) stays optional and is left
+// unconstrained here (see the Open Items page).
+* reasonCode.text 1..1
 * reasonCode insert Obligation
 * supportingInfo 1..*
 * supportingInfo only Reference(Resource or HgReferralCompositionAmbulanceHAP or HgReferralDocumentReferenceAmbulanceHAP)
@@ -93,6 +96,9 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * . ^short = "Core"
 * . ^alias[0] = "Kern"
 * . ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
+// type is fixed at the use case layer (not the generic layer) because the document type is
+// use case specific; the Ambulanceverwijzing is a referral note.
+* type = $loinc#57133-1 "Referral note"
 * status 1..1
 * status insert Obligation
 * subject 1..1
@@ -141,6 +147,7 @@ Title: "hg referral DocumentReference - Ambulance to HAP"
 Description: "Attached document for the ambulance to GP out-of-hours post (HAP) referral. The folded CommunicatieItem category and sender are carried on `category` and `author`."
 * . ^short = "CommunicationItem"
 * . ^alias[0] = "CommunicatieItem"
+* . ^comment = "The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list, PDF content) follow the [document specification for the Ambulanceverwijzing](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Specificatie_van_het_document_binnen_de_Ambulanceverwijzing_naar_de_Huisartsenpost) in the Nictiz functional design, and should be kept aligned with it as that specification is finalised."
 * masterIdentifier 1..1
 * masterIdentifier ^short = "DocumentIdentification"
 * masterIdentifier ^alias[0] = "DocumentIdentificatie"
@@ -157,6 +164,10 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
 * type ^alias[0] = "DocumentType"
 * type ^definition = "Geeft aan welk type document is toegevoegd. Op dit moment is de BSA lijst gekoppeld vanuit de Ambulance."
 * type insert Obligation
+* category ^short = "CommunicationCategory"
+* category ^alias[0] = "CommunicatieCategorie"
+* category ^comment = "Maps to dataset element CommunicatieCategorie (hg-dataelement-5463). No value set is bound yet - the terminology is still open (see the Open Items page)."
+* category insert Obligation
 * author 1..1
 * author ^short = "CommunicationSender"
 * author ^alias[0] = "CommunicatieAfzender"

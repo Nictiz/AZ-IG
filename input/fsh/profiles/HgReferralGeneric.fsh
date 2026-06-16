@@ -45,8 +45,8 @@ Parent: Composition
 Id: hg-ReferralComposition
 Title: "hg referral Composition"
 Description: "Generic referral note carrying the textual *rubrieken* as Composition sections. Open-world base for the use case layer."
-// Fixed here assuming all Acute Zorg referral compositions are referral notes.
-// If a future use case requires a different document type, move this to the use case layer.
+// Document type (Composition.type) is intentionally NOT fixed here - it is use case specific.
+// Each use case layer fixes it (the AMB-HAP layer fixes it to LOINC 57133-1, Referral note).
 //
 // Section structure: deliberately left open at this layer. Experience from the ELZ (primary
 // care) profiles shows that section codes and content are highly use case specific - the ELZ
@@ -56,7 +56,6 @@ Description: "Generic referral note carrying the textual *rubrieken* as Composit
 // layer defines its own section slicing (discriminator and named slices) with the codes
 // appropriate for that transaction; the slicing is intentionally NOT declared here so the
 // use case profile owns it and its snapshot anchors the slice children correctly.
-* type = $loinc#57133-1 "Referral note"
 * subject only Reference(Resource or $nlcore-Patient)
 * author only Reference(Practitioner or PractitionerRole or Device or Patient or RelatedPerson or Organization or $nlcore-PractitionerRole or $nlcore-Organization or $nlcore-Patient or $nlcore-ContactPerson)
 * author insert HealthProfessionalRefComment
