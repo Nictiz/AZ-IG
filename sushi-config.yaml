@@ -13,14 +13,33 @@ publisher:
 description: "FHIR R4 Implementation Guide for information exchange in acute care settings in the Netherlands (Acute Zorg), built on nl-core. The first use case is the Ambulanceverwijzing naar HAP (ambulance to GP out-of-hours post, AMB naar HAP)."
 menu:
   Home: index.html
-  Use Cases: use-cases.html
-  Functional Design: functional-design.html
-  Data Model: data-model.html
-  Data Exchange: data-exchange.html
+  Use cases: use-cases.html
+  Functional design: functional-design.html
+  Data model: data-model.html
+  Data exchange: data-exchange.html
   Workflow: workflow.html
-  Design Decisions: design-decisions.html
-  Open Items: open-items.html
+  Design decisions: design-decisions.html
+  Open items: open-items.html
   Artifacts: artifacts.html
+# Explicit page order so the IG page numbering follows the menu, not the default
+# alphabetical-by-filename order (which put use-cases.md last).
+pages:
+  index.md:
+    title: Home
+  use-cases.md:
+    title: Use cases
+  functional-design.md:
+    title: Functional design
+  data-model.md:
+    title: Data model
+  data-exchange.md:
+    title: Data exchange
+  workflow.md:
+    title: Workflow
+  design-decisions.md:
+    title: Design decisions
+  open-items.md:
+    title: Open items
 dependencies:
   nictiz.fhir.nl.r4.nl-core: 0.12.0-beta.4
   nictiz.fhir.nl.r4.zib2020: 0.12.0-beta.4

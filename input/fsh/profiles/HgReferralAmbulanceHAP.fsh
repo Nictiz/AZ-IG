@@ -118,7 +118,7 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * section[treatmentGiven] ^short = "SetTreatment"
 * section[treatmentGiven] ^alias[0] = "IngesteldeBehandeling"
 * section[treatmentGiven] ^definition = "Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht."
-* section[treatmentGiven].code = $sct#182991002
+* section[treatmentGiven].code = $loinc#18776-5
 * section[treatmentGiven].extension contains HgExtTextValue named treatmentGivenTextValue 0..1
 * section[treatmentGiven] insert Obligation
 * section[treatmentGiven].extension[treatmentGivenTextValue] 1..1
@@ -126,7 +126,7 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * section[diagnosisConclusion] ^short = "DiagnosisConclusion"
 * section[diagnosisConclusion] ^alias[0] = "Diagnose/Conclusie"
 * section[diagnosisConclusion] ^definition = "Geeft de diagnose en/of conclusie."
-* section[diagnosisConclusion].code = $sct#60022001
+* section[diagnosisConclusion].code = $loinc#55110-1
 * section[diagnosisConclusion].extension contains HgExtTextValue named diagnosisConclusionTextValue 0..1
 * section[diagnosisConclusion] insert Obligation
 * section[diagnosisConclusion].extension[diagnosisConclusionTextValue] 1..1
