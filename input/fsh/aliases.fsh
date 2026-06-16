@@ -1,6 +1,7 @@
 // NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 Alias: $sct = http://snomed.info/sct
 Alias: $loinc = http://loinc.org
+Alias: $request-status = http://hl7.org/fhir/request-status
 Alias: $bsn = http://fhir.nl/fhir/NamingSystem/bsn
 Alias: $ura = http://fhir.nl/fhir/NamingSystem/ura
 Alias: $nlcore-Patient = http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient

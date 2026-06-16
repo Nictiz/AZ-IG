@@ -2,10 +2,6 @@ These items need confirmation or resolution before the profiles can be finalised
 
 ### Profiles
 
-- **Bestemmingsstatus (Envelop).** Modelled provisionally through `ServiceRequest.status`
-  (active maps to active, cancelled maps to revoked). The third dataset value, "transferred",
-  has no clean FHIR core equivalent and may need a small extension. To be decided.
-
 - **`DocumentReference.category` binding.** Left open pending a suitable zib, nl-core, or
   generic value set. The original Nictiz profile bound the CommunicatieItem category to an
   NHG-derived set, which is out of scope here.
