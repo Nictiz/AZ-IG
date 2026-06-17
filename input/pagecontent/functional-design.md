@@ -6,6 +6,25 @@ The information exchange described in this Implementation Guide is defined by tw
 
 - The **Ontwerp Gegevensuitwisseling Acute Zorg** ([functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg)) is the Nictiz functional design document that translates the *richtlijn* into structured, implementable information exchange specifications. It defines datasets, message structures, and exchange directions for each use case.
 
+### Position in the Nictiz five-layer model
+
+Interoperability requires agreements on five layers - the Nictiz
+[vijflagenmodel](https://www.nictiz.nl/wat-we-doen/zorginformatiestelsel/interoperabiliteit/lagenmodel-3/) -
+with *wet- en regelgeving* (legislation) and *beveiliging* (security) as conditions across all of
+them. This Implementation Guide mainly specifies the **Informatie** and **Applicatie** layers; the
+layers above and below it are established elsewhere.
+
+| Layer | For this transaction | Where in this IG |
+|---|---|---|
+| Organisatie | Governance and agreements between the parties (ambulance/RAV, HAP), the *Richtlijn Gegevensuitwisseling Acute Zorg*, and the national release policy. Largely outside this technical IG. | [Home](index.html), Functional design (this page) |
+| Zorgproces | The handover itself: an ambulance professional refers a patient to the HAP after on-scene care, one-directional PUSH. | [Use cases](use-cases.html), [Workflow](workflow.html) |
+| Informatie | What is exchanged: the ART-DECOR dataset, the zibs and nl-core, and the dataset mappings. | [Data model](data-model.html), this page |
+| Applicatie | How systems exchange it: the FHIR R4 profiles, the message structure (MessageHeader/Bundle), CapabilityStatements and ActorDefinitions. | [Artifacts](artifacts.html), [Data model](data-model.html) |
+| IT-infrastructuur | The transport: the exchange paradigm (FHIR Messaging, RESTful or FHIR Document), not yet chosen. | [Data exchange](data-exchange.html) |
+
+The two conditional columns, *wet- en regelgeving* and *beveiliging*, apply across every layer and
+are out of scope of this IG.
+
 ### Use case: Ambulanceverwijzing (AMB naar HAP), section 2.16
 
 [Section 2.16 of the functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)
