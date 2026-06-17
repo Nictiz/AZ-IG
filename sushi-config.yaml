@@ -3,10 +3,10 @@ canonical: http://nictiz.nl/fhir
 name: AcuteZorg
 title: "Acute Zorg"
 status: draft
-version: 0.1.0
+version: 0.1.0-beta.1
 fhirVersion: 4.0.1
 copyrightYear: 2026+
-releaseLabel: ci-build
+releaseLabel: qa-preview
 publisher:
   name: Nictiz
   url: http://nictiz.nl

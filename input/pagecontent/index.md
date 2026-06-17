@@ -44,6 +44,16 @@ conformance/validation guidance are on the [Data Model](data-model.html) page.
 A number of profile decisions and architectural choices are still pending. See the
 [Open Items](open-items.html) page for the full list.
 
+### Versioning and releases
+
+Versions follow the Nictiz [Nationaal Releasebeleid](https://nationalebibliotheek.nictiz.nl/assets/uploads/2026/03/20260122_Nationaal-releasebeleid-versie-0.9.pdf)
+(semantic versioning). Concept publications preceding the first release carry a suffix -
+`0.y.z-alpha` (for consultation), `0.y.z-beta` (feature-complete, for testing in a test setting)
+or `0.y.z-rc` (release candidate); the first full publication is `1.0.0`. From `1.0.0` onward,
+incompatible changes increment the major version, compatible functional changes the minor, and
+compatible fixes the patch. Versions before `1.0.0` - including the current one - are
+pre-publication and intended for review and testing, not for production use.
+
 ### Dependencies
 
 {% include dependency-table.xhtml %}
