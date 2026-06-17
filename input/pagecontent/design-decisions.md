@@ -105,6 +105,19 @@ per-target dataelements are therefore recorded as element-level mappings (the *z
 the Organization reached via the sending PractitionerRole's `.organization`). targetProfile
 slicing would be the right tool for a future repeatable reference.
 
+The *zorgaanbieder* is referenced as `nl-core-HealthcareProvider-Organization` **directly**, not
+through the `nl-core-HealthcareProvider` (Location) focal resource. nl-core makes Location the
+focal resource of the zib HealthcareProvider because, in its words, "most references to this zib
+are concerned about the recording of the physical location where the care to patient/client takes
+place rather than the organizational information." That rationale does not hold here: the
+*zorgaanbieder* on `requester`/`performer` (and on `MessageHeader.sender`) is the organisational
+identity of the message sender and recipient (RAV and HAP, addressed by URA), an addressing
+concept with no care-location component, and the dataset carries no location data to populate a
+Location resource. Routing through the Location focal resource would add an empty Location whose
+only content is `managingOrganization`. We therefore reference the Organization profile directly;
+a use case that genuinely needs the physical care location should reference `nl-core-HealthcareProvider`
+instead.
+
 #### Why nl-core profiles are listed alongside FHIR core types
 
 When a reference constraint lists only an nl-core profile \- for example `Reference(nl-core-Patient)`

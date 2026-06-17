@@ -17,32 +17,25 @@ Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1673" "Envelop"
 * status -> "hg-dataelement-5556" "Bestemmingsstatus"
-// TypeBericht (1685): defined in the shared dataset; not explicitly modeled in AMB-HAP
-// transaction 4.145 (message type is implicit). Traceability link only.
-* category -> "hg-dataelement-1685" "TypeBericht"
-// Urgentie (1702): defined in the shared dataset; not explicitly modeled in AMB-HAP
-// transaction 4.145. Traceability link only.
+// TypeBericht (1685): defined in the shared dataset; not explicitly modeled in AMB-HAP.
+// Urgentie (1702): defined in the shared dataset; not explicitly modeled in AMB-HAP.
 * priority -> "hg-dataelement-1702" "Urgentie"
 * subject -> "hg-dataelement-1676" "Patient"
 * authoredOn -> "hg-dataelement-1684" "Datum en tijd"
-// Verzender/Ontvanger map to multiple dataelements (generic + zorgverlener + zorgaanbieder).
-// These references are max-1 (one sender, one recipient), which FHIR does not allow to be
-// sliced, so the per-target dataelements are recorded as element-level mappings rather than on
-// targetProfile slices. zorgverlener = the PractitionerRole target; zorgaanbieder = the
-// Organization it belongs to (reached via PractitionerRole.organization).
 * requester -> "hg-dataelement-5089" "Verzender"
 * requester -> "hg-dataelement-5398" "Verzender (zorgverlener)"
 * requester -> "hg-dataelement-5391" "Verzender (zorgaanbieder)"
 * performer -> "hg-dataelement-1680" "Ontvanger"
-* performer -> "hg-dataelement-5399" "Ontvanger (zorgverlener)"
+// Ontvanger (zorgverlener) (5399) is intentionally not mapped: the HAP is addressed as an
+// organisation (zorgaanbieder, 5400), not as a named professional, so there is no PractitionerRole
+// target for the receiver. This is asymmetric with the sender, which keeps 5398 (zorgverlener).
 * performer -> "hg-dataelement-5400" "Ontvanger (zorgaanbieder)"
 // RedenBericht and Context sit inside Kern in the dataset hierarchy. In FHIR, the reason
-// for referral is placed on ServiceRequest.reasonCode rather than inside the Composition
-// (Kern). This is a deliberate placement over strict dataset hierarchy.
+// for referral is placed on ServiceRequest.reasonCode and replicated inside the Composition.
 * reasonCode -> "hg-dataelement-1872" "RedenBericht"
-* reasonCode -> "hg-dataelement-1710" "Context"
+* reasonCode.text -> "hg-dataelement-1710" "Context"
 * supportingInfo -> "hg-dataelement-1709" "Kern"
-* supportingInfo -> "hg-dataelement-5457" "CommunicatieItem (gerealiseerd via DocumentReference)"
+* supportingInfo -> "hg-dataelement-5457" "CommunicatieItem"
 * patientInstruction -> "hg-dataelement-1752" "AfgesprokenMetPatient"
 
 Mapping: HgReferralCompositionAmbulanceHAPDataset
@@ -65,24 +58,15 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 // Document it contains (5472). Both are mapped at root level.
 * -> "hg-dataelement-5457" "CommunicatieItem"
 * -> "hg-dataelement-5472" "Document"
-* masterIdentifier -> "hg-dataelement-5473" "DocumentIdentificatie"
+* identifier -> "hg-dataelement-5473" "DocumentIdentificatie"
 * identifier -> "hg-dataelement-5474" "DocumentSetIdentificatie"
 * type -> "hg-dataelement-5554" "DocumentType"
 * category -> "hg-dataelement-5463" "CommunicatieCategorie"
-// CommunicatieAfzender (5464) is folded onto author.
-// CommunicatieGeadresseerde (5468) has no direct FHIR field; the referral performer covers
-// that role implicitly.
-* author -> "hg-dataelement-5464" "CommunicatieAfzender"
 * content.attachment.contentType -> "hg-dataelement-5476" "DocumentBestandtype"
 * content.attachment.data -> "hg-dataelement-5477" "DocumentInhoud"
 * content.attachment.title -> "hg-dataelement-5552" "DocumentNaam"
 * content.attachment.creation -> "hg-dataelement-5553" "DocumentCreatieDatumTijd"
-// Known gaps - no clean FHIR mapping available in R4:
-// hg-dataelement-5458 (Identificatienummer van CommunicatieItem): masterIdentifier is
-//   used for the Document identity (5473); the CommunicatieItem-level ID has no home
-//   in the folded model.
-// hg-dataelement-5475 (DocumentVersienummer): DocumentReference R4 has no version number
-//   field; an extension would be needed to carry this element.
+// Known gaps: see 'Open items' in the IG.
 
 Mapping: HgReferralMessageHeaderAmbulanceHAPDataset
 Source: HgReferralMessageHeaderAmbulanceHAP

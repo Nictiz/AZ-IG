@@ -12,13 +12,20 @@
 // pin to a released version of nictiz.fhir.nl.r4.acutezorg.
 // =============================================================================
 
-// Per profiling guideline 13.2.2 (Referencing zib HealthProfessional): reference the
-// PractitionerRole as the entry point (it resolves to the Practitioner); keep the base
-// Practitioner/PractitionerRole open and do NOT add nl-core-HealthProfessional-Practitioner as a
-// target profile. This RuleSet carries the guideline's prescribed implementer guidance and is
-// inserted on every reference that points to a health professional.
-RuleSet: HealthProfessionalRefComment
-* ^comment = "Each occurrence of the zib HealthProfessional is normally represented by _two_ FHIR resources: a PractitionerRole resource (instance of [nl-core-HealthProfessional-PractitionerRole](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole)) and a Practitioner resource (instance of [nl-core-HealthProfessional-Practitioner](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner)). The Practitioner resource is referenced from the PractitionerRole instance. For this reason, sending systems should fill the reference to the PractitionerRole instance here, and not the Practitioner resource. Receiving systems can then retrieve the reference to the Practitioner resource from that PractitionerRole instance. In rare circumstances, there is only a Practitioner instance, in which case it is that instance which will be referenced here. However, since this should be the exception, the nl-core-HealthProfessional-Practitioner profile is not explicitly mentioned as a target profile."
+// Implementer guidance for references that point to a party (a health professional and/or a
+// healthcare provider organisation). Because ElementDefinition.comment is single-valued, the two
+// pieces of guidance below are combined into one RuleSet rather than two: an element cannot carry
+// two separate comments, and every reference that names a PractitionerRole here also names an
+// Organization. Inserted on requester, performer, author and sender.
+//   1. zib HealthProfessional (guideline 13.2.2): reference the PractitionerRole as the entry
+//      point (it resolves to the Practitioner); keep base Practitioner/PractitionerRole open and
+//      do NOT add nl-core-HealthProfessional-Practitioner as a target profile.
+//   2. zib HealthcareProvider: reference nl-core-HealthcareProvider-Organization directly, not the
+//      nl-core-HealthcareProvider (Location) focal resource - see the Design Decisions page.
+RuleSet: PartyReferenceComment
+* ^comment = """Each occurrence of the zib HealthProfessional is normally represented by _two_ FHIR resources: a PractitionerRole resource (instance of [nl-core-HealthProfessional-PractitionerRole](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole)) and a Practitioner resource (instance of [nl-core-HealthProfessional-Practitioner](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner)). The Practitioner resource is referenced from the PractitionerRole instance. For this reason, sending systems should fill the reference to the PractitionerRole instance here, and not the Practitioner resource. Receiving systems can then retrieve the reference to the Practitioner resource from that PractitionerRole instance. In rare circumstances, there is only a Practitioner instance, in which case it is that instance which will be referenced here. However, since this should be the exception, the nl-core-HealthProfessional-Practitioner profile is not explicitly mentioned as a target profile.
+
+Where the zib HealthcareProvider (_zorgaanbieder_) is referenced, the [nl-core-HealthcareProvider-Organization](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization) profile is referenced directly, not the nl-core-HealthcareProvider (Location) focal resource. nl-core makes Location the focal resource of the zib because most references concern the physical location where care takes place; here the reference concerns the organisational identity (addressing) of the party and carries no care-location data, so the Organization profile is referenced directly. See the Design Decisions page."""
 
 Profile: HgReferralServiceRequest
 Parent: ServiceRequest
@@ -35,9 +42,9 @@ Description: "Generic referral request (workflow 'request' on FHIR core ServiceR
 * intent = #order
 * subject only Reference(Patient or Group or Location or Device or $nlcore-Patient)
 * requester only Reference(Practitioner or PractitionerRole or Organization or Patient or RelatedPerson or Device or $nlcore-PractitionerRole or $nlcore-Organization or $nlcore-Patient or $nlcore-ContactPerson)
-* requester insert HealthProfessionalRefComment
+* requester insert PartyReferenceComment
 * performer only Reference(Practitioner or PractitionerRole or Organization or CareTeam or HealthcareService or Patient or Device or RelatedPerson or $nlcore-PractitionerRole or $nlcore-Organization or $nlcore-Patient or $nlcore-ContactPerson)
-* performer insert HealthProfessionalRefComment
+* performer insert PartyReferenceComment
 * supportingInfo only Reference(Resource or HgReferralComposition or HgReferralDocumentReference)
 
 Profile: HgReferralComposition
@@ -58,15 +65,16 @@ Description: "Generic referral note carrying the textual *rubrieken* as Composit
 // use case profile owns it and its snapshot anchors the slice children correctly.
 * subject only Reference(Resource or $nlcore-Patient)
 * author only Reference(Practitioner or PractitionerRole or Device or Patient or RelatedPerson or Organization or $nlcore-PractitionerRole or $nlcore-Organization or $nlcore-Patient or $nlcore-ContactPerson)
-* author insert HealthProfessionalRefComment
+* author insert PartyReferenceComment
 
 Profile: HgReferralDocumentReference
 Parent: DocumentReference
 Id: hg-ReferralDocumentReference
 Title: "hg referral DocumentReference"
 Description: "Generic attached document for a referral (for example an ECG or photo). Open-world base for the use case layer."
+* subject only Reference(Patient or Practitioner or Group or Device or $nlcore-Patient)
 * author only Reference(Practitioner or PractitionerRole or Organization or Device or Patient or RelatedPerson or $nlcore-PractitionerRole or $nlcore-Organization or $nlcore-Patient or $nlcore-ContactPerson)
-* author insert HealthProfessionalRefComment
+* author insert PartyReferenceComment
 
 Profile: HgReferralMessageHeader
 Parent: MessageHeader
@@ -76,7 +84,7 @@ Description: "Generic MessageHeader for a referral PUSH. Focuses the referral Se
 * event[x] only Coding
 * focus only Reference(HgReferralServiceRequest)
 * sender only Reference(Practitioner or PractitionerRole or Organization or $nlcore-PractitionerRole or $nlcore-Organization)
-* sender insert HealthProfessionalRefComment
+* sender insert PartyReferenceComment
 
 Profile: HgReferralBundle
 Parent: Bundle

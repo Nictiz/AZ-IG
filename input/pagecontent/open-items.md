@@ -15,6 +15,22 @@ These items need confirmation or resolution before the profiles can be finalised
   `data-absent-reason` is needed. Open: whether to constrain `reasonCode.coding` to an ICPC
   binding (or slice) once the dataset/transaction fixes the code system.
 
+- **`DocumentReference` identifiers (R5/R6 alignment).** The dataset carries both a document id
+  (DocumentIdentificatie, hg-dataelement-5473) and a set id (DocumentSetIdentificatie,
+  hg-dataelement-5474); in the source these are the CDA `externalDocument` `.id` and `.setId`.
+  `DocumentReference.masterIdentifier` was removed in R5/R6 (folded into `identifier`), so the
+  forward-compatible model is to carry **both** ids in `identifier` (0..\*) and set
+  `masterIdentifier 0..0`. The FHIR spec leaves the way to distinguish multiple identifiers "to
+  implementation context" and defines no code for "instance id vs set id", so the proposed
+  solution is to slice `identifier` by `type` using a small local CodeSystem
+  (`document-id` / `document-set-id`), keeping `system` = `urn:oid:{II.root}` and `value` =
+  `{II.extension}`. This is posted to the FHIR community chat for confirmation. Work in progress:
+  the dataset mappings already trace both ids to `identifier` (5473 and 5474), but the profile
+  does not yet carry the `identifier` slices or `masterIdentifier 0..0` - the slicing and the
+  local `type` CodeSystem are still to be added once the chat confirms the pattern. Related:
+  DocumentVersienummer (hg-dataelement-5475) has no home in R4 but maps to
+  `DocumentReference.version` once on R5/R6.
+
 ### IG infrastructure
 
 - **Downloads page.** A dedicated Downloads page should be added once the IG is published at
