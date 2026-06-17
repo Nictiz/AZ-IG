@@ -60,7 +60,7 @@ InstanceOf: HgReferralServiceRequestAmbulanceHAP
 Usage: #example
 Title: "ServiceRequest - ambulance referral to HAP"
 Description: "Example ambulance-to-HAP referral request (the focal resource) for scenario 5b."
-* status = #active
+* status = #completed
 * intent = #order
 * code = $sct#11131000146102
 * category[referralType] = $sct#3457005
