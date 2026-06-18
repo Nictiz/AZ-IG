@@ -43,7 +43,9 @@ message with all participating resources.
 | Bundle | `hg-ReferralBundle-AmbulanceHAP` | `hg-ReferralBundle` | Messaging wrapper: the message bundle |
 
 `Practitioner` has no dedicated use case profile; the nl-core profile is used directly. The free
-text of each Composition section is carried by the `hg-ext-TextValue` extension.
+text of each Composition section is carried in the section's own narrative
+(`Composition.section.text`, whose `.div` holds plain text or the limited xhtml allowed for a
+Narrative).
 
 ### Reading obligations
 

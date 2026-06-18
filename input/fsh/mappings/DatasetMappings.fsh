@@ -46,8 +46,8 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1709" "Kern"
 * subject -> "hg-dataelement-1676" "Patient"
 * author -> "hg-dataelement-5089" "Verzender"
-* section[treatmentGiven].extension[treatmentGivenTextValue] -> "hg-dataelement-1711" "IngesteldeBehandeling"
-* section[diagnosisConclusion].extension[diagnosisConclusionTextValue] -> "hg-dataelement-1749" "Diagnose/Conclusie"
+* section[treatmentGiven].text.div -> "hg-dataelement-1711" "IngesteldeBehandeling"
+* section[diagnosisConclusion].text.div -> "hg-dataelement-1749" "Diagnose/Conclusie"
 
 Mapping: HgReferralDocumentReferenceAmbulanceHAPDataset
 Source: HgReferralDocumentReferenceAmbulanceHAP

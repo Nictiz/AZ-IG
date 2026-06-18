@@ -88,12 +88,10 @@ Description: "Example referral note carrying the instituted treatment and the di
 * section[treatmentGiven].code = $loinc#18776-5
 * section[treatmentGiven].text.status = #generated
 * section[treatmentGiven].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Antacidum toegediend, klachten verminderd.</div>"
-* section[treatmentGiven].extension[treatmentGivenTextValue].valueString = "Antacidum toegediend, klachten verminderd."
 * section[diagnosisConclusion].title = "Diagnose/conclusie"
 * section[diagnosisConclusion].code = $loinc#55110-1
 * section[diagnosisConclusion].text.status = #generated
 * section[diagnosisConclusion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Waarschijnlijk maagklachten. Controle door huisarts gewenst.</div>"
-* section[diagnosisConclusion].extension[diagnosisConclusionTextValue].valueString = "Waarschijnlijk maagklachten. Controle door huisarts gewenst."
 
 Instance: hg-ReferralDocumentReference-AmbulanceHAP-ecg
 InstanceOf: HgReferralDocumentReferenceAmbulanceHAP

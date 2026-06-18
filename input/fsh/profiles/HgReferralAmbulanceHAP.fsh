@@ -118,27 +118,29 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * title 1..1
 * title insert Obligation
 // Re-declare the section slicing (inherited from the generic parent) so the snapshot
-// generator anchors the slice child elements (.code, .extension) in this profile.
+// generator anchors the slice child elements (.code, .text) in this profile.
 * section ^slicing.discriminator[0].type = #pattern
 * section ^slicing.discriminator[0].path = "code"
 * section ^slicing.rules = #open
 * section contains treatmentGiven 0..* and diagnosisConclusion 0..1
+// The free-text content of each rubriek is carried in the section's own narrative
+// (Composition.section.text, a Narrative whose .div holds the content). The div may contain plain
+// text or the limited xhtml subset the FHIR spec allows for Narrative. section.text is required
+// (1..1) on these narrative-only sections and carries the populate-if-known obligation.
 * section[treatmentGiven] ^short = "SetTreatment"
 * section[treatmentGiven] ^alias[0] = "IngesteldeBehandeling"
 * section[treatmentGiven] ^definition = "Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht."
 * section[treatmentGiven].code = $loinc#18776-5
-* section[treatmentGiven].extension contains HgExtTextValue named treatmentGivenTextValue 0..1
 * section[treatmentGiven] insert Obligation
-* section[treatmentGiven].extension[treatmentGivenTextValue] 1..1
-* section[treatmentGiven].extension[treatmentGivenTextValue] insert Obligation
+* section[treatmentGiven].text 1..1
+* section[treatmentGiven].text insert Obligation
 * section[diagnosisConclusion] ^short = "DiagnosisConclusion"
 * section[diagnosisConclusion] ^alias[0] = "Diagnose/Conclusie"
 * section[diagnosisConclusion] ^definition = "Geeft de diagnose en/of conclusie."
 * section[diagnosisConclusion].code = $loinc#55110-1
-* section[diagnosisConclusion].extension contains HgExtTextValue named diagnosisConclusionTextValue 0..1
 * section[diagnosisConclusion] insert Obligation
-* section[diagnosisConclusion].extension[diagnosisConclusionTextValue] 1..1
-* section[diagnosisConclusion].extension[diagnosisConclusionTextValue] insert Obligation
+* section[diagnosisConclusion].text 1..1
+* section[diagnosisConclusion].text insert Obligation
 
 Profile: HgReferralDocumentReferenceAmbulanceHAP
 Parent: HgReferralDocumentReference
