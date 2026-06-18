@@ -81,3 +81,11 @@ Target: "https://decor.nictiz.nl/ad/#/hg-/datasets/dataset/2.16.840.1.113883.2.4
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * timestamp -> "hg-dataelement-1684" "Datum en tijd (transportniveau)"
+
+Mapping: HgPatientAmbulanceHAPDataset
+Source: HgPatientAmbulanceHAP
+Target: "https://decor.nictiz.nl/ad/#/hg-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.103.1.1/2020-10-19T17:52:39"
+Id: hg-dataset-20201019
+Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
+* -> "hg-dataelement-1676" "Patient"
+* contact -> "hg-dataelement-5309" "Contactpersoon"
