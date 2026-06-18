@@ -145,8 +145,8 @@ together with a profile table and a worked example.
 
 ### Dataset traceability
 
-Each use case profile carries `Mapping` entries back to the ART-DECOR dataset Verwijzing ambulance
-naar huisartsenpost (OID 2.16.840.1.113883.2.4.3.11.60.103.1.1), under the identity
+Each use case profile carries `Mapping` entries back to the ART-DECOR dataset *Verwijzing ambulance
+naar huisartsenpost* (OID 2.16.840.1.113883.2.4.3.11.60.103.1.1), under the identity
 `hg-dataset-20201019`, following the
 [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4).
 FHIR elements point at the dataset data-element ids (`hg-dataelement-NNNN`).

@@ -7,6 +7,11 @@
 // the transaction-specific zib profile, so the model stays open-world.
 // =============================================================================
 
+// Implementer guidance for the narrative-only sections (text.status fixed to #additional).
+// Inserted on each section's text element so it renders on the profile page.
+RuleSet: SectionNarrativeComment
+* ^comment = "This section conveys its *rubriek* as free text. `text.status` is fixed to `additional` because the narrative is the source of this information, not a rendering generated from structured data: there is no expectation that `Composition.section.entry` will be populated here. The `text.div` may contain plain text or the limited xhtml subset that the FHIR specification allows for a Narrative."
+
 Profile: HgReferralServiceRequestAmbulanceHAP
 Parent: HgReferralServiceRequest
 Id: hg-ReferralServiceRequest-AmbulanceHAP
@@ -124,23 +129,27 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * section ^slicing.rules = #open
 * section contains treatmentGiven 0..* and diagnosisConclusion 0..1
 // The free-text content of each rubriek is carried in the section's own narrative
-// (Composition.section.text, a Narrative whose .div holds the content). The div may contain plain
-// text or the limited xhtml subset the FHIR spec allows for Narrative. section.text is required
-// (1..1) on these narrative-only sections and carries the populate-if-known obligation.
+// (Composition.section.text). text.status is fixed to #additional and text is required (1..1)
+// with the populate-if-known obligation; the SectionNarrativeComment RuleSet (above) renders the
+// rationale on the profile page.
 * section[treatmentGiven] ^short = "SetTreatment"
 * section[treatmentGiven] ^alias[0] = "IngesteldeBehandeling"
 * section[treatmentGiven] ^definition = "Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht."
 * section[treatmentGiven].code = $loinc#18776-5
 * section[treatmentGiven] insert Obligation
 * section[treatmentGiven].text 1..1
+* section[treatmentGiven].text.status = #additional
 * section[treatmentGiven].text insert Obligation
+* section[treatmentGiven].text insert SectionNarrativeComment
 * section[diagnosisConclusion] ^short = "DiagnosisConclusion"
 * section[diagnosisConclusion] ^alias[0] = "Diagnose/Conclusie"
 * section[diagnosisConclusion] ^definition = "Geeft de diagnose en/of conclusie."
 * section[diagnosisConclusion].code = $loinc#55110-1
 * section[diagnosisConclusion] insert Obligation
 * section[diagnosisConclusion].text 1..1
+* section[diagnosisConclusion].text.status = #additional
 * section[diagnosisConclusion].text insert Obligation
+* section[diagnosisConclusion].text insert SectionNarrativeComment
 
 Profile: HgReferralDocumentReferenceAmbulanceHAP
 Parent: HgReferralDocumentReference
