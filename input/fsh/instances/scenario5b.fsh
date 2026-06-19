@@ -63,7 +63,7 @@ Description: "Example ambulance-to-HAP referral request (the focal resource) for
 * status = #completed
 * intent = #order
 * code = $sct#11131000146102
-* category[referralType] = $sct#3457005
+* category[referralType] = $sct#1861000124105
 * subject = Reference(hg-Patient-AmbulanceHAP-patrick)
 * authoredOn = "2026-06-08T11:15:00+02:00"
 * requester = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
