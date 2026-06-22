@@ -1,6 +1,6 @@
 // NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // =============================================================================
-// Use case actors for Ambulanceverwijzing (AMB -> HAP, message 24).
+// Use case actors for Ambulance referral (Ambulanceverwijzing) (AMB -> HAP, message 24).
 //
 // These actors correspond to the Systeemrollen defined in the Ontwerp Acute Zorg
 // functional design (section 2.16):
@@ -11,8 +11,8 @@
 Instance: hg-ActorSender-AmbulanceHAP
 InstanceOf: ActorDefinition
 Usage: #definition
-Title: "hg referral Sender - Ambulanceverwijzing (AMBS, AZP-AVS)"
-Description: "Ambulance management system (AMBS) that produces and transmits the Ambulanceverwijzing to the GP/HAP."
+Title: "hg referral Sender - Ambulance referral (AMBS, AZP-AVS)"
+Description: "Ambulance management system (AMBS) that produces and transmits the Ambulance referral to the HIS/HAPIS."
 * url = "http://nictiz.nl/fhir/ActorDefinition/hg-ActorSender-AmbulanceHAP"
 * name = "HgActorSenderAmbulanceHAP"
 * status = #active
@@ -27,8 +27,8 @@ An HG Referral Sender **SHALL** populate obligation-marked elements when it has 
 Instance: hg-ActorReceiver-AmbulanceHAP
 InstanceOf: ActorDefinition
 Usage: #definition
-Title: "hg referral Receiver - Ambulanceverwijzing (HIS/HAPIS, AZP-AVO)"
-Description: "GP information system (HIS) or GP out-of-hours post information system (HAPIS) that accepts the Ambulanceverwijzing from the ambulance."
+Title: "hg referral Receiver - Ambulance referral (HIS/HAPIS, AZP-AVO)"
+Description: "GP information system (HIS) or GP out-of-hours post information system (HAPIS) that accepts the Ambulance referral from the AMBS."
 * url = "http://nictiz.nl/fhir/ActorDefinition/hg-ActorReceiver-AmbulanceHAP"
 * name = "HgActorReceiverAmbulanceHAP"
 * status = #active
