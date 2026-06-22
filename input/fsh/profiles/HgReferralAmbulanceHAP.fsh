@@ -34,7 +34,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 * category ^slicing.discriminator[0].path = "$this"
 * category ^slicing.rules = #open
 * category contains referralType 1..1
-* category[referralType] = $sct#3457005
+* category[referralType] = $sct#1861000124105
 * category ^short = "MessageType"
 * category ^alias[0] = "TypeBericht"
 * category ^definition = "Geeft het type bericht dat verstuurd wordt door de verzender."
