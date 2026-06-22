@@ -62,6 +62,19 @@ pre-publication and intended for review and testing, not for production use.
 
 The profiles are authored in FSH and compiled with Sushi, then built with the HL7 IG Publisher.
 
+### Authors and publication
+
+This Implementation Guide is authored and published by Nictiz, and will be used in a proof of
+concept (PoC) in the near future.
+
+The contributing authors are:
+
+- Eduard de Rijcke (Nictiz)
+- Onno Gieling (Nictiz)
+- Shenaida Hoogland (Nictiz)
+- Yvette Maes (Nictiz)
+- Niek van Galen (Interoplab)
+
 ### Authoring note
 
 The authors use AI to help structure the narrative pages and to correct grammar - keeping the
