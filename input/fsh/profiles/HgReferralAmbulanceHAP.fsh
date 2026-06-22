@@ -158,7 +158,7 @@ Title: "hg referral DocumentReference - Ambulance to HAP"
 Description: "Attached document for the ambulance to GP out-of-hours post (HAP) referral. The folded CommunicatieItem category and sender are carried on `category` and `author`."
 * . ^short = "CommunicationItem"
 * . ^alias[0] = "CommunicatieItem"
-* . ^comment = "The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list, PDF content) follow the [document specification for the Ambulanceverwijzing](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Specificatie_van_het_document_binnen_de_Ambulanceverwijzing_naar_de_Huisartsenpost) in the Nictiz functional design, and should be kept aligned with it as that specification is finalised."
+* . ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list, PDF content) follow the [document specification for the Ambulanceverwijzing](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Specificatie_van_het_document_binnen_de_Ambulanceverwijzing_naar_de_Huisartsenpost) in the Nictiz functional design, and should be kept aligned with it as that specification is finalised."
 * masterIdentifier 1..1
 * masterIdentifier ^short = "DocumentIdentification"
 * masterIdentifier ^alias[0] = "DocumentIdentificatie"
@@ -170,7 +170,7 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
 * identifier ^definition = "Identificatienummer van de set waar het document toe behoort."
 * identifier insert Obligation
 * type 1..1
-* type from urn:oid:2.16.840.1.113883.2.4.3.11.60.55.11.16 (required)
+* type from HgBijlagen (required)
 * type ^short = "DocumentType"
 * type ^alias[0] = "DocumentType"
 * type ^definition = "Geeft aan welk type document is toegevoegd. Op dit moment is de BSA lijst gekoppeld vanuit de Ambulance."

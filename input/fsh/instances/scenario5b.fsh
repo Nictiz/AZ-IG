@@ -103,7 +103,7 @@ Description: "Example attached document (an ECG) accompanying the referral in sc
 * masterIdentifier.value = "urn:uuid:1b1f4f9e-0000-4000-8000-000000000001"
 * identifier.system = "urn:ietf:rfc:3986"
 * identifier.value = "urn:uuid:1b1f4f9e-0000-4000-8000-000000000002"
-* type.text = "ECG"
+* type = AcutezorgCodesysteem16#001 "12 afleidingen ECG"
 * category.text = "Bijlage"
 * author = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
 * content.attachment.contentType = #application/pdf
