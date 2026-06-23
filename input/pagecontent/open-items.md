@@ -33,6 +33,28 @@ These items need confirmation or resolution before the profiles can be finalised
 
 ### IG infrastructure
 
+- **Terminology download from ART-DECOR.** Project-specific terminology is taken from ART-DECOR
+  (the source of truth) and embedded verbatim as predefined resources in `input/resources`, not
+  authored in FSH. So far only the `DocumentReference.type` terminology (the `acutezorg-codesysteem-16`
+  code system and the *Bijlagen* value set) has been downloaded. Before finalisation, make sure
+  **all** terminology the profiles bind to is downloaded from ART-DECOR and kept in sync, using the
+  Nictiz download tooling:
+  [Nictiz-R4-zib2020/util/downloadTerminology](https://github.com/Nictiz/Nictiz-R4-zib2020/tree/main/util/downloadTerminology).
+
+  **Known build errors (expected for now).** The ART-DECOR code system export is a
+  `content = not-present` shell - the concepts live in the *Bijlagen* value set's `compose.include`.
+  When the IG is built **offline / against tx.fhir.org** (which does not host this Nictiz OID code
+  system), the Publisher cannot expand the value set and reports two `No server available` errors on
+  `ValueSet 2.16.840.1.113883.2.4.3.11.60.103.11.31--20250820144948`. These are environmental, not a
+  content defect: the required binding still validates structurally (the value set enumerates all 13
+  concepts, and instances only get an info/warning that the code cannot be validated). They resolve
+  once the build runs against a Nictiz terminology server that hosts the code system - see the
+  Nictiz QA tooling item below. Left as known errors until that pipeline is wired up.
+
+- **Run the Nictiz QA tooling.** In addition to the HL7 IG Publisher QA, run the Nictiz QA tooling
+  against the build to catch Nictiz-specific conformance issues. Wire it into the build/CI
+  before publication.
+
 - **Downloads page.** A dedicated Downloads page should be added once the IG is published at
   a stable URL. It should include the npm install command for `nictiz.fhir.nl.r4.acutezorg`,
   direct links to `package.tgz`, `full-ig.zip`, and the JSON/XML definition zips generated

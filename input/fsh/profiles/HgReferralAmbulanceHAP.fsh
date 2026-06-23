@@ -170,7 +170,7 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
 * identifier ^definition = "Identificatienummer van de set waar het document toe behoort."
 * identifier insert Obligation
 * type 1..1
-* type from HgBijlagen (required)
+* type from $vs-bijlagen (required)
 * type ^short = "DocumentType"
 * type ^alias[0] = "DocumentType"
 * type ^definition = "Geeft aan welk type document is toegevoegd. Op dit moment is de BSA lijst gekoppeld vanuit de Ambulance."

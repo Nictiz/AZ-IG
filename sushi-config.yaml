@@ -53,5 +53,13 @@ parameters:
   # codes such as 11131000146102 resolve on tx.fhir.org instead of the International edition.
   # The edition/version is set in the referenced expansion Parameters resource.
   path-expansion-params: '../../expansion-params.json'
+  # The acutezorg-codesysteem-16 code system and the Bijlagen value set are embedded verbatim as
+  # ART-DECOR FHIR exports (input/resources). They keep their source canonicals (urn:oid:... for the
+  # code system, the decor.nictiz.nl URL for the value set) instead of the IG's http://nictiz.nl/fhir
+  # base. Registering those canonicals as special-url tells the IG Publisher the mismatch is
+  # intentional, and lets instances carrying system = urn:oid:...55.5.16 validate.
+  special-url:
+    - urn:oid:2.16.840.1.113883.2.4.3.11.60.55.5.16
+    - http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.31--20250820144948
 instanceOptions:
   manualSliceOrdering: true
