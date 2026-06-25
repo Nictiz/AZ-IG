@@ -104,9 +104,7 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * . ^short = "Core"
   * ^alias[0] = "Kern"
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
-// type is fixed at the use case layer (not the generic layer) because the document type is
-// use case specific; the Ambulanceverwijzing is a referral note.
-* type = $loinc#57133-1 "Referral note"
+* type = $loinc#18761-7
 * status 1..1
 * status insert Obligation
 * subject 1..1

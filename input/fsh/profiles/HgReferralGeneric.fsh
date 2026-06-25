@@ -53,7 +53,7 @@ Id: hg-ReferralComposition
 Title: "hg referral Composition"
 Description: "Generic referral note carrying the textual *rubrieken* as Composition sections. Open-world base for the use case layer."
 // Document type (Composition.type) is intentionally NOT fixed here - it is use case specific.
-// Each use case layer fixes it (the AMB-HAP layer fixes it to LOINC 57133-1, Referral note).
+// Each use case layer fixes it.
 //
 // Section structure: deliberately left open at this layer. Experience from the ELZ (primary
 // care) profiles shows that section codes and content are highly use case specific - the ELZ

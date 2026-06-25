@@ -76,22 +76,22 @@ Description: "Example ambulance-to-HAP referral request (the focal resource) for
 Instance: hg-ReferralComposition-AmbulanceHAP-referral
 InstanceOf: HgReferralCompositionAmbulanceHAP
 Usage: #example
-Title: "Composition - ambulance referral note"
-Description: "Example referral note carrying the instituted treatment and the diagnosis/conclusion for scenario 5b."
+Title: "Composition - ambulance transfer summary note"
+Description: "Example tansfer summary note carrying the instituted treatment and the diagnosis/conclusion for scenario 5b."
 * status = #final
-* type = $loinc#57133-1 "Referral note"
+* type = $loinc#18761-7 "Samenvatting van overdracht [bevinding] in {instelling} d.m.v. {rol} (document)"
 * subject = Reference(hg-Patient-AmbulanceHAP-patrick)
 * date = "2026-06-08T11:15:00+02:00"
 * author = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
 * title = "Ambulanceverwijzing naar huisartsenpost"
 * section[treatmentGiven]
   * title = "Ingestelde behandeling"
-  * code = $loinc#18776-5
+  * code = $loinc#18776-5 "Behandelplan [bevinding] in {instelling} d.m.v. {rol} (document)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Antacidum toegediend, klachten verminderd.</div>"
 * section[diagnosisConclusion]
   * title = "Diagnose/conclusie"
-  * code = $loinc#55110-1
+  * code = $loinc#55110-1 "Conclusies [interpretatie] (document)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Waarschijnlijk maagklachten. Controle door huisarts gewenst.</div>"
 
@@ -121,7 +121,7 @@ InstanceOf: HgReferralMessageHeaderAmbulanceHAP
 Usage: #example
 Title: "MessageHeader - ambulance referral"
 Description: "Example MessageHeader focusing the referral ServiceRequest for the scenario 5b message."
-* eventCoding = HgMessageEvent#ambulance-referral-to-hap
+* eventCoding = HgMessageEvent#ambulance-referral-to-hap "Ambulance referral to HAP"
 * focus = Reference(hg-ReferralServiceRequest-AmbulanceHAP-referral)
 * sender = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-rav)
 * source.endpoint = "https://ambulance.example.nl/fhir"
