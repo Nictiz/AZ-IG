@@ -89,8 +89,6 @@ descriptors sourced differently:
 |---|---|
 | Envelop | Envelope |
 | Bestemmingsstatus | DestinationStatus |
-| TypeBericht | MessageType |
-| Urgentie | Urgency |
 | Patient | Patient |
 | Datum en tijd | SendDateTime |
 | Verzender | Sender |

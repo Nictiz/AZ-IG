@@ -19,7 +19,6 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * status -> "hg-dataelement-5556" "Bestemmingsstatus"
 // TypeBericht (1685): defined in the shared dataset; not explicitly modeled in AMB-HAP.
 // Urgentie (1702): defined in the shared dataset; not explicitly modeled in AMB-HAP.
-* priority -> "hg-dataelement-1702" "Urgentie"
 * subject -> "hg-dataelement-1676" "Patient"
 * authoredOn -> "hg-dataelement-1684" "Datum en tijd"
 * requester -> "hg-dataelement-5089" "Verzender"

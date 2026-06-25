@@ -42,11 +42,6 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 * category contains referralType 1..1
 * category[referralType] = $sct#308292007
 * category insert Obligation
-* priority 0..1
-  * ^short = "Urgency"
-  * ^alias[0] = "Urgentie"
-  * ^definition = "Geeft de inhoud van de urgentie."
-* priority insert Obligation
 * subject 1..1
   * ^short = "Patient"
   * ^alias[0] = "Patient"

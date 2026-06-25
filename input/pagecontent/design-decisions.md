@@ -164,12 +164,7 @@ The ART-DECOR project (`hg-`, ELZ) was originally established for primary care
 the `hg-dataelement-NNNN` identifier series \- reflects that origin. The project scope was later
 widened to cover acute care use cases such as ambulance referrals. The AMB-HAP transaction
 (4.145) is part of this wider scope; its element IDs come from the same shared catalog and
-therefore carry the same `hg-` prefix. Some elements in the catalog were defined for primary
-care transactions (ELZ) and are not explicitly constrained in AMB-HAP transaction 4.145 - for
-example TypeBericht (hg-dataelement-1685) and Urgentie (hg-dataelement-1702). Where a mapping is
-included for such an element but no further cardinality, obligation, or binding tightening is
-applied, the mapping serves as a traceability link only. The functional design describes the
-intended use.
+therefore carry the same `hg-` prefix.
 
 Because the CommunicatieItem wrapper was folded into `DocumentReference`, its sender
 (CommunicatieAfzender, hg-dataelement-5464) is mapped onto `DocumentReference.author`. The
