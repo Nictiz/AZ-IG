@@ -34,7 +34,7 @@ The worked example (scenario 5b) under [Artifacts](artifacts.html) shows a compl
 
 This IG uses the FHIR Obligations framework instead of `mustSupport`. Each obligation-marked element carries two actor-scoped expectations:
 
-- Sender (`hg-ActorSender-AmbulanceHAP`): **SHALL** populate the element when it knows a value (`SHALL:populate-if-known`).
+- Sender (`hg-ActorSender-AmbulanceHAP`): for a mandatory element (min >= 1) it **SHALL** always populate it (`SHALL:populate`); for an optional element it **SHALL** populate it when it knows a value (`SHALL:populate-if-known`).
 - Receiver (`hg-ActorReceiver-AmbulanceHAP`): **SHALL** accept the element without raising an error (`SHALL:no-error`).
 
 Obligations are shown per element on each profile's page. The rationale for this approach is on the [Design Decisions](design-decisions.html#conformance-via-obligations) page.

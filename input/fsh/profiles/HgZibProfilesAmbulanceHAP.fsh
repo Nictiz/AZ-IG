@@ -17,7 +17,7 @@ Description: "Patient in the ambulance to GP out-of-hours post (HAP) referral. D
 * identifier insert Obligation
 * name insert Obligation
 * gender 1..1
-* gender insert Obligation
+* gender insert ObligationMandatory
 * birthDate insert Obligation
 
 Profile: HgHealthcareProviderOrganizationAmbulanceHAP
@@ -26,9 +26,9 @@ Id: hg-HealthcareProvider-Organization-AmbulanceHAP
 Title: "hg HealthcareProvider Organization - Ambulance to HAP"
 Description: "Sending (RAV) and receiving (HAP) organization in the ambulance referral. Derived from nl-core-HealthcareProvider-Organization; an identifier (e.g. URA) is required so the organization is unambiguously addressable."
 * identifier 1..*
-* identifier insert Obligation
+* identifier insert ObligationMandatory
 * name 1..1
-* name insert Obligation
+* name insert ObligationMandatory
 
 Profile: HgHealthProfessionalPractitionerRoleAmbulanceHAP
 Parent: $nlcore-PractitionerRole

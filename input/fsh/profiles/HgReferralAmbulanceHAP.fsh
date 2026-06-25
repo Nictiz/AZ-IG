@@ -23,9 +23,9 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^definition = "Geeft de status van de ambulance naar deze bestemming. De waarden zijn: Actief = patiënt is onderweg naar de bestemming. Geannuleerd = patiënt gaat niet meer naar de bestemming. Dit is het laatste bericht van de ambulance naar de bestemming. Overgedragen = patiënt is overgedragen aan de bestemming. Dit is het laatste bericht van de ambulance naar de bestemming."
   * ^comment = "Bestemmingsstatus value mapping to ServiceRequest.status (request-status): Actief = active; Geannuleerd = revoked (FHIR R4 uses 'revoked' where ART-DECOR/STU3 used 'cancelled'); Overgedragen = completed."
 * status from HgDestinationStatus (required)
-* status insert Obligation
+* status insert ObligationMandatory
 * intent 1..1
-* intent insert Obligation
+* intent insert ObligationMandatory
 * code = $sct#11131000146102
 * category ^slicing.discriminator[0].type = #pattern
   * ^slicing.discriminator[0].path = "$this"
@@ -35,18 +35,18 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^definition = "Geeft het type bericht dat verstuurd wordt door de verzender."
 * category contains referralType 1..1
 * category[referralType] = $sct#308292007
-* category insert Obligation
+* category insert ObligationMandatory
 * subject 1..1
   * ^short = "Patient"
   * ^alias[0] = "Patient"
   * ^definition = "Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt."
 * subject only Reference(Patient or HgPatientAmbulanceHAP)
-* subject insert Obligation
+* subject insert ObligationMandatory
 * authoredOn 1..1
   * ^short = "SendDateTime"
   * ^alias[0] = "Datum en tijd"
   * ^definition = "Geeft het tijdstip waarop de verzender het bericht afrondt en aanbiedt voor verzending."
-* authoredOn insert Obligation
+* authoredOn insert ObligationMandatory
 * requester 1..1
   * ^short = "Sender"
   * ^alias[0] = "Verzender"
@@ -54,7 +54,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^alias[2] = "Zorgaanbieder"
   * ^definition = "Geeft de volledige identificatie- en contactgegevens van de verzender van het bericht."
 * requester only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
-* requester insert Obligation
+* requester insert ObligationMandatory
 * performer 1..1
   * ^short = "Recipient"
   * ^alias[0] = "Ontvanger"
@@ -62,13 +62,13 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^alias[2] = "Zorgaanbieder"
   * ^definition = "Geeft de volledige identificatie- en contactgegevens van de ontvanger van het bericht."
 * performer only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
-* performer insert Obligation
+* performer insert ObligationMandatory
 * reasonCode 1..1
   * ^short = "MessageReason"
   * ^alias[0] = "RedenBericht"
   * ^alias[1] = "Context"
   * ^definition = "Geeft de reden van de verwijzing of de update. Hierbij is de beschrijving als vrije tekst op aangeven van het NHG verplicht. Daarnaast kan er ook een ICPC-code van de episode worden meegestuurd, al dan niet aangevuld met meer details over de vastlegging van de ICPC."
-* reasonCode insert Obligation
+* reasonCode insert ObligationMandatory
 // The NHG mandates the free-text description; coding (ICPC) stays optional and is left unconstrained here (see the Open Items page).
 * reasonCode.text 1..1
 * supportingInfo 1..*
@@ -77,7 +77,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^alias[1] = "CommunicatieItem"
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
 * supportingInfo only Reference(Resource or HgReferralCompositionAmbulanceHAP or HgReferralDocumentReferenceAmbulanceHAP)
-* supportingInfo insert Obligation
+* supportingInfo insert ObligationMandatory
 * patientInstruction 0..1
   * ^short = "AgreedWithPatient"
   * ^alias[0] = "AfgesprokenMetPatient"
@@ -94,23 +94,23 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
 * type = $loinc#18761-7
 * status 1..1
-* status insert Obligation
+* status insert ObligationMandatory
 * subject 1..1
   * ^short = "Patient"
   * ^alias[0] = "Patient"
   * ^definition = "Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt."
 * subject only Reference(Patient or HgPatientAmbulanceHAP)
-* subject insert Obligation
+* subject insert ObligationMandatory
 * author 1..1
   * ^short = "Sender"
   * ^alias[0] = "Verzender"
   * ^definition = "Geeft de volledige identificatie- en contactgegevens van de verzender van het bericht."
 * author only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
-* author insert Obligation
+* author insert ObligationMandatory
 * date 1..1
-* date insert Obligation
+* date insert ObligationMandatory
 * title 1..1
-* title insert Obligation
+* title insert ObligationMandatory
 // Re-declare the section slicing (inherited from the generic parent) so the snapshot generator anchors the slice child elements (.code, .text) in this profile.
 * section ^slicing.discriminator[0].type = #pattern
   * ^slicing.discriminator[0].path = "code"
@@ -124,7 +124,7 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * section[treatmentGiven] insert Obligation
 * section[treatmentGiven].text 1..1
 * section[treatmentGiven].text.status = #additional
-* section[treatmentGiven].text insert Obligation
+* section[treatmentGiven].text insert ObligationMandatory
 * section[treatmentGiven].text insert SectionNarrativeComment
 * section[diagnosisConclusion] ^short = "DiagnosisConclusion"
   * ^alias[0] = "Diagnose/Conclusie"
@@ -133,7 +133,7 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * section[diagnosisConclusion] insert Obligation
 * section[diagnosisConclusion].text 1..1
 * section[diagnosisConclusion].text.status = #additional
-* section[diagnosisConclusion].text insert Obligation
+* section[diagnosisConclusion].text insert ObligationMandatory
 * section[diagnosisConclusion].text insert SectionNarrativeComment
 
 Profile: HgReferralDocumentReferenceAmbulanceHAP
@@ -150,13 +150,13 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
   * ^short = "DocumentIdentification"
   * ^alias[0] = "DocumentIdentificatie"
   * ^definition = "Het identificatienummer van het document."
-* identifier[documentId] insert Obligation
+* identifier[documentId] insert ObligationMandatory
 * identifier[documentSetId] 1..1
   * ^short = "DocumentSetIdentification"
   * ^alias[0] = "DocumentSetIdentificatie"
   * ^definition = "Identificatienummer van de set waar het document toe behoort."
   * ^comment = "1..1: the dataset element DocumentSetIdentificatie (hg-dataelement-5474) prescribes a set identifier on every document, so it is required here, even though CDA externalDocument.setId is optional in the general CDA model."
-* identifier[documentSetId] insert Obligation
+* identifier[documentSetId] insert ObligationMandatory
 * extension[documentVersion] 0..1
   * ^short = "DocumentVersion"
   * ^alias[0] = "DocumentVersienummer"
@@ -166,7 +166,7 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
   * ^alias[0] = "DocumentType"
   * ^definition = "Geeft aan welk type document is toegevoegd. Op dit moment is de BSA lijst gekoppeld vanuit de Ambulance."
 * type from $vs-bijlagen (required)
-* type insert Obligation
+* type insert ObligationMandatory
 * category ^short = "CommunicationCategory"
   * ^alias[0] = "CommunicatieCategorie"
   * ^comment = "Maps to dataset element CommunicatieCategorie (hg-dataelement-5463). No value set is bound yet - the terminology is still open (see the Open Items page)."
@@ -175,22 +175,22 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
   * ^short = "CommunicationSender"
   * ^alias[0] = "CommunicatieAfzender"
 * author only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
-* author insert Obligation
+* author insert ObligationMandatory
 * content.attachment.contentType 1..1
   * ^short = "DocumentMediaType"
   * ^alias[0] = "DocumentBestandtype"
   * ^definition = "Het bestandtype als mimetype, bijvoorbeeld \"application/pdf\" of \"text/plain\". Voor de verwijzing vanuit de Ambulance naar de Huisarts of Huisartsenpost is dit een pdf."
-* content.attachment.contentType insert Obligation
+* content.attachment.contentType insert ObligationMandatory
 * content.attachment.data 1..1
   * ^short = "DocumentContent"
   * ^alias[0] = "DocumentInhoud"
   * ^definition = "Geeft de inhoud van de bijlage (blob)."
-* content.attachment.data insert Obligation
+* content.attachment.data insert ObligationMandatory
 * content.attachment.title 1..1
   * ^short = "DocumentName"
   * ^alias[0] = "DocumentNaam"
   * ^definition = "De bestandsnaam die het document heeft bij de verzender."
-* content.attachment.title insert Obligation
+* content.attachment.title insert ObligationMandatory
 * content.attachment.creation ^short = "DocumentCreationDateTime"
   * ^alias[0] = "DocumentCreatieDatumTijd"
   * ^definition = "Datum van het aanmaken van het document."
@@ -204,10 +204,10 @@ Description: "MessageHeader for the ambulance to GP out-of-hours post (HAP) refe
 * eventCoding = HgMessageEvent#ambulance-referral-to-hap
 * focus 1..1
 * focus only Reference(HgReferralServiceRequestAmbulanceHAP)
-* focus insert Obligation
+* focus insert ObligationMandatory
 * sender 1..1
 * sender only Reference(Organization or HgHealthcareProviderOrganizationAmbulanceHAP)
-* sender insert Obligation
+* sender insert ObligationMandatory
 * source 1..1
 
 Profile: HgReferralBundleAmbulanceHAP
