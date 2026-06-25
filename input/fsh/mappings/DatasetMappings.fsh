@@ -27,7 +27,7 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * requester -> "hg-dataelement-5391" "Verzender (zorgaanbieder)"
 * performer -> "hg-dataelement-1680" "Ontvanger"
 // Ontvanger (zorgverlener) (5399) is intentionally not mapped: the HAP is addressed as an
-// organisation (zorgaanbieder, 5400), not as a named professional, so there is no PractitionerRole
+// organization (zorgaanbieder, 5400), not as a named professional, so there is no PractitionerRole
 // target for the receiver. This is asymmetric with the sender, which keeps 5398 (zorgverlener).
 * performer -> "hg-dataelement-5400" "Ontvanger (zorgaanbieder)"
 // RedenBericht and Context sit inside Kern in the dataset hierarchy. In FHIR, the reason

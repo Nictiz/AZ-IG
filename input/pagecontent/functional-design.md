@@ -34,7 +34,7 @@ The information exchanged covers patient identification, the reason for referral
 
 ### ART-DECOR dataset
 
-The functional design is formalised in a machine-readable dataset in [ART-DECOR](https://decor.nictiz.nl/ad/#/hg-), the standard Dutch platform for defining healthcare information datasets.
+The functional design is formalized in a machine-readable dataset in [ART-DECOR](https://decor.nictiz.nl/ad/#/hg-), the standard Dutch platform for defining healthcare information datasets.
 
 **Relationship to ELZ.**
 
@@ -72,7 +72,7 @@ maintaining its own copies.
 
 There are two distinct ART-DECOR artefacts relevant to this IG:
 
-**Dataset** - the shared catalogue of data element definitions, originally primary care and now widened to all participating acute care use cases. Element identifiers (`hg-dataelement-NNNN`) are allocated here once and reused across transactions.
+**Dataset** - the shared catalog of data element definitions, originally primary care and now widened to all participating acute care use cases. Element identifiers (`hg-dataelement-NNNN`) are allocated here once and reused across transactions.
 
 OID: `2.16.840.1.113883.2.4.3.11.60.103.1.1`, effective date 2020-10-19 - [view in ART-DECOR](https://decor.nictiz.nl/ad/#/hg-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.103.1.1/2020-10-19T17:52:39)
 

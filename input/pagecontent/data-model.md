@@ -36,7 +36,7 @@ message with all participating resources.
 | Composition | `hg-ReferralComposition-AmbulanceHAP` | `hg-ReferralComposition` | Referral note (treatment given, diagnosis/conclusion) |
 | DocumentReference | `hg-ReferralDocumentReference-AmbulanceHAP` | `hg-ReferralDocumentReference` | Attached document(s), e.g. an ECG (0..\*) |
 | Patient | `hg-Patient-AmbulanceHAP` | nl-core-Patient | The patient being referred |
-| Organization | `hg-HealthcareProvider-Organization-AmbulanceHAP` | nl-core-HealthcareProvider-Organization | Sending (RAV) and receiving (HAP) organisations |
+| Organization | `hg-HealthcareProvider-Organization-AmbulanceHAP` | nl-core-HealthcareProvider-Organization | Sending (RAV) and receiving (HAP) organizations |
 | PractitionerRole | `hg-HealthProfessional-PractitionerRole-AmbulanceHAP` | nl-core-HealthProfessional-PractitionerRole | Role of the sending ambulance professional |
 | Practitioner | (none - nl-core directly) | nl-core-HealthProfessional-Practitioner | The ambulance professional |
 | MessageHeader | `hg-ReferralMessageHeader-AmbulanceHAP` | `hg-ReferralMessageHeader` | Messaging wrapper: event and focus |

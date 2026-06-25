@@ -20,7 +20,7 @@ Id: hg-Patient-AmbulanceHAP
 Title: "hg Patient - Ambulance to HAP"
 Description: "Patient in the ambulance to GP out-of-hours post (HAP) referral. Derived from nl-core-Patient; identifiers (e.g. BSN or a local hospital identifier) should be sent when known so the HAP can match the referral to a person."
 * identifier 0..*
-* identifier ^comment = "0..*: a patient may carry more than one identifier (for example a BSN and a local hospital identifier), so the element is repeatable. It is optional (min 0) because an ambulance patient is not always identified yet; the populate-if-known obligation carries the expectation to send an identifier when one is known."
+  * ^comment = "0..*: a patient may carry more than one identifier (for example a BSN and a local hospital identifier), so the element is repeatable. It is optional (min 0) because an ambulance patient is not always identified yet; the populate-if-known obligation carries the expectation to send an identifier when one is known."
 * identifier insert Obligation
 * name insert Obligation
 * gender 1..1
@@ -31,7 +31,7 @@ Profile: HgHealthcareProviderOrganizationAmbulanceHAP
 Parent: $nlcore-Organization
 Id: hg-HealthcareProvider-Organization-AmbulanceHAP
 Title: "hg HealthcareProvider Organization - Ambulance to HAP"
-Description: "Sending (RAV) and receiving (HAP) organisation in the ambulance referral. Derived from nl-core-HealthcareProvider-Organization; an identifier (e.g. URA) is required so the organisation is unambiguously addressable."
+Description: "Sending (RAV) and receiving (HAP) organization in the ambulance referral. Derived from nl-core-HealthcareProvider-Organization; an identifier (e.g. URA) is required so the organization is unambiguously addressable."
 * identifier 1..*
 * identifier insert Obligation
 * name 1..1

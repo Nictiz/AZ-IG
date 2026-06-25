@@ -33,9 +33,9 @@ semantics, a `Task` can be introduced without reworking the referral content. Th
   the `ServiceRequest`.
 - The receiver updates `Task.status` as the referral moves through its lifecycle
   (e.g. `received`, `accepted`, `in-progress`, `completed`).
-- If the receiver cannot fulfil the request, it sets `Task.status` to `rejected` and populates
+- If the receiver cannot fulfill the request, it sets `Task.status` to `rejected` and populates
   `Task.statusReason`.
-- Delegation to a third party (e.g. the HAP forwarding to a GP) can be modelled with a child
+- Delegation to a third party (e.g. the HAP forwarding to a GP) can be modeled with a child
   `Task` linked via `Task.partOf`.
 
 Because the `ServiceRequest` and its content profiles are unchanged in this scenario, the

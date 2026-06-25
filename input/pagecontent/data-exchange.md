@@ -103,7 +103,7 @@ In summary, regardless of paradigm, the sender **SHALL**:
 - Populate all obligation-marked elements it has a value for (`SHALL:populate-if-known`)
 - Produce a conformant use case Composition carrying the referral note sections
 - Attach supporting documents as use case DocumentReference instances when available
-- Populate patient, organisation, and professional resources conformant to the use case profiles
+- Populate patient, organization, and professional resources conformant to the use case profiles
 
 Under **Option 1 (Messaging):** additionally produce use case Bundle and MessageHeader resources,
 and transmit the bundle to the receiver's endpoint.

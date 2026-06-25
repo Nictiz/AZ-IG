@@ -32,7 +32,7 @@ Instance: hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu
 InstanceOf: HgHealthProfessionalPractitionerRoleAmbulanceHAP
 Usage: #example
 Title: "PractitionerRole - ambulance nurse"
-Description: "Example PractitionerRole linking the ambulance nurse to the sending RAV organisation for scenario 5b."
+Description: "Example PractitionerRole linking the ambulance nurse to the sending RAV organization for scenario 5b."
 * practitioner = Reference(Practitioner-hg-ambu)
 * organization = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-rav)
 * code.text = "Ambulanceverpleegkundige"
@@ -41,7 +41,7 @@ Instance: hg-HealthcareProvider-Organization-AmbulanceHAP-rav
 InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - Regionale Ambulancevoorziening"
-Description: "Example sending organisation (Regionale Ambulancevoorziening, RAV) for scenario 5b."
+Description: "Example sending organization (Regionale Ambulancevoorziening, RAV) for scenario 5b."
 * identifier.system = $ura
 * identifier.value = "00000001"
 * name = "RAV Utrecht"
@@ -50,7 +50,7 @@ Instance: hg-HealthcareProvider-Organization-AmbulanceHAP-hap
 InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - Huisartsenpost"
-Description: "Example receiving organisation (GP out-of-hours post, HAP) for scenario 5b."
+Description: "Example receiving organization (GP out-of-hours post, HAP) for scenario 5b."
 * identifier.system = $ura
 * identifier.value = "00000002"
 * name = "Huisartsenpost Utrecht"
@@ -84,14 +84,16 @@ Description: "Example referral note carrying the instituted treatment and the di
 * date = "2026-06-08T11:15:00+02:00"
 * author = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
 * title = "Ambulanceverwijzing naar huisartsenpost"
-* section[treatmentGiven].title = "Ingestelde behandeling"
-* section[treatmentGiven].code = $loinc#18776-5
-* section[treatmentGiven].text.status = #additional
-* section[treatmentGiven].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Antacidum toegediend, klachten verminderd.</div>"
-* section[diagnosisConclusion].title = "Diagnose/conclusie"
-* section[diagnosisConclusion].code = $loinc#55110-1
-* section[diagnosisConclusion].text.status = #additional
-* section[diagnosisConclusion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Waarschijnlijk maagklachten. Controle door huisarts gewenst.</div>"
+* section[treatmentGiven]
+  * title = "Ingestelde behandeling"
+  * code = $loinc#18776-5
+  * text.status = #additional
+  * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Antacidum toegediend, klachten verminderd.</div>"
+* section[diagnosisConclusion]
+  * title = "Diagnose/conclusie"
+  * code = $loinc#55110-1
+  * text.status = #additional
+  * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Waarschijnlijk maagklachten. Controle door huisarts gewenst.</div>"
 
 Instance: hg-ReferralDocumentReference-AmbulanceHAP-ecg
 InstanceOf: HgReferralDocumentReferenceAmbulanceHAP
@@ -99,17 +101,20 @@ Usage: #example
 Title: "DocumentReference - ECG attachment"
 Description: "Example attached document (an ECG) accompanying the referral in scenario 5b."
 * status = #current
-* masterIdentifier.system = "urn:ietf:rfc:3986"
-* masterIdentifier.value = "urn:uuid:1b1f4f9e-0000-4000-8000-000000000001"
-* identifier.system = "urn:ietf:rfc:3986"
-* identifier.value = "urn:uuid:1b1f4f9e-0000-4000-8000-000000000002"
+* masterIdentifier
+  * system = "urn:ietf:rfc:3986"
+  * value = "urn:uuid:1b1f4f9e-0000-4000-8000-000000000001"
+* identifier
+  * system = "urn:ietf:rfc:3986"
+  * value = "urn:uuid:1b1f4f9e-0000-4000-8000-000000000002"
 * type = $acutezorg-cs16#001 "12 afleidingen ECG"
 * category.text = "Bijlage"
 * author = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
-* content.attachment.contentType = #application/pdf
-* content.attachment.data = "JVBERi0xLjQK"
-* content.attachment.title = "12-afleidingen ECG"
-* content.attachment.creation = "2026-06-08T11:05:00+02:00"
+* content.attachment
+  * contentType = #application/pdf
+  * data = "JVBERi0xLjQK"
+  * title = "12-afleidingen ECG"
+  * creation = "2026-06-08T11:05:00+02:00"
 
 Instance: hg-ReferralMessageHeader-AmbulanceHAP-referral
 InstanceOf: HgReferralMessageHeaderAmbulanceHAP

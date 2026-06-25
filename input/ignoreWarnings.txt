@@ -19,7 +19,7 @@
 %'http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressType'%
 %'http://nictiz.nl/fhir/StructureDefintion/nl-core-ContactPerson'%
 
-# Expected consequence of the open-world reference modelling (see Design Decisions): references
+# Expected consequence of the open-world reference modeling (see Design Decisions): references
 # list the base resource type alongside a profile of it, so a profiled example instance also
 # satisfies the base-type option and the validator reports it matching more than one choice.
 # This is intentional (it lets a sender submit either a bare core resource or a profiled one)

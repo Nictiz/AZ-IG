@@ -35,7 +35,7 @@ profile links per use case, is on the [Use cases](use-cases.html) page.
 ### Design decisions
 
 Key modeling and conformance choices - profile layering, the obligations framework, open-world
-reference modelling, and dataset traceability - are documented on the
+reference modeling, and dataset traceability - are documented on the
 [Design Decisions](design-decisions.html) page. The resource map, profile table, and
 conformance/validation guidance are on the [Data Model](data-model.html) page.
 

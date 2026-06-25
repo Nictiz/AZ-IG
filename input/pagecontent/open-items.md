@@ -1,9 +1,9 @@
-These items need confirmation or resolution before the profiles can be finalised.
+These items need confirmation or resolution before the profiles can be finalized.
 
 ### Profiles
 
 - **`DocumentReference.category` binding.** `category` (CommunicatieCategorie,
-  hg-dataelement-5463) is modelled and mapped to the dataset, but **no value set is bound yet** -
+  hg-dataelement-5463) is modeled and mapped to the dataset, but **no value set is bound yet** -
   left open pending a suitable zib, nl-core, or generic value set. The original Nictiz profile
   bound the CommunicatieItem category to an NHG-derived set, which is out of scope here.
 
@@ -36,7 +36,7 @@ These items need confirmation or resolution before the profiles can be finalised
 - **Terminology download from ART-DECOR.** Project-specific terminology is taken from ART-DECOR
   (the source of truth) and embedded verbatim as predefined resources in `input/resources`, not
   authored in FSH. So far only the `DocumentReference.type` terminology (the `acutezorg-codesysteem-16`
-  code system and the *Bijlagen* value set) has been downloaded. Before finalisation, make sure
+  code system and the *Bijlagen* value set) has been downloaded. Before finalization, make sure
   **all** terminology the profiles bind to is downloaded from ART-DECOR and kept in sync, using the
   Nictiz download tooling:
   [Nictiz-R4-zib2020/util/downloadTerminology](https://github.com/Nictiz/Nictiz-R4-zib2020/tree/main/util/downloadTerminology).

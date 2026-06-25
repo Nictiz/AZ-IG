@@ -24,26 +24,33 @@ Description: "Requirements on the sending system (ambulance/Regionale Ambulancev
 * format[+] = #application/fhir+json
 * format[+] = #application/fhir+xml
 * implementationGuide = "http://nictiz.nl/fhir/ImplementationGuide/nictiz.fhir.nl.r4.acutezorg"
-* rest[+].mode = #client
-* rest[=].documentation = "PROVISIONAL: the exchange paradigm (FHIR Messaging, RESTful, or FHIR Document) has not yet been decided (see the Data Exchange page). The `rest` block below is illustrative of the resources and profiles the sending system must be able to produce; the binding interaction model will be fixed once a paradigm is chosen. The sending system produces a conformant referral and transmits it to the receiver. Required resources: ServiceRequest (hg-ReferralServiceRequest-AmbulanceHAP), Composition (hg-ReferralComposition-AmbulanceHAP), DocumentReference (hg-ReferralDocumentReference-AmbulanceHAP, when applicable), Patient (hg-Patient-AmbulanceHAP), Organization (hg-HealthcareProvider-Organization-AmbulanceHAP), PractitionerRole (hg-HealthProfessional-PractitionerRole-AmbulanceHAP), Practitioner (nl-core-HealthProfessional-Practitioner). Under FHIR Messaging: additionally MessageHeader (hg-ReferralMessageHeader-AmbulanceHAP) and Bundle (hg-ReferralBundle-AmbulanceHAP)."
-* rest[=].resource[+].type = #ServiceRequest
-* rest[=].resource[=].profile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-AmbulanceHAP"
-* rest[=].resource[=].interaction[+].code = #create
-* rest[=].resource[+].type = #Composition
-* rest[=].resource[=].profile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralComposition-AmbulanceHAP"
-* rest[=].resource[=].interaction[+].code = #create
-* rest[=].resource[+].type = #DocumentReference
-* rest[=].resource[=].profile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralDocumentReference-AmbulanceHAP"
-* rest[=].resource[=].interaction[+].code = #create
-* rest[=].resource[+].type = #Patient
-* rest[=].resource[=].profile = "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP"
-* rest[=].resource[=].interaction[+].code = #create
-* rest[=].resource[+].type = #Organization
-* rest[=].resource[=].profile = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
-* rest[=].resource[=].interaction[+].code = #create
-* rest[=].resource[+].type = #PractitionerRole
-* rest[=].resource[=].profile = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-PractitionerRole-AmbulanceHAP"
-* rest[=].resource[=].interaction[+].code = #create
+* rest[+]
+  * mode = #client
+  * documentation = "PROVISIONAL: the exchange paradigm (FHIR Messaging, RESTful, or FHIR Document) has not yet been decided (see the Data Exchange page). The `rest` block below is illustrative of the resources and profiles the sending system must be able to produce; the binding interaction model will be fixed once a paradigm is chosen. The sending system produces a conformant referral and transmits it to the receiver. Required resources: ServiceRequest (hg-ReferralServiceRequest-AmbulanceHAP), Composition (hg-ReferralComposition-AmbulanceHAP), DocumentReference (hg-ReferralDocumentReference-AmbulanceHAP, when applicable), Patient (hg-Patient-AmbulanceHAP), Organization (hg-HealthcareProvider-Organization-AmbulanceHAP), PractitionerRole (hg-HealthProfessional-PractitionerRole-AmbulanceHAP), Practitioner (nl-core-HealthProfessional-Practitioner). Under FHIR Messaging: additionally MessageHeader (hg-ReferralMessageHeader-AmbulanceHAP) and Bundle (hg-ReferralBundle-AmbulanceHAP)."
+  * resource[+]
+    * type = #ServiceRequest
+    * profile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-AmbulanceHAP"
+    * interaction[+].code = #create
+  * resource[+]
+    * type = #Composition
+    * profile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralComposition-AmbulanceHAP"
+    * interaction[+].code = #create
+  * resource[+]
+    * type = #DocumentReference
+    * profile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralDocumentReference-AmbulanceHAP"
+    * interaction[+].code = #create
+  * resource[+]
+    * type = #Patient
+    * profile = "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP"
+    * interaction[+].code = #create
+  * resource[+]
+    * type = #Organization
+    * profile = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+    * interaction[+].code = #create
+  * resource[+]
+    * type = #PractitionerRole
+    * profile = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-PractitionerRole-AmbulanceHAP"
+    * interaction[+].code = #create
 
 Instance: hg-CapabilityStatement-Receiver
 InstanceOf: CapabilityStatement
@@ -60,23 +67,30 @@ Description: "Requirements on the receiving system (GP out-of-hours post, HAP) f
 * format[+] = #application/fhir+json
 * format[+] = #application/fhir+xml
 * implementationGuide = "http://nictiz.nl/fhir/ImplementationGuide/nictiz.fhir.nl.r4.acutezorg"
-* rest[+].mode = #server
-* rest[=].documentation = "PROVISIONAL: the exchange paradigm (FHIR Messaging, RESTful, or FHIR Document) has not yet been decided (see the Data Exchange page). The `rest` block below is illustrative of the resources and profiles the receiving system must be able to accept; the binding interaction model will be fixed once a paradigm is chosen. The receiving system accepts a conformant referral and must not raise an error on any obligation-marked element (SHALL:no-error). Required resource types: ServiceRequest, Composition, DocumentReference, Patient, Organization, PractitionerRole, Practitioner. Under FHIR Messaging: additionally supports the $process-message operation on Bundle. Under RESTful: supports create interactions and transaction bundles on the relevant resource types."
-* rest[=].resource[+].type = #ServiceRequest
-* rest[=].resource[=].profile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-AmbulanceHAP"
-* rest[=].resource[=].interaction[+].code = #create
-* rest[=].resource[+].type = #Composition
-* rest[=].resource[=].profile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralComposition-AmbulanceHAP"
-* rest[=].resource[=].interaction[+].code = #create
-* rest[=].resource[+].type = #DocumentReference
-* rest[=].resource[=].profile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralDocumentReference-AmbulanceHAP"
-* rest[=].resource[=].interaction[+].code = #create
-* rest[=].resource[+].type = #Patient
-* rest[=].resource[=].profile = "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP"
-* rest[=].resource[=].interaction[+].code = #create
-* rest[=].resource[+].type = #Organization
-* rest[=].resource[=].profile = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
-* rest[=].resource[=].interaction[+].code = #create
-* rest[=].resource[+].type = #PractitionerRole
-* rest[=].resource[=].profile = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-PractitionerRole-AmbulanceHAP"
-* rest[=].resource[=].interaction[+].code = #create
+* rest[+]
+  * mode = #server
+  * documentation = "PROVISIONAL: the exchange paradigm (FHIR Messaging, RESTful, or FHIR Document) has not yet been decided (see the Data Exchange page). The `rest` block below is illustrative of the resources and profiles the receiving system must be able to accept; the binding interaction model will be fixed once a paradigm is chosen. The receiving system accepts a conformant referral and must not raise an error on any obligation-marked element (SHALL:no-error). Required resource types: ServiceRequest, Composition, DocumentReference, Patient, Organization, PractitionerRole, Practitioner. Under FHIR Messaging: additionally supports the $process-message operation on Bundle. Under RESTful: supports create interactions and transaction bundles on the relevant resource types."
+  * resource[+]
+    * type = #ServiceRequest
+    * profile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-AmbulanceHAP"
+    * interaction[+].code = #create
+  * resource[+]
+    * type = #Composition
+    * profile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralComposition-AmbulanceHAP"
+    * interaction[+].code = #create
+  * resource[+]
+    * type = #DocumentReference
+    * profile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralDocumentReference-AmbulanceHAP"
+    * interaction[+].code = #create
+  * resource[+]
+    * type = #Patient
+    * profile = "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP"
+    * interaction[+].code = #create
+  * resource[+]
+    * type = #Organization
+    * profile = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+    * interaction[+].code = #create
+  * resource[+]
+    * type = #PractitionerRole
+    * profile = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-PractitionerRole-AmbulanceHAP"
+    * interaction[+].code = #create

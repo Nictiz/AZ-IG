@@ -13,7 +13,7 @@
 // =============================================================================
 
 // Implementer guidance for references that point to a party (a health professional and/or a
-// healthcare provider organisation). Because ElementDefinition.comment is single-valued, the two
+// healthcare provider organization). Because ElementDefinition.comment is single-valued, the two
 // pieces of guidance below are combined into one RuleSet rather than two: an element cannot carry
 // two separate comments, and every reference that names a PractitionerRole here also names an
 // Organization. Inserted on requester, performer, author and sender.
@@ -25,7 +25,7 @@
 RuleSet: PartyReferenceComment
 * ^comment = """Each occurrence of the zib HealthProfessional is normally represented by _two_ FHIR resources: a PractitionerRole resource (instance of [nl-core-HealthProfessional-PractitionerRole](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole)) and a Practitioner resource (instance of [nl-core-HealthProfessional-Practitioner](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner)). The Practitioner resource is referenced from the PractitionerRole instance. For this reason, sending systems should fill the reference to the PractitionerRole instance here, and not the Practitioner resource. Receiving systems can then retrieve the reference to the Practitioner resource from that PractitionerRole instance. In rare circumstances, there is only a Practitioner instance, in which case it is that instance which will be referenced here. However, since this should be the exception, the nl-core-HealthProfessional-Practitioner profile is not explicitly mentioned as a target profile.
 
-Where the zib HealthcareProvider (_zorgaanbieder_) is referenced, the [nl-core-HealthcareProvider-Organization](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization) profile is referenced directly, not the nl-core-HealthcareProvider (Location) focal resource. nl-core makes Location the focal resource of the zib because most references concern the physical location where care takes place; here the reference concerns the organisational identity (addressing) of the party and carries no care-location data, so the Organization profile is referenced directly. See the Design Decisions page."""
+Where the zib HealthcareProvider (_zorgaanbieder_) is referenced, the [nl-core-HealthcareProvider-Organization](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization) profile is referenced directly, not the nl-core-HealthcareProvider (Location) focal resource. nl-core makes Location the focal resource of the zib because most references concern the physical location where care takes place; here the reference concerns the organizational identity (addressing) of the party and carries no care-location data, so the Organization profile is referenced directly. See the Design Decisions page."""
 
 Profile: HgReferralServiceRequest
 Parent: ServiceRequest

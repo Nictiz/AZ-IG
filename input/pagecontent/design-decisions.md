@@ -5,12 +5,12 @@ structure, not just the rules.
 ### Base profiles
 
 All participating resources build on nl-core (zib2020, R4). Identifiers,
-name and address structures, and organisation and practitioner modelling follow nl-core, which
+name and address structures, and organization and practitioner modeling follow nl-core, which
 keeps the IG aligned with the wider Dutch FHIR ecosystem.
 
 ### Workflow request resource
 
-The referral is modelled as a `ServiceRequest` on FHIR core, with
+The referral is modeled as a `ServiceRequest` on FHIR core, with
 `intent` fixed to `order`. The ambulance is the `requester` and the HAP is the `performer`.
 This follows the FHIR workflow request pattern.
 
@@ -64,7 +64,7 @@ participating building blocks, each derived from the corresponding nl-core profi
 `hg-Patient-AmbulanceHAP` (from nl-core-Patient), `hg-HealthcareProvider-Organization-AmbulanceHAP`
 (from nl-core-HealthcareProvider-Organization) and `hg-HealthProfessional-PractitionerRole-AmbulanceHAP`
 (from nl-core-HealthProfessional-PractitionerRole). These hold the minima needed to identify the
-patient and the sending/receiving organisations and should be reconciled against the published
+patient and the sending/receiving organizations and should be reconciled against the published
 dataset's exact multiplicities.
 
 These transaction-specific profiles are primarily intended for **validation**, not for constraining
@@ -91,7 +91,7 @@ the Receiver (it must accept the element without error). This makes the producer
 expectations explicit and machine-readable, where `mustSupport` would only carry a single,
 direction-less flag.
 
-### Reference modelling (open world)
+### Reference modeling (open world)
 
 References are kept open. Where the dataset binds a reference to an nl-core building block, the
 transaction-specific zib profile is added *next to* the base FHIR resource type rather than
@@ -99,7 +99,7 @@ replacing it: for example `ServiceRequest.subject` is `Reference(Patient or hg-P
 and `requester`/`performer` allow `PractitionerRole`/`Organization` next to their hg- profiles.
 This follows the [Nictiz profiling guideline](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4) of adding the target profile beside the core type, so a sender
 that holds only a plain core resource still conforms, while a sender that can produce the richer
-nl-core-based profile is recognised.
+nl-core-based profile is recognized.
 
 [§6.2 of the profiling guideline](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4)
 recommends slicing a reference by `targetProfile` (`discriminator.type = profile`,
@@ -118,7 +118,7 @@ through the `nl-core-HealthcareProvider` (Location) focal resource. nl-core make
 focal resource of the zib HealthcareProvider because, in its words, "most references to this zib
 are concerned about the recording of the physical location where the care to patient/client takes
 place rather than the organizational information." That rationale does not hold here: the
-*zorgaanbieder* on `requester`/`performer` (and on `MessageHeader.sender`) is the organisational
+*zorgaanbieder* on `requester`/`performer` (and on `MessageHeader.sender`) is the organizational
 identity of the message sender and recipient (RAV and HAP, addressed by URA), an addressing
 concept with no care-location component, and the dataset carries no location data to populate a
 Location resource. Routing through the Location focal resource would add an empty Location whose
@@ -160,11 +160,11 @@ naar huisartsenpost* (OID 2.16.840.1.113883.2.4.3.11.60.103.1.1), under the iden
 FHIR elements point at the dataset data-element ids (`hg-dataelement-NNNN`).
 
 The ART-DECOR project (`hg-`, ELZ) was originally established for primary care
-(Eerstelijnszorg/ELZ) information exchange. Its shared dataset catalogue \- including
+(Eerstelijnszorg/ELZ) information exchange. Its shared dataset catalog \- including
 the `hg-dataelement-NNNN` identifier series \- reflects that origin. The project scope was later
 widened to cover acute care use cases such as ambulance referrals. The AMB-HAP transaction
-(4.145) is part of this wider scope; its element IDs come from the same shared catalogue and
-therefore carry the same `hg-` prefix. Some elements in the catalogue were defined for primary
+(4.145) is part of this wider scope; its element IDs come from the same shared catalog and
+therefore carry the same `hg-` prefix. Some elements in the catalog were defined for primary
 care transactions (ELZ) and are not explicitly constrained in AMB-HAP transaction 4.145 - for
 example TypeBericht (hg-dataelement-1685) and Urgentie (hg-dataelement-1702). Where a mapping is
 included for such an element but no further cardinality, obligation, or binding tightening is
