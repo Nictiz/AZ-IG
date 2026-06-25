@@ -62,8 +62,8 @@ Title: "ServiceRequest - ambulance referral to HAP"
 Description: "Example ambulance-to-HAP referral request (the focal resource) for scenario 5b."
 * status = #completed
 * intent = #order
-* code = $sct#11131000146102
-* category[referralType] = $sct#1861000124105
+* code = $sct#11131000146102 "overdracht van zorg vanuit ambulance"
+* category[referralType] = $sct#308292007 "overdracht van zorg (verrichting)"
 * subject = Reference(hg-Patient-AmbulanceHAP-patrick)
 * authoredOn = "2026-06-08T11:15:00+02:00"
 * requester = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
