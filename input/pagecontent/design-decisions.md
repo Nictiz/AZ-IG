@@ -42,7 +42,7 @@ edition is adopted, update the version URI in `expansion-params.json`.
 
 Project-specific terminology is **not authored in FSH**; it is taken straight from ART-DECOR, which
 is the source of truth. The `DocumentReference.type` binding (the BSA *Bijlagen* list) uses two
-FHIR exports embedded verbatim as predefined resources in [`input/resources`](input/resources):
+FHIR exports embedded verbatim as predefined resources in `input/resources`:
 the `acutezorg-codesysteem-16` code system (`urn:oid:2.16.840.1.113883.2.4.3.11.60.55.5.16`) and
 the *Bijlagen* value set (`http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.31--20250820144948`).
 These files are downloaded from ART-DECOR, not edited by hand, and keep their source canonicals

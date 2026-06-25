@@ -9,12 +9,14 @@
 # package.json), so the IG Publisher cannot form links to its pages. These links originate from
 # nl-core's own internal cross-references, inherited into the snapshots of profiles we derive
 # from nl-core; they are not defects in this IG and will resolve once nl-core ships a release
-# that carries web metadata. Matched as case-insensitive substrings (%...%); the trailing quote
-# keeps 'nl-core-HealthcareProvider' from also matching 'nl-core-HealthcareProvider-Organization'.
+# that carries web metadata. Matched as case-insensitive substrings (%...%). Both the bare
+# nl-core-HealthcareProvider (Location) and nl-core-HealthcareProvider-Organization are suppressed:
+# the latter is linked from the PartyReferenceComment guidance and from derived profile snapshots.
 %'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner'%
 %'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole'%
 %'http://nictiz.nl/fhir/StructureDefinition/nl-core-ContactPerson'%
 %'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider'%
+%'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization'%
 %'http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressUse'%
 %'http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressType'%
 %'http://nictiz.nl/fhir/StructureDefintion/nl-core-ContactPerson'%

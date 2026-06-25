@@ -6,6 +6,10 @@ status: draft
 version: 0.1.0-beta.1
 fhirVersion: 4.0.1
 copyrightYear: 2026+
+# CC0 across the whole IG: sets ImplementationGuide.license and renders the CC0 waiver in the
+# footer. Individual conformance resources (e.g. the CapabilityStatements) also carry an explicit
+# CC0 copyright statement.
+license: CC0-1.0
 releaseLabel: qa-preview
 publisher:
   name: Nictiz
