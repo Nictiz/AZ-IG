@@ -47,14 +47,14 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^alias[0] = "Datum en tijd"
   * ^definition = "Geeft het tijdstip waarop de verzender het bericht afrondt en aanbiedt voor verzending."
 * authoredOn insert ObligationMandatory
-* requester 1..1
+* requester 0..1
   * ^short = "Sender"
   * ^alias[0] = "Verzender"
   * ^alias[1] = "Zorgverlener"
   * ^alias[2] = "Zorgaanbieder"
   * ^definition = "Geeft de volledige identificatie- en contactgegevens van de verzender van het bericht."
 * requester only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
-* requester insert ObligationMandatory
+* requester insert Obligation
 * performer 1..1
   * ^short = "Recipient"
   * ^alias[0] = "Ontvanger"
@@ -67,7 +67,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^short = "MessageReason"
   * ^alias[0] = "RedenBericht"
   * ^alias[1] = "Context"
-  * ^definition = "Geeft de reden van de verwijzing of de update. Hierbij is de beschrijving als vrije tekst op aangeven van het NHG verplicht. Daarnaast kan er ook een ICPC-code van de episode worden meegestuurd, al dan niet aangevuld met meer details over de vastlegging van de ICPC."
+  * ^definition = "Geeft de reden van de verwijzing of de update. Hierbij is de beschrijving als vrije tekst op aangeven van het NHG verplicht. Daarnaast kan er ook een ICPC-code van de episode worden meegestuurd, al dan niet aangevuld met meer details over de vastlegging van de ICPC. De ambulance legt de reden altijd vast in vrije tekst."
 * reasonCode insert ObligationMandatory
 // The NHG mandates the free-text description; coding (ICPC) stays optional and is left unconstrained here (see the Open Items page).
 * reasonCode.text 1..1
