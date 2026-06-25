@@ -1,17 +1,11 @@
 // NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // =============================================================================
-// Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic
-// hg-Referral profiles, tightens cardinalities, applies obligations (in place of
-// mustSupport) and fixes the message event. Dataset mappings live here (see
-// DatasetMappings.fsh). Reference targets keep the core resource type alongside
-// the transaction-specific zib profile, so the model stays open-world.
+// Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic hg-Referral profiles, tightens cardinalities, applies obligations (in place of mustSupport) and fixes the message event. Dataset mappings live here (see DatasetMappings.fsh). Reference targets keep the core resource type alongside the transaction-specific zib profile, so the model stays open-world.
 //
-// Style: caret rules (^short/^alias/^definition/^comment/^slicing) are grouped under their
-// element via indentation; cardinality, only, from, contains and insert stay at column 0.
+// Style: caret rules (^short/^alias/^definition/^comment/^slicing) are grouped under their element via indentation; cardinality, only, from, contains and insert stay at column 0.
 // =============================================================================
 
-// Implementer guidance for the narrative-only sections (text.status fixed to #additional).
-// Inserted on each section's text element so it renders on the profile page.
+// Implementer guidance for the narrative-only sections (text.status fixed to #additional). Inserted on each section's text element so it renders on the profile page.
 RuleSet: SectionNarrativeComment
 * ^comment = "This section conveys its *rubriek* as free text. `text.status` is fixed to `additional` because the narrative is the source of this information, not a rendering generated from structured data: there is no expectation that `Composition.section.entry` will be populated here. The `text.div` may contain plain text or the limited xhtml subset that the FHIR specification allows for a Narrative."
 
@@ -75,8 +69,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^alias[1] = "Context"
   * ^definition = "Geeft de reden van de verwijzing of de update. Hierbij is de beschrijving als vrije tekst op aangeven van het NHG verplicht. Daarnaast kan er ook een ICPC-code van de episode worden meegestuurd, al dan niet aangevuld met meer details over de vastlegging van de ICPC."
 * reasonCode insert Obligation
-// The NHG mandates the free-text description; coding (ICPC) stays optional and is left
-// unconstrained here (see the Open Items page).
+// The NHG mandates the free-text description; coding (ICPC) stays optional and is left unconstrained here (see the Open Items page).
 * reasonCode.text 1..1
 * supportingInfo 1..*
   * ^short = "Core"
@@ -118,16 +111,12 @@ Description: "Referral note for the ambulance to GP out-of-hours post (HAP) refe
 * date insert Obligation
 * title 1..1
 * title insert Obligation
-// Re-declare the section slicing (inherited from the generic parent) so the snapshot
-// generator anchors the slice child elements (.code, .text) in this profile.
+// Re-declare the section slicing (inherited from the generic parent) so the snapshot generator anchors the slice child elements (.code, .text) in this profile.
 * section ^slicing.discriminator[0].type = #pattern
   * ^slicing.discriminator[0].path = "code"
   * ^slicing.rules = #open
 * section contains treatmentGiven 0..* and diagnosisConclusion 0..1
-// The free-text content of each rubriek is carried in the section's own narrative
-// (Composition.section.text). text.status is fixed to #additional and text is required (1..1)
-// with the populate-if-known obligation; the SectionNarrativeComment RuleSet (above) renders the
-// rationale on the profile page.
+// The free-text content of each rubriek is carried in the section's own narrative (Composition.section.text). text.status is fixed to #additional and text is required (1..1) with the populate-if-known obligation; the SectionNarrativeComment RuleSet (above) renders the rationale on the profile page.
 * section[treatmentGiven] ^short = "SetTreatment"
   * ^alias[0] = "IngesteldeBehandeling"
   * ^definition = "Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht."
@@ -151,20 +140,27 @@ Profile: HgReferralDocumentReferenceAmbulanceHAP
 Parent: HgReferralDocumentReference
 Id: hg-ReferralDocumentReference-AmbulanceHAP
 Title: "hg referral DocumentReference - Ambulance to HAP"
-Description: "Attached document for the ambulance to GP out-of-hours post (HAP) referral. The folded CommunicatieItem category and sender are carried on `category` and `author`."
+Description: "Attached document for the ambulance to GP out-of-hours post (HAP) referral. The folded CommunicatieItem category and sender (as modeled in ART-DECOR) are carried on `category` and `author`."
 * . ^short = "CommunicationItem"
   * ^alias[0] = "CommunicatieItem"
   * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list, PDF content) follow the [document specification for the Ambulanceverwijzing](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Specificatie_van_het_document_binnen_de_Ambulanceverwijzing_naar_de_Huisartsenpost) in the Nictiz functional design, and should be kept aligned with it as that specification is finalized."
-* masterIdentifier 1..1
+// masterIdentifier is removed in R5/R6 (folded into identifier); the document and set ids are carried on the identifier slices defined in the generic layer. See the Design Decisions page.
+* masterIdentifier 0..0
+* identifier[documentId] 1..1
   * ^short = "DocumentIdentification"
   * ^alias[0] = "DocumentIdentificatie"
   * ^definition = "Het identificatienummer van het document."
-* masterIdentifier insert Obligation
-* identifier 1..1
+* identifier[documentId] insert Obligation
+* identifier[documentSetId] 1..1
   * ^short = "DocumentSetIdentification"
   * ^alias[0] = "DocumentSetIdentificatie"
   * ^definition = "Identificatienummer van de set waar het document toe behoort."
-* identifier insert Obligation
+  * ^comment = "1..1: the dataset element DocumentSetIdentificatie (hg-dataelement-5474) prescribes a set identifier on every document, so it is required here, even though CDA externalDocument.setId is optional in the general CDA model."
+* identifier[documentSetId] insert Obligation
+* extension[documentVersion] 0..1
+  * ^short = "DocumentVersion"
+  * ^alias[0] = "DocumentVersienummer"
+* extension[documentVersion] insert Obligation
 * type 1..1
   * ^short = "DocumentType"
   * ^alias[0] = "DocumentType"

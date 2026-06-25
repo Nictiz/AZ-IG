@@ -1,14 +1,6 @@
-// NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
-// Mappings to the ART-DECOR dataset "Verwijzing ambulance naar huisartsenpost"
-// (id 2.16.840.1.113883.2.4.3.11.60.103.1.1, effectiveDate 2020-10-19).
-// Per Nictiz profiling guidelines, mappings live on the use case layer.
+// NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation. Mappings to the ART-DECOR dataset "Verwijzing ambulance naar huisartsenpost" (id 2.16.840.1.113883.2.4.3.11.60.103.1.1, effectiveDate 2020-10-19). Per Nictiz profiling guidelines, mappings live on the use case layer.
 //
-// The underlying ART-DECOR dataset is shared across multiple use cases: element
-// IDs (hg-dataelement-NNNN) are allocated once and reused across transactions. Not every
-// element appears in every transaction. Where a mapping below covers an element that is
-// defined in the shared dataset but not explicitly constrained in AMB-HAP transaction
-// 4.145 (e.g. TypeBericht, Urgentie), it is included as a traceability link only.
-// No further tightening is applied; the functional design describes the intended use.
+// The underlying ART-DECOR dataset is shared across multiple use cases: element IDs (hg-dataelement-NNNN) are allocated once and reused across transactions. Not every element appears in every transaction. Where a mapping below covers an element that is defined in the shared dataset but not explicitly constrained in AMB-HAP transaction 4.145 (e.g. TypeBericht, Urgentie), it is included as a traceability link only. No further tightening is applied; the functional design describes the intended use.
 
 Mapping: HgReferralServiceRequestAmbulanceHAPDataset
 Source: HgReferralServiceRequestAmbulanceHAP
@@ -17,20 +9,16 @@ Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1673" "Envelop"
 * status -> "hg-dataelement-5556" "Bestemmingsstatus"
-// TypeBericht (1685): defined in the shared dataset; not explicitly modeled in AMB-HAP.
-// Urgentie (1702): defined in the shared dataset; not explicitly modeled in AMB-HAP.
+// TypeBericht (1685): defined in the shared dataset; not explicitly modeled in AMB-HAP. Urgentie (1702): defined in the shared dataset; not explicitly modeled in AMB-HAP.
 * subject -> "hg-dataelement-1676" "Patient"
 * authoredOn -> "hg-dataelement-1684" "Datum en tijd"
 * requester -> "hg-dataelement-5089" "Verzender"
 * requester -> "hg-dataelement-5398" "Verzender (zorgverlener)"
 * requester -> "hg-dataelement-5391" "Verzender (zorgaanbieder)"
 * performer -> "hg-dataelement-1680" "Ontvanger"
-// Ontvanger (zorgverlener) (5399) is intentionally not mapped: the HAP is addressed as an
-// organization (zorgaanbieder, 5400), not as a named professional, so there is no PractitionerRole
-// target for the receiver. This is asymmetric with the sender, which keeps 5398 (zorgverlener).
+// Ontvanger (zorgverlener) (5399) is intentionally not mapped: the HAP is addressed as an organization (zorgaanbieder, 5400), not as a named professional, so there is no PractitionerRole target for the receiver. This is asymmetric with the sender, which keeps 5398 (zorgverlener).
 * performer -> "hg-dataelement-5400" "Ontvanger (zorgaanbieder)"
-// RedenBericht and Context sit inside Kern in the dataset hierarchy. In FHIR, the reason
-// for referral is placed on ServiceRequest.reasonCode and replicated inside the Composition.
+// RedenBericht and Context sit inside Kern in the dataset hierarchy. In FHIR, the reason for referral is placed on ServiceRequest.reasonCode and replicated inside the Composition.
 * reasonCode -> "hg-dataelement-1872" "RedenBericht"
 * reasonCode.text -> "hg-dataelement-1710" "Context"
 * supportingInfo -> "hg-dataelement-1709" "Kern"
@@ -53,12 +41,12 @@ Source: HgReferralDocumentReferenceAmbulanceHAP
 Target: "https://decor.nictiz.nl/ad/#/hg-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.103.1.1/2020-10-19T17:52:39"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
-// DocumentReference represents the folded CommunicatieItem wrapper (5457) and the
-// Document it contains (5472). Both are mapped at root level.
+// DocumentReference represents the folded CommunicatieItem wrapper (5457) and the Document it contains (5472). Both are mapped at root level.
 * -> "hg-dataelement-5457" "CommunicatieItem"
 * -> "hg-dataelement-5472" "Document"
-* identifier -> "hg-dataelement-5473" "DocumentIdentificatie"
-* identifier -> "hg-dataelement-5474" "DocumentSetIdentificatie"
+* identifier[documentId] -> "hg-dataelement-5473" "DocumentIdentificatie"
+* identifier[documentSetId] -> "hg-dataelement-5474" "DocumentSetIdentificatie"
+* extension[documentVersion] -> "hg-dataelement-5475" "DocumentVersienummer"
 * type -> "hg-dataelement-5554" "DocumentType"
 * category -> "hg-dataelement-5463" "CommunicatieCategorie"
 * content.attachment.contentType -> "hg-dataelement-5476" "DocumentBestandtype"

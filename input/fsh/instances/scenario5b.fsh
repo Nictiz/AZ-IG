@@ -1,7 +1,6 @@
 // NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // ---------------------------------------------------------------------------
-// Example set for scenario 5b (Richtlijn): ambulance professional refers
-// patient Patrick to the GP out-of-hours post (HAP) after on-scene care.
+// Example set for scenario 5b (Richtlijn): ambulance professional refers patient Patrick to the GP out-of-hours post (HAP) after on-scene care.
 // ---------------------------------------------------------------------------
 
 Instance: hg-Patient-AmbulanceHAP-patrick
@@ -101,12 +100,16 @@ Usage: #example
 Title: "DocumentReference - ECG attachment"
 Description: "Example attached document (an ECG) accompanying the referral in scenario 5b."
 * status = #current
-* masterIdentifier
-  * system = "urn:ietf:rfc:3986"
-  * value = "urn:uuid:1b1f4f9e-0000-4000-8000-000000000001"
-* identifier
-  * system = "urn:ietf:rfc:3986"
-  * value = "urn:uuid:1b1f4f9e-0000-4000-8000-000000000002"
+// Document instance id (.id) and version-independent set id (.setId), folded onto identifier and told apart by the local type code. system = urn:oid:{II.root}, value = {II.extension}.
+* identifier[documentId]
+  * type = HgDocumentIdentifierType#document-id
+  * system = "urn:oid:2.16.840.1.113883.2.4.3.11.60.103.4.145"
+  * value = "20260608110500.ecg.1"
+* identifier[documentSetId]
+  * type = HgDocumentIdentifierType#document-set-id
+  * system = "urn:oid:2.16.840.1.113883.2.4.3.11.60.103.4.145"
+  * value = "20260608110500.ecg"
+* extension[documentVersion].valueString = "1"
 * type = $acutezorg-cs16#001 "12 afleidingen ECG"
 * category.text = "Bijlage"
 * author = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)

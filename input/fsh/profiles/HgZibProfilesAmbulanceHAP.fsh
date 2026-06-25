@@ -2,16 +2,9 @@
 // =============================================================================
 // Transaction-specific zib profiles (Ambulanceverwijzing, AMB -> HAP).
 //
-// Per the Nictiz profiling guidelines, cardinalities and conformance for the
-// participating zibs are applied at the use case (information standard specific)
-// layer, derived from the nl-core profiles. These carry the cardinalities the
-// ART-DECOR transaction puts on the building blocks (Patient, HealthProfessional,
-// HealthcareProvider), plus obligations for sender/receiver.
+// Per the Nictiz profiling guidelines, cardinalities and conformance for the participating zibs are applied at the use case (information standard specific) layer, derived from the nl-core profiles. These carry the cardinalities the ART-DECOR transaction puts on the building blocks (Patient, HealthProfessional, HealthcareProvider), plus obligations for sender/receiver.
 //
-// Cardinalities follow the published AMB-HAP transaction (4.145, 2025-06-10) where tightened
-// (gender 1..1). The patient identifier is kept 0..* (optional and repeatable - see the element
-// comment) rather than hard-required; name and birthDate are left at nl-core cardinality with
-// obligations.
+// Cardinalities follow the published AMB-HAP transaction (4.145, 2025-06-10) where tightened (gender 1..1). The patient identifier is kept 0..* (optional and repeatable - see the element comment) rather than hard-required; name and birthDate are left at nl-core cardinality with obligations.
 // =============================================================================
 
 Profile: HgPatientAmbulanceHAP

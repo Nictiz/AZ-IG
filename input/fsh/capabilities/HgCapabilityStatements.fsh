@@ -2,11 +2,7 @@
 // =============================================================================
 // CapabilityStatements for the Acute Zorg referral exchange.
 //
-// These are paradigm-neutral REQUIREMENTS-level statements describing what the
-// sending and receiving systems must be capable of. They will be refined once
-// the exchange paradigm (Messaging, REST, or Document) is chosen. Until then
-// the rest.resource block is intentionally omitted; the exchange operations are
-// described on the Data Exchange page.
+// These are paradigm-neutral REQUIREMENTS-level statements describing what the sending and receiving systems must be capable of. They will be refined once the exchange paradigm (Messaging, REST, or Document) is chosen. Until then the rest.resource block is intentionally omitted; the exchange operations are described on the Data Exchange page.
 // =============================================================================
 
 Instance: hg-CapabilityStatement-Sender

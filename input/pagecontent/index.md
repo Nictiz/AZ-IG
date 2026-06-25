@@ -1,58 +1,34 @@
 ### Scope
 
-This Implementation Guide provides [FHIR R4](https://hl7.org/fhir/R4/) profiles and guidance
-for information exchange in acute care settings in the Netherlands, following the
-[Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)
-and the [Nictiz functional design for Acute Zorg](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg).
-All profiles are built on nl-core (zib2020, R4) and follow the
-[Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4) and the [Nictiz FHIR R4 Implementation Guide](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4).
+This Implementation Guide provides [FHIR R4](https://hl7.org/fhir/R4/) profiles and guidance for information exchange in acute care settings in the Netherlands, following the [Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf) and the [Nictiz functional design for Acute Zorg](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg). All profiles are built on nl-core (zib2020, R4) and follow the [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4) and the [Nictiz FHIR R4 Implementation Guide](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4).
 
-The IG is organised in two layers. A generic layer defines open-world profiles that are
-reusable across referral use cases. Use case layers derive from these and add
-the cardinalities, obligations, terminology bindings and dataset mappings specific to each
-transaction.
+The IG is organised in two layers. A generic layer defines open-world profiles that are reusable across referral use cases. Use case layers derive from these and add the cardinalities, obligations, terminology bindings and dataset mappings specific to each transaction.
 
-The intended audience of this IG is software developers building sending or receiving systems for acute
-care information exchange in the Netherlands.
+The intended audience of this IG is software developers building sending or receiving systems for acute care information exchange in the Netherlands.
 
 #### Conformance language
 
-The key words **SHALL**, **SHALL NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** in this
-specification are to be interpreted as described in
-[RFC 2119](https://tools.ietf.org/html/rfc2119).
+The key words **SHALL**, **SHALL NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** in this specification are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
 #### Language
 
-This IG is written in English. The underlying functional design and ART-DECOR dataset are in Dutch;
-Dutch terms appear in element `alias` values and `definition` texts throughout. A full explanation
-and Dutch-English mapping is provided on the [Data Model](data-model.html#dutch-english-element-name-mapping) page.
+This IG is written in English. The underlying functional design and ART-DECOR dataset are in Dutch; Dutch terms appear in element `alias` values and `definition` texts throughout. A full explanation and Dutch-English mapping is provided on the [Data Model](data-model.html#dutch-english-element-name-mapping) page.
 
 #### Use cases
 
-An overview of all current and planned use cases, including actors, CapabilityStatements, and
-profile links per use case, is on the [Use cases](use-cases.html) page.
+An overview of all current and planned use cases, including actors, CapabilityStatements, and profile links per use case, is on the [Use cases](use-cases.html) page.
 
 ### Design decisions
 
-Key modeling and conformance choices - profile layering, the obligations framework, open-world
-reference modeling, and dataset traceability - are documented on the
-[Design Decisions](design-decisions.html) page. The resource map, profile table, and
-conformance/validation guidance are on the [Data Model](data-model.html) page.
+Key modeling and conformance choices - profile layering, the obligations framework, open-world reference modeling, and dataset traceability - are documented on the [Design Decisions](design-decisions.html) page. The resource map, profile table, and conformance/validation guidance are on the [Data Model](data-model.html) page.
 
 ### Open items
 
-A number of profile decisions and architectural choices are still pending. See the
-[Open Items](open-items.html) page for the full list.
+A number of profile decisions and architectural choices are still pending. See the [Open Items](open-items.html) page for the full list.
 
 ### Versioning and releases
 
-Versions follow the Nictiz [Nationaal Releasebeleid](https://nationalebibliotheek.nictiz.nl/assets/uploads/2026/03/20260122_Nationaal-releasebeleid-versie-0.9.pdf)
-(semantic versioning). Concept publications preceding the first release carry a suffix -
-`0.y.z-alpha` (for consultation), `0.y.z-beta` (feature-complete, for testing in a test setting)
-or `0.y.z-rc` (release candidate); the first full publication is `1.0.0`. From `1.0.0` onward,
-incompatible changes increment the major version, compatible functional changes the minor, and
-compatible fixes the patch. Versions before `1.0.0` - including the current one - are
-pre-publication and intended for review and testing, not for production use.
+Versions follow the Nictiz [Nationaal Releasebeleid](https://nationalebibliotheek.nictiz.nl/assets/uploads/2026/03/20260122_Nationaal-releasebeleid-versie-0.9.pdf) (semantic versioning). Concept publications preceding the first release carry a suffix - `0.y.z-alpha` (for consultation), `0.y.z-beta` (feature-complete, for testing in a test setting) or `0.y.z-rc` (release candidate); the first full publication is `1.0.0`. From `1.0.0` onward, incompatible changes increment the major version, compatible functional changes the minor, and compatible fixes the patch. Versions before `1.0.0` - including the current one - are pre-publication and intended for review and testing, not for production use.
 
 ### Dependencies
 
@@ -64,8 +40,7 @@ The profiles are authored in FSH and compiled with Sushi, then built with the HL
 
 ### Authors and publication
 
-This Implementation Guide is authored and published by Nictiz, and will be used in a proof of
-concept (PoC) in the near future.
+This Implementation Guide is authored and published by Nictiz, and will be used in a proof of concept (PoC) in the near future.
 
 The contributing authors are:
 
@@ -77,10 +52,7 @@ The contributing authors are:
 
 ### Authoring note
 
-The authors use AI to help structure the narrative pages and to correct grammar - keeping the
-English from sliding into Dunglish. The explanatory comments in the FSH source are AI-generated
-for convenience. The authors remain responsible for the content, and review everything before
-publication.
+The authors use AI to help structure the narrative pages and to correct grammar - keeping the English from sliding into Dunglish. The explanatory comments in the FSH source are AI-generated for convenience. The authors remain responsible for the content, and review everything before publication.
 
 ### References
 
