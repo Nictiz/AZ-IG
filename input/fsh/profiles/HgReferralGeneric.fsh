@@ -31,7 +31,7 @@ Profile: HgReferralComposition
 Parent: Composition
 Id: hg-ReferralComposition
 Title: "hg referral Composition"
-Description: "Generic referral note carrying the textual *rubrieken* as Composition sections. Open-world base for the use case layer."
+Description: "Generic transfer summary note carrying the textual *rubrieken* as Composition sections. Open-world base for the use case layer."
 // Document type (Composition.type) is intentionally NOT fixed here - it is use case specific. Each use case layer fixes it.
 //
 // Section structure: deliberately left open at this layer. Experience from the ELZ (primary care) profiles shows that section codes and content are highly use case specific - the ELZ profile defines an Envelope/Core section hierarchy with sections such as CarePath, RequiredConsultationFacilities, MessageReason, SetTreatment, ProposedProcedure, and FurtherImportant, none of which apply directly to the ambulance use case. Each use case layer defines its own section slicing (discriminator and named slices) with the codes appropriate for that transaction; the slicing is intentionally NOT declared here so the use case profile owns it and its snapshot anchors the slice children correctly.

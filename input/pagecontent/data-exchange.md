@@ -67,7 +67,7 @@ In summary, regardless of paradigm, the sender **SHALL**:
 
 - Produce a conformant use case ServiceRequest as the focal resource
 - Populate every mandatory obligation-marked element (`SHALL:populate`) and every optional one it has a value for (`SHALL:populate-if-known`)
-- Produce a conformant use case Composition carrying the referral note sections
+- Produce a conformant use case Composition carrying the transfer summary note sections
 - Attach supporting documents as use case DocumentReference instances when available
 - Populate patient, organization, and professional resources conformant to the use case profiles
 

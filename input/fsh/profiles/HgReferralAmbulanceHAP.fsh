@@ -9,6 +9,10 @@
 RuleSet: SectionNarrativeComment
 * ^comment = "This section conveys its *rubriek* as free text. `text.status` is fixed to `additional` because the narrative is the source of this information, not a rendering generated from structured data: there is no expectation that `Composition.section.entry` will be populated here. The `text.div` may contain plain text or the limited xhtml subset that the FHIR specification allows for a Narrative."
 
+// Documentation note for content that is also carried on the referral ServiceRequest. Inserted on the Composition sections that duplicate a ServiceRequest value.
+RuleSet: CopiedFromServiceRequestComment
+* ^comment = "This content originates on the referral `ServiceRequest`, which is always the authoritative source. The `ServiceRequest` carries it so the receiving system can triage the referral early; the same value is copied into this Composition section so it is documented and persisted in the receiving system's record. The `ServiceRequest` value remains authoritative - this section is a documentation copy."
+
 Profile: HgReferralServiceRequestAmbulanceHAP
 Parent: HgReferralServiceRequest
 Id: hg-ReferralServiceRequest-AmbulanceHAP
@@ -88,7 +92,7 @@ Profile: HgReferralCompositionAmbulanceHAP
 Parent: HgReferralComposition
 Id: hg-ReferralComposition-AmbulanceHAP
 Title: "hg referral Composition - Ambulance to HAP"
-Description: "Referral note for the ambulance to GP out-of-hours post (HAP) referral."
+Description: "Transfer summary note for the ambulance to GP out-of-hours post (HAP) referral."
 * . ^short = "Core"
   * ^alias[0] = "Kern"
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."

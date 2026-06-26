@@ -7,7 +7,7 @@ This page describes the data model for the Ambulanceverwijzing (AMB naar HAP) re
 A referral always carries the same clinical core, regardless of the exchange paradigm (see [Data Exchange](data-exchange.html)):
 
 - `hg-ReferralServiceRequest-AmbulanceHAP` is the focal resource. It references the patient (`subject`), the sending ambulance (`requester`) and the receiving HAP (`performer`), and carries the clinical content through `supportingInfo`.
-- `supportingInfo` points to a `hg-ReferralComposition-AmbulanceHAP` for the referral note (reason, instituted treatment, diagnosis or conclusion) and, when documents are attached, to one or more `hg-ReferralDocumentReference-AmbulanceHAP` resources.
+- `supportingInfo` points to a `hg-ReferralComposition-AmbulanceHAP` for the transfer summary note (reason, instituted treatment, diagnosis or conclusion) and, when documents are attached, to one or more `hg-ReferralDocumentReference-AmbulanceHAP` resources.
 - The dataset's CommunicatieItem wrapper is folded into `DocumentReference` (its category on `category`, its sender on `author`); the recipient is the referral's `performer`.
 
 Under the FHIR Messaging paradigm, two wrapper resources are added on top of this core: `hg-ReferralMessageHeader-AmbulanceHAP` (which identifies the event and focuses the ServiceRequest) and `hg-ReferralBundle-AmbulanceHAP` (the message bundle). Under the RESTful or FHIR Document paradigms these wrappers are replaced by a transaction bundle or a document bundle respectively.
@@ -19,7 +19,7 @@ The worked example (scenario 5b) under [Artifacts](artifacts.html) shows a compl
 | Resource | Use case profile | Derived from | Role in the referral |
 |---|---|---|---|
 | ServiceRequest | `hg-ReferralServiceRequest-AmbulanceHAP` | `hg-ReferralServiceRequest` | Focal resource: the referral request |
-| Composition | `hg-ReferralComposition-AmbulanceHAP` | `hg-ReferralComposition` | Referral note (treatment given, diagnosis/conclusion) |
+| Composition | `hg-ReferralComposition-AmbulanceHAP` | `hg-ReferralComposition` | Transfer summary note (treatment given, diagnosis/conclusion) |
 | DocumentReference | `hg-ReferralDocumentReference-AmbulanceHAP` | `hg-ReferralDocumentReference` | Attached document(s), e.g. an ECG (0..\*) |
 | Patient | `hg-Patient-AmbulanceHAP` | nl-core-Patient | The patient being referred |
 | Organization | `hg-HealthcareProvider-Organization-AmbulanceHAP` | nl-core-HealthcareProvider-Organization | Sending (RAV) and receiving (HAP) organizations |
