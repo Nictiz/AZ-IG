@@ -18,15 +18,15 @@ The worked example (scenario 5b) under [Artifacts](artifacts.html) shows a compl
 
 | Resource | Use case profile | Derived from | Role in the referral |
 |---|---|---|---|
-| ServiceRequest | `hg-ReferralServiceRequest-AmbulanceHAP` | `hg-ReferralServiceRequest` | Focal resource: the referral request |
-| Composition | `hg-ReferralComposition-AmbulanceHAP` | `hg-ReferralComposition` | Transfer summary note (treatment given, diagnosis/conclusion) |
-| DocumentReference | `hg-ReferralDocumentReference-AmbulanceHAP` | `hg-ReferralDocumentReference` | Attached document(s), e.g. a report (0..\*) |
-| Patient | `hg-Patient-AmbulanceHAP` | nl-core-Patient | The patient being referred |
-| Organization | `hg-HealthcareProvider-Organization-AmbulanceHAP` | nl-core-HealthcareProvider-Organization | Sending (RAV) and receiving (HAP) organizations |
-| PractitionerRole | `hg-HealthProfessional-PractitionerRole-AmbulanceHAP` | nl-core-HealthProfessional-PractitionerRole | Role of the sending ambulance professional |
-| Practitioner | (none - nl-core directly) | nl-core-HealthProfessional-Practitioner | The ambulance professional |
-| MessageHeader | `hg-ReferralMessageHeader-AmbulanceHAP` | `hg-ReferralMessageHeader` | Messaging wrapper: event and focus |
-| Bundle | `hg-ReferralBundle-AmbulanceHAP` | `hg-ReferralBundle` | Messaging wrapper: the message bundle |
+| ServiceRequest | [`hg-ReferralServiceRequest-AmbulanceHAP`](StructureDefinition-hg-ReferralServiceRequest-AmbulanceHAP.html) | [`hg-ReferralServiceRequest`](StructureDefinition-hg-ReferralServiceRequest.html) | Focal resource: the referral request |
+| Composition | [`hg-ReferralComposition-AmbulanceHAP`](StructureDefinition-hg-ReferralComposition-AmbulanceHAP.html) | [`hg-ReferralComposition`](StructureDefinition-hg-ReferralComposition.html) | Transfer summary note (treatment given, diagnosis/conclusion) |
+| DocumentReference | [`hg-ReferralDocumentReference-AmbulanceHAP`](StructureDefinition-hg-ReferralDocumentReference-AmbulanceHAP.html) | [`hg-ReferralDocumentReference`](StructureDefinition-hg-ReferralDocumentReference.html) | Attached document(s), e.g. a report (0..\*) |
+| Patient | [`hg-Patient-AmbulanceHAP`](StructureDefinition-hg-Patient-AmbulanceHAP.html) | [`nl-core-Patient`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-Patient) | The patient being referred |
+| Organization | [`hg-HealthcareProvider-Organization-AmbulanceHAP`](StructureDefinition-hg-HealthcareProvider-Organization-AmbulanceHAP.html) | [`nl-core-HealthcareProvider-Organization`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthcareProvider-Organization) | Sending (RAV) and receiving (HAP) organizations |
+| PractitionerRole | [`hg-HealthProfessional-PractitionerRole-AmbulanceHAP`](StructureDefinition-hg-HealthProfessional-PractitionerRole-AmbulanceHAP.html) | [`nl-core-HealthProfessional-PractitionerRole`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthProfessional-PractitionerRole) | Role of the sending ambulance professional |
+| Practitioner | (none - nl-core directly) | [`nl-core-HealthProfessional-Practitioner`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthProfessional-Practitioner) | The ambulance professional |
+| MessageHeader | [`hg-ReferralMessageHeader-AmbulanceHAP`](StructureDefinition-hg-ReferralMessageHeader-AmbulanceHAP.html) | [`hg-ReferralMessageHeader`](StructureDefinition-hg-ReferralMessageHeader.html) | Messaging wrapper: event and focus |
+| Bundle | [`hg-ReferralBundle-AmbulanceHAP`](StructureDefinition-hg-ReferralBundle-AmbulanceHAP.html) | [`hg-ReferralBundle`](StructureDefinition-hg-ReferralBundle.html) | Messaging wrapper: the message bundle |
 
 `Practitioner` has no dedicated use case profile; the nl-core profile is used directly. The free text of each Composition section is carried in the section's own narrative (`Composition.section.text`, whose `.div` holds plain text or the limited xhtml allowed for a Narrative).
 
