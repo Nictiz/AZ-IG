@@ -12,6 +12,8 @@ These items need confirmation or resolution before the profiles can be finalized
 
 - Composition section codes under review. The codes identifying the `Composition.section` slices are provisional and still under review: `messageReason` (SNOMED 440378000), `treatmentGiven` (LOINC 18776-5), `diagnosisConclusion` (LOINC 55110-1) and `agreedWithPatient` (LOINC 69730-0). They may change as the section coding is aligned with the dataset/transaction.
 
+- Patient name as free text (`HumanName.text`). `hg-Patient-AmbulanceHAP` allows the patient's full name to be carried as plain text on `Patient.name.text`, for cases where the name is not registered in a structured manner. There is not yet a dataset component to match and represent this; the IG follows the (not yet published) General Building Blocks (GBB) specifications, which use this mapping. A corresponding data set element still needs to be defined. See the [GBB project in ART-DECOR](https://decor.nictiz.nl/ad/#/gbb2026bbr-/project/overview).
+
 ### IG infrastructure
 
 - Terminology download from ART-DECOR. Project-specific terminology is taken from ART-DECOR (the source of truth) and embedded verbatim as predefined resources in `input/resources`, not authored in FSH. So far only the `DocumentReference.type` terminology (the `acutezorg-codesysteem-16` code system and the *Bijlagen* value set) has been downloaded. Before finalization, make sure all terminology the profiles bind to is downloaded from ART-DECOR and kept in sync, using the Nictiz download tooling: [Nictiz-R4-zib2020/util/downloadTerminology](https://github.com/Nictiz/Nictiz-R4-zib2020/tree/main/util/downloadTerminology).
