@@ -20,7 +20,7 @@ The worked example (scenario 5b) under [Artifacts](artifacts.html) shows a compl
 |---|---|---|---|
 | ServiceRequest | `hg-ReferralServiceRequest-AmbulanceHAP` | `hg-ReferralServiceRequest` | Focal resource: the referral request |
 | Composition | `hg-ReferralComposition-AmbulanceHAP` | `hg-ReferralComposition` | Transfer summary note (treatment given, diagnosis/conclusion) |
-| DocumentReference | `hg-ReferralDocumentReference-AmbulanceHAP` | `hg-ReferralDocumentReference` | Attached document(s), e.g. an ECG (0..\*) |
+| DocumentReference | `hg-ReferralDocumentReference-AmbulanceHAP` | `hg-ReferralDocumentReference` | Attached document(s), e.g. a report (0..\*) |
 | Patient | `hg-Patient-AmbulanceHAP` | nl-core-Patient | The patient being referred |
 | Organization | `hg-HealthcareProvider-Organization-AmbulanceHAP` | nl-core-HealthcareProvider-Organization | Sending (RAV) and receiving (HAP) organizations |
 | PractitionerRole | `hg-HealthProfessional-PractitionerRole-AmbulanceHAP` | nl-core-HealthProfessional-PractitionerRole | Role of the sending ambulance professional |
