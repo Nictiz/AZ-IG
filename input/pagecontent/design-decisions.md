@@ -58,6 +58,17 @@ From a vendor perspective, this layering is a design and governance pattern, not
 
 Instead of `mustSupport`, support expectations are expressed with the FHIR Obligations framework. Two system actors are defined per use case as `ActorDefinition` resources: for the Ambulanceverwijzing these are `hg-ActorSender-AmbulanceHAP` (the ambulance/RAV system that produces and pushes the message) and `hg-ActorReceiver-AmbulanceHAP` (the HAP system that consumes it). The reusable `Obligation` rule set references them through aliases, so each use case supplies its own sender and receiver actors. Obligation-marked elements carry, via the `obligation` extension, a Sender obligation and a `SHALL:no-error` obligation for the Receiver (it must accept the element without error). The Sender obligation depends on cardinality: a mandatory element (min >= 1) carries `SHALL:populate` (the Sender must always populate it), while an optional element carries `SHALL:populate-if-known` (the Sender must populate it when it knows a value) - `populate-if-known` would contradict a 1..1/1..* element, which is always required. This makes the producer and consumer expectations explicit and machine-readable, where `mustSupport` would only carry a single, direction-less flag.
 
+### Invariants and constraints
+
+Beyond cardinalities, bindings and slicing, the use case profiles carry a small number of FHIRPath invariants - only for rules that structure cannot express, and kept resource-local so they also hold when a resource is validated standalone:
+
+- `hg-Patient-AmbulanceHAP` obeys `hg-pat-1`: the patient must be matchable at the receiver (an `identifier` or a `name` is present).
+- `hg-HealthcareProvider-Organization-AmbulanceHAP` obeys `hg-org-1`: the organization should be unambiguously addressable (a URA `identifier` is present).
+
+Both are `#warning` for now, because a not-yet-identified ambulance patient and addressing other than by URA are legitimate edge cases; they can be raised to `#error` once the ART-DECOR conformance mapping confirms the requirement (see the [Open Items](open-items.html) page).
+
+Two further categories are deliberately *not* enforced as invariants yet. Message-level rules (for example, that the Bundle contains the `ServiceRequest` referenced by `MessageHeader.focus` and the `Composition` it points to) are held until the exchange paradigm is chosen, since they only apply under FHIR Messaging. Cross-resource subject consistency (the `Composition` and `DocumentReference` subject being the same patient as the `ServiceRequest`) and a couple of `DocumentReference` structural tightenings are tracked as open items rather than enforced, to avoid `resolve()`-based invariants that are unreliable in standalone validation and to avoid constraining ahead of the dataset.
+
 ### Reference modeling (open world)
 
 References are kept open. Where the dataset binds a reference to an nl-core building block, the transaction-specific zib profile is added *next to* the base FHIR resource type rather than replacing it: for example `ServiceRequest.subject` is `Reference(Patient or hg-Patient-AmbulanceHAP)` and `requester`/`performer` allow `PractitionerRole`/`Organization` next to their hg- profiles. This follows the [Nictiz profiling guideline](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4) of adding the target profile beside the core type, so a sender that holds only a plain core resource still conforms, while a sender that can produce the richer nl-core-based profile is recognized.

@@ -8,6 +8,9 @@ These pending items affect how the exchange is modeled or implemented; each is t
 | Profiles | ART-DECOR → FHIR cardinality/conformance mapping (obligations may still change) | [#5](https://github.com/Nictiz/AZ-IG/issues/5) |
 | Profiles | `Composition.section` codes still under review | [#6](https://github.com/Nictiz/AZ-IG/issues/6) |
 | Profiles | Patient name as free text (`HumanName.text`) - dataset component needed | [#7](https://github.com/Nictiz/AZ-IG/issues/7) |
+| Profiles | ART-DECOR mapping ids to be re-verified (functional-spec changes); mapping target URL pending the new ART-DECOR publication | [#17](https://github.com/Nictiz/AZ-IG/issues/17) |
+| Profiles | `DocumentReference` - identifier slice `system`/`value` cardinality, and whether the attachment `contentType` is always PDF | [#18](https://github.com/Nictiz/AZ-IG/issues/18) |
+| Profiles | Cross-resource subject consistency (Composition/DocumentReference vs ServiceRequest) - guidance or message-level check | [#19](https://github.com/Nictiz/AZ-IG/issues/19) |
 | Architecture | Canonical URL overlap with the ELZ package | [#13](https://github.com/Nictiz/AZ-IG/issues/13) |
 | Architecture | Exchange paradigm not yet chosen | [#14](https://github.com/Nictiz/AZ-IG/issues/14) |
 | Architecture | Message 23 (AMB naar HA) out of scope for this version | [#15](https://github.com/Nictiz/AZ-IG/issues/15) |

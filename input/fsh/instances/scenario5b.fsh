@@ -19,7 +19,7 @@ Description: "Example patient (Patrick de Vries) referred from the ambulance to 
 * gender = #male
 * birthDate = "1944-03-10"
 
-Instance: Practitioner-hg-ambu
+Instance: hg-HealthProfessional-Practitioner-AmbulanceHAP-ambu
 InstanceOf: Practitioner
 Usage: #example
 Title: "Practitioner - ambulance nurse"
@@ -32,7 +32,7 @@ InstanceOf: HgHealthProfessionalPractitionerRoleAmbulanceHAP
 Usage: #example
 Title: "PractitionerRole - ambulance nurse"
 Description: "Example PractitionerRole linking the ambulance nurse to the sending RAV organization for scenario 5b."
-* practitioner = Reference(Practitioner-hg-ambu)
+* practitioner = Reference(hg-HealthProfessional-Practitioner-AmbulanceHAP-ambu)
 * organization = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-rav)
 * code.text = "Ambulanceverpleegkundige"
 
@@ -158,8 +158,8 @@ Description: "Example message Bundle containing the complete ambulance-to-HAP re
 * entry[=].resource = hg-ReferralComposition-AmbulanceHAP-referral
 * entry[+].fullUrl = "http://nictiz.nl/fhir/Patient/hg-Patient-AmbulanceHAP-patrick"
 * entry[=].resource = hg-Patient-AmbulanceHAP-patrick
-* entry[+].fullUrl = "http://nictiz.nl/fhir/Practitioner/Practitioner-hg-ambu"
-* entry[=].resource = Practitioner-hg-ambu
+* entry[+].fullUrl = "http://nictiz.nl/fhir/Practitioner/hg-HealthProfessional-Practitioner-AmbulanceHAP-ambu"
+* entry[=].resource = hg-HealthProfessional-Practitioner-AmbulanceHAP-ambu
 * entry[+].fullUrl = "http://nictiz.nl/fhir/PractitionerRole/hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu"
 * entry[=].resource = hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu
 * entry[+].fullUrl = "http://nictiz.nl/fhir/Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-rav"
