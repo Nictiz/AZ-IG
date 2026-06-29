@@ -83,6 +83,12 @@ Description: "Example tansfer summary note carrying the instituted treatment and
 * date = "2026-06-08T11:15:00+02:00"
 * author = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
 * title = "Ambulanceverwijzing naar huisartsenpost"
+// messageReason copies ServiceRequest.reasonCode.text (the same free text appears on the ServiceRequest for triage).
+* section[messageReason]
+  * title = "Reden van verwijzing"
+  * code = $sct#440378000 "verwijzing voor (waarneembare entiteit)"
+  * text.status = #additional
+  * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Controleconsult gevraagd na ambulancezorg (maagklachten).</div>"
 * section[treatmentGiven]
   * title = "Ingestelde behandeling"
   * code = $loinc#18776-5 "Behandelplan [bevinding] in {instelling} d.m.v. {rol} (document)"
@@ -93,6 +99,13 @@ Description: "Example tansfer summary note carrying the instituted treatment and
   * code = $loinc#55110-1 "Conclusies [interpretatie] (document)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Waarschijnlijk maagklachten. Controle door huisarts gewenst.</div>"
+// agreedWithPatient copies ServiceRequest.patientInstruction (the same text appears on the ServiceRequest for triage).
+// LOINC 69730-0 has no Dutch designation, so the English display "Instructions" is used (the other LOINC section codes do have Dutch designations and use them); this validates under displayLanguage = nl because there is no nl designation to prefer.
+* section[agreedWithPatient]
+  * title = "Afspraken met patiënt"
+  * code = $loinc#69730-0 "Instructions"
+  * text.status = #additional
+  * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Maak een afspraak op de huisartsenpost voor een controleconsult.</div>"
 
 Instance: hg-ReferralDocumentReference-AmbulanceHAP-ecg
 InstanceOf: HgReferralDocumentReferenceAmbulanceHAP

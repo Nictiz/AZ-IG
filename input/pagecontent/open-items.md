@@ -10,6 +10,8 @@ These items need confirmation or resolution before the profiles can be finalized
 
 - Cardinality and conformance mapping from ART-DECOR to FHIR. A systematic mapping from the ART-DECOR dataset/transaction cardinalities and conformance (mandatory, required, conditional, optional) to the corresponding FHIR cardinalities and obligations has not yet been made. The current cardinalities and the split between `ObligationMandatory` (`SHALL:populate`) and `Obligation` (`SHALL:populate-if-known`) are a first interpretation; once this mapping is worked out against the published transaction, the cardinalities and therefore the obligations on several elements may change.
 
+- Composition section codes under review. The codes identifying the `Composition.section` slices are provisional and still under review: `messageReason` (SNOMED 440378000), `treatmentGiven` (LOINC 18776-5), `diagnosisConclusion` (LOINC 55110-1) and `agreedWithPatient` (LOINC 69730-0). They may change as the section coding is aligned with the dataset/transaction.
+
 ### IG infrastructure
 
 - Terminology download from ART-DECOR. Project-specific terminology is taken from ART-DECOR (the source of truth) and embedded verbatim as predefined resources in `input/resources`, not authored in FSH. So far only the `DocumentReference.type` terminology (the `acutezorg-codesysteem-16` code system and the *Bijlagen* value set) has been downloaded. Before finalization, make sure all terminology the profiles bind to is downloaded from ART-DECOR and kept in sync, using the Nictiz download tooling: [Nictiz-R4-zib2020/util/downloadTerminology](https://github.com/Nictiz/Nictiz-R4-zib2020/tree/main/util/downloadTerminology).

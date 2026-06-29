@@ -32,7 +32,7 @@ Versions follow the Nictiz [Nationaal Releasebeleid](https://nationalebibliothee
 
 ### Dependencies
 
-{% include dependency-table.xhtml %}
+The [Dependencies](dependencies.html) page lists the FHIR packages this IG depends on and explains how they and the upstream specifications (functional design, ART-DECOR data set, zibs) relate, including the relationship with the primary care ELZ package.
 
 ### Building this IG
 

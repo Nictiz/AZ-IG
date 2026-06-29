@@ -33,8 +33,13 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1709" "Kern"
 * subject -> "hg-dataelement-1676" "Patient"
 * author -> "hg-dataelement-5089" "Verzender"
+// messageReason duplicates ServiceRequest.reasonCode: the section carries RedenBericht (1872) and its narrative carries the free-text Context (1710), mirroring the ServiceRequest mapping.
+* section[messageReason] -> "hg-dataelement-1872" "RedenBericht"
+* section[messageReason].text.div -> "hg-dataelement-1710" "Context"
 * section[treatmentGiven].text.div -> "hg-dataelement-1711" "IngesteldeBehandeling"
 * section[diagnosisConclusion].text.div -> "hg-dataelement-1749" "Diagnose/Conclusie"
+// agreedWithPatient duplicates ServiceRequest.patientInstruction (also mapped to 1752 there).
+* section[agreedWithPatient].text.div -> "hg-dataelement-1752" "AfgesprokenMetPatient"
 
 Mapping: HgReferralDocumentReferenceAmbulanceHAPDataset
 Source: HgReferralDocumentReferenceAmbulanceHAP

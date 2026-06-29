@@ -119,8 +119,20 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
 * section ^slicing.discriminator[0].type = #pattern
   * ^slicing.discriminator[0].path = "code"
   * ^slicing.rules = #open
-* section contains treatmentGiven 0..* and diagnosisConclusion 0..1
+* section contains messageReason 1..1 and treatmentGiven 0..* and diagnosisConclusion 0..1 and agreedWithPatient 0..1
 // The free-text content of each rubriek is carried in the section's own narrative (Composition.section.text). text.status is fixed to #additional and text is required (1..1) with the populate-if-known obligation; the SectionNarrativeComment RuleSet (above) renders the rationale on the profile page.
+// messageReason duplicates ServiceRequest.reasonCode (RedenBericht 1872; the free-text Context 1710 is its narrative). The section is 1..1 because reasonCode is mandatory and is always copied here for documentation. See CopiedFromServiceRequestComment for the origin/triage rationale.
+* section[messageReason] ^short = "MessageReason"
+  * ^alias[0] = "RedenBericht"
+  * ^alias[1] = "Context"
+  * ^definition = "Geeft de reden van de verwijzing of de update. De ambulance legt de reden altijd vast in vrije tekst."
+* section[messageReason].code = $sct#440378000
+* section[messageReason] insert ObligationMandatory
+* section[messageReason] insert CopiedFromServiceRequestComment
+* section[messageReason].text 1..1
+* section[messageReason].text.status = #additional
+* section[messageReason].text insert ObligationMandatory
+* section[messageReason].text insert SectionNarrativeComment
 * section[treatmentGiven] ^short = "SetTreatment"
   * ^alias[0] = "IngesteldeBehandeling"
   * ^definition = "Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht."
@@ -139,6 +151,17 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
 * section[diagnosisConclusion].text.status = #additional
 * section[diagnosisConclusion].text insert ObligationMandatory
 * section[diagnosisConclusion].text insert SectionNarrativeComment
+// agreedWithPatient duplicates ServiceRequest.patientInstruction (AfgesprokenMetPatient 1752). It is 0..1 because patientInstruction is optional; copied here for documentation. See CopiedFromServiceRequestComment for the origin/triage rationale.
+* section[agreedWithPatient] ^short = "AgreedWithPatient"
+  * ^alias[0] = "AfgesprokenMetPatient"
+  * ^definition = "In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op het veld 'Afspraken met patiënt'."
+* section[agreedWithPatient].code = $loinc#69730-0
+* section[agreedWithPatient] insert Obligation
+* section[agreedWithPatient] insert CopiedFromServiceRequestComment
+* section[agreedWithPatient].text 1..1
+* section[agreedWithPatient].text.status = #additional
+* section[agreedWithPatient].text insert ObligationMandatory
+* section[agreedWithPatient].text insert SectionNarrativeComment
 
 Profile: HgReferralDocumentReferenceAmbulanceHAP
 Parent: HgReferralDocumentReference

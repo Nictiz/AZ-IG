@@ -19,6 +19,7 @@ menu:
   Home: index.html
   Use cases: use-cases.html
   Functional design: functional-design.html
+  Dependencies: dependencies.html
   Data model: data-model.html
   Data exchange: data-exchange.html
   Workflow: workflow.html
@@ -34,6 +35,8 @@ pages:
     title: Use cases
   functional-design.md:
     title: Functional design
+  dependencies.md:
+    title: Dependencies
   data-model.md:
     title: Data model
   data-exchange.md:
