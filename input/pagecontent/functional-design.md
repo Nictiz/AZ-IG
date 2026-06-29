@@ -24,7 +24,7 @@ The two conditional columns, *wet- en regelgeving* and *beveiliging*, apply acro
 
 [Section 2.16 of the functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29) covers the handover of a patient by an ambulance professional to a GP out-of-hours post (HAP, *huisartsenpost*) after on-scene care. This corresponds to message 24 in the *richtlijn* (AMB naar HAP). The exchange is one-directional (PUSH): the ambulance/Regionale Ambulancevoorziening (RAV) sends, the HAP receives.
 
-The information exchanged covers patient identification, the reason for referral, the treatment instituted on scene, the clinical conclusion or working diagnosis, and any supporting documents such as an ECG or photograph. The HAP uses this information to prepare for the patient's arrival and to match the referral to the patient.
+The information exchanged covers patient identification, the reason for referral, the treatment instituted on scene, the clinical conclusion or working diagnosis, and any supporting documents such as an clinical note or ECG.
 
 ### ART-DECOR dataset
 
