@@ -8,6 +8,14 @@ All participating resources build on nl-core (zib2020, R4). Identifiers, name an
 
 The referral is modeled as a `ServiceRequest` on FHIR core, with `intent` fixed to `order`. The ambulance is the `requester` and the HAP is the `performer`. This follows the FHIR workflow request pattern.
 
+### Envelope and core: ServiceRequest and Composition
+
+The ART-DECOR data set nests its content in two containers: the *Envelop* (the outer envelope - addressing and triage: destination status, patient, send date/time, sender, recipient) and the *Kern* (the clinical core - reason, instituted treatment, diagnosis/conclusion, agreements with the patient, attachments). This IG splits those over two FHIR resources, each with its root mapped to its primary container: the `ServiceRequest` represents the *Envelop*, and the `Composition` represents the *Kern*.
+
+The two are not watertight, and that is deliberate. The `ServiceRequest` (Envelop) also surfaces a few *Kern* elements - the reason (`reasonCode`), the agreements with the patient (`patientInstruction`) and a reference to the core (`supportingInfo`) - so that the receiving system can triage the referral early, before opening the document. Conversely the `Composition` (Kern) carries some *Envelop* elements - `subject`, `author` and `date` - because a FHIR document must declare its patient, author and date; these reuse the same patient, sender and timestamp the envelope carries.
+
+The `ServiceRequest` values are authoritative and exist for early triage; where the same content is also placed on the `Composition` it is a documentation copy, persisted in the receiving system's record (see the reason and agreed-with-patient sections, which carry that note). Each root is mapped to its own container only - the `Composition` is not separately mapped to *Envelop*, because reusing the envelope's patient and sender does not make the document the envelope. The cross-container elements are traced individually in the [dataset mappings](#dataset-traceability).
+
 ### No Task, for now
 
 We deliberately omit `Task` and follow the ad-hoc workflow pattern. See the [Workflow](workflow.html) page for the rationale and a description of how `Task` could be introduced in a future version without reworking the referral content profiles.

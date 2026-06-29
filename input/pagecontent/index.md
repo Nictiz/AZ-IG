@@ -24,11 +24,13 @@ Key modeling and conformance choices - profile layering, the obligations framewo
 
 ### Open items
 
-A number of profile decisions and architectural choices are still pending. See the [Open Items](open-items.html) page for the full list.
+A number of profile decisions and architectural choices are still pending. See the [Open Items](open-items.html) page; the full list, including build and tooling tasks, is tracked in the [GitHub issues](https://github.com/Nictiz/AZ-IG/issues).
 
 ### Versioning and releases
 
 Versions follow the Nictiz [Nationaal Releasebeleid](https://nationalebibliotheek.nictiz.nl/assets/uploads/2026/03/20260122_Nationaal-releasebeleid-versie-0.9.pdf) (semantic versioning). Concept publications preceding the first release carry a suffix - `0.y.z-alpha` (for consultation), `0.y.z-beta` (feature-complete, for testing in a test setting) or `0.y.z-rc` (release candidate); the first full publication is `1.0.0`. From `1.0.0` onward, incompatible changes increment the major version, compatible functional changes the minor, and compatible fixes the patch. Versions before `1.0.0` - including the current one - are pre-publication and intended for review and testing, not for production use.
+
+The notable changes per version are on the [Changelog](changelog.html) page; the per-version downloadable packages and the full issue-level history are in the [GitHub repository](https://github.com/Nictiz/AZ-IG).
 
 ### Dependencies
 

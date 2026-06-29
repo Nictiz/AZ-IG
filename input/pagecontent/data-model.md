@@ -53,27 +53,4 @@ The ART-DECOR dataset is Dutch-only. Each profile element carries three language
 - `definition` carries the Dutch *omschrijving* from ART-DECOR.
 - `short` carries an English translation authored in this IG. Where an equivalent element exists in the ELZ FHIR profiles (`nictiz.fhir.nl.r4.elz`), the same English term is used; elements specific to the AMB-HAP transaction are translated independently.
 
-| Dutch dataset name | English `short` |
-|---|---|
-| Envelop | Envelope |
-| Bestemmingsstatus | DestinationStatus |
-| Patient | Patient |
-| Datum en tijd | SendDateTime |
-| Verzender | Sender |
-| Ontvanger | Recipient |
-| RedenBericht | MessageReason |
-| Context | Context |
-| Kern | Core |
-| IngesteldeBehandeling | SetTreatment |
-| Diagnose/Conclusie | DiagnosisConclusion |
-| AfgesprokenMetPatient | AgreedWithPatient |
-| CommunicatieItem | CommunicationItem |
-| CommunicatieAfzender | CommunicationSender |
-| Document | (folded into DocumentReference root) |
-| DocumentIdentificatie | DocumentIdentification |
-| DocumentSetIdentificatie | DocumentSetIdentification |
-| DocumentType | DocumentType |
-| DocumentBestandtype | DocumentMediaType |
-| DocumentInhoud | DocumentContent |
-| DocumentNaam | DocumentName |
-| DocumentCreatieDatumTijd | DocumentCreationDateTime |
+The Dutch-to-English correspondence per element is therefore visible directly on each profile: the `alias` (Dutch dataset name) and the `short` (English term) are shown for every element on the profile pages under [Artifacts](artifacts.html).
