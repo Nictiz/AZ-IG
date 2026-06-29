@@ -137,7 +137,7 @@ InstanceOf: HgReferralMessageHeaderAmbulanceHAP
 Usage: #example
 Title: "MessageHeader - ambulance referral"
 Description: "Example MessageHeader focusing the referral ServiceRequest for the scenario 5b message."
-* eventCoding = HgMessageEvent#ambulance-referral-to-hap "Ambulance referral to HAP"
+* eventCoding = HgMessageEvent#145 "Verwijzing ambulance naar huisartsenpost"
 * focus = Reference(hg-ReferralServiceRequest-AmbulanceHAP-referral)
 * sender = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-rav)
 * source.endpoint = "https://ambulance.example.nl/fhir"

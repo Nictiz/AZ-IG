@@ -60,8 +60,10 @@ Profile: HgReferralMessageHeader
 Parent: MessageHeader
 Id: hg-ReferralMessageHeader
 Title: "hg referral MessageHeader"
-Description: "Generic MessageHeader for a referral PUSH. Focuses the referral ServiceRequest; the event is fixed at the use case layer."
+Description: "Generic MessageHeader for a referral PUSH. Focuses the referral ServiceRequest; the event is bound to the referral transactions and fixed to one at the use case layer."
 * event[x] only Coding
+// The event is one of the ART-DECOR referral transactions (hg-message-event); the use case fixes its specific transaction code.
+* eventCoding from HgMessageEvents (required)
 * focus only Reference(HgReferralServiceRequest)
 * sender only Reference(Practitioner or PractitionerRole or Organization or $nlcore-PractitionerRole or $nlcore-Organization)
 * sender insert PartyReferenceComment

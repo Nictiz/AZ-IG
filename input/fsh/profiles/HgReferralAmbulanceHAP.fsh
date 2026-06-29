@@ -228,7 +228,7 @@ Parent: HgReferralMessageHeader
 Id: hg-ReferralMessageHeader-AmbulanceHAP
 Title: "hg referral MessageHeader - Ambulance to HAP"
 Description: "MessageHeader for the ambulance to GP out-of-hours post (HAP) referral PUSH."
-* eventCoding = HgMessageEvent#ambulance-referral-to-hap
+* eventCoding = HgMessageEvent#145
 * focus 1..1
 * focus only Reference(HgReferralServiceRequestAmbulanceHAP)
 * focus insert ObligationMandatory

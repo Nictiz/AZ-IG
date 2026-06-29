@@ -14,3 +14,4 @@ These pending items affect how the exchange is modeled or implemented; each is t
 | Architecture | Canonical URL overlap with the ELZ package | [#13](https://github.com/Nictiz/AZ-IG/issues/13) |
 | Architecture | Exchange paradigm not yet chosen | [#14](https://github.com/Nictiz/AZ-IG/issues/14) |
 | Architecture | Message 23 (AMB naar HA) out of scope for this version | [#15](https://github.com/Nictiz/AZ-IG/issues/15) |
+| Architecture | Message event codes based on ART-DECOR transactions (code = transaction number) - under development, settled with the exchange-paradigm choice | [#20](https://github.com/Nictiz/AZ-IG/issues/20) |
