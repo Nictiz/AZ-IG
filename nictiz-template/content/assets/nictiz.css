@@ -198,6 +198,16 @@ h1, h2, h3, h4, h5 {
   color: var(--nictiz-grey-dark);
 }
 
+/* FHIR logo in the top-right of the header band, balancing the Nictiz logo on
+   the left. Links to the FHIR spec; the trademark notice is in its title.
+   margin-top centres the 42px wordmark against the taller (55px) Nictiz logo. */
+#fhir-logo-link {
+  float: right;
+  margin-top: 15px;
+  margin-right: 3px;
+  line-height: 50px;
+}
+
 body {
   font-size: 13px;
 }
@@ -231,6 +241,14 @@ body {
   color: #ffffff;
   background-color: var(--nictiz-orange);
 }
+/* Navbar dropdown carets: the base template colours the resting caret light
+   grey (#e6e6e6), which is nearly invisible on the light-orange bar. Make it
+   dark grey at rest; hover and open states stay white (base default). */
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+  border-top-color: var(--nictiz-grey-dark);
+  border-bottom-color: var(--nictiz-grey-dark);
+}
+
 /* The current page's item inside an open dropdown gets the base template's
    ".active" treatment, which paints a blue gradient background-image. Clear it
    so the highlighted item is a clean solid orange like the hover state. */

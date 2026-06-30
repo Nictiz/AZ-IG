@@ -34,6 +34,7 @@ Status: under development - no official release yet. This is the first Nictiz IG
 - `input/pagecontent/design-decisions.md` - modeling and conformance decisions
 - `input/pagecontent/open-items.md` - pending decisions
 - `input/pagecontent/changelog.md` - per-version changes
+- `docs/review-manual.md` - reviewer guide (Dutch): the patterns and open decisions where Nictiz review input is most valuable. Repo documentation, not part of the built IG.
 
 ## Building
 
