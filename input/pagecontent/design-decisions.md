@@ -1,5 +1,17 @@
 This page documents the key modeling and conformance choices made in this IG, and the rationale behind them.
 
+### Conformance to the Nictiz FHIR R4 IG
+
+This IG follows the overarching principles of the [Nictiz FHIR R4 Implementation Guide](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4) - the baseline all Nictiz FHIR R4 information standards conform to - together with the [FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4). The layered profiling (§2.1), the profiling guidelines (§2.2), coded concepts carrying a Dutch `display` (§2.4), references kept resolvable with `.type`/`.display` and the target profile beside the core type (§2.5), `meta.profile` declared with both the use case and the nl-core canonical for nl-core-derived resources (§2.6), and the SNOMED CT Netherlands edition pinned for validation (§2.12) are all applied as that IG prescribes. That IG allows an information standard to "extend, specialize or overrule" its principles where this is *explicitly documented*; the points below are this IG's documented choices.
+
+**Deviation - obligations instead of `mustSupport`.** Where the core IG expects use case profiles to apply `mustSupport`, this IG expresses support expectations with the FHIR Obligations framework instead (see [Conformance via obligations](#conformance-via-obligations)). Obligations carry directional, actor-scoped and machine-readable expectations that a single `mustSupport` flag cannot; this is a deliberate substitution, not an omission.
+
+**Mandatory vs Required, and missing data (§2.13).** The core IG distinguishes the ART-DECOR designations *Mandatory* and *Required*, and asks each standard to state how the Data Absent Reason extension applies. This IG maps the distinction onto its two obligation rule sets: a *Mandatory* element (min >= 1) carries `SHALL:populate`, a *Required* element (min 0) carries `SHALL:populate-if-known`. The Data Absent Reason extension is not used: in this one-directional PUSH an unknown optional element is simply omitted rather than sent with a reason for absence. This can be revisited if a use case needs to assert *why* a required value is absent.
+
+**Narrative (§2.14).** The free-text *rubrieken* are carried in the relevant `Composition.section.text` (with `text.status = additional`); see [Envelope and core](#envelope-and-core-servicerequest-and-composition). This IG does not additionally require a generated `Resource.text` narrative on each resource - that expectation will be set together with the exchange paradigm.
+
+**Deferred pending the exchange paradigm.** The core IG's transport-level principles - HTTP headers (§2.3), search (§2.7), error handling and `OperationOutcome` (§2.9), the informative role of CapabilityStatements (§2.10), secondary resources in transactions (§2.11) and `Bundle.entry.fullUrl` conventions (§2.8) - depend on the exchange paradigm, which is not yet chosen (see [Data Exchange](data-exchange.html) and the [Open Items](open-items.html) page). The profiles are designed to remain valid under all candidate paradigms; this guidance is completed once the paradigm is fixed.
+
 ### Base profiles
 
 All participating resources build on nl-core (zib2020, R4). Identifiers, name and address structures, and organization and practitioner modeling follow nl-core, which keeps the IG aligned with the wider Dutch FHIR ecosystem.

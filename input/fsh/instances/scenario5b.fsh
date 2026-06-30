@@ -1,6 +1,8 @@
 // NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // ---------------------------------------------------------------------------
 // Example set for scenario 5b from the Richtlijn Gegevensuitwisseling Acute Zorg: an ambulance professional refers patient Patrick to the GP out-of-hours post (HAP) after on-scene care.
+//
+// Per the Nictiz FHIR R4 IG (section 2.6) the nl-core-derived resources declare both the use case profile and the nl-core parent in meta.profile, and references carry .type and .display (section 2.5).
 // ---------------------------------------------------------------------------
 
 Instance: hg-Patient-AmbulanceHAP-patrick
@@ -8,6 +10,8 @@ InstanceOf: HgPatientAmbulanceHAP
 Usage: #example
 Title: "Patient - Patrick (scenario 5b)"
 Description: "Example patient (Patrick de Vries) referred from the ambulance to the GP out-of-hours post in scenario 5b."
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP"
+* meta.profile[+] = $nlcore-Patient
 * identifier.system = $bsn
 * identifier.value = "999999990"
 * name.use = #official
@@ -32,8 +36,14 @@ InstanceOf: HgHealthProfessionalPractitionerRoleAmbulanceHAP
 Usage: #example
 Title: "PractitionerRole - ambulance nurse"
 Description: "Example PractitionerRole linking the ambulance nurse to the sending RAV organization for scenario 5b."
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-PractitionerRole-AmbulanceHAP"
+* meta.profile[+] = $nlcore-PractitionerRole
 * practitioner = Reference(hg-HealthProfessional-Practitioner-AmbulanceHAP-ambu)
+* practitioner.type = "Practitioner"
+* practitioner.display = "A. Ambulance"
 * organization = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-rav)
+* organization.type = "Organization"
+* organization.display = "RAV Utrecht"
 * code.text = "Ambulanceverpleegkundige"
 
 Instance: hg-HealthcareProvider-Organization-AmbulanceHAP-rav
@@ -41,6 +51,8 @@ InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - Regionale Ambulancevoorziening"
 Description: "Example sending organization (Regionale Ambulancevoorziening, RAV) for scenario 5b."
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+* meta.profile[+] = $nlcore-Organization
 * identifier.system = $ura
 * identifier.value = "00000001"
 * name = "RAV Utrecht"
@@ -50,6 +62,8 @@ InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - Huisartsenpost"
 Description: "Example receiving organization (GP out-of-hours post, HAP) for scenario 5b."
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+* meta.profile[+] = $nlcore-Organization
 * identifier.system = $ura
 * identifier.value = "00000002"
 * name = "Huisartsenpost Utrecht"
@@ -64,13 +78,23 @@ Description: "Example ambulance-to-HAP referral request (the focal resource) for
 * code = $sct#11131000146102 "overdracht van zorg vanuit ambulance"
 * category[referralType] = $sct#308292007 "overdracht van zorg (verrichting)"
 * subject = Reference(hg-Patient-AmbulanceHAP-patrick)
+* subject.type = "Patient"
+* subject.display = "Patrick de Vries"
 * authoredOn = "2026-06-08T11:15:00+02:00"
 * requester = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
+* requester.type = "PractitionerRole"
+* requester.display = "Ambulanceverpleegkundige (RAV Utrecht)"
 * performer = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-hap)
+* performer.type = "Organization"
+* performer.display = "Huisartsenpost Utrecht"
 * reasonCode.text = "Controleconsult gevraagd na ambulancezorg (maagklachten)."
 * patientInstruction = "Maak een afspraak op de huisartsenpost voor een controleconsult."
-* supportingInfo = Reference(hg-ReferralComposition-AmbulanceHAP-referral)
+* supportingInfo[0] = Reference(hg-ReferralComposition-AmbulanceHAP-referral)
+* supportingInfo[0].type = "Composition"
+* supportingInfo[0].display = "Ambulanceverwijzing naar huisartsenpost"
 * supportingInfo[+] = Reference(hg-ReferralDocumentReference-AmbulanceHAP-ecg)
+* supportingInfo[=].type = "DocumentReference"
+* supportingInfo[=].display = "12-afleidingen ECG"
 
 Instance: hg-ReferralComposition-AmbulanceHAP-referral
 InstanceOf: HgReferralCompositionAmbulanceHAP
@@ -80,8 +104,12 @@ Description: "Example tansfer summary note carrying the instituted treatment and
 * status = #final
 * type = $loinc#18761-7 "Samenvatting van overdracht [bevinding] in {instelling} d.m.v. {rol} (document)"
 * subject = Reference(hg-Patient-AmbulanceHAP-patrick)
+* subject.type = "Patient"
+* subject.display = "Patrick de Vries"
 * date = "2026-06-08T11:15:00+02:00"
 * author = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
+* author.type = "PractitionerRole"
+* author.display = "Ambulanceverpleegkundige (RAV Utrecht)"
 * title = "Ambulanceverwijzing naar huisartsenpost"
 // messageReason copies ServiceRequest.reasonCode.text (the same free text appears on the ServiceRequest for triage).
 * section[messageReason]
@@ -126,6 +154,8 @@ Description: "Example attached document (an ECG) accompanying the referral in sc
 * type = $acutezorg-cs16#001 "12 afleidingen ECG"
 * category.text = "Bijlage"
 * author = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu)
+* author.type = "PractitionerRole"
+* author.display = "Ambulanceverpleegkundige (RAV Utrecht)"
 * content.attachment
   * contentType = #application/pdf
   * data = "JVBERi0xLjQK"
@@ -139,7 +169,11 @@ Title: "MessageHeader - ambulance referral"
 Description: "Example MessageHeader focusing the referral ServiceRequest for the scenario 5b message."
 * eventCoding = HgMessageEvent#145 "Verwijzing ambulance naar huisartsenpost"
 * focus = Reference(hg-ReferralServiceRequest-AmbulanceHAP-referral)
+* focus.type = "ServiceRequest"
+* focus.display = "Ambulanceverwijzing naar huisartsenpost"
 * sender = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-rav)
+* sender.type = "Organization"
+* sender.display = "RAV Utrecht"
 * source.endpoint = "https://ambulance.example.nl/fhir"
 * destination.endpoint = "https://hap.example.nl/fhir"
 

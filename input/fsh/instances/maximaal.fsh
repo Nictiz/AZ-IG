@@ -11,6 +11,10 @@
 // Note: this is a hand-authored interpretation of the ADA instance, not output
 // of the usual ADA-to-FHIR tooling (not yet available for this transaction).
 // See the Testing page; the examples are provisional pending that tooling.
+//
+// Per the Nictiz FHIR R4 IG, the nl-core-derived resources declare both the use
+// case profile and the nl-core parent in meta.profile (section 2.6), and
+// references carry .type and .display (section 2.5).
 // ---------------------------------------------------------------------------
 
 Instance: hg-Patient-AmbulanceHAP-max
@@ -18,6 +22,8 @@ InstanceOf: HgPatientAmbulanceHAP
 Usage: #example
 Title: "Patient - J.H.M. van Baatenburg (maximal example)"
 Description: "Example patient for the maximal ambulance-to-HAP referral (ART-DECOR ADA test az-ave-tst-2-maximaal): BSN, structured name, gender, birth date, address, telecom and a contact person."
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP"
+* meta.profile[+] = $nlcore-Patient
 * identifier.system = $bsn
 * identifier.value = "999910589"
 * name.use = #official
@@ -56,8 +62,14 @@ InstanceOf: HgHealthProfessionalPractitionerRoleAmbulanceHAP
 Usage: #example
 Title: "PractitionerRole - ambulance nurse (maximal example)"
 Description: "Example PractitionerRole linking the ambulance nurse to the sending RAV organization for the maximal ambulance-to-HAP referral."
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-PractitionerRole-AmbulanceHAP"
+* meta.profile[+] = $nlcore-PractitionerRole
 * practitioner = Reference(hg-HealthProfessional-Practitioner-AmbulanceHAP-max)
+* practitioner.type = "Practitioner"
+* practitioner.display = "Ambulanceverpleegkundige"
 * organization = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-max-rav)
+* organization.type = "Organization"
+* organization.display = "RAV"
 * code.text = "Verpleegkundige"
 * telecom.system = #phone
 * telecom.value = "0612345678"
@@ -67,6 +79,8 @@ InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - RAV (maximal example)"
 Description: "Example sending organization (Regionale Ambulancevoorziening) for the maximal ambulance-to-HAP referral."
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+* meta.profile[+] = $nlcore-Organization
 * identifier.system = "urn:oid:2.16.840.1.113883.2.4.3.11.60.55.15.1"
 * identifier.value = "25"
 * name = "RAV"
@@ -76,6 +90,8 @@ InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - HAP (maximal example)"
 Description: "Example receiving organization (huisartsenpost) for the maximal ambulance-to-HAP referral, identified by an AGB code."
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+* meta.profile[+] = $nlcore-Organization
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/agb-z"
 * identifier.value = "6010860"
 * name = "HAP"
@@ -91,13 +107,23 @@ Description: "Maximal example ambulance-to-HAP referral request (ART-DECOR ADA t
 * code = $sct#11131000146102 "overdracht van zorg vanuit ambulance"
 * category[referralType] = $sct#308292007 "overdracht van zorg (verrichting)"
 * subject = Reference(hg-Patient-AmbulanceHAP-max)
+* subject.type = "Patient"
+* subject.display = "J.H.M. van Baatenburg"
 * authoredOn = "2026-06-20T14:00:00+02:00"
 * requester = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-max)
+* requester.type = "PractitionerRole"
+* requester.display = "Verpleegkundige (RAV)"
 * performer = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-max-hap)
+* performer.type = "Organization"
+* performer.display = "HAP"
 * reasonCode.text = "Patiënt is vanuit acute ambulancezorg voor verdere zorg doorverwezen naar de huisartsenspoedpost."
 * patientInstruction = "Huisarts nog inlichten."
 * supportingInfo[0] = Reference(hg-ReferralComposition-AmbulanceHAP-max)
+* supportingInfo[0].type = "Composition"
+* supportingInfo[0].display = "Ambulanceverwijzing naar huisartsenpost"
 * supportingInfo[+] = Reference(hg-ReferralDocumentReference-AmbulanceHAP-max)
+* supportingInfo[=].type = "DocumentReference"
+* supportingInfo[=].display = "ambulance verslag"
 
 Instance: hg-ReferralComposition-AmbulanceHAP-max
 InstanceOf: HgReferralCompositionAmbulanceHAP
@@ -107,8 +133,12 @@ Description: "Maximal example transfer summary note: reason, the instituted trea
 * status = #final
 * type = $loinc#18761-7 "Samenvatting van overdracht [bevinding] in {instelling} d.m.v. {rol} (document)"
 * subject = Reference(hg-Patient-AmbulanceHAP-max)
+* subject.type = "Patient"
+* subject.display = "J.H.M. van Baatenburg"
 * date = "2026-06-20T14:00:00+02:00"
 * author = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-max)
+* author.type = "PractitionerRole"
+* author.display = "Verpleegkundige (RAV)"
 * title = "Ambulanceverwijzing naar huisartsenpost"
 * section[messageReason]
   * title = "Reden van verwijzing"
@@ -149,6 +179,8 @@ Description: "Example attached document (the ambulance report PDF) accompanying 
 * type = $acutezorg-cs16#006 "intern rapport/overdracht"
 * category.text = "Bijlage"
 * author = Reference(hg-HealthProfessional-PractitionerRole-AmbulanceHAP-max)
+* author.type = "PractitionerRole"
+* author.display = "Verpleegkundige (RAV)"
 * content.attachment
   * contentType = #application/pdf
   * data = "JVBERi0xLjQK"
@@ -162,7 +194,11 @@ Title: "MessageHeader - maximal ambulance referral"
 Description: "Example MessageHeader focusing the referral ServiceRequest for the maximal ambulance-to-HAP referral message."
 * eventCoding = HgMessageEvent#145 "Verwijzing ambulance naar huisartsenpost"
 * focus = Reference(hg-ReferralServiceRequest-AmbulanceHAP-max)
+* focus.type = "ServiceRequest"
+* focus.display = "Ambulanceverwijzing naar huisartsenpost"
 * sender = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-max-rav)
+* sender.type = "Organization"
+* sender.display = "RAV"
 * source.endpoint = "https://ambulance.example.nl/fhir"
 * destination.endpoint = "https://hap.example.nl/fhir"
 

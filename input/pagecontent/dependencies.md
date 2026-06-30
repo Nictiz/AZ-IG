@@ -30,6 +30,8 @@ Note that the project-specific terminology (the *Bijlagen* value set and the `ac
 
 All three Nictiz packages are currently beta releases, so this IG is pre-publication and its dependencies may move as those packages stabilize.
 
+Beyond these packages, this IG conforms to the overarching [Nictiz FHIR R4 Implementation Guide](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4) - the baseline principles all Nictiz FHIR R4 standards follow. It is documentation rather than a package dependency; how this IG applies its principles, and the points where it deviates or defers, are set out under [Conformance to the Nictiz FHIR R4 IG](design-decisions.html#conformance-to-the-nictiz-fhir-r4-ig).
+
 ### Relationship with the ELZ package
 
 [`nictiz.fhir.nl.r4.elz`](https://simplifier.net/packages/nictiz.fhir.nl.r4.elz) is the FHIR implementation of the primary care (*Eerstelijnszorg*, ELZ) transactions in the **same** ART-DECOR project (`hg-`) that this IG uses for the acute care AMB-HAP transaction. That project was originally established for primary care exchanges and has since been widened to cover acute care use cases such as ambulance referrals. Because both packages draw on that one project, they are entangled in two ways:

@@ -14,6 +14,10 @@
 // Note: this is a hand-authored interpretation of the ADA instance, not output
 // of the usual ADA-to-FHIR tooling (not yet available for this transaction).
 // See the Testing page; the examples are provisional pending that tooling.
+//
+// Per the Nictiz FHIR R4 IG, the nl-core-derived resources declare both the use
+// case profile and the nl-core parent in meta.profile (section 2.6), and
+// references carry .type and .display (section 2.5).
 // ---------------------------------------------------------------------------
 
 Instance: hg-Patient-AmbulanceHAP-min
@@ -21,6 +25,8 @@ InstanceOf: HgPatientAmbulanceHAP
 Usage: #example
 Title: "Patient - Bakkersz (minimal example)"
 Description: "Example patient for the minimal ambulance-to-HAP referral (ART-DECOR ADA test az-ave-tst-3-minimaalTestdag): known only by family name and the mandatory gender, with no identifier. The name alone satisfies the patient-identifiable rule (hg-pat-1)."
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP"
+* meta.profile[+] = $nlcore-Patient
 * name.use = #official
 * name.text = "Bakkersz"
 * name.family = "Bakkersz"
@@ -31,6 +37,8 @@ InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - RAV (minimal example)"
 Description: "Example sending organization (Regionale Ambulancevoorziening) for the minimal ambulance-to-HAP referral, addressed by URA."
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+* meta.profile[+] = $nlcore-Organization
 * identifier.system = $ura
 * identifier.value = "00000001"
 * name = "RAV"
@@ -40,6 +48,8 @@ InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - HAP (minimal example)"
 Description: "Example receiving organization (huisartsenpost) for the minimal ambulance-to-HAP referral, addressed by URA."
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+* meta.profile[+] = $nlcore-Organization
 * identifier.system = $ura
 * identifier.value = "00000002"
 * name = "HAP"
@@ -54,11 +64,19 @@ Description: "Minimal example ambulance-to-HAP referral request (ART-DECOR ADA t
 * code = $sct#11131000146102 "overdracht van zorg vanuit ambulance"
 * category[referralType] = $sct#308292007 "overdracht van zorg (verrichting)"
 * subject = Reference(hg-Patient-AmbulanceHAP-min)
+* subject.type = "Patient"
+* subject.display = "Bakkersz"
 * authoredOn = "2026-06-15T09:30:00+02:00"
 * performer = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-min-hap)
+* performer.type = "Organization"
+* performer.display = "HAP"
 * reasonCode.text = "Lage rugklachten, graag uw beoordeling."
 * supportingInfo[0] = Reference(hg-ReferralComposition-AmbulanceHAP-min)
+* supportingInfo[0].type = "Composition"
+* supportingInfo[0].display = "Ambulanceverwijzing naar huisartsenpost"
 * supportingInfo[+] = Reference(hg-ReferralDocumentReference-AmbulanceHAP-min)
+* supportingInfo[=].type = "DocumentReference"
+* supportingInfo[=].display = "ambulanceverslag"
 
 Instance: hg-ReferralComposition-AmbulanceHAP-min
 InstanceOf: HgReferralCompositionAmbulanceHAP
@@ -68,8 +86,12 @@ Description: "Minimal example transfer summary note: the mandatory metadata and 
 * status = #final
 * type = $loinc#18761-7 "Samenvatting van overdracht [bevinding] in {instelling} d.m.v. {rol} (document)"
 * subject = Reference(hg-Patient-AmbulanceHAP-min)
+* subject.type = "Patient"
+* subject.display = "Bakkersz"
 * date = "2026-06-15T09:30:00+02:00"
 * author = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-min-rav)
+* author.type = "Organization"
+* author.display = "RAV"
 * title = "Ambulanceverwijzing naar huisartsenpost"
 * section[messageReason]
   * title = "Reden van verwijzing"
@@ -95,6 +117,8 @@ Description: "Example attached document (the ambulance report PDF) accompanying 
 * type = $acutezorg-cs16#006 "intern rapport/overdracht"
 * category.text = "Bijlage"
 * author = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-min-rav)
+* author.type = "Organization"
+* author.display = "RAV"
 * content.attachment
   * contentType = #application/pdf
   * data = "JVBERi0xLjQK"
@@ -108,7 +132,11 @@ Title: "MessageHeader - minimal ambulance referral"
 Description: "Example MessageHeader: the fixed event, the focal ServiceRequest, the sending organization and the message source."
 * eventCoding = HgMessageEvent#145 "Verwijzing ambulance naar huisartsenpost"
 * focus = Reference(hg-ReferralServiceRequest-AmbulanceHAP-min)
+* focus.type = "ServiceRequest"
+* focus.display = "Ambulanceverwijzing naar huisartsenpost"
 * sender = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-min-rav)
+* sender.type = "Organization"
+* sender.display = "RAV"
 * source.endpoint = "https://ambulance.example.nl/fhir"
 
 Instance: hg-ReferralBundle-AmbulanceHAP-min
