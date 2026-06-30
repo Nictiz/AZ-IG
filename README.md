@@ -16,18 +16,24 @@ Status: under development - no official release yet. This is the first Nictiz IG
 - `sushi-config.yaml` - project configuration, dependencies, and menu
 - `input/fsh/aliases.fsh` - canonical URL and code system aliases
 - `input/fsh/profiles/` - generic `hg-Referral*` layer (FHIR core based) and the `hg-Referral*-AmbulanceHAP` use case layer derived from it
-- `input/fsh/extensions/` - TextValue extension for free-text rubrieken
-- `input/fsh/terminology/` - message event CodeSystem and ValueSet
+- `input/fsh/extensions/` - `hg-ext-DocumentVersion` (document version, R5/R6 bridge)
+- `input/fsh/terminology/` - local code systems and value sets (message events, destination status, document-identifier type)
 - `input/fsh/mappings/` - dataset traceability mappings attached to the use case profiles
 - `input/fsh/instances/` - scenario 5b example set including the message bundle
 - `input/fsh/actors/` - ActorDefinition resources for sender and receiver
 - `input/fsh/capabilities/` - CapabilityStatement resources
+- `input/resources/` - terminology downloaded from ART-DECOR and embedded verbatim (do not hand-edit; see the folder README)
+- `input/images-source/` - PlantUML diagram sources (rendered to SVG by the IG Publisher)
 - `input/pagecontent/index.md` - scope and audience
+- `input/pagecontent/use-cases.md` - use case overview
 - `input/pagecontent/functional-design.md` - functional design reference
+- `input/pagecontent/dependencies.md` - upstream specifications and FHIR package dependencies
 - `input/pagecontent/data-model.md` - data model
 - `input/pagecontent/data-exchange.md` - exchange paradigm options
+- `input/pagecontent/workflow.md` - workflow pattern
 - `input/pagecontent/design-decisions.md` - modeling and conformance decisions
 - `input/pagecontent/open-items.md` - pending decisions
+- `input/pagecontent/changelog.md` - per-version changes
 
 ## Building
 

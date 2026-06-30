@@ -10,13 +10,38 @@ The information exchange described in this Implementation Guide is defined by tw
 
 Interoperability requires agreements on five layers - the Nictiz [vijflagenmodel](https://www.nictiz.nl/wat-we-doen/zorginformatiestelsel/interoperabiliteit/lagenmodel-3/) - with *wet- en regelgeving* (legislation) and *beveiliging* (security) as conditions across all of them. This Implementation Guide mainly specifies the Informatie and Applicatie layers; the layers above and below it are established elsewhere.
 
-| Layer | For this transaction | Where in this IG |
-|---|---|---|
-| Organisatie | Governance and agreements between the parties (ambulance/RAV, HAP), the *Richtlijn Gegevensuitwisseling Acute Zorg*, and the national release policy. Largely outside this technical IG. | [Home](index.html), Functional design (this page) |
-| Zorgproces | The handover itself: an ambulance professional refers a patient to the HAP after on-scene care, one-directional PUSH. | [Use cases](use-cases.html), [Workflow](workflow.html) |
-| Informatie | What is exchanged: the ART-DECOR dataset, the zibs and nl-core, and the dataset mappings. | [Data model](data-model.html), this page |
-| Applicatie | How systems exchange it: the FHIR R4 profiles, the message structure (MessageHeader/Bundle), CapabilityStatements and ActorDefinitions. | [Artifacts](artifacts.html), [Data model](data-model.html) |
-| IT-infrastructuur | The transport: the exchange paradigm (FHIR Messaging, RESTful or FHIR Document), not yet chosen. | [Data exchange](data-exchange.html) |
+<table class="grid">
+  <thead>
+    <tr><th>Layer</th><th>For this transaction</th><th>Where in this IG</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="background-color:#c1178c;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">Organisatiebeleid</td>
+      <td>Governance and agreements between the parties (ambulance/RAV, HAP), the <em>Richtlijn Gegevensuitwisseling Acute Zorg</em>, and the national release policy. Largely outside this technical IG.</td>
+      <td><a href="index.html">Home</a>, Functional design (this page)</td>
+    </tr>
+    <tr>
+      <td style="background-color:#29abe2;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">Zorgproces</td>
+      <td>The handover itself: an ambulance professional refers a patient to the HAP after on-scene care, one-directional PUSH.</td>
+      <td><a href="use-cases.html">Use cases</a>, <a href="workflow.html">Workflow</a></td>
+    </tr>
+    <tr>
+      <td style="background-color:#e4670a;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">Informatie</td>
+      <td>What is exchanged: the ART-DECOR dataset, the zibs and nl-core, and the dataset mappings.</td>
+      <td><a href="data-model.html">Data model</a>, this page</td>
+    </tr>
+    <tr>
+      <td style="background-color:#95c11f;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">Applicatie</td>
+      <td>How systems exchange it: the FHIR R4 profiles, the message structure (MessageHeader/Bundle), CapabilityStatements and ActorDefinitions.</td>
+      <td><a href="artifacts.html">Artifacts</a>, <a href="data-model.html">Data model</a></td>
+    </tr>
+    <tr>
+      <td style="background-color:#009b3e;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">IT-infrastructuur</td>
+      <td>The transport: the exchange paradigm (FHIR Messaging, RESTful or FHIR Document), not yet chosen.</td>
+      <td><a href="data-exchange.html">Data exchange</a></td>
+    </tr>
+  </tbody>
+</table>
 
 The two conditional columns, *wet- en regelgeving* and *beveiliging*, apply across every layer and are out of scope of this IG.
 
@@ -32,18 +57,18 @@ The functional design is formalized in a machine-readable dataset in [ART-DECOR]
 
 Relationship to ELZ.
 
-The [`nictiz.fhir.nl.r4.elz`](https://simplifier.net/packages/nictiz.fhir.nl.r4.elz/) package is the FHIR implementation of the primary care (Eerstelijnszorg/ELZ) transactions in the same ART-DECOR project (`hg-`) that this IG uses for the AMB-HAP transaction. The shared ART-DECOR project was originally established for primary care exchanges (GP referrals, paramedic referrals); it has since been widened to cover acute care use cases including ambulance referrals. Because both IGs draw on the same `hg-` project, they share element IDs (`hg-dataelement-NNNN`), the `hg-` canonical prefix, and - in the current state - overlapping profile IDs (`hg-ReferralServiceRequest`, `hg-ReferralComposition`). These are not the same profiles. The generic layer in this IG was developed independently and intentionally diverges from ELZ in several places:
+This IG and the primary care ELZ package draw on the same ART-DECOR project; the [Dependencies](dependencies.html) page describes that relationship and the overlapping canonical URLs. Although they share the `hg-` profile IDs, the profiles are not the same: the generic layer here was developed independently and intentionally diverges from ELZ in several places:
 
 - `hg-ReferralServiceRequest`: the ELZ profile fixes `status` to `#completed` and defines a `category` slice with a primary-care-specific OID coding. Both are omitted here as they are ELZ specific; use case layers in this IG add their own `category` slice and `status` constraints where needed.
 - `hg-ReferralComposition`: the ELZ profile defines a detailed Envelope/Core section hierarchy specific to primary care (CarePath, RequiredConsultationFacilities, MessageReason, etc.). Section structure has proven to be use case specific, so no named sections are defined at the generic layer; each use case adds its own section slices.
 - `hg-ReferralTask`: present in ELZ. Not yet defined here; will be added when a use case requires explicit workflow tracking.
 - `hg-ReferralMessageHeader`, `hg-ReferralBundle`, `hg-ReferralDocumentReference`: present in this IG, not in ELZ.
 
-Note that `nictiz.fhir.nl.r4.elz` is also not in a final state. The differences described above are therefore not blocking, but they do need to be reconciled before either package reaches a stable release. As part of that reconciliation, ELZ should adopt the same two-layer pattern used here: a generic open-world base profile and a separate use case layer that adds the primary-care- specific constraints (category slice, status, section structure). In a future version, `nictiz.fhir.nl.r4.elz` should depend on this IG for the shared generic profiles rather than maintaining its own copies.
+These differences are not blocking while both packages are in beta, but they must be reconciled before either reaches a stable release (tracked on the [Open Items](open-items.html) page).
 
 There are two distinct ART-DECOR artefacts relevant to this IG:
 
-Dataset - the shared catalog of data element definitions, originally primary care and now widened to all participating acute care use cases. Element identifiers (`hg-dataelement-NNNN`) are allocated here once and reused across transactions.
+Dataset - the shared catalog of data element definitions. Element identifiers (`hg-dataelement-NNNN`) are allocated here once and reused across transactions.
 
 OID: `2.16.840.1.113883.2.4.3.11.60.103.1.1`, effective date 2020-10-19 - [view in ART-DECOR](https://decor.nictiz.nl/ad/#/hg-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.103.1.1/2020-10-19T17:52:39)
 

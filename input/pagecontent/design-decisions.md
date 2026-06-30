@@ -1,4 +1,4 @@
-This page documents the key modeling and conformance choices made in this IG. It is intended for profile authors, reviewers, and implementers who want to understand the rationale behind the structure, not just the rules.
+This page documents the key modeling and conformance choices made in this IG, and the rationale behind them.
 
 ### Base profiles
 
@@ -22,7 +22,7 @@ We deliberately omit `Task` and follow the ad-hoc workflow pattern. See the [Wor
 
 ### Exchange paradigm
 
-The exchange paradigm has not yet been decided. Three options are under consideration: FHIR Messaging (a Bundle of type `message` with a `MessageHeader`), RESTful (individual resources POSTed to a FHIR server), and FHIR Document (a Bundle of type `document`). The profiles in this IG are designed to remain valid under all three options. See the [Data Exchange](data-exchange.html) page for a full description of each option and the server and client requirements.
+The exchange paradigm has not yet been decided; the profiles are designed to remain valid under all the options under consideration. The [Data Exchange](data-exchange.html) page describes each option and its server and client requirements.
 
 ### Terminology
 
@@ -52,7 +52,7 @@ Alongside these, three transaction-specific zib profiles carry the dataset's car
 
 These transaction-specific profiles are primarily intended for validation, not for constraining data exchange. In exchange, the corresponding nl-core profiles remain the normative basis. Implementers may however declare conformance to the tighter use case profiles via `meta.profile` in the resource if they wish to signal that the stricter cardinalities are met.
 
-From a vendor perspective, this layering is a design and governance pattern, not an implementation requirement. Vendors that already support nl-core do not need to rebuild their FHIR infrastructure for this transaction: the use case layer only adds a named validation profile on top of what is already there. Note that different use cases may still require different functional approaches or workflow adaptations beyond the FHIR layer.
+Vendors that already support nl-core do not need to rebuild their FHIR infrastructure for this transaction: the use case layer only adds a named validation profile on top of what is already there. Different use cases may still require functional or workflow adaptations beyond the FHIR layer.
 
 ### Conformance via obligations
 
@@ -79,7 +79,7 @@ The *zorgaanbieder* is referenced as `nl-core-HealthcareProvider-Organization` d
 
 #### Why nl-core profiles are listed alongside FHIR core types
 
-When a reference constraint lists only an nl-core profile \- for example `Reference(nl-core-Patient)` \- a FHIR validator will require the referenced resource to declare conformance to that profile (via `meta.profile` or by passing validation against it). A plain R4 Patient resource without nl-core constraints would fail, even if all the clinically relevant fields are present. By writing `Reference(Patient or nl-core-Patient)`, both a bare FHIR R4 Patient and a resource that additionally satisfies nl-core are accepted, keeping the profile open to senders that do not (yet) produce nl-core-profiled resources.
+When a reference constraint lists only an nl-core profile \- for example `Reference(nl-core-Patient)` \- a FHIR validator requires the referenced resource to conform to that profile, so a plain R4 Patient would fail even when all clinically relevant fields are present. Writing `Reference(Patient or nl-core-Patient)` accepts both, keeping the profile open to senders that do not (yet) produce nl-core-profiled resources.
 
 This applies at both layers. The generic profiles include the base FHIR R4 type alongside every nl-core equivalent (`Patient or nl-core-Patient`, `Practitioner or nl-core-Practitioner`, `PractitionerRole or nl-core-PractitionerRole`, `Organization or nl-core-Organization`) so the generic layer does not impose a Dutch-specific dependency. The use case profiles further add the use case-specific zib profiles beside both core and nl-core types. A resource conforming to a use case-specific profile also satisfies nl-core and by extension FHIR core, so the hierarchy is consistent: stricter profiles are always offered *in addition to* less strict ones, never as sole alternatives.
 
@@ -91,6 +91,6 @@ The resource map - which resources participate, how they reference each other, a
 
 Each use case profile carries `Mapping` entries back to the ART-DECOR dataset *Verwijzing ambulance naar huisartsenpost* (OID 2.16.840.1.113883.2.4.3.11.60.103.1.1), under the identity `hg-dataset-20201019`, following the [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4). FHIR elements point at the dataset data-element ids (`hg-dataelement-NNNN`).
 
-The ART-DECOR project (`hg-`, ELZ) was originally established for primary care (Eerstelijnszorg/ELZ) information exchange. Its shared dataset catalog \- including the `hg-dataelement-NNNN` identifier series \- reflects that origin. The project scope was later widened to cover acute care use cases such as ambulance referrals. The AMB-HAP transaction (4.145) is part of this wider scope; its element IDs come from the same shared catalog and therefore carry the same `hg-` prefix.
+The `hg-dataelement-NNNN` series comes from the shared ART-DECOR project; the [Dependencies](dependencies.html#relationship-with-the-elz-package) page explains how that project relates to the ELZ package and why the elements carry the `hg-` prefix.
 
-Because the CommunicatieItem wrapper was folded into `DocumentReference`, its sender (CommunicatieAfzender, hg-dataelement-5464) is mapped onto `DocumentReference.author`. The DocumentReference is mapped at root level to both the CommunicatieItem (hg-dataelement-5457) and the Document inside it (hg-dataelement-5472). Two elements have no clean FHIR mapping in the folded model and are documented as known gaps in the FSH: hg-dataelement-5458 (Identificatienummer van CommunicatieItem) and hg-dataelement-5475 (DocumentVersienummer), the latter because `DocumentReference` in R4 has no version number field. MessageHeader and Bundle are transport resources and map only at envelope level (sender, timestamp). All mappings should be reviewed against the published dataset version.
+Because the CommunicatieItem wrapper was folded into `DocumentReference`, the DocumentReference root is mapped to both the CommunicatieItem (hg-dataelement-5457) and the Document inside it (hg-dataelement-5472); the document and set ids map to the two `identifier` slices (hg-dataelement-5473 and 5474) and the version number to the [`hg-ext-DocumentVersion`](StructureDefinition-hg-ext-DocumentVersion.html) extension (hg-dataelement-5475). MessageHeader and Bundle are transport resources and map only at envelope level (sender, timestamp). Any remaining unmapped dataset elements are tracked on the [Open Items](open-items.html) page. All mappings should be reviewed against the published dataset version.

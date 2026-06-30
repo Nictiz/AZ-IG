@@ -32,7 +32,7 @@ All three Nictiz packages are currently beta releases, so this IG is pre-publica
 
 ### Relationship with the ELZ package
 
-[`nictiz.fhir.nl.r4.elz`](https://simplifier.net/packages/nictiz.fhir.nl.r4.elz) is the FHIR implementation of the primary care (*Eerstelijnszorg*, ELZ) transactions in the **same** ART-DECOR project (`hg-`) that this IG uses for the acute care AMB-HAP transaction. Because both draw on that one project, they are entangled in two ways:
+[`nictiz.fhir.nl.r4.elz`](https://simplifier.net/packages/nictiz.fhir.nl.r4.elz) is the FHIR implementation of the primary care (*Eerstelijnszorg*, ELZ) transactions in the **same** ART-DECOR project (`hg-`) that this IG uses for the acute care AMB-HAP transaction. That project was originally established for primary care exchanges and has since been widened to cover acute care use cases such as ambulance referrals. Because both packages draw on that one project, they are entangled in two ways:
 
 - Shared data set and identifiers. Both packages take their `hg-dataelement-NNNN` element identifiers and the `hg-` canonical prefix from the same ART-DECOR project, so the same element ids appear in both.
 - Overlapping generic profiles. The generic `hg-Referral*` profiles' canonical URLs currently exist in both this package and ELZ. The intended dependency direction is **ELZ depends on Acute Zorg** for these shared generic profiles - not the reverse. The generic profiles belong here, as the core of the Acute Zorg umbrella IG, and are not to be moved into ELZ.

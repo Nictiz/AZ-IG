@@ -1,6 +1,6 @@
 ### Overview
 
-This page describes the data model for the Ambulanceverwijzing (AMB naar HAP) referral: the resources that make up a referral, how they fit together, the profiles that constrain them, how to read the support obligations, and how to declare conformance and validate. For element-by-element detail, open each profile under [Artifacts](artifacts.html).
+This page describes the data model for the Ambulanceverwijzing (AMB naar HAP) referral: the resources, how they fit together, the profiles that constrain them, and how to declare conformance and validate. For element-by-element detail, open each profile under [Artifacts](artifacts.html).
 
 ### Message structure
 
