@@ -12,7 +12,7 @@ A referral always carries the same clinical core, regardless of the exchange par
 
 Under the FHIR Messaging paradigm, two wrapper resources are added on top of this core: `hg-ReferralMessageHeader-AmbulanceHAP` (which identifies the event and focuses the ServiceRequest) and `hg-ReferralBundle-AmbulanceHAP` (the message bundle). Under the RESTful or FHIR Document paradigms these wrappers are replaced by a transaction bundle or a document bundle respectively.
 
-The worked example (scenario 5b) under [Artifacts](artifacts.html) shows a complete referral message with all participating resources.
+Example messages under [Artifacts](artifacts.html) illustrate the model: a referral based on scenario 5b of the *Richtlijn Gegevensuitwisseling Acute Zorg*; a maximal message modelled on the ART-DECOR ADA test scenario, showing all participating resources and a document attachment; and a minimal message modelled on the ART-DECOR ADA minimal test scenario.
 
 ### Profiles in this use case
 

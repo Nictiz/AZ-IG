@@ -27,7 +27,7 @@ CapabilityStatements:
 
 Profiles: see [Artifacts](artifacts.html#structures-resource-profiles) for the full list of `hg-Referral*-AmbulanceHAP` profiles, and the [Data Model](data-model.html) page for the message structure, profile table, and conformance guidance.
 
-Example: a complete worked referral (scenario 5b) is available under [Artifacts](artifacts.html).
+Examples under [Artifacts](artifacts.html): a worked referral based on scenario 5b of the *Richtlijn Gegevensuitwisseling Acute Zorg*; a maximal message modelled on the ART-DECOR ADA test scenario (a richly populated patient and message, with a document attachment); and a minimal message modelled on the ART-DECOR ADA minimal test scenario.
 
 Data exchange: see [Data Exchange](data-exchange.html) for the exchange paradigm options and sender/receiver requirements for this use case.
 

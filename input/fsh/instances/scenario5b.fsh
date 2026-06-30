@@ -1,6 +1,6 @@
 // NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // ---------------------------------------------------------------------------
-// Example set for scenario 5b (Richtlijn): ambulance professional refers patient Patrick to the GP out-of-hours post (HAP) after on-scene care.
+// Example set for scenario 5b from the Richtlijn Gegevensuitwisseling Acute Zorg: an ambulance professional refers patient Patrick to the GP out-of-hours post (HAP) after on-scene care.
 // ---------------------------------------------------------------------------
 
 Instance: hg-Patient-AmbulanceHAP-patrick

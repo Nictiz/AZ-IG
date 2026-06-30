@@ -29,6 +29,7 @@ menu:
   Project:
     Open items: open-items.html
     Changelog: changelog.html
+  Testing: testing.html
   Artifacts: artifacts.html
 # Explicit page order so the IG page numbering follows the menu, not the default
 # alphabetical-by-filename order (which put use-cases.md last).
@@ -53,6 +54,8 @@ pages:
     title: Open items
   changelog.md:
     title: Changelog
+  testing.md:
+    title: Testing
 dependencies:
   nictiz.fhir.nl.r4.nl-core: 0.12.0-beta.4
   nictiz.fhir.nl.r4.zib2020: 0.12.0-beta.4

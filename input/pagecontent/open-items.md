@@ -15,3 +15,4 @@ These pending items affect how the exchange is modeled or implemented; each is t
 | Architecture | Exchange paradigm not yet chosen | [#14](https://github.com/Nictiz/AZ-IG/issues/14) |
 | Architecture | Message 23 (AMB naar HA) out of scope for this version | [#15](https://github.com/Nictiz/AZ-IG/issues/15) |
 | Architecture | Message event codes based on ART-DECOR transactions (code = transaction number) - under development, settled with the exchange-paradigm choice | [#20](https://github.com/Nictiz/AZ-IG/issues/20) |
+| Tooling | Example messages are a hand-authored interpretation of the ART-DECOR ADA test data - regenerate with the ADA-to-FHIR tooling once available | [#21](https://github.com/Nictiz/AZ-IG/issues/21) |
