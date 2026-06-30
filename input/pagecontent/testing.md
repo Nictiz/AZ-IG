@@ -66,3 +66,14 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | DocumentBestandtype | `DocumentReference.content.attachment.contentType` |
 | DocumentInhoud | `DocumentReference.content.attachment.data` |
 | DocumentNaam | `DocumentReference.content.attachment.title` |
+
+### Automated testing (ConformanceLab)
+
+Test and qualification of implementations is done with FHIR `TestScript` resources on [ConformanceLab](https://fhir.interoplab.eu/ig/index.html) (the Interoplab platform Nictiz uses). Because ConformanceLab officially supports the **R5** `TestScript` resource while this IG is R4, the TestScripts are authored in a **separate R5 project** in this repository under [`testscripts/`](https://github.com/Nictiz/AZ-IG/tree/main/testscripts), not embedded in this (R4) IG. The TestScript version is decoupled from the data version: ConformanceLab loads the R4 `nictiz.fhir.nl.r4.acutezorg` package and the TestScripts reference the version-independent profile canonical URLs.
+
+The current set is content-validation (Phase A), with roles mirroring the [Sender and Receiver actors](artifacts.html):
+
+- **Sending-System** - validates that the message a sending system pushes is a conformant AMB-naar-HAP message (message Bundle, the event, a referral `ServiceRequest` conforming to its profile, the mandatory reason section).
+- **Receiving-System** - sends the worked scenario-5b message and confirms the receiver accepts it.
+
+The transport-level operations are completed once the exchange paradigm is chosen (see the [Open Items](open-items.html) page).

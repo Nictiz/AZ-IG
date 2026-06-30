@@ -1,0 +1,21 @@
+# Separate Sushi project for the ConformanceLab TestScripts.
+#
+# These are authored in FHIR R5 (the TestScript version ConformanceLab officially
+# supports) even though the IG they test is R4 - the TestScript version is
+# decoupled from the data version. ConformanceLab loads the R4 data package
+# (nictiz.fhir.nl.r4.acutezorg) via its per-folder properties.json; the R5
+# TestScripts here drive the tests and reference the R4 profile canonical URLs
+# (which are version-independent).
+#
+# This tank is built independently of the R4 IG: run `sushi .` from this folder.
+# FSHOnly is set because we only want the TestScript resources, not an IG.
+id: nictiz.fhir.nl.r5.acutezorg.testscripts
+canonical: http://nictiz.nl/fhir
+name: AcuteZorgTestScripts
+title: "Acute Zorg - ConformanceLab TestScripts (R5)"
+status: draft
+version: 0.1.0-alpha.1
+fhirVersion: 5.0.0
+FSHOnly: true
+dependencies:
+  interoplab.fhir.r5.conformancelab: 1.0.0

@@ -1,0 +1,15 @@
+{
+  "goal": "Cert",
+  "fhirVersion": "R4",
+  "informationStandard": "Acute Zorg - Ambulanceverwijzing naar HAP",
+  "usecase": "AMB-naar-HAP",
+  "role": {
+    "name": "Receiving-System",
+    "description": "Receiving system (GP out-of-hours post, HAP) that accepts the referral message"
+  },
+  "fhirPackage": [
+    { "name": "nictiz.fhir.nl.r4.acutezorg", "version": "0.1.0-alpha.1" },
+    { "name": "nictiz.fhir.nl.r4.nl-core", "version": "0.12.0-beta.4" }
+  ],
+  "serverAlias": "nictizacutezorg"
+}
