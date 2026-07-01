@@ -26,7 +26,7 @@ Technically, this IG is a FHIR package that declares the following dependencies.
 - zib2020 (`nictiz.fhir.nl.r4.zib2020`) - the zib layer that nl-core builds on; pulled in transitively.
 - FHIR tooling (`hl7.fhir.uv.tools.r4`) - supplies the Obligations and `ActorDefinition` machinery this IG uses for conformance instead of `mustSupport`.
 
-Note that the project-specific terminology (the *Bijlagen* value set and the `acutezorg-codesysteem-16` code system) is **not** a package dependency: it is downloaded from ART-DECOR and embedded verbatim in `input/resources`. See the [Design Decisions](design-decisions.html) page for why, and the caveats that come with it.
+Note that the project-specific terminology (the *Bijlagen* value set and the `acutezorg-codesysteem-16` code system) is not a package dependency: it is downloaded from ART-DECOR and embedded verbatim in `input/resources`. See the [Design Decisions](design-decisions.html) page for why, and the caveats that come with it.
 
 All three Nictiz packages are currently beta releases, so this IG is pre-publication and its dependencies may move as those packages stabilize.
 
@@ -34,10 +34,10 @@ Beyond these packages, this IG conforms to the overarching [Nictiz FHIR R4 Imple
 
 ### Relationship with the ELZ package
 
-[`nictiz.fhir.nl.r4.elz`](https://simplifier.net/packages/nictiz.fhir.nl.r4.elz) is the FHIR implementation of the primary care (*Eerstelijnszorg*, ELZ) transactions in the **same** ART-DECOR project (`hg-`) that this IG uses for the acute care AMB-HAP transaction. That project was originally established for primary care exchanges and has since been widened to cover acute care use cases such as ambulance referrals. Because both packages draw on that one project, they are entangled in two ways:
+[`nictiz.fhir.nl.r4.elz`](https://simplifier.net/packages/nictiz.fhir.nl.r4.elz) is the FHIR implementation of the primary care (*Eerstelijnszorg*, ELZ) transactions in the same ART-DECOR project (`hg-`) that this IG uses for the acute care AMB-HAP transaction. That project was originally established for primary care exchanges and has since been widened to cover acute care use cases such as ambulance referrals. Because both packages draw on that one project, they are entangled in two ways:
 
 - Shared data set and identifiers. Both packages take their `hg-dataelement-NNNN` element identifiers and the `hg-` canonical prefix from the same ART-DECOR project, so the same element ids appear in both.
-- Overlapping generic profiles. The generic `hg-Referral*` profiles' canonical URLs currently exist in both this package and ELZ. The intended dependency direction is **ELZ depends on Acute Zorg** for these shared generic profiles - not the reverse. The generic profiles belong here, as the core of the Acute Zorg umbrella IG, and are not to be moved into ELZ.
+- Overlapping generic profiles. The generic `hg-Referral*` profiles' canonical URLs currently exist in both this package and ELZ. The intended dependency direction is ELZ depends on Acute Zorg for these shared generic profiles - not the reverse. The generic profiles belong here, as the core of the Acute Zorg umbrella IG, and are not to be moved into ELZ.
 
 This is a governance and reconciliation item rather than a blocker while both packages are in beta. The profile-by-profile divergence from ELZ is described on the [Functional design](functional-design.html) page, and the canonical-URL overlap is tracked on the [Open Items](open-items.html) page.
 
