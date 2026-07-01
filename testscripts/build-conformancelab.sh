@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Assemble the ConformanceLab deployment layout for the Acute Zorg TestScripts.
+# Assemble the Conformancelab deployment layout for the Acute Zorg TestScripts.
 #
-# ConformanceLab does not ingest the published IG; it ingests a folder layout of
+# Conformancelab does not ingest the published IG; it ingests a folder layout of
 # <usecase>/<goal>/<role>/ each containing the TestScript(s), a properties.json,
 # and (where needed) a _reference/resources folder with the fixtures. This script
 # assembles that layout under testscripts/output/ from:
@@ -10,8 +10,8 @@
 #   - the R4 example fixtures from the main IG (run `sushi .` in the repo root first)
 #
 # NOTE: this is a draft layout, modelled on the Nictiz-testscripts output. The
-# exact ConformanceLab field semantics (serverAlias, fhirVersion meaning for an
-# R5 TestScript over R4 data) should be confirmed with the ConformanceLab team.
+# exact Conformancelab field semantics (serverAlias, fhirVersion meaning for an
+# R5 TestScript over R4 data) should be confirmed with the Conformancelab team.
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -39,4 +39,4 @@ else
   echo "WARN: fixture Bundle not found - run 'sushi .' in the repo root first to generate the R4 examples." >&2
 fi
 
-echo "Done. ConformanceLab layout assembled under testscripts/$OUT"
+echo "Done. Conformancelab layout assembled under testscripts/$OUT"

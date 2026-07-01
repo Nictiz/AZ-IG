@@ -1,10 +1,10 @@
-# Acute Zorg - ConformanceLab TestScripts
+# Acute Zorg - Conformancelab TestScripts
 
-FHIR **TestScript** resources for testing and qualification of the Acute Zorg use cases on [ConformanceLab](https://fhir.interoplab.eu/ig/index.html) (the Interoplab platform Nictiz uses). They are authored in [FHIR Shorthand](https://fshschool.org/) and built with Sushi, in a project **separate from the IG**.
+FHIR **TestScript** resources for testing and qualification of the Acute Zorg use cases on [Conformancelab](https://fhir.interoplab.eu/ig/index.html) (the Interoplab platform Nictiz uses). They are authored in [FHIR Shorthand](https://fshschool.org/) and built with Sushi, in a project **separate from the IG**.
 
 ## Why a separate, R5 project
 
-ConformanceLab officially supports the **R5** `TestScript` resource, while the Acute Zorg IG is **R4**. The TestScript version is decoupled from the data version: an R5 TestScript can test R4 data because ConformanceLab loads the R4 data package (`nictiz.fhir.nl.r4.acutezorg`) via the per-role `properties.json`, and the TestScripts reference the **version-independent profile canonical URLs**. So this tank is pinned to `fhirVersion: 5.0.0` and kept out of the R4 IG build.
+Conformancelab officially supports the **R5** `TestScript` resource, while the Acute Zorg IG is **R4**. The TestScript version is decoupled from the data version: an R5 TestScript can test R4 data because Conformancelab loads the R4 data package (`nictiz.fhir.nl.r4.acutezorg`) via the per-role `properties.json`, and the TestScripts reference the **version-independent profile canonical URLs**. So this tank is pinned to `fhirVersion: 5.0.0` and kept out of the R4 IG build.
 
 It depends on the Interoplab CL extensions package `interoplab.fhir.r5.conformancelab`. That package is `notForPublication` and not on the public registry; install it into the local FHIR package cache (e.g. extract `https://fhir.interoplab.eu/ig/package.tgz` into `~/.fhir/packages/interoplab.fhir.r5.conformancelab#1.0.0/`).
 
@@ -14,20 +14,22 @@ It depends on the Interoplab CL extensions package `interoplab.fhir.r5.conforman
 testscripts/
   sushi-config.yaml                 # R5, FSHOnly, Interoplab dependency
   input/fsh/*.fsh                   # the TestScripts (R5)
-  conformancelab/                   # ConformanceLab per-role properties.json (source)
+  conformancelab/                   # Conformancelab per-role properties.json (source)
     AMB-naar-HAP/Cert/<role>/properties.json
-  build-conformancelab.sh           # assembles the ConformanceLab deployment into output/
+  build-conformancelab.sh           # assembles the Conformancelab deployment into output/
   fsh-generated/                    # Sushi output (git-ignored)
-  output/                           # assembled ConformanceLab layout (git-ignored)
+  output/                           # assembled Conformancelab layout (git-ignored)
 ```
 
 ## Build
 
 ```
 sushi .                    # generate the R5 TestScript resources
-./build-conformancelab.sh  # assemble the ConformanceLab <usecase>/<goal>/<role> layout
+./build-conformancelab.sh  # assemble the Conformancelab <usecase>/<goal>/<role> layout
 ```
 (`build-conformancelab.sh` also copies the R4 example fixtures from the main IG, so run `sushi .` in the repo root first.)
+
+The reusable RuleSets (`Metadata`, `ClientTesting`/`ServerTesting`, `ReferralMessageContentAsserts` in `input/fsh/RuleSet.fsh`) follow the [IKNL PZP test materials](https://github.com/IKNL/PZP-test-en-kwalificatiemateriaal). Profile conformance uses `validateProfileId` against the IG's profile canonicals (resolved by Conformancelab from the loaded R4 package).
 
 ## TestScripts (Phase A - content validation)
 
@@ -39,5 +41,5 @@ Roles mirror the IG's `hg-ActorSender` / `hg-ActorReceiver` actors:
 ## Provisional / to confirm
 
 - The **transport operation** is modelled as a plain `create`/POST pending the exchange-paradigm choice (Open Items #14). The content **assertions** are paradigm-independent.
-- The exact ConformanceLab `properties.json` semantics (`serverAlias`, the `fhirVersion` field for an R5 TestScript over R4 data) and whether `conformsTo()` is the right profile-validation mechanism (vs `validateProfileId`) should be confirmed with the ConformanceLab team.
+- The exact Conformancelab `properties.json` semantics (`serverAlias`, and the `fhirVersion` field's meaning for an R5 TestScript over R4 data) should be confirmed with the Conformancelab team.
 - See the Nictiz reference materials in [Nictiz/Nictiz-testscripts](https://github.com/Nictiz/Nictiz-testscripts) (NTS source + generated output).

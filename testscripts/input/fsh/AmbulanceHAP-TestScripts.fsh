@@ -1,53 +1,35 @@
 // NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // ---------------------------------------------------------------------------
-// Phase-A ConformanceLab TestScripts (FHIR R5) for the Ambulanceverwijzing
-// (AMB naar HAP) use case. These are content-validation tests: they check that
-// the message a Sender produces - and that a Receiver accepts - is a conformant
-// AMB-naar-HAP message, independent of most transport details.
+// Phase-A Conformancelab TestScripts (FHIR R5) for the Ambulanceverwijzing
+// (AMB naar HAP) use case. Content-validation tests: they check that the message
+// a Sender produces - and that a Receiver accepts - is a conformant AMB-naar-HAP
+// message, independent of most transport details.
 //
-// Authored against the Interoplab CL-TestScript-core profile so the
-// ConformanceLab conventions (SUT markers on origin/destination, mandatory
-// descriptions) are enforced. Roles mirror the IG's hg-ActorSender / hg-Actor-
-// Receiver actors.
+// Authored against the Interoplab CL-TestScript-core profile, using the reusable
+// RuleSets in RuleSet.fsh (Metadata, ClientTesting/ServerTesting, and the message
+// content asserts) - modelled on the IKNL PZP test materials. Roles mirror the
+// IG's hg-ActorSender / hg-ActorReceiver actors.
 //
 // PROVISIONAL: the exchange paradigm is not yet chosen (Open Items #14), so the
-// transport operation is modelled as a plain create/POST of the message Bundle.
-// The *assertions* on the message content are paradigm-independent and stable;
-// the operation.type is the part to revisit once the paradigm is fixed.
+// transport operation is modelled as a plain create/POST. The content assertions
+// are paradigm-independent; the operation.type is the part to revisit.
 // ---------------------------------------------------------------------------
 
-Alias: $CL-TestScript = http://fhir.interoplab.eu/fhir/StructureDefinition/Interoplab-CL-TestScript-core
-Alias: $CL-SUT = http://fhir.interoplab.eu/fhir/StructureDefinition/Interoplab-CL-ext-SUT
-Alias: $interaction = http://hl7.org/fhir/restful-interaction
-Alias: $origin-types = http://terminology.hl7.org/CodeSystem/testscript-profile-origin-types
-Alias: $destination-types = http://terminology.hl7.org/CodeSystem/testscript-profile-destination-types
-Alias: $sr-profile = http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-AmbulanceHAP
-
 // =============================================================================
-// Sender (ambulance / RAV is the system under test): validate the message it
-// pushes. ConformanceLab plays the receiving server and asserts on the request.
+// Sender (ambulance / RAV is the system under test = client): validate the
+// message it pushes. Conformancelab plays the receiving server.
 // =============================================================================
 Instance: hg-TestScript-AmbulanceHAP-Sender
 InstanceOf: $CL-TestScript
 Usage: #definition
 Title: "Acute Zorg - Ambulanceverwijzing - Sender (content validation)"
-Description: "Validates that the ambulance-to-HAP referral message produced by a sending system (the system under test) is a conformant AMB-naar-HAP message: a message Bundle with the correct event, a referral ServiceRequest conforming to the use case profile, and the mandatory Composition reason section."
-* url = "http://nictiz.nl/fhir/TestScript/hg-TestScript-AmbulanceHAP-Sender"
-* version = "0.1.0-alpha.1"
-* name = "AZ_AmbulanceHAP_Sender"
+Description: "Validates that the ambulance-to-HAP referral message produced by a sending system (the system under test) is a conformant AMB-naar-HAP message."
+* insert Metadata(hg-TestScript-AmbulanceHAP-Sender)
 * title = "Acute Zorg - Ambulanceverwijzing - Sender (content validation)"
-* status = #draft
-* experimental = true
-* publisher = "Nictiz"
-* description = "Content-validation test for the sending system in the Ambulanceverwijzing naar HAP use case."
-* origin
-  * extension[$CL-SUT].valueBoolean = true
-  * index = 1
-  * profile = $origin-types#FHIR-Client
-* destination
-  * extension[$CL-SUT].valueBoolean = false
-  * index = 1
-  * profile = $destination-types#FHIR-Server
+* description = "Validates that the referral message a sending system pushes is a conformant AMB-naar-HAP message (message Bundle, event 145, a referral ServiceRequest conforming to its profile, the mandatory reason section)."
+* insert ClientTesting
+* profile[+] = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralBundle-AmbulanceHAP"
+* profile[=].id = "referral-bundle"
 * test
   * name = "Validate the pushed AMB-naar-HAP message"
   * description = "The sending system pushes the referral message; the engine validates its structure and conformance."
@@ -58,42 +40,7 @@ Description: "Validates that the ambulance-to-HAP referral message produced by a
     * origin = 1
     * destination = 1
     * encodeRequestUrl = true
-  * action[+].assert
-    * description = "The pushed resource is a Bundle."
-    * direction = #request
-    * resource = #Bundle
-    * warningOnly = false
-    * stopTestOnFail = true
-  * action[+].assert
-    * description = "The Bundle is a message Bundle (Bundle.type = message)."
-    * direction = #request
-    * expression = "Bundle.type = 'message'"
-    * warningOnly = false
-    * stopTestOnFail = true
-  * action[+].assert
-    * description = "The MessageHeader carries the AMB-naar-HAP transaction event (145)."
-    * direction = #request
-    * expression = "Bundle.entry.resource.ofType(MessageHeader).event.ofType(Coding).code = '145'"
-    * warningOnly = false
-    * stopTestOnFail = true
-  * action[+].assert
-    * description = "The MessageHeader focuses a resource (the referral ServiceRequest)."
-    * direction = #request
-    * expression = "Bundle.entry.resource.ofType(MessageHeader).focus.exists()"
-    * warningOnly = false
-    * stopTestOnFail = false
-  * action[+].assert
-    * description = "The message contains a referral ServiceRequest conforming to hg-ReferralServiceRequest-AmbulanceHAP."
-    * direction = #request
-    * expression = "Bundle.entry.resource.ofType(ServiceRequest).conformsTo('http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-AmbulanceHAP')"
-    * warningOnly = false
-    * stopTestOnFail = false
-  * action[+].assert
-    * description = "The Composition carries the mandatory 'reason for referral' section (SNOMED 440378000)."
-    * direction = #request
-    * expression = "Bundle.entry.resource.ofType(Composition).section.code.coding.where(system = 'http://snomed.info/sct' and code = '440378000').exists()"
-    * warningOnly = false
-    * stopTestOnFail = false
+  * insert ReferralMessageContentAsserts
   * action[+].assert
     * description = "The receiving server accepts the message."
     * direction = #response
@@ -103,33 +50,21 @@ Description: "Validates that the ambulance-to-HAP referral message produced by a
     * stopTestOnFail = true
 
 // =============================================================================
-// Receiver (HAP is the system under test): the engine (client) sends a known
-// conformant message and asserts the receiver accepts it.
+// Receiver (HAP is the system under test = server): the engine (client) sends a
+// known conformant message and asserts the receiver accepts it.
 // =============================================================================
 Instance: hg-TestScript-AmbulanceHAP-Receiver
 InstanceOf: $CL-TestScript
 Usage: #definition
 Title: "Acute Zorg - Ambulanceverwijzing - Receiver (accept message)"
 Description: "Sends a conformant ambulance-to-HAP referral message to a receiving system (the system under test) and confirms it is accepted. The message sent is the worked scenario-5b example from the IG."
-* url = "http://nictiz.nl/fhir/TestScript/hg-TestScript-AmbulanceHAP-Receiver"
-* version = "0.1.0-alpha.1"
-* name = "AZ_AmbulanceHAP_Receiver"
+* insert Metadata(hg-TestScript-AmbulanceHAP-Receiver)
 * title = "Acute Zorg - Ambulanceverwijzing - Receiver (accept message)"
-* status = #draft
-* experimental = true
-* publisher = "Nictiz"
-* description = "Acceptance test for the receiving system in the Ambulanceverwijzing naar HAP use case."
-* origin
-  * extension[$CL-SUT].valueBoolean = false
-  * index = 1
-  * profile = $origin-types#FHIR-Client
-* destination
-  * extension[$CL-SUT].valueBoolean = true
-  * index = 1
-  * profile = $destination-types#FHIR-Server
+* description = "Sends a conformant ambulance-to-HAP referral message to a receiving system (the system under test) and confirms it is accepted."
+* insert ServerTesting
 // The message Bundle sent to the receiver. The fixture file (an R4 example from
-// the IG) is supplied by ConformanceLab from the loaded R4 package / _reference
-// resources; here it is referenced by id (Phase-B packaging wires up the file).
+// the IG) is supplied by Conformancelab from the loaded R4 package / _reference
+// resources; here it is referenced by id (the packaging wires up the file).
 * fixture[0]
   * id = "referral"
   * autocreate = false

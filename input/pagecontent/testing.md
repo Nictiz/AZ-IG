@@ -67,9 +67,9 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | DocumentInhoud | `DocumentReference.content.attachment.data` |
 | DocumentNaam | `DocumentReference.content.attachment.title` |
 
-### Automated testing (ConformanceLab)
+### Automated testing (Conformancelab)
 
-Test and qualification of implementations is done with FHIR `TestScript` resources on [ConformanceLab](https://fhir.interoplab.eu/ig/index.html) (the Interoplab platform Nictiz uses). Because ConformanceLab officially supports the **R5** `TestScript` resource while this IG is R4, the TestScripts are authored in a **separate R5 project** in this repository under [`testscripts/`](https://github.com/Nictiz/AZ-IG/tree/main/testscripts), not embedded in this (R4) IG. The TestScript version is decoupled from the data version: ConformanceLab loads the R4 `nictiz.fhir.nl.r4.acutezorg` package and the TestScripts reference the version-independent profile canonical URLs.
+Test and qualification of implementations is done with FHIR `TestScript` resources on [Conformancelab](https://fhir.interoplab.eu/ig/index.html) (the Interoplab platform Nictiz uses). Because Conformancelab officially supports the **R5** `TestScript` resource while this IG is R4, the TestScripts are authored in a **separate R5 project** in this repository under [`testscripts/`](https://github.com/Nictiz/AZ-IG/tree/main/testscripts), not embedded in this (R4) IG. The TestScript version is decoupled from the data version: Conformancelab loads the R4 `nictiz.fhir.nl.r4.acutezorg` package and the TestScripts reference the version-independent profile canonical URLs.
 
 The current set is content-validation (Phase A), with roles mirroring the [Sender and Receiver actors](artifacts.html):
 
