@@ -16,7 +16,7 @@ All example resources use fictional test data only.
 
 ### Functional mapping
 
-How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenarios) map to FHIR in this IG. The authoritative, element-level mappings to the `hg-dataelement-NNNN` identifiers are on the **Mappings** tab of each profile; the table below is a functional summary to help read the examples.
+How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenarios) map to FHIR in this IG. The authoritative, element-level mappings to the `hg-dataelement-NNNN` identifiers are on the Mappings tab of each profile; the table below is a functional summary to help read the examples.
 
 #### Envelope - `ServiceRequest` (and the message wrappers)
 
