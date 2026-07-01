@@ -9,6 +9,7 @@ Thumbs.db
 /output
 /temp
 /template
+testscripts/fsh-generated
 *.bat
 _updatePublisher.sh
 _gencontinuous.sh
