@@ -54,6 +54,8 @@ The exchange paradigm has not yet been selected. The decision will be driven by 
 
 The CapabilityStatements (`hg-CapabilityStatement-Sender` and `hg-CapabilityStatement-Receiver`) currently reflect paradigm-neutral requirements and will be refined once the paradigm is fixed.
 
+Likewise, the concrete transaction definitions a reader may expect from other Nictiz FHIR IGs - the search parameters, the request/response message structure, and the per-transaction profile lists - are added once the paradigm is chosen (see the [Open Items](open-items.html) page).
+
 ---
 
 ### Sender requirements
