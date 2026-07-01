@@ -16,26 +16,29 @@ FHIR **TestScript** resources for testing and qualification of the Acute Zorg us
 
 ## Layout
 
+Following the IKNL PZP convention, TestScripts are organized in **role folders**, each with its own `properties.json`:
+
 ```
 testscripts/
   sushi-config.yaml                 # R5, FSHOnly, Interoplab dependency
-  input/fsh/*.fsh                   # the TestScripts (R5)
-  conformancelab/                   # Conformancelab per-role properties.json (source)
-    AMB-naar-HAP/Test/<role>/properties.json
-  build-conformancelab.sh           # assembles the Conformancelab deployment into output/
+  generate.py                       # runs Sushi + assembles the Conformancelab layout
+  input/fsh/
+    Alias.fsh                       # shared aliases
+    RuleSet.fsh                     # reusable RuleSets (Metadata, Client/ServerTesting, asserts)
+    Sending-System/                 # role folder: TestScript(s) + properties.json
+    Receiving-System/               # role folder: TestScript(s) + properties.json
   fsh-generated/                    # Sushi output (git-ignored)
-  output/                           # assembled Conformancelab layout (git-ignored)
+  output/                           # assembled deployment (git-ignored):
+                                    #   <usecase>/<goal>/_reference/resources/  (shared fixtures)
+                                    #   <usecase>/<goal>/<Role>/                (TestScripts + properties.json)
 ```
 
 ## Build
 
 ```
-sushi .                    # generate the R5 TestScript resources
-./build-conformancelab.sh  # assemble the Conformancelab <usecase>/<goal>/<role> layout
+python generate.py
 ```
-(`build-conformancelab.sh` also copies the R4 example fixtures from the main IG, so run `sushi .` in the repo root first.)
-
-The reusable RuleSets live in `input/fsh/RuleSet.fsh` and the aliases in `input/fsh/Alias.fsh` (see *Approach and rationale* above).
+`generate.py` (adapted from the IKNL PZP build script) runs `sushi .`, then uses `fsh-generated/data/fsh-index.json` to route each generated TestScript to its role folder, copies the co-located `properties.json`, and pulls in the referenced R4 example fixtures from the main IG. **Run `sushi .` in the repo root first** so those fixtures exist under `../fsh-generated`.
 
 ## TestScripts (Phase A - content validation)
 
