@@ -2,8 +2,8 @@
 """
 Build the Conformancelab deployment for the Acute Zorg TestScripts.
 
-Adapted from the IKNL PZP build script
-(https://github.com/IKNL/PZP-test-en-kwalificatiemateriaal/blob/develop/generate.py):
+Adapted from the IKNL PZP test-materials build script (generate.py in the
+repository IKNL/PZP-test-en-kwalificatiemateriaal, currently private):
 same idea - run Sushi, then use fsh-generated/data/fsh-index.json to route each
 generated TestScript to its role folder and copy the co-located properties.json -
 adjusted for this project:
