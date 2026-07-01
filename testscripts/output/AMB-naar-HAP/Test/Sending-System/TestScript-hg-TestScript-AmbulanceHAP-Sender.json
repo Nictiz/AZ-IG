@@ -1,0 +1,178 @@
+{
+  "resourceType": "TestScript",
+  "id": "hg-TestScript-AmbulanceHAP-Sender",
+  "meta": {
+    "profile": [
+      "http://fhir.interoplab.eu/fhir/StructureDefinition/Interoplab-CL-TestScript-core"
+    ]
+  },
+  "url": "http://nictiz.nl/fhir/TestScript/hg-TestScript-AmbulanceHAP-Sender",
+  "title": "Acute Zorg - Ambulanceverwijzing - Sender (content validation)",
+  "description": "Validates that the referral message a sending system pushes is a conformant AMB-naar-HAP message (message Bundle, event 145, a referral ServiceRequest conforming to its profile, the mandatory reason section).",
+  "status": "active",
+  "version": "0.1.0-alpha.1",
+  "experimental": true,
+  "publisher": "Nictiz",
+  "contact": [
+    {
+      "name": "Nictiz",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "kwalificatie@nictiz.nl"
+        }
+      ]
+    }
+  ],
+  "name": "hg-TestScript-AmbulanceHAP-Sender",
+  "origin": [
+    {
+      "extension": [
+        {
+          "url": "http://fhir.interoplab.eu/fhir/StructureDefinition/Interoplab-CL-ext-SUT",
+          "valueBoolean": true
+        }
+      ],
+      "index": 1,
+      "profile": {
+        "code": "FHIR-Client",
+        "system": "http://terminology.hl7.org/CodeSystem/testscript-profile-origin-types"
+      }
+    }
+  ],
+  "destination": [
+    {
+      "extension": [
+        {
+          "url": "http://fhir.interoplab.eu/fhir/StructureDefinition/Interoplab-CL-ext-SUT",
+          "valueBoolean": false
+        }
+      ],
+      "index": 1,
+      "profile": {
+        "code": "FHIR-Server",
+        "system": "http://terminology.hl7.org/CodeSystem/testscript-profile-destination-types"
+      }
+    }
+  ],
+  "profile": [
+    "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralBundle-AmbulanceHAP"
+  ],
+  "_profile": [
+    {
+      "id": "referral-bundle"
+    }
+  ],
+  "test": [
+    {
+      "name": "Validate the pushed AMB-naar-HAP message",
+      "description": "The sending system pushes the referral message; the engine validates its structure and conformance.",
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "code": "create",
+              "system": "http://hl7.org/fhir/restful-interaction"
+            },
+            "resource": "Bundle",
+            "description": "The sending system (SUT) pushes the ambulance-to-HAP referral message Bundle. PROVISIONAL: modelled as a create/POST pending the exchange-paradigm choice (#14).",
+            "origin": 1,
+            "destination": 1,
+            "encodeRequestUrl": true
+          }
+        },
+        {
+          "assert": {
+            "description": "The pushed resource is a Bundle.",
+            "direction": "request",
+            "resource": "Bundle",
+            "warningOnly": false,
+            "stopTestOnFail": true
+          }
+        },
+        {
+          "assert": {
+            "description": "The Bundle conforms to the AMB-naar-HAP message Bundle profile.",
+            "direction": "request",
+            "validateProfileId": "referral-bundle",
+            "warningOnly": false,
+            "stopTestOnFail": true
+          }
+        },
+        {
+          "assert": {
+            "description": "The Bundle is a message Bundle (Bundle.type = message).",
+            "direction": "request",
+            "expression": "Bundle.type = 'message'",
+            "warningOnly": false,
+            "stopTestOnFail": true
+          }
+        },
+        {
+          "assert": {
+            "description": "The MessageHeader carries the AMB-naar-HAP transaction event (145).",
+            "direction": "request",
+            "expression": "Bundle.entry.resource.ofType(MessageHeader).event.ofType(Coding).code = '145'",
+            "warningOnly": false,
+            "stopTestOnFail": true
+          }
+        },
+        {
+          "assert": {
+            "description": "The MessageHeader focuses a resource (the referral ServiceRequest).",
+            "direction": "request",
+            "expression": "Bundle.entry.resource.ofType(MessageHeader).focus.exists()",
+            "warningOnly": false,
+            "stopTestOnFail": false
+          }
+        },
+        {
+          "assert": {
+            "description": "The Composition carries the mandatory 'reason for referral' section (SNOMED 440378000).",
+            "direction": "request",
+            "expression": "Bundle.entry.resource.ofType(Composition).section.code.coding.where(system = 'http://snomed.info/sct' and code = '440378000').exists()",
+            "warningOnly": false,
+            "stopTestOnFail": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Every entry resource (except OperationOutcome/Binary) declares a meta.profile.",
+            "direction": "request",
+            "expression": "Bundle.entry.resource.where(is(OperationOutcome).not() and is(Binary).not()).where(meta.profile.empty()).empty()",
+            "warningOnly": false,
+            "stopTestOnFail": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Every Coding has both a system and a code.",
+            "direction": "request",
+            "expression": "Bundle.descendants().where(is(Coding)).all(system.exists() and code.exists())",
+            "warningOnly": false,
+            "stopTestOnFail": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Every Identifier has a system (or type) and a value.",
+            "direction": "request",
+            "expression": "Bundle.descendants().where(is(Identifier)).all((system.exists() or type.exists()) and value.exists())",
+            "warningOnly": false,
+            "stopTestOnFail": false
+          }
+        },
+        {
+          "assert": {
+            "description": "The receiving server accepts the message.",
+            "direction": "response",
+            "operator": "in",
+            "responseCode": "200,201",
+            "warningOnly": false,
+            "stopTestOnFail": true
+          }
+        }
+      ]
+    }
+  ]
+}

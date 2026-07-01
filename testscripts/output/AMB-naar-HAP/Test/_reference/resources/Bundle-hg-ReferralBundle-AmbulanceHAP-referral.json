@@ -1,0 +1,423 @@
+{
+  "resourceType": "Bundle",
+  "id": "hg-ReferralBundle-AmbulanceHAP-referral",
+  "meta": {
+    "profile": [
+      "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralBundle-AmbulanceHAP"
+    ]
+  },
+  "entry": [
+    {
+      "fullUrl": "http://nictiz.nl/fhir/MessageHeader/hg-ReferralMessageHeader-AmbulanceHAP-referral",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "hg-ReferralMessageHeader-AmbulanceHAP-referral",
+        "meta": {
+          "profile": [
+            "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralMessageHeader-AmbulanceHAP"
+          ]
+        },
+        "focus": [
+          {
+            "reference": "ServiceRequest/hg-ReferralServiceRequest-AmbulanceHAP-referral",
+            "type": "ServiceRequest",
+            "display": "Ambulanceverwijzing naar huisartsenpost"
+          }
+        ],
+        "sender": {
+          "reference": "Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-rav",
+          "type": "Organization",
+          "display": "RAV Utrecht"
+        },
+        "source": {
+          "endpoint": "https://ambulance.example.nl/fhir"
+        },
+        "destination": [
+          {
+            "endpoint": "https://hap.example.nl/fhir"
+          }
+        ],
+        "eventCoding": {
+          "code": "145",
+          "system": "http://nictiz.nl/fhir/CodeSystem/hg-message-event",
+          "display": "Verwijzing ambulance naar huisartsenpost"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://nictiz.nl/fhir/ServiceRequest/hg-ReferralServiceRequest-AmbulanceHAP-referral",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "hg-ReferralServiceRequest-AmbulanceHAP-referral",
+        "meta": {
+          "profile": [
+            "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-AmbulanceHAP"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "308292007",
+                "system": "http://snomed.info/sct",
+                "display": "overdracht van zorg (verrichting)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/hg-Patient-AmbulanceHAP-patrick",
+          "type": "Patient",
+          "display": "Patrick de Vries"
+        },
+        "requester": {
+          "reference": "PractitionerRole/hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu",
+          "type": "PractitionerRole",
+          "display": "Ambulanceverpleegkundige (RAV Utrecht)"
+        },
+        "performer": [
+          {
+            "reference": "Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-hap",
+            "type": "Organization",
+            "display": "Huisartsenpost Utrecht"
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Controleconsult gevraagd na ambulancezorg (maagklachten)."
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "Composition/hg-ReferralComposition-AmbulanceHAP-referral",
+            "type": "Composition",
+            "display": "Ambulanceverwijzing naar huisartsenpost"
+          },
+          {
+            "reference": "DocumentReference/hg-ReferralDocumentReference-AmbulanceHAP-ecg",
+            "type": "DocumentReference",
+            "display": "12-afleidingen ECG"
+          }
+        ],
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "code": "11131000146102",
+              "system": "http://snomed.info/sct",
+              "display": "overdracht van zorg vanuit ambulance"
+            }
+          ]
+        },
+        "status": "completed",
+        "authoredOn": "2026-06-08T11:15:00+02:00",
+        "patientInstruction": "Maak een afspraak op de huisartsenpost voor een controleconsult."
+      }
+    },
+    {
+      "fullUrl": "http://nictiz.nl/fhir/Composition/hg-ReferralComposition-AmbulanceHAP-referral",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "hg-ReferralComposition-AmbulanceHAP-referral",
+        "meta": {
+          "profile": [
+            "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralComposition-AmbulanceHAP"
+          ]
+        },
+        "subject": {
+          "reference": "Patient/hg-Patient-AmbulanceHAP-patrick",
+          "type": "Patient",
+          "display": "Patrick de Vries"
+        },
+        "author": [
+          {
+            "reference": "PractitionerRole/hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu",
+            "type": "PractitionerRole",
+            "display": "Ambulanceverpleegkundige (RAV Utrecht)"
+          }
+        ],
+        "section": [
+          {
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Controleconsult gevraagd na ambulancezorg (maagklachten).</div>"
+            },
+            "code": {
+              "coding": [
+                {
+                  "code": "440378000",
+                  "system": "http://snomed.info/sct",
+                  "display": "verwijzing voor (waarneembare entiteit)"
+                }
+              ]
+            },
+            "title": "Reden van verwijzing"
+          },
+          {
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Antacidum toegediend, klachten verminderd.</div>"
+            },
+            "code": {
+              "coding": [
+                {
+                  "code": "18776-5",
+                  "system": "http://loinc.org",
+                  "display": "Behandelplan [bevinding] in {instelling} d.m.v. {rol} (document)"
+                }
+              ]
+            },
+            "title": "Ingestelde behandeling"
+          },
+          {
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Waarschijnlijk maagklachten. Controle door huisarts gewenst.</div>"
+            },
+            "code": {
+              "coding": [
+                {
+                  "code": "55110-1",
+                  "system": "http://loinc.org",
+                  "display": "Conclusies [interpretatie] (document)"
+                }
+              ]
+            },
+            "title": "Diagnose/conclusie"
+          },
+          {
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Maak een afspraak op de huisartsenpost voor een controleconsult.</div>"
+            },
+            "code": {
+              "coding": [
+                {
+                  "code": "69730-0",
+                  "system": "http://loinc.org",
+                  "display": "Instructions"
+                }
+              ]
+            },
+            "title": "Afspraken met patiënt"
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "code": "18761-7",
+              "system": "http://loinc.org",
+              "display": "Samenvatting van overdracht [bevinding] in {instelling} d.m.v. {rol} (document)"
+            }
+          ]
+        },
+        "status": "final",
+        "date": "2026-06-08T11:15:00+02:00",
+        "title": "Ambulanceverwijzing naar huisartsenpost"
+      }
+    },
+    {
+      "fullUrl": "http://nictiz.nl/fhir/Patient/hg-Patient-AmbulanceHAP-patrick",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "hg-Patient-AmbulanceHAP-patrick",
+        "meta": {
+          "profile": [
+            "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP",
+            "http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://fhir.nl/fhir/NamingSystem/bsn",
+            "value": "999999990"
+          }
+        ],
+        "name": [
+          {
+            "given": [
+              "Patrick"
+            ],
+            "_given": [
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
+                    "valueCode": "BR"
+                  }
+                ]
+              }
+            ],
+            "use": "official",
+            "family": "de Vries"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1944-03-10"
+      }
+    },
+    {
+      "fullUrl": "http://nictiz.nl/fhir/Practitioner/hg-HealthProfessional-Practitioner-AmbulanceHAP-ambu",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "hg-HealthProfessional-Practitioner-AmbulanceHAP-ambu",
+        "meta": {
+          "profile": [
+            "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner"
+          ]
+        },
+        "name": [
+          {
+            "text": "A. Ambulance"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://nictiz.nl/fhir/PractitionerRole/hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu",
+        "meta": {
+          "profile": [
+            "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-PractitionerRole-AmbulanceHAP",
+            "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole"
+          ]
+        },
+        "practitioner": {
+          "reference": "Practitioner/hg-HealthProfessional-Practitioner-AmbulanceHAP-ambu",
+          "type": "Practitioner",
+          "display": "A. Ambulance"
+        },
+        "organization": {
+          "reference": "Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-rav",
+          "type": "Organization",
+          "display": "RAV Utrecht"
+        },
+        "code": [
+          {
+            "text": "Ambulanceverpleegkundige"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://nictiz.nl/fhir/Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-rav",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "hg-HealthcareProvider-Organization-AmbulanceHAP-rav",
+        "meta": {
+          "profile": [
+            "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP",
+            "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://fhir.nl/fhir/NamingSystem/ura",
+            "value": "00000001"
+          }
+        ],
+        "name": "RAV Utrecht"
+      }
+    },
+    {
+      "fullUrl": "http://nictiz.nl/fhir/Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-hap",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "hg-HealthcareProvider-Organization-AmbulanceHAP-hap",
+        "meta": {
+          "profile": [
+            "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP",
+            "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://fhir.nl/fhir/NamingSystem/ura",
+            "value": "00000002"
+          }
+        ],
+        "name": "Huisartsenpost Utrecht"
+      }
+    },
+    {
+      "fullUrl": "http://nictiz.nl/fhir/DocumentReference/hg-ReferralDocumentReference-AmbulanceHAP-ecg",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "hg-ReferralDocumentReference-AmbulanceHAP-ecg",
+        "meta": {
+          "profile": [
+            "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralDocumentReference-AmbulanceHAP"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "document-id",
+                  "system": "http://nictiz.nl/fhir/CodeSystem/hg-document-identifier-type"
+                }
+              ]
+            },
+            "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.103.4.145",
+            "value": "20260608110500.ecg.1"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "document-set-id",
+                  "system": "http://nictiz.nl/fhir/CodeSystem/hg-document-identifier-type"
+                }
+              ]
+            },
+            "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.103.4.145",
+            "value": "20260608110500.ecg"
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://nictiz.nl/fhir/StructureDefinition/hg-ext-DocumentVersion",
+            "valueString": "1"
+          }
+        ],
+        "category": [
+          {
+            "text": "Bijlage"
+          }
+        ],
+        "author": [
+          {
+            "reference": "PractitionerRole/hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu",
+            "type": "PractitionerRole",
+            "display": "Ambulanceverpleegkundige (RAV Utrecht)"
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "data": "JVBERi0xLjQK",
+              "title": "12-afleidingen ECG",
+              "creation": "2026-06-08T11:05:00+02:00"
+            }
+          }
+        ],
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "code": "001",
+              "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.55.5.16",
+              "display": "12 afleidingen ECG"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "type": "message",
+  "timestamp": "2026-06-08T11:15:05+02:00"
+}
