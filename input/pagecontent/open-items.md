@@ -19,3 +19,4 @@ These pending items affect how the exchange is modeled or implemented; each is t
 | Conformance | Transport-level conformance to the Nictiz FHIR R4 IG (HTTP, search, error handling, CapabilityStatements) - completed once the exchange paradigm is chosen | [#22](https://github.com/Nictiz/AZ-IG/issues/22) |
 | Testing | Conformancelab TestScripts (R5) - finalize transport operations after the paradigm choice, and confirm Conformancelab specifics | [#23](https://github.com/Nictiz/AZ-IG/issues/23) |
 | Editorial | Testing-page TestScript links point to the `TestScripts` branch - repoint when merged into 0.1.0 / released to main | [#25](https://github.com/Nictiz/AZ-IG/issues/25) |
+| Versioning | The IG version is provisional - align it with the ART-DECOR data set and functional design versions on publication | [#26](https://github.com/Nictiz/AZ-IG/issues/26) |
