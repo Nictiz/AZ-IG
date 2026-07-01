@@ -17,8 +17,8 @@ cd "$(dirname "$0")"
 
 TS=fsh-generated/resources          # R5 TestScripts (this tank)
 IG=../fsh-generated/resources       # R4 example fixtures (main IG)
-CL=conformancelab/AMB-naar-HAP/Cert
-OUT=output/AMB-naar-HAP/Cert
+CL=conformancelab/AMB-naar-HAP/Test
+OUT=output/AMB-naar-HAP/Test
 
 echo "Building R5 TestScripts (sushi)..."
 sushi . >/dev/null

@@ -21,7 +21,7 @@ testscripts/
   sushi-config.yaml                 # R5, FSHOnly, Interoplab dependency
   input/fsh/*.fsh                   # the TestScripts (R5)
   conformancelab/                   # Conformancelab per-role properties.json (source)
-    AMB-naar-HAP/Cert/<role>/properties.json
+    AMB-naar-HAP/Test/<role>/properties.json
   build-conformancelab.sh           # assembles the Conformancelab deployment into output/
   fsh-generated/                    # Sushi output (git-ignored)
   output/                           # assembled Conformancelab layout (git-ignored)
