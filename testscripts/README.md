@@ -2,11 +2,17 @@
 
 FHIR **TestScript** resources for testing and qualification of the Acute Zorg use cases on [Conformancelab](https://fhir.interoplab.eu/ig/index.html) (the Interoplab platform Nictiz uses). They are authored in [FHIR Shorthand](https://fshschool.org/) and built with Sushi, in a project **separate from the IG**.
 
-## Why a separate, R5 project
+## Approach and rationale
 
-Conformancelab officially supports the **R5** `TestScript` resource, while the Acute Zorg IG is **R4**. The TestScript version is decoupled from the data version: an R5 TestScript can test R4 data because Conformancelab loads the R4 data package (`nictiz.fhir.nl.r4.acutezorg`) via the per-role `properties.json`, and the TestScripts reference the **version-independent profile canonical URLs**. So this tank is pinned to `fhirVersion: 5.0.0` and kept out of the R4 IG build.
+**FSH, not NTS - same output.** Nictiz's own TestScripts ([Nictiz/Nictiz-testscripts](https://github.com/Nictiz/Nictiz-testscripts)) are authored in **NTS** (Nictiz Test Scripts), a proprietary XML shorthand expanded by an Apache ANT pipeline. This IG instead authors its TestScripts in **FHIR Shorthand** and builds them with Sushi. The *output is the same* - FHIR `TestScript` resources plus the Conformancelab folder layout (`<usecase>/<goal>/<role>/` with a `properties.json` and fixtures) - so Conformancelab consumes them identically. FSH was chosen because the rest of this IG is authored in FSH: one toolchain (Sushi), no separate Java/ANT build, and the TestScripts sit next to the profiles they test. NTS's built-in component library is replaced by FSH **RuleSets** for the same reuse.
 
-It depends on the Interoplab CL extensions package `interoplab.fhir.r5.conformancelab`. That package is `notForPublication` and not on the public registry; install it into the local FHIR package cache (e.g. extract `https://fhir.interoplab.eu/ig/package.tgz` into `~/.fhir/packages/interoplab.fhir.r5.conformancelab#1.0.0/`).
+**PZP (IKNL) style.** IKNL publishes working FSH TestScripts for Conformancelab in [PZP-test-en-kwalificatiemateriaal](https://github.com/IKNL/PZP-test-en-kwalificatiemateriaal). Rather than invent our own conventions, we follow theirs: reusable RuleSets (`Metadata`, `ClientTesting`/`ServerTesting` carrying the Interoplab `Interoplab-CL-ext-SUT` marker), role-folder organization, `validateProfileId` for profile conformance, and the standard content asserts (a Coding has a system and a code, an Identifier has a system and a value, every entry declares `meta.profile`, ...). This keeps us aligned with a proven, maintained FSH-for-Conformancelab pattern.
+
+**R5 TestScripts over R4 data.** Conformancelab officially supports the **R5** `TestScript` resource, so the TestScripts are R5 even though the IG and its data are **R4**. The versions are decoupled: Conformancelab loads the R4 data package (`nictiz.fhir.nl.r4.acutezorg`) via the per-role `properties.json`, and the TestScripts reference the **version-independent profile canonical URLs**. (IKNL author their TestScripts in R4, which also works in Conformancelab; we use R5 as the officially-supported version.)
+
+**Separate Sushi tank.** A Sushi project is single-version and mixing FHIR versions in one IG-Publisher run is fragile, so the TestScripts live in this separate tank pinned to `fhirVersion: 5.0.0` with `FSHOnly: true` (we want only the resources, not an IG). It builds independently of the R4 IG.
+
+**Interoplab dependency.** The tank depends on `interoplab.fhir.r5.conformancelab` (the CL extensions). That package is `notForPublication` and not on the public registry; install it into the local FHIR package cache (extract `https://fhir.interoplab.eu/ig/package.tgz` into `~/.fhir/packages/interoplab.fhir.r5.conformancelab#1.0.0/`).
 
 ## Layout
 
@@ -29,7 +35,7 @@ sushi .                    # generate the R5 TestScript resources
 ```
 (`build-conformancelab.sh` also copies the R4 example fixtures from the main IG, so run `sushi .` in the repo root first.)
 
-The reusable RuleSets (`Metadata`, `ClientTesting`/`ServerTesting`, `ReferralMessageContentAsserts` in `input/fsh/RuleSet.fsh`) follow the [IKNL PZP test materials](https://github.com/IKNL/PZP-test-en-kwalificatiemateriaal). Profile conformance uses `validateProfileId` against the IG's profile canonicals (resolved by Conformancelab from the loaded R4 package).
+The reusable RuleSets live in `input/fsh/RuleSet.fsh` and the aliases in `input/fsh/Alias.fsh` (see *Approach and rationale* above).
 
 ## TestScripts (Phase A - content validation)
 
