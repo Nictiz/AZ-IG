@@ -51,6 +51,7 @@ Roles mirror the IG's `hg-ActorSender` / `hg-ActorReceiver` actors:
 
 ## Provisional / to confirm
 
+- Not yet tested on Conformancelab. These TestScripts are authored and build cleanly with Sushi, but they have not been run against the actual Conformancelab engine, so they may still need adjustment once executed there.
 - The transport operation is modelled as a plain `create`/POST pending the exchange-paradigm choice (Open Items #14). The content assertions are paradigm-independent.
 - The exact Conformancelab `properties.json` semantics (`serverAlias`, and the `fhirVersion` field's meaning for an R5 TestScript over R4 data) should be confirmed with the Conformancelab team.
 - See the Nictiz reference materials in [Nictiz/Nictiz-testscripts](https://github.com/Nictiz/Nictiz-testscripts) (NTS source + generated output).
