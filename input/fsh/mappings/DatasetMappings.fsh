@@ -16,7 +16,7 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * requester -> "hg-dataelement-5814" "Verzender (zorgverlener)"
 * requester -> "hg-dataelement-5648" "Verzender (zorgaanbieder)"
 * performer -> "hg-dataelement-1680" "Ontvanger"
-// Ontvanger (zorgverlener) (5399) is intentionally not mapped: the HAP is addressed as an organization (zorgaanbieder, 5400), not as a named professional, so there is no PractitionerRole target for the receiver. This is asymmetric with the sender, which keeps 5398 (zorgverlener).
+// Ontvanger (zorgverlener) (5399) is intentionally not mapped: the HAP is addressed as an organization (zorgaanbieder, 5400), not as a named professional, so there is no PractitionerRole target for the receiver. This is asymmetric with the sender, which keeps 5814 (zorgverlener).
 * performer -> "hg-dataelement-5400" "Ontvanger (zorgaanbieder)"
 // RedenBericht and Context sit inside Kern in the dataset hierarchy. In FHIR, the reason for referral is placed on ServiceRequest.reasonCode and replicated inside the Composition.
 * reasonCode -> "hg-dataelement-1872" "RedenBericht"
