@@ -24,12 +24,12 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 * identifier ^slicing.discriminator[0].type = #pattern
 * identifier ^slicing.discriminator[0].path = "$this"
 * identifier ^slicing.rules = #open
-* identifier contains IncidentNumber 1..1
-* identifier[IncidentNumber] ^patternIdentifier.system = "urn:oid:2.16.840.1.113883.2.4.3.32.5"
-* identifier[IncidentNumber] ^short = "IncidentNumber"
-* identifier[IncidentNumber] ^alias[0] = "Ritnummer"
-* identifier[IncidentNumber] ^definition = "A unique number assigned by the dispatch center to each ambulance dispatch."
-* identifier[IncidentNumber] ^comment = "The Incident number consists of several parts separated by a hyphen “-”. The structure is [ambulance service-year-incident number-patient number]"
+* identifier contains incidentNumber 1..1
+* identifier[incidentNumber] ^patternIdentifier.system = "urn:oid:2.16.840.1.113883.2.4.3.32.5"
+* identifier[incidentNumber] ^short = "IncidentNumber"
+* identifier[incidentNumber] ^alias[0] = "Ritnummer"
+* identifier[incidentNumber] ^definition = "A unique number assigned by the dispatch center to each ambulance dispatch."
+* identifier[incidentNumber] ^comment = "The Incident number consists of several parts separated by a hyphen “-”. The structure is [ambulance service-year-incident number-patient number]"
 * status 1..1
   * ^short = "DestinationStatus"
   * ^alias[0] = "Bestemmingsstatus"
