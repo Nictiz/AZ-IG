@@ -55,16 +55,6 @@ The information exchanged covers patient identification, the reason for referral
 
 The functional design is formalized in a machine-readable dataset in [ART-DECOR](https://decor.nictiz.nl/ad/#/hg-), the standard Dutch platform for defining healthcare information datasets.
 
-Relationship to ELZ.
-
-This IG and the primary care ELZ package draw on the same ART-DECOR project; the [Dependencies](dependencies.html) page describes that relationship and the overlapping canonical URLs. Although they share the `hg-` profile IDs, the profiles are not the same: the generic layer here was developed independently and intentionally diverges from ELZ in several places:
-
-- `hg-ReferralServiceRequest`: the ELZ profile fixes `status` to `#completed` and defines a `category` slice with a primary-care-specific OID coding. Both are omitted here as they are ELZ specific; use case layers in this IG add their own `category` slice and `status` constraints where needed.
-- `hg-ReferralComposition`: the ELZ profile defines a detailed Envelope/Core section hierarchy specific to primary care (CarePath, RequiredConsultationFacilities, MessageReason, etc.). Section structure has proven to be use case specific, so no named sections are defined at the generic layer; each use case adds its own section slices.
-- `hg-ReferralTask`: present in ELZ. Not yet defined here; will be added when a use case requires explicit workflow tracking.
-- `hg-ReferralMessageHeader`, `hg-ReferralBundle`, `hg-ReferralDocumentReference`: present in this IG, not in ELZ.
-
-These differences are not blocking while both packages are in beta, but they must be reconciled before either reaches a stable release (tracked on the [Open Items](open-items.html) page).
 
 There are two distinct ART-DECOR artefacts relevant to this IG:
 

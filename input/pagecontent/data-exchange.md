@@ -38,7 +38,7 @@ Limitations: requires the receiver to expose and maintain a FHIR REST API; manag
 
 ### Option 3: FHIR Document
 
-The referral is wrapped in a `Bundle` of `type` `document`. The first entry is a `Composition` that organises the clinical content. The Bundle is an immutable, attestable clinical document that can be stored and exchanged as a unit.
+The referral is wrapped in a `Bundle` of `type` document. The first entry is a `Composition` that organises the clinical content. The Bundle is an immutable, attestable clinical document that can be stored and exchanged as a unit.
 
 Profiles used: the use case Composition profile as the document anchor; a document Bundle (not a messaging Bundle); the use case profiles for the enclosed resources.
 
@@ -98,4 +98,4 @@ Under Option 1 (Messaging): additionally expose a `$process-message` endpoint or
 
 Under Option 2 (REST): additionally expose a FHIR REST server supporting at minimum `create` interactions on the relevant resource types, and support transaction Bundles.
 
-Under Option 3 (Document): additionally accept a Bundle of `type` `document` and store or index it via the applicable document-sharing infrastructure.
+Under Option 3 (Document): additionally accept a Bundle of `type` document and store or index it via the applicable document-sharing infrastructure.
