@@ -14,37 +14,37 @@ In practice, ambulance/RAV systems do not produce native FHIR resources. A broke
 
 ### Option 1: FHIR Messaging
 
-The referral is wrapped in a `Bundle` of type `message`. The first entry is a `MessageHeader` that identifies the event and focuses the `ServiceRequest`. All referenced resources are included in the same bundle. The sender transmits the bundle to the receiver's `$process-message` endpoint or via a store-and-forward intermediary.
+The referral is wrapped in a `Bundle` of `type` `message`. The first entry is a `MessageHeader` that identifies the event and references the `ServiceRequest` via `focus`. All referenced resources are included in the same Bundle. The sender transmits the Bundle to the receiver's `$process-message` endpoint or via a store-and-forward intermediary.
 
 Profiles used: the use case Bundle and MessageHeader profiles (`hg-ReferralBundle-*` and `hg-ReferralMessageHeader-*`), and the use case profiles for the enclosed resources.
 
 Fits well when: the infrastructure is event-driven or store-and-forward; the receiver does not expose a FHIR REST endpoint; the transaction must be atomic and self-contained.
 
-Limitations: requires the sender to produce a complete, valid bundle at the moment of transmission; less suited for incremental updates or queries.
+Limitations: requires the sender to produce a complete, valid Bundle at the moment of transmission; less suited for incremental updates or queries.
 
 ---
 
 ### Option 2: RESTful (FHIR REST API)
 
-The sender POSTs resources to the receiver's FHIR server using a transaction bundle. The `ServiceRequest` is the focal resource; `Composition`, `DocumentReference`, `Patient`, `Organization`, and `PractitionerRole` are included in the same transaction. The receiver exposes a FHIR server.
+The sender POSTs resources to the receiver's FHIR server using a transaction Bundle. The `ServiceRequest` is the focal resource; `Composition`, `DocumentReference`, `Patient`, `Organization`, and `PractitionerRole` are included in the same `transaction`. The receiver exposes a FHIR server.
 
 Profiles used: the use case profiles for all individual resources; no MessageHeader or message Bundle required.
 
 Fits well when: the receiver already hosts a FHIR server; query and update patterns are needed alongside the initial push; integration with standard FHIR tooling is a priority.
 
-Limitations: requires the receiver to expose and maintain a FHIR REST API; managing referential integrity across separate POSTs requires a transaction bundle or careful ordering.
+Limitations: requires the receiver to expose and maintain a FHIR REST API; managing referential integrity across separate POSTs requires a transaction Bundle or careful ordering.
 
 ---
 
 ### Option 3: FHIR Document
 
-The referral is wrapped in a `Bundle` of type `document`. The first entry is a `Composition` that organises the clinical content. The bundle is an immutable, attestable clinical document that can be stored and exchanged as a unit.
+The referral is wrapped in a `Bundle` of `type` `document`. The first entry is a `Composition` that organises the clinical content. The Bundle is an immutable, attestable clinical document that can be stored and exchanged as a unit.
 
 Profiles used: the use case Composition profile as the document anchor; a document Bundle (not a messaging Bundle); the use case profiles for the enclosed resources.
 
 Fits well when: the referral needs to be stored as a legal or attestable document; integration with document-sharing infrastructure (IHE XDS/MHD) is required.
 
-Limitations: a document bundle is immutable - corrections require a new document; less suited for workflow tracking or status updates.
+Limitations: a document Bundle is immutable - corrections require a new document; less suited for workflow tracking or status updates.
 
 ---
 
@@ -73,9 +73,9 @@ In summary, regardless of paradigm, the sender **SHALL**:
 - Attach supporting documents as use case DocumentReference instances when available
 - Populate patient, organization, and professional resources conformant to the use case profiles
 
-Under Option 1 (Messaging): additionally produce use case Bundle and MessageHeader resources, and transmit the bundle to the receiver's endpoint.
+Under Option 1 (Messaging): additionally produce use case Bundle and MessageHeader resources, and transmit the Bundle to the receiver's endpoint.
 
-Under Option 2 (REST): additionally POST resources to the receiver's FHIR server using a transaction bundle to ensure atomicity.
+Under Option 2 (REST): additionally POST resources to the receiver's FHIR server using a transaction Bundle to ensure atomicity.
 
 Under Option 3 (Document): additionally produce a document Bundle with the use case Composition as the first entry.
 
@@ -94,8 +94,8 @@ In summary, the receiver **SHALL**:
 - Store or route the referral for clinical review
 - Handle all resource types included in the referral: `ServiceRequest`, `Composition`, `DocumentReference`, `Patient`, `Organization`, `PractitionerRole`, `Practitioner`
 
-Under Option 1 (Messaging): additionally expose a `$process-message` endpoint or receive messages via an intermediary; process the Bundle of type `message`.
+Under Option 1 (Messaging): additionally expose a `$process-message` endpoint or receive messages via an intermediary; process the Bundle of `type` `message`.
 
-Under Option 2 (REST): additionally expose a FHIR REST server supporting at minimum `create` interactions on the relevant resource types, and support transaction bundles.
+Under Option 2 (REST): additionally expose a FHIR REST server supporting at minimum `create` interactions on the relevant resource types, and support transaction Bundles.
 
-Under Option 3 (Document): additionally accept a Bundle of type `document` and store or index it via the applicable document-sharing infrastructure.
+Under Option 3 (Document): additionally accept a Bundle of `type` `document` and store or index it via the applicable document-sharing infrastructure.

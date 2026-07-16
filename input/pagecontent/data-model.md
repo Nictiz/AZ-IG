@@ -6,11 +6,11 @@ This page describes the data model for the Ambulanceverwijzing (AMB naar HAP) re
 
 A referral always carries the same clinical core, regardless of the exchange paradigm (see [Data Exchange](data-exchange.html)):
 
-- `hg-ReferralServiceRequest-AmbulanceHAP` is the focal resource. It references the patient (`subject`), the sending ambulance (`requester`) and the receiving HAP (`performer`), and carries the clinical content through `supportingInfo`.
-- `supportingInfo` points to a `hg-ReferralComposition-AmbulanceHAP` for the transfer summary note (reason, instituted treatment, diagnosis or conclusion) and, when documents are attached, to one or more `hg-ReferralDocumentReference-AmbulanceHAP` resources.
-- The dataset's CommunicatieItem wrapper is folded into `DocumentReference` (its category on `category`, its sender on `author`); the recipient is the referral's `performer`.
+- *hg-ReferralServiceRequest-AmbulanceHAP* is the focal resource. It references the patient (*subject*), the sending ambulance (*requester*) and the receiving HAP (*performer*), and carries the clinical content through `supportingInfo`.
+- *supportingInfo* points to a *hg-ReferralComposition-AmbulanceHAP* for the transfer summary note (reason, instituted treatment, diagnosis or conclusion) and, when documents are attached, to one or more *hg-ReferralDocumentReference-AmbulanceHAP* resources.
+- The dataset's CommunicationItem wrapper is folded into *DocumentReference* (its category on *category*, its sender on *author*); the recipient is the *performer* of the referral.
 
-Under the FHIR Messaging paradigm, two wrapper resources are added on top of this core: `hg-ReferralMessageHeader-AmbulanceHAP` (which identifies the event and focuses the ServiceRequest) and `hg-ReferralBundle-AmbulanceHAP` (the message bundle). Under the RESTful or FHIR Document paradigms these wrappers are replaced by a transaction bundle or a document bundle respectively.
+Under the FHIR Messaging paradigm, two wrapper resources are added on top of this core: *hg-ReferralMessageHeader-AmbulanceHAP* (which identifies the event and focuses the ServiceRequest) and *hg-ReferralBundle-AmbulanceHAP* (the message bundle). Under the RESTful or FHIR Document paradigms these wrappers are replaced by a transaction bundle or a document bundle respectively.
 
 Example messages under [Artifacts](artifacts.html) illustrate the model: a referral based on scenario 5b of the *Richtlijn Gegevensuitwisseling Acute Zorg*; a maximal message modelled on the ART-DECOR ADA test scenario, showing all participating resources and a document attachment; and a minimal message modelled on the ART-DECOR ADA minimal test scenario.
 
@@ -28,21 +28,21 @@ Example messages under [Artifacts](artifacts.html) illustrate the model: a refer
 | MessageHeader | [`hg-ReferralMessageHeader-AmbulanceHAP`](StructureDefinition-hg-ReferralMessageHeader-AmbulanceHAP.html) | [`hg-ReferralMessageHeader`](StructureDefinition-hg-ReferralMessageHeader.html) | Messaging wrapper: event and focus |
 | Bundle | [`hg-ReferralBundle-AmbulanceHAP`](StructureDefinition-hg-ReferralBundle-AmbulanceHAP.html) | [`hg-ReferralBundle`](StructureDefinition-hg-ReferralBundle.html) | Messaging wrapper: the message bundle |
 
-`Practitioner` has no dedicated use case profile; the nl-core profile is used directly. The free text of each Composition section is carried in the section's own narrative (`Composition.section.text`, whose `.div` holds plain text or the limited xhtml allowed for a Narrative).
+ The free text of each *Composition* section is carried in the section's own narrative (*Composition.section.text*, whose *.div* holds plain text or the limited xhtml allowed for a Narrative).
 
 ### Reading obligations
 
 This IG uses the FHIR Obligations framework instead of `mustSupport`. Each obligation-marked element carries two actor-scoped expectations:
 
-- Sender (`hg-ActorSender-AmbulanceHAP`): for a mandatory element (min >= 1) it **SHALL** always populate it (`SHALL:populate`); for an optional element it **SHALL** populate it when it knows a value (`SHALL:populate-if-known`).
-- Receiver (`hg-ActorReceiver-AmbulanceHAP`): **SHALL** accept the element without raising an error (`SHALL:no-error`).
+- Sender (*hg-ActorSender-AmbulanceHAP*): for a mandatory element (min >= 1) it **SHALL** always populate it (`SHALL:populate`); for an optional element it **SHALL** populate it when it knows a value (`SHALL:populate-if-known`).
+- Receiver (*hg-ActorReceiver-AmbulanceHAP*): **SHALL** accept the element without raising an error (`SHALL:no-error`).
 
 Obligations are shown per element on each profile's page. The rationale for this approach is on the [Design Decisions](design-decisions.html#conformance-via-obligations) page.
 
 ### Declaring conformance and validating
 
 - Validation. Validate instances with the official HL7 FHIR validator against the package `nictiz.fhir.nl.r4.acutezorg` together with its dependencies (nl-core, zib2020). A resource is conformant when it passes validation against the relevant profile.
-- Declaring conformance. In exchange, the nl-core profiles remain the normative basis. A sender that meets the tighter use case cardinalities **MAY** declare this by listing the use case profile canonical in `meta.profile`; a resource that conforms to a use case profile also satisfies nl-core and, by extension, FHIR core.
+- Declaring conformance. In exchange, the nl-core profiles remain the normative basis. A sender that meets the tighter use case cardinalities **MAY** declare this by listing the use case profile canonical in *meta.profile*; a resource that conforms to a use case profile also satisfies nl-core.
 - Actor perspective. Validate from the relevant actor's perspective: a sending system against the Sender obligations, a receiving system against the Receiver obligations. Wrapper resources (`MessageHeader`, `Bundle`) are only required under the FHIR Messaging paradigm.
 
 ### Dutch-English element name mapping

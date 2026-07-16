@@ -11,7 +11,7 @@ This IG covers referral transactions from the [Richtlijn Gegevensuitwisseling Ac
 
 ### Ambulanceverwijzing naar HAP (AMB naar HAP)
 
-Handover of a patient by an ambulance professional to a GP out-of-hours post (HAP, *huisartsenpost*) after on-scene care. The exchange is one-directional (PUSH): the ambulance/RAV sends, the HAP receives.
+Handover of a patient by an ambulance professional to a GP out-of-hours post (HAP, *huisartsenpost*) after on-scene care. The exchange is one-directional (PUSH): the ambulance/regionale ambulancevoorziening (RAV) sends, the HAP receives.
 
 Functional design: [Section 2.16 of the Nictiz functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29) - see also the [Functional Design](functional-design.html) page in this IG.
 
@@ -27,9 +27,9 @@ CapabilityStatements:
 
 Profiles: see [Artifacts](artifacts.html#structures-resource-profiles) for the full list of `hg-Referral*-AmbulanceHAP` profiles, and the [Data Model](data-model.html) page for the message structure, profile table, and conformance guidance.
 
-Examples under [Artifacts](artifacts.html): a worked referral based on scenario 5b of the *Richtlijn Gegevensuitwisseling Acute Zorg*; a maximal message modelled on the ART-DECOR ADA test scenario (a richly populated patient and message, with a document attachment); and a minimal message modelled on the ART-DECOR ADA minimal test scenario.
+Examples under [Artifacts](artifacts.html): a worked referral based on scenario 5b of the *Richtlijn Gegevensuitwisseling Acute Zorg*; a maximal message modeled on the ART-DECOR test scenario (a richly populated patient and message, with a document attachment); and a minimal message modelled on the ART-DECOR  minimal test scenario.
 
-Data exchange: see [Data Exchange](data-exchange.html) for the exchange paradigm options and sender/receiver requirements for this use case.
+Data exchange: see [Data exchange](data-exchange.html) for the exchange paradigm options and sender/receiver requirements for this use case.
 
 ---
 

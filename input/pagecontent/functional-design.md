@@ -4,7 +4,7 @@ The information exchange described in this Implementation Guide is defined by tw
 
 - The Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022) ([PDF](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)) is the policy-level guideline that establishes which data must be exchanged between parties in acute care settings in the Netherlands. It defines the scenarios, parties, and content requirements at a clinical level.
 
-- The Ontwerp Gegevensuitwisseling Acute Zorg ([functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg)) is the Nictiz functional design document that translates the *richtlijn* into structured, implementable information exchange specifications. It defines datasets, message structures, and exchange directions for each use case.
+- The Ontwerp Gegevensuitwisseling Acute Zorg ([functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg)) is the Nictiz functional design document that translates the ([richtlijn](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf))* into structured, implementable information exchange specifications. It defines datasets, message structures, and exchange directions for each use case.
 
 ### Position in the Nictiz five-layer model
 
@@ -17,7 +17,7 @@ Interoperability requires agreements on five layers - the Nictiz [vijflagenmodel
   <tbody>
     <tr>
       <td style="background-color:#c1178c;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">Organisatiebeleid</td>
-      <td>Governance and agreements between the parties (ambulance/RAV, HAP), the <em>Richtlijn Gegevensuitwisseling Acute Zorg</em>, and the national release policy. Largely outside this technical IG.</td>
+      <td>Governance and agreements between the parties (ambulance/RAV, HAP), the <a href="https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf">Richtlijn Gegevensuitwisseling Acute Zorg</a>, and the national release policy. Largely outside this technical IG.</td>
       <td><a href="index.html">Home</a>, Functional design (this page)</td>
     </tr>
     <tr>
