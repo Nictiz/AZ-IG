@@ -18,7 +18,7 @@ All participating resources build on nl-core (zib2020, R4). Identifiers, name an
 
 ### Workflow request resource
 
-The referral is modeled as a `ServiceRequest` on FHIR core, with `intent` fixed to `order`. The ambulance is the `requester` and the HAP is the `performer`. This follows the FHIR workflow request pattern.
+The referral is modeled as a `ServiceRequest` on FHIR core, with the `intent` element using the pattern `order`. The ambulance is the `requester` and the HAP is the `performer`. This follows the FHIR workflow request pattern.
 
 ### Envelope and core: ServiceRequest and Composition
 

@@ -2,7 +2,7 @@
 
 This IG uses the [FHIR R4 ad-hoc workflow pattern](https://hl7.org/fhir/R4/workflow-ad-hoc.html). The ambulance system (sender) constructs a `ServiceRequest` and transmits it to the HAP system (receiver), which acts on the request directly - there is no separate coordination resource mediating between the two parties. This pattern is independent of the exchange paradigm: how the resources are packaged and transported (see the [Data Exchange](data-exchange.html) page) is a separate, not-yet-decided question.
 
-This matches the operational reality of the ambulance-to-HAP referral: it is a one-shot handover. The ambulance crew sends the referral and the HAP receives it; there is no protocol-level back-and-forth, no explicit acceptance step, and no status the sender needs to track after delivery. The `ServiceRequest.intent` is fixed to *order* and the roles are fixed: the ambulance is the `requester`, the HAP is the `performer`.
+This matches the operational reality of the ambulance-to-HAP referral: it is a one-shot handover. The ambulance crew sends the referral and the HAP receives it; there is no protocol-level back-and-forth, no explicit acceptance step, and no status the sender needs to track after delivery. The `ServiceRequest` with the `intent` element using the pattern *order*. The roles are fixed: the ambulance is the `requester`, the HAP is the `performer`.
 
 ### Why no Task
 
