@@ -32,7 +32,6 @@ Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1709" "Kern"
 // The Composition represents the dataset's Kern (clinical core), so the root maps to Kern. subject, author and date are FHIR-mandatory document metadata that reuse the same Patient, Verzender and Datum en tijd the Envelop (ServiceRequest) carries, so they map to those Envelop-level dataelements rather than to Kern. This cross-container reuse is symmetric: the ServiceRequest root is the Envelop but it likewise surfaces Kern elements (RedenBericht, Context, AfgesprokenMetPatient) for early triage. The root is mapped to each resource's primary container only; the Composition is not separately mapped to Envelop because it represents the Kern, not the envelope.
-* identifier[IncidentNumber] -> "hg-dataelement-6034" "Ritnummer"
 * subject -> "hg-dataelement-1676" "Patient"
 * author -> "hg-dataelement-5089" "Verzender"
 * date -> "hg-dataelement-1684" "Datum en tijd"
