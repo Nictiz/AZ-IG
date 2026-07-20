@@ -60,3 +60,11 @@ Parent: $nlcore-Encounter
 Id: hg-Encounter-AmbulanceHAP
 Title: "hg Encounter - Ambulance to HAP"
 Description: "An interaction between a patient and ambulance professionals. Derived from nl-core-Encounter."
+* identifier ^slicing.discriminator[0].type = #pattern
+* identifier ^slicing.discriminator[0].path = "$this"
+* identifier ^slicing.rules = #open
+* identifier contains missionNumber 1..1
+* identifier[missionNumber] ^patternIdentifier.system = "urn:oid:2.16.840.1.113883.2.4.3.32.5"
+* identifier[missionNumber] ^short = "missionNumber"
+* identifier[missionNumber] ^alias[0] = "Ritnummer"
+* identifier[missionNumber] ^definition = "A unique number assigned by the dispatch center to each ambulance dispatch."
