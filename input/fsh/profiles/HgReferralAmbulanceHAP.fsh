@@ -21,14 +21,13 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 * . ^short = "Envelope"
   * ^alias[0] = "Envelop"
   * ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
-* identifier ^slicing.discriminator[0].type = #pattern
-* identifier ^slicing.discriminator[0].path = "$this"
-* identifier ^slicing.rules = #open
-* identifier contains IncidentNumber 0..1
-* identifier[IncidentNumber] ^patternIdentifier.system = "urn:oid:2.16.840.1.113883.2.4.3.32.5"
-* identifier[IncidentNumber] ^short = "IncidentNumber"
-* identifier[IncidentNumber] ^alias[0] = "Ritnummer"
-* identifier[IncidentNumber] ^definition = "A unique number assigned by the dispatch center to each ambulance dispatch."
+* identifier [IncidentNumber] ^slicing.discriminator[0].type = #pattern
+  * ^slicing.discriminator[0].path = "$this"
+  * ^short = "IncidentNumber"
+  * ^alias[0] = "Ritnummer"
+  * ^definition = "A unique number assigned by the dispatch center to each ambulance dispatch."
+  * ^max = "1"
+  * ^pattern.system = "urn:oid:2.16.840.1.113883.2.4.3.32.5"
 * status 1..1
   * ^short = "DestinationStatus"
   * ^alias[0] = "Bestemmingsstatus"
