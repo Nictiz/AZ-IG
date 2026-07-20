@@ -67,4 +67,4 @@ Description: "An interaction between a patient and ambulance professionals. Deri
 * identifier[missionNumber] ^patternIdentifier.system = "urn:oid:2.16.840.1.113883.2.4.3.32.5"
 * identifier[missionNumber] ^short = "missionNumber"
 * identifier[missionNumber] ^alias[0] = "Ritnummer"
-* identifier[missionNumber] ^definition = "A unique number assigned by the dispatch center to each ambulance dispatch."
+* identifier[missionNumber] ^definition = "A unique number assigned by the dispatch center to each ambulance dispatch. The mission number (Ritnummer) consists of several parts separated by a hyphen “-”. The structure is [ambulance service-year-incident number-patient number]"
