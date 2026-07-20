@@ -54,3 +54,9 @@ Title: "hg HealthProfessional PractitionerRole - Ambulance to HAP"
 Description: "Role of the sending ambulance professional in the referral. Derived from nl-core-HealthProfessional-PractitionerRole."
 * practitioner insert Obligation
 * organization insert Obligation
+
+Profile: HgEncounterAmbulanceHAP
+Parent: $nlcore-Encounter
+Id: hg-Encounter-AmbulanceHAP
+Title: "hg Encounter - Ambulance to HAP"
+Description: "An interaction between a patient and ambulance professionals. Derived from nl-core-Encounter."
