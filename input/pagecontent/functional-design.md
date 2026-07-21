@@ -4,7 +4,7 @@ The information exchange described in this Implementation Guide is defined by tw
 
 - The Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022) ([PDF](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)) is the policy-level guideline that establishes which data must be exchanged between parties in acute care settings in the Netherlands. It defines the scenarios, parties, and content requirements at a clinical level.
 
-- Dieeee Ontwerpje Gegevensuitwisseling Acute Zorg ([functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg)) is the Nictiz functional design document that translates the ([richtlijn](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf))* into structured, implementable information exchange specifications. It defines datasets, message structures, and exchange directions for each use case.
+- The Ontwerp Gegevensuitwisseling Acute Zorg ([functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg)) is the Nictiz functional design document that translates the ([richtlijn](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf))* into structured, implementable information exchange specifications. It defines datasets, message structures, and exchange directions for each use case.
 
 ### Position in the Nictiz five-layer model
 
