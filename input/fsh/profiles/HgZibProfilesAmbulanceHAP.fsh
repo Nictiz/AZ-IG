@@ -33,6 +33,7 @@ Description: "Patient in the ambulance to GP out-of-hours post (HAP) referral. D
 * gender 1..1
 * gender insert ObligationMandatory
 * birthDate insert Obligation
+* contact.extension[contactPerson].value[x] only Reference(RelatedPerson or HgContactPersonAmbulanceHAP)
 
 Profile: HgHealthcareProviderOrganizationAmbulanceHAP
 Parent: $nlcore-Organization
@@ -52,3 +53,16 @@ Title: "hg HealthProfessional PractitionerRole - Ambulance to HAP"
 Description: "Role of the sending ambulance professional in the referral. Derived from nl-core-HealthProfessional-PractitionerRole."
 * practitioner insert Obligation
 * organization insert Obligation
+
+Profile: HgContactPersonAmbulanceHAP
+Parent: $nlcore-ContactPerson
+Id: hg-ContactPerson-AmbulanceHAP
+Title: "hg ContactPerson - Ambulance to HAP"
+Description: "test. Derived from nl-core-ContactPerson."
+* name[nameInformation] only HgNameInformationAmbulanceHAP
+
+Profile: HgNameInformationAmbulanceHAP
+Parent: $nlcore-NameInformation
+Id: hg-NameInformation-AmbulanceHAP
+Title: "hg NameInformation - Ambulance to HAP"
+Description: "test. Derived from nl-core-NameInformation."

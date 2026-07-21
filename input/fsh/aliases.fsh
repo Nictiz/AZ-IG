@@ -12,6 +12,7 @@ Alias: $nlcore-Practitioner = http://nictiz.nl/fhir/StructureDefinition/nl-core-
 Alias: $nlcore-PractitionerRole = http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole
 Alias: $nlcore-Organization = http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization
 Alias: $nlcore-ContactPerson = http://nictiz.nl/fhir/StructureDefinition/nl-core-ContactPerson
+Alias: $nlcore-NameInformation = http://nictiz.nl/fhir/StructureDefinition/nl-core-NameInformation
 // Obligation framework
 Alias: $obligation = http://hl7.org/fhir/StructureDefinition/obligation
 Alias: $hg-ActorSender = http://nictiz.nl/fhir/ActorDefinition/hg-ActorSender-AmbulanceHAP
