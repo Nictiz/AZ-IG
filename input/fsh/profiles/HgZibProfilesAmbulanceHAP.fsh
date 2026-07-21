@@ -32,7 +32,7 @@ Description: "Patient in the ambulance to GP out-of-hours post (HAP) referral. D
 * identifier[bsn] 0..1
 * name insert Obligation
 * name.text ^comment = "This element can be used to represent the full name as plain text when the name is not registered in a structured manner (i.e. without the structured `family`/`given` parts)."
-* gender 1..1
+* gender 0..1
 * gender insert ObligationMandatory
 * birthDate insert Obligation
 * contact.extension[contactPerson].value[x] only Reference(RelatedPerson or HgContactPersonAmbulanceHAP)
