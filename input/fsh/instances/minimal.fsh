@@ -84,7 +84,7 @@ Usage: #example
 Title: "Composition - minimal transfer summary note"
 Description: "Minimal example transfer summary note: the mandatory metadata and the single mandatory section (messageReason). The optional treatment, diagnosis/conclusion and agreed-with-patient sections are omitted."
 * status = #final
-* type = $loinc#18761-7 "Samenvatting van overdracht [bevinding] in {instelling} d.m.v. {rol} (document)"
+* type = $loinc#28651-8 "Samenvatting van overdracht [bevinding] in {instelling} d.m.v. {rol} (document)"
 * subject = Reference(hg-Patient-AmbulanceHAP-min)
 * subject.type = "Patient"
 * subject.display = "Bakkersz"
@@ -95,7 +95,7 @@ Description: "Minimal example transfer summary note: the mandatory metadata and 
 * title = "Ambulanceverwijzing naar huisartsenpost"
 * section[messageReason]
   * title = "Reden van verwijzing"
-  * code = $sct#440378000 "verwijzing voor (waarneembare entiteit)"
+  * code = $loinc#46239-0 "verwijzing voor (waarneembare entiteit)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Lage rugklachten, graag uw beoordeling.</div>"
 
