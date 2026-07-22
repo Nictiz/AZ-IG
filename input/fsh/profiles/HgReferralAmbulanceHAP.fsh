@@ -96,7 +96,7 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
 * . ^short = "Core"
   * ^alias[0] = "Kern"
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
-* type = $loinc#18761-7
+* type = $loinc#28651-8
 * status 1..1
 * status insert ObligationMandatory
 * subject 1..1
@@ -126,7 +126,7 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
   * ^alias[0] = "RedenBericht"
   * ^alias[1] = "Context"
   * ^definition = "Geeft de reden van de verwijzing of de update. De ambulance legt de reden altijd vast in vrije tekst."
-* section[messageReason].code = $sct#440378000
+* section[messageReason].code = $loinc#46239-0
 * section[messageReason] insert ObligationMandatory
 * section[messageReason] insert CopiedFromServiceRequestComment
 * section[messageReason].text 1..1
@@ -136,7 +136,7 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
 * section[treatmentGiven] ^short = "SetTreatment"
   * ^alias[0] = "IngesteldeBehandeling"
   * ^definition = "Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht."
-* section[treatmentGiven].code = $loinc#18776-5
+* section[treatmentGiven].code = $loinc#51847-2
 * section[treatmentGiven] insert Obligation
 * section[treatmentGiven].text 1..1
 * section[treatmentGiven].text.status = #additional
