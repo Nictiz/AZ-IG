@@ -102,7 +102,7 @@ Usage: #example
 Title: "Composition - ambulance transfer summary note"
 Description: "Example tansfer summary note carrying the instituted treatment and the diagnosis/conclusion for scenario 5b."
 * status = #final
-* type = $loinc#28651-8 "Samenvatting van overdracht [bevinding] in {instelling} d.m.v. {rol} (document)"
+* type = $loinc#28651-8 "Samenvatting van overdracht [bevinding] in {instelling} d.m.v. verpleegkundige (document)"
 * subject = Reference(hg-Patient-AmbulanceHAP-patrick)
 * subject.type = "Patient"
 * subject.display = "Patrick de Vries"
@@ -114,12 +114,12 @@ Description: "Example tansfer summary note carrying the instituted treatment and
 // messageReason copies ServiceRequest.reasonCode.text (the same free text appears on the ServiceRequest for triage).
 * section[messageReason]
   * title = "Reden van verwijzing"
-  * code = $loinc#46239-0 "verwijzing voor (waarneembare entiteit)"
+  * code = $loinc#46239-0 "Belangrijkste klacht + reden voor bezoek [bevinding] (tekstueel)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Controleconsult gevraagd na ambulancezorg (maagklachten).</div>"
 * section[treatmentGiven]
   * title = "Ingestelde behandeling"
-  * code = $loinc#51847-2 "Behandelplan [bevinding] in {instelling} d.m.v. {rol} (document)"
+  * code = $loinc#51847-2 "Evaluation + Plan note"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Antacidum toegediend, klachten verminderd.</div>"
 * section[diagnosisConclusion]
