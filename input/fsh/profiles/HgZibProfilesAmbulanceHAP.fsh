@@ -58,11 +58,13 @@ Profile: HgContactPersonAmbulanceHAP
 Parent: $nlcore-ContactPerson
 Id: hg-ContactPerson-AmbulanceHAP
 Title: "hg ContactPerson - Ambulance to HAP"
-Description: "test. Derived from nl-core-ContactPerson."
+Description: "Derived from nl-core-ContactPerson."
+* ^purpose = "A derived profile from [nl-core-Encounter](http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter) to provide a version better suited for ambulance to HAP use case. This profile augments the nl-core profile with a reference to HgNameInformationAmbulanceHAP."
 * name[nameInformation] only HgNameInformationAmbulanceHAP
 
 Profile: HgNameInformationAmbulanceHAP
 Parent: $nlcore-NameInformation
 Id: hg-NameInformation-AmbulanceHAP
 Title: "hg NameInformation - Ambulance to HAP"
-Description: "test. Derived from nl-core-NameInformation."
+Description: "Derived from nl-core-NameInformation."
+* ^purpose = "A derived profile from [nl-core-Encounter](http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter) to provide a version better suited for ambulance to HAP use case. This profile augments the nl-core profile with a mapping of the dataelement 'VolledigeNaam'."
