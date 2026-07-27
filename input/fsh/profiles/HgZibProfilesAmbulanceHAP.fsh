@@ -60,6 +60,7 @@ Parent: $nlcore-Encounter
 Id: hg-Encounter-AmbulanceHAP
 Title: "hg Encounter - Ambulance to HAP"
 Description: "An interaction between a patient and ambulance professionals. Derived from nl-core-Encounter."
+* ^purpose = "A derived profile from [nl-core-Encounter](http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter) to provide a version better suited for ambulance to HAP use case. This profile augments the nl-core profile to support the exchange of the ambulance trip number."
 * identifier ^slicing.discriminator[0].type = #pattern
 * identifier ^slicing.discriminator[0].path = "$this"
 * identifier ^slicing.rules = #open
