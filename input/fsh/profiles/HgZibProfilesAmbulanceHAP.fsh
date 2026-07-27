@@ -65,7 +65,7 @@ Description: "An interaction between a patient and ambulance professionals. Deri
 * identifier ^slicing.rules = #open
 * identifier contains tripNumber 1..1
 * identifier[tripNumber] ^patternIdentifier.system = "urn:oid:2.16.840.1.113883.2.4.3.32.5"
-* identifier[tripNumber] ^short = "Ambulance ritnummer"
+* identifier[tripNumber] ^short = "Trip number"
 * identifier[tripNumber] ^alias[0] = "Ritnummer"
 * identifier[tripNumber] ^definition = "Identificerend nummer van een specifieke ambulance-inzet of rit, waarmee de inzet binnen de administratie van de ambulancedienst kan worden getraceerd."
 * identifier[tripNumber] ^comment = """
