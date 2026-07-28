@@ -42,7 +42,7 @@ Description: "Requirements on the sending system (ambulance/Regionale Ambulancev
     * supportedProfile = "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP"
     * interaction[+].code = #create
   * resource[+]
-    * type = #ContactPerson
+    * type = #RelatedPerson
     * supportedProfile = "http://nictiz.nl/fhir/StructureDefinition/hg-ContactPerson-AmbulanceHAP"
     * interaction[+].code = #create
   * resource[+]
@@ -103,7 +103,7 @@ Description: "Requirements on the receiving system (GP out-of-hours post, HAP) f
     * supportedProfile = "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP"
     * interaction[+].code = #create
   * resource[+]
-    * type = #ContactPerson
+    * type = #RelatedPerson
     * supportedProfile = "http://nictiz.nl/fhir/StructureDefinition/hg-ContactPerson-AmbulanceHAP"
     * interaction[+].code = #create
   * resource[+]
