@@ -31,6 +31,8 @@ Example messages under [Artifacts](artifacts.html) illustrate the model: a refer
 
  The free text of each *Composition* section is carried in the section's own narrative (*Composition.section.text*, whose *.div* holds plain text or the limited xhtml allowed for a Narrative).
 
+ In current stage of the use case the patient is present when the data is exchanged. Therefore the value for *Encounter.status* is 'in-progress'. 
+
 ### Reading obligations
 
 This IG uses the FHIR Obligations framework instead of `mustSupport`. Each obligation-marked element carries two actor-scoped expectations:
