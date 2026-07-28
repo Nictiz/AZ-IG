@@ -2,6 +2,13 @@
 //
 // The underlying ART-DECOR dataset is shared across multiple use cases: element IDs (hg-dataelement-NNNN) are allocated once and reused across transactions. Not every element appears in every transaction. Where a mapping below covers an element that is defined in the shared dataset but not explicitly constrained in AMB-HAP transaction 4.145 (e.g. TypeBericht, Urgentie), it is included as a traceability link only. No further tightening is applied; the functional design describes the intended use.
 
+Mapping: HgEncounterAmbulanceHAPDataset
+Source: HgEncounterAmbulanceHAP
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260723T133548/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Id: hg-dataset-20201019
+Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
+* identifier[tripNumber] -> "hg-dataelement-6034" "Ritnummer"
+
 Mapping: HgReferralServiceRequestAmbulanceHAPDataset
 Source: HgReferralServiceRequestAmbulanceHAP
 Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260723T133548/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
@@ -13,11 +20,11 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * subject -> "hg-dataelement-1676" "Patient"
 * authoredOn -> "hg-dataelement-1684" "Datum en tijd"
 * requester -> "hg-dataelement-5089" "Verzender"
-* requester -> "hg-dataelement-5398" "Verzender (zorgverlener)"
-* requester -> "hg-dataelement-5391" "Verzender (zorgaanbieder)"
+* requester -> "hg-dataelement-5814" "Verzender (zorgverlener)"
+* requester -> "hg-dataelement-5648" "Verzender (zorgaanbieder)"
 * performer -> "hg-dataelement-1680" "Ontvanger"
-// Ontvanger (zorgverlener) (5399) is intentionally not mapped: the HAP is addressed as an organization (zorgaanbieder, 5400), not as a named professional, so there is no PractitionerRole target for the receiver. This is asymmetric with the sender, which keeps 5398 (zorgverlener).
-* performer -> "hg-dataelement-5400" "Ontvanger (zorgaanbieder)"
+// Ontvanger (zorgverlener) (5399) is intentionally not mapped: the HAP is addressed as an organization (zorgaanbieder, 5756), not as a named professional, so there is no PractitionerRole target for the receiver. This is asymmetric with the sender, which keeps 5814 (zorgverlener).
+* performer -> "hg-dataelement-5756" "Ontvanger (zorgaanbieder)"
 // RedenBericht and Context sit inside Kern in the dataset hierarchy. In FHIR, the reason for referral is placed on ServiceRequest.reasonCode and replicated inside the Composition.
 * reasonCode -> "hg-dataelement-1872" "RedenBericht"
 * reasonCode.text -> "hg-dataelement-1710" "Context"
@@ -55,7 +62,6 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * identifier[documentSetId] -> "hg-dataelement-5474" "DocumentSetIdentificatie"
 * extension[documentVersion] -> "hg-dataelement-5475" "DocumentVersienummer"
 * type -> "hg-dataelement-5554" "DocumentType"
-* category -> "hg-dataelement-5463" "CommunicatieCategorie"
 * content.attachment.contentType -> "hg-dataelement-5476" "DocumentBestandtype"
 * content.attachment.data -> "hg-dataelement-5477" "DocumentInhoud"
 * content.attachment.title -> "hg-dataelement-5552" "DocumentNaam"
