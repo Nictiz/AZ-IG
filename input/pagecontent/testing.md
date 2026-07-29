@@ -34,6 +34,17 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | Kern (link to the core) | `ServiceRequest.supportingInfo` → `Composition` / `DocumentReference` |
 | Message type and event | `MessageHeader.eventCoding`; `Bundle.type = message` |
 
+| Dataset concept (*verzender - zorgaanbieder* of *zorgverlener/zorgaanbieder*)| FHIR element|
+|-|-|
+| ZorgaanbiederIdentificatienummer|  `Organization.identifier`  |
+| OrganisatieNaam|  `Organization.name`  |
+
+| Dataset concept (*ontvanger - zorgaanbieder*)| FHIR element|
+|-|-|
+| ZorgaanbiederIdentificatienummer|  `Organization.identifier`  |
+| OrganisatieNaam|  `Organization.name`  |
+| OrganisatieType|  `Organization.type[organizationType]`  |
+
 #### Core - `Composition`
 
 | Dataset concept (*Kern*) | FHIR element |
