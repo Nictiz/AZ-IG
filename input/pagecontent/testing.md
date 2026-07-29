@@ -23,7 +23,7 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | Dataset concept (*Envelop*) | FHIR element |
 |---|---|
 | Patientgegevens | `ServiceRequest.subject` → `Patient` |
-| Verzender - *zorgverlener* | `ServiceRequest.requester` → `PractitionerRole` → `Practitioner` |
+| Verzender - *zorgverlener* | `ServiceRequest.requester` → `PractitionerRole` |
 | Verzender - *zorgaanbieder* | `MessageHeader.sender` → `Organization`; also `Composition.author` |
 | Ontvanger - *zorgaanbieder* | `ServiceRequest.performer` → `Organization` |
 | Bestemmingsstatus | `ServiceRequest.status` |
@@ -34,7 +34,14 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | Kern (link to the core) | `ServiceRequest.supportingInfo` → `Composition` / `DocumentReference` |
 | Message type and event | `MessageHeader.eventCoding`; `Bundle.type = message` |
 
-| Dataset concept (*verzender - zorgaanbieder* of *zorgverlener/zorgaanbieder*)| FHIR element|
+| Dataset concept (_verzender_ - _zorgverlener_)| FHIR element|
+|-|-|
+| ZorgverlenerIdentificatienummer|  `PractitionerRole` → `Practitioner.Identifier`  |
+| Specialisme|  `PractitionerRole.speciality`  |
+| Contactgegevens (tefeloonnummer)|  `PractitionerRole.telecom`  |
+| Zorgaanbieder (verzender) |  `PractitionerRole.organization` → Organization  |
+
+| Dataset concept (*verzender - zorgaanbieder*)| FHIR element|
 |-|-|
 | ZorgaanbiederIdentificatienummer|  `Organization.identifier`  |
 | OrganisatieNaam|  `Organization.name`  |
