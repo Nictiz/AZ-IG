@@ -84,5 +84,5 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | DocumentBestandtype | `DocumentReference.content.attachment.contentType` |
 | DocumentInhoud | `DocumentReference.content.attachment.data` |
 | DocumentNaam | `DocumentReference.content.attachment.title` |
-| DocumentCreatieDatumTijd | `DocumentReference.date` |
+| DocumentCreatieDatumTijd | `DocumentReference.content.attachment.creation` |
 | DocumentType | `DocumentReference.type` |
