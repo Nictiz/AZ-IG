@@ -66,7 +66,8 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | DocumentIdentificatie | `DocumentReference.identifier[documentId]` |
 | DocumentSetIdentificatie | `DocumentReference.identifier[documentSetId]` |
 | DocumentVersienummer | `DocumentReference.extension[documentVersion]` |
-| DocumentType | `DocumentReference.type` |
 | DocumentBestandtype | `DocumentReference.content.attachment.contentType` |
 | DocumentInhoud | `DocumentReference.content.attachment.data` |
 | DocumentNaam | `DocumentReference.content.attachment.title` |
+| DocumentCreatieDatumTijd | `DocumentReference.date` |
+| DocumentType | `DocumentReference.type` |
