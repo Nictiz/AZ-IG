@@ -27,6 +27,7 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | Verzender - *zorgaanbieder* | `MessageHeader.sender` → `Organization`; also `Composition.author` |
 | Ontvanger - *zorgaanbieder* | `ServiceRequest.performer` → `Organization` |
 | Bestemmingsstatus | `ServiceRequest.status` |
+|  Ritnummer  | `ServiceRequest.encounter` → `Encounter.identifier[tripNumber]`   |
 | Datum en tijd | `ServiceRequest.authoredOn` |
 | RedenBericht (reason, free text) | `ServiceRequest.reasonCode.text` |
 | AfgesprokenMetPatient | `ServiceRequest.patientInstruction` |
