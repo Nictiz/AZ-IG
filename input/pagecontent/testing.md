@@ -22,7 +22,7 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 
 | Dataset concept (*Envelop*) | FHIR element |
 |---|---|
-| Patient | `ServiceRequest.subject` → `Patient` |
+| Patientgegevens | `ServiceRequest.subject` → `Patient` |
 | Verzender - *zorgverlener* | `ServiceRequest.requester` → `PractitionerRole` → `Practitioner` |
 | Verzender - *zorgaanbieder* | `MessageHeader.sender` → `Organization`; also `Composition.author` |
 | Ontvanger - *zorgaanbieder* | `ServiceRequest.performer` → `Organization` |
