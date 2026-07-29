@@ -4,14 +4,14 @@
 
 Mapping: HgEncounterAmbulanceHAPDataset
 Source: HgEncounterAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260723T133548/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260728T145309/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * identifier[tripNumber] -> "hg-dataelement-6034" "Ritnummer"
 
 Mapping: HgReferralServiceRequestAmbulanceHAPDataset
 Source: HgReferralServiceRequestAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260723T133548/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260728T145309/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1673" "Envelop"
@@ -34,7 +34,7 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 
 Mapping: HgReferralCompositionAmbulanceHAPDataset
 Source: HgReferralCompositionAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260723T133548/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260728T145309/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1709" "Kern"
@@ -52,7 +52,7 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 
 Mapping: HgReferralDocumentReferenceAmbulanceHAPDataset
 Source: HgReferralDocumentReferenceAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260723T133548/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260728T145309/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 // DocumentReference represents the folded CommunicatieItem wrapper (5457) and the Document it contains (5472). Both are mapped at root level.
@@ -70,7 +70,7 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 
 Mapping: HgReferralMessageHeaderAmbulanceHAPDataset
 Source: HgReferralMessageHeaderAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260723T133548/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260728T145309/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * sender -> "hg-dataelement-5089" "Verzender (transportniveau)"
@@ -84,7 +84,7 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 
 Mapping: HgPatientAmbulanceHAPDataset
 Source: HgPatientAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260723T133548/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260728T145309/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1676" "Patient"
