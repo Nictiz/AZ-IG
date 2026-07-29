@@ -58,3 +58,15 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 |         - Naamgegevens        |                              `RelatedPerson.name[NameInformation]` → `HumanName`                              |
 |                             – VolledigeNaam                             |          `HumanName.text`         |
   
+#### Document - `DocumentReference` (folded *CommunicatieItem*)
+
+| Dataset concept (*Dossier*) | FHIR element |
+|---|---|
+| Document | `DocumentReference` |
+| DocumentIdentificatie | `DocumentReference.identifier[documentId]` |
+| DocumentSetIdentificatie | `DocumentReference.identifier[documentSetId]` |
+| DocumentVersienummer | `DocumentReference.extension[documentVersion]` |
+| DocumentType | `DocumentReference.type` |
+| DocumentBestandtype | `DocumentReference.content.attachment.contentType` |
+| DocumentInhoud | `DocumentReference.content.attachment.data` |
+| DocumentNaam | `DocumentReference.content.attachment.title` |
