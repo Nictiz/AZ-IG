@@ -89,3 +89,10 @@ Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1676" "Patient"
 * contact -> "hg-dataelement-5309" "Contactpersoon"
+
+Mapping: HgNameInformationAmbulanceHAPDataset
+Source: HgNameInformationAmbulanceHAP
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260723T133548/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Id: hg-dataset-20201019
+Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
+* text -> "hg-dataelement-5785" "VolledigeNaam"
