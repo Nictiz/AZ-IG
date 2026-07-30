@@ -62,24 +62,21 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | Diagnose/Conclusie | `Composition.section[diagnosisConclusion]` |
 | AfgesprokenMetPatient | `Composition.section[agreedWithPatient]` |
 
-#### Building blocks - `Patient, RelatedPerson`
+#### Building blocks - `Patient`
 
-| Data concept (_bouwstenen - Patient_)  | FHIR element |
+| Data concept (_bouwstenen_)  | FHIR element |
 |---|---|
 | Patient | `Patient` |
-|     Naamgegevens    |        `Patient.name`        |
-|     Adresgegevens    |               `Patient.address`               |
-|     Contactgegevens (telefoon, e-mail)    |               `Patient.telecom`               |
-| Identificatienummer (BSN) | `Patient.identifier` |
-| Geslacht | `Patient.gender` |
-| Geboortedatum | `Patient.birthDate` |
-
-| Data concept (_bouwstenen - Contactpersoon_)  | FHIR element |
-|---|---|
-| Contactpersoon | `Patient.contact` → `RelatedPerson`  |
-|         Contactgegevens (telefoon)        |          `RelatedPerson.telecom[telephoneNUmbers]`         |
-|         Naamgegevens        |                              `RelatedPerson.name[NameInformation]` → `HumanName`                              |
-|                             VolledigeNaam                             |          `HumanName.text`         |
+|     - Naamgegevens    |        `Patient.name`        |
+|     - Adresgegevens    |               `Patient.address`               |
+|     - Contactgegevens (telefoon, e-mail)    |               `Patient.telecom`               |
+| - Identificatienummer (BSN) | `Patient.identifier` |
+| - Geslacht | `Patient.gender` |
+| - Geboortedatum | `Patient.birthDate` |
+| Contactpersoon | `Patient.contact`  |
+|         - Contactgegevens (telefoon)        |          `Patient.contact.telecom[telephoneNumbers]`         |
+|         - Naamgegevens        |                              `Patient.contact.name` → `HumanName`                              |
+|                             - VolledigeNaam                             |          `HumanName.text`         |
   
 #### Document - `DocumentReference` (folded *CommunicatieItem*)
 
