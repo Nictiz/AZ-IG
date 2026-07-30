@@ -39,7 +39,7 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | ZorgverlenerIdentificatienummer|  `PractitionerRole` → `Practitioner.Identifier`  |
 | Specialisme|  `PractitionerRole.speciality`  |
 | Contactgegevens (tefeloonnummer)|  `PractitionerRole.telecom`  |
-| Zorgaanbieder (verzender) |  `PractitionerRole.organization` → Organization  |
+| Zorgaanbieder (verzender) |  `PractitionerRole.organization` → `Organization`  |
 
 | Dataset concept (*verzender - zorgaanbieder*)| FHIR element|
 |-|-|
