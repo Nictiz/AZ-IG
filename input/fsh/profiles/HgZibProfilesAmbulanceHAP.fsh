@@ -35,7 +35,7 @@ Description: "Patient in the ambulance to GP out-of-hours post (HAP) referral. D
 * gender 1..1
 * gender insert ObligationMandatory
 * birthDate insert Obligation
-* contact.extension[contactPerson].value[x] only Reference(RelatedPerson or HgContactPersonAmbulanceHAP)
+* contact.name only HgNameInformationAmbulanceHAP
 
 Profile: HgHealthcareProviderOrganizationAmbulanceHAP
 Parent: $nlcore-Organization
@@ -82,14 +82,6 @@ Het ritnummer bestaat uit een aantal onderdelen die worden gescheiden door een k
 
 Indien een patiënt wordt ingestuurd naar een ziekenhuis met een verkeerd BSN, dan wordt deze rit geannuleerd. Het ritnummer heeft voor de extensie patiëntvolgnummer 1. Vanuit de ambulance wordt een nieuw bericht gestuurd met patiëntvolgnummer 2 en het nieuwe BSN, dus een “andere” patiënt. De annulering van de rit is wel belangrijk, want anders lijkt het alsof er 2 patiënten komen, wat in principe ook kan. Bij een annulering van de rit moet er een nieuw ritnummer komen waarbij het patiëntvolgnummer opgehoogd wordt met 1. Voorbeeld; Na 09-2023-1234567-1 komt 09-2023-1234567-2."""
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#EMER "emergency"
-
-Profile: HgContactPersonAmbulanceHAP
-Parent: $nlcore-ContactPerson
-Id: hg-ContactPerson-AmbulanceHAP
-Title: "hg ContactPerson - Ambulance to HAP"
-Description: "Derived from nl-core-ContactPerson."
-* ^purpose = "A derived profile from [nl-core-Encounter](http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter) to provide a version better suited for ambulance to HAP use case. This profile augments the nl-core profile with a reference to HgNameInformationAmbulanceHAP."
-* name[nameInformation] only HgNameInformationAmbulanceHAP
 
 Profile: HgNameInformationAmbulanceHAP
 Parent: $nlcore-NameInformation
