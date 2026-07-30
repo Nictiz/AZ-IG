@@ -35,6 +35,7 @@ Description: "Patient in the ambulance to GP out-of-hours post (HAP) referral. D
 * gender 1..1
 * gender insert ObligationMandatory
 * birthDate insert Obligation
+* contact.name only HgNameInformationAmbulanceHAP
 
 Profile: HgHealthcareProviderOrganizationAmbulanceHAP
 Parent: $nlcore-Organization
