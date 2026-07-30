@@ -22,16 +22,36 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 
 | Dataset concept (*Envelop*) | FHIR element |
 |---|---|
-| Patient | `ServiceRequest.subject` -> `Patient` |
-| Verzender - *zorgverlener* | `ServiceRequest.requester` -> `PractitionerRole` -> `Practitioner` |
-| Verzender - *zorgaanbieder* | `MessageHeader.sender` -> `Organization`; also `Composition.author` |
-| Ontvanger - *zorgaanbieder* | `ServiceRequest.performer` -> `Organization` |
+| Patientgegevens | `ServiceRequest.subject` → `Patient` |
+| Verzender - *zorgverlener* | `ServiceRequest.requester` → `PractitionerRole` |
+| Verzender - *zorgaanbieder* | `PractitionerRole.organization` → `Organization` or `ServiceRequest.requester` → `Organization`; <br>`MessageHeader.sender` → `Organization`;<br>`Composition.author` |
+| Ontvanger - *zorgaanbieder* | `ServiceRequest.performer` → `Organization` |
 | Bestemmingsstatus | `ServiceRequest.status` |
+|  Ritnummer  | `ServiceRequest.encounter` → `Encounter.identifier[tripNumber]`   |
 | Datum en tijd | `ServiceRequest.authoredOn` |
 | RedenBericht (reason, free text) | `ServiceRequest.reasonCode.text` |
 | AfgesprokenMetPatient | `ServiceRequest.patientInstruction` |
-| Kern (link to the core) | `ServiceRequest.supportingInfo` -> `Composition` / `DocumentReference` |
+| Kern (link to the core) | `ServiceRequest.supportingInfo` → `Composition` |
+|   Dossiergegevens (link to the document)   |   `ServiceRequest.supportingInfo` → `DocumentReference`   |
 | Message type and event | `MessageHeader.eventCoding`; `Bundle.type = message` |
+
+| Dataset concept (_verzender_ - _zorgverlener_)| FHIR element|
+|-|-|
+| ZorgverlenerIdentificatienummer|  `PractitionerRole` → `Practitioner.Identifier`  |
+| Specialisme|  `PractitionerRole.speciality`  |
+| Contactgegevens (tefeloonnummer)|  `PractitionerRole.telecom`  |
+| Zorgaanbieder (verzender) |  `PractitionerRole.organization` → `Organization`  |
+
+| Dataset concept (*verzender - zorgaanbieder*)| FHIR element|
+|-|-|
+| ZorgaanbiederIdentificatienummer|  `Organization.identifier`  |
+| OrganisatieNaam|  `Organization.name`  |
+
+| Dataset concept (*ontvanger - zorgaanbieder*)| FHIR element|
+|-|-|
+| ZorgaanbiederIdentificatienummer|  `Organization.identifier`  |
+| OrganisatieNaam|  `Organization.name`  |
+| OrganisatieType|  `Organization.type[organizationType]`  |
 
 #### Core - `Composition`
 
@@ -42,18 +62,25 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | Diagnose/Conclusie | `Composition.section[diagnosisConclusion]` |
 | AfgesprokenMetPatient | `Composition.section[agreedWithPatient]` |
 
-#### Patient details
+#### Building blocks - `Patient, RelatedPerson`
 
-| Dataset concept | FHIR element |
+| Data concept (_bouwstenen - Patient_)  | FHIR element |
 |---|---|
-| Naamgegevens | `Patient.name` |
+| Patient | `Patient` |
+|     Naamgegevens    |        `Patient.name`        |
+|     Adresgegevens    |               `Patient.address`               |
+|     Contactgegevens (telefoon, e-mail)    |               `Patient.telecom`               |
+| Identificatienummer (BSN) | `Patient.identifier` |
 | Geslacht | `Patient.gender` |
 | Geboortedatum | `Patient.birthDate` |
-| Identificatienummer (BSN) | `Patient.identifier` |
-| Adresgegevens | `Patient.address` |
-| Contactgegevens (telefoon, e-mail) | `Patient.telecom` |
-| Contactpersoon | `Patient.contact` |
 
+| Data concept (_bouwstenen - Contactpersoon_)  | FHIR element |
+|---|---|
+| Contactpersoon | `Patient.contact` → `RelatedPerson`  |
+|         Contactgegevens (telefoon)        |          `RelatedPerson.telecom[telephoneNUmbers]`         |
+|         Naamgegevens        |                              `RelatedPerson.name[NameInformation]` → `HumanName`                              |
+|                             VolledigeNaam                             |          `HumanName.text`         |
+  
 #### Document - `DocumentReference` (folded *CommunicatieItem*)
 
 | Dataset concept (*Dossier*) | FHIR element |
@@ -62,7 +89,8 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | DocumentIdentificatie | `DocumentReference.identifier[documentId]` |
 | DocumentSetIdentificatie | `DocumentReference.identifier[documentSetId]` |
 | DocumentVersienummer | `DocumentReference.extension[documentVersion]` |
-| DocumentType | `DocumentReference.type` |
 | DocumentBestandtype | `DocumentReference.content.attachment.contentType` |
 | DocumentInhoud | `DocumentReference.content.attachment.data` |
 | DocumentNaam | `DocumentReference.content.attachment.title` |
+| DocumentCreatieDatumTijd | `DocumentReference.content.attachment.creation` |
+| DocumentType | `DocumentReference.type` |
