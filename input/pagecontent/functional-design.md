@@ -12,33 +12,28 @@ Interoperability requires agreements on five layers - the Nictiz [vijflagenmodel
 
 <table class="grid">
   <thead>
-    <tr><th>Layer</th><th>For this transaction</th><th>Where in this IG</th></tr>
+    <tr><th>Layer</th><th>For this transaction</th></tr>
   </thead>
   <tbody>
     <tr>
       <td style="background-color:#c1178c;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">Organisatiebeleid</td>
       <td>Governance and agreements between the parties (ambulance/RAV, HAP), the <a href="https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf">Richtlijn Gegevensuitwisseling Acute Zorg</a>, and the national release policy. Largely outside this technical IG.</td>
-      <td><a href="index.html">Home</a>, Functional design (this page)</td>
     </tr>
     <tr>
       <td style="background-color:#29abe2;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">Zorgproces</td>
       <td>The handover itself: an ambulance professional refers a patient to the HAP after on-scene care, one-directional PUSH.</td>
-      <td><a href="use-cases.html">Use cases</a>, <a href="workflow.html">Workflow</a></td>
     </tr>
     <tr>
       <td style="background-color:#e4670a;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">Informatie</td>
       <td>What is exchanged: the ART-DECOR dataset, the zibs and nl-core, and the dataset mappings.</td>
-      <td><a href="data-model.html">Data model</a>, this page</td>
     </tr>
     <tr>
       <td style="background-color:#95c11f;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">Applicatie</td>
       <td>How systems exchange it: the FHIR R4 profiles, the message structure (MessageHeader/Bundle), CapabilityStatements and ActorDefinitions.</td>
-      <td><a href="artifacts.html">Artifacts</a>, <a href="data-model.html">Data model</a></td>
     </tr>
     <tr>
       <td style="background-color:#009b3e;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">IT-infrastructuur</td>
       <td>The transport: the exchange paradigm (FHIR Messaging, RESTful or FHIR Document), not yet chosen.</td>
-      <td><a href="data-exchange.html">Data exchange</a></td>
     </tr>
   </tbody>
 </table>
