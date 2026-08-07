@@ -31,7 +31,7 @@ Example messages under [Artifacts](artifacts.html) illustrate the model: a refer
 
  The free text of each *Composition* section is carried in the section's own narrative (*Composition.section.text*, whose *.div* holds plain text or the limited xhtml allowed for a Narrative).
 
- In current stage of the use case the patient is present when the data is exchanged. Therefore the value for *Encounter.status* is 'in-progress'. 
+ The R4 resource _Encounter_ has two mandatory elements: *status* and *class*. In current stage of the use case the patient is present when the data is exchanged. Therefore *Encounter.status* to be used is 'in-progress'. Encounters of a patient with an ambulance are classed as emergencies, thus the code 'EMER' should be used for *Encounter.class*.
 
 ### Reading obligations
 
