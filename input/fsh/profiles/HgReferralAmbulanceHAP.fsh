@@ -146,7 +146,7 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
 * section[diagnosisConclusion] ^short = "DiagnosisConclusion"
   * ^alias[0] = "Diagnose/Conclusie"
   * ^definition = "Geeft de diagnose en/of conclusie."
-* section[diagnosisConclusion].code = $loinc#55110-1
+* section[diagnosisConclusion].code = $sct#60022001
 * section[diagnosisConclusion] insert Obligation
 * section[diagnosisConclusion].text 1..1
 * section[diagnosisConclusion].text.status = #additional
