@@ -95,7 +95,7 @@ Description: "Minimal example transfer summary note: the mandatory metadata and 
 * title = "Ambulanceverwijzing naar huisartsenpost"
 * section[messageReason]
   * title = "Reden van verwijzing"
-  * code = $loinc#46239-0 "Belangrijkste klacht + reden voor bezoek [bevinding] (tekstueel)"
+  * code = $sct#440378000 "verwijzing voor (waarneembare entiteit)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Lage rugklachten, graag uw beoordeling.</div>"
 

@@ -114,7 +114,7 @@ Description: "Example tansfer summary note carrying the instituted treatment and
 // messageReason copies ServiceRequest.reasonCode.text (the same free text appears on the ServiceRequest for triage).
 * section[messageReason]
   * title = "Reden van verwijzing"
-  * code = $loinc#46239-0 "Belangrijkste klacht + reden voor bezoek [bevinding] (tekstueel)"
+  * code = $sct#440378000 "verwijzing voor (waarneembare entiteit)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Controleconsult gevraagd na ambulancezorg (maagklachten).</div>"
 * section[treatmentGiven]

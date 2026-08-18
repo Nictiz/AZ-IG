@@ -142,7 +142,7 @@ Description: "Maximal example transfer summary note: reason, the instituted trea
 * title = "Ambulanceverwijzing naar huisartsenpost"
 * section[messageReason]
   * title = "Reden van verwijzing"
-  * code = $loinc#46239-0 "Belangrijkste klacht + reden voor bezoek [bevinding] (tekstueel)"
+  * code = $sct#440378000 "verwijzing voor (waarneembare entiteit)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Patiënt is vanuit acute ambulancezorg voor verdere zorg doorverwezen naar de huisartsenspoedpost.</div>"
 * section[treatmentGiven]

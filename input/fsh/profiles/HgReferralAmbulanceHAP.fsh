@@ -127,7 +127,7 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
   * ^alias[0] = "RedenBericht"
   * ^alias[1] = "Context"
   * ^definition = "Geeft de reden van de verwijzing of de update. De ambulance legt de reden altijd vast in vrije tekst."
-* section[messageReason].code = $loinc#46239-0
+* section[messageReason].code = $sct#440378000
 * section[messageReason] insert ObligationMandatory
 * section[messageReason] insert CopiedFromServiceRequestComment
 * section[messageReason].text 1..1
