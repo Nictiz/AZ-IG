@@ -137,7 +137,7 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
 * section[treatmentGiven] ^short = "SetTreatment"
   * ^alias[0] = "IngesteldeBehandeling"
   * ^definition = "Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht."
-* section[treatmentGiven].code = $loinc#51847-2
+* section[treatmentGiven].code = $sct#182991002
 * section[treatmentGiven] insert Obligation
 * section[treatmentGiven].text 1..1
 * section[treatmentGiven].text.status = #additional
@@ -156,7 +156,7 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
 * section[agreedWithPatient] ^short = "AgreedWithPatient"
   * ^alias[0] = "AfgesprokenMetPatient"
   * ^definition = "In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op het veld 'Afspraken met patiënt'."
-* section[agreedWithPatient].code = $loinc#69730-0
+* section[agreedWithPatient].code = $sct#183049006
 * section[agreedWithPatient] insert Obligation
 * section[agreedWithPatient] insert CopiedFromServiceRequestComment
 * section[agreedWithPatient].text 1..1

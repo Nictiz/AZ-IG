@@ -119,7 +119,7 @@ Description: "Example tansfer summary note carrying the instituted treatment and
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Controleconsult gevraagd na ambulancezorg (maagklachten).</div>"
 * section[treatmentGiven]
   * title = "Ingestelde behandeling"
-  * code = $loinc#51847-2 "Evaluation + Plan note"
+  * code = $sct#182991002 "behandeling gegeven (situatie)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Antacidum toegediend, klachten verminderd.</div>"
 * section[diagnosisConclusion]
@@ -131,7 +131,7 @@ Description: "Example tansfer summary note carrying the instituted treatment and
 // LOINC 69730-0 has no Dutch designation, so the English display "Instructions" is used (the other LOINC section codes do have Dutch designations and use them); this validates under displayLanguage = nl because there is no nl designation to prefer.
 * section[agreedWithPatient]
   * title = "Afspraken met patiënt"
-  * code = $loinc#69730-0 "Instructions"
+  * code = $sct#183049006 "advies aan patiënt gegeven (situatie)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Maak een afspraak op de huisartsenpost voor een controleconsult.</div>"
 

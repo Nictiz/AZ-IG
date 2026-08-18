@@ -147,7 +147,7 @@ Description: "Maximal example transfer summary note: reason, the instituted trea
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Patiënt is vanuit acute ambulancezorg voor verdere zorg doorverwezen naar de huisartsenspoedpost.</div>"
 * section[treatmentGiven]
   * title = "Ingestelde behandeling"
-  * code = $loinc#51847-2 "Evaluation + Plan note"
+  * code = $sct#182991002 "behandeling gegeven (situatie)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Luchtweg: intubatie van de trachea (moeizame intubatie).</p><p>Oxygenatie en ventilatie: kunstmatige beademing (machine FiO2 0.50, AMV 6 L/min, frequentie 10/min, PEEP 3 cmH2O), handmatige beademing, zuurstof 3 L/min.</p><p>Circulatie: cardioversie (2x, max 600 J); ROSC nee; AED aangesloten voor aankomst (5 schokken); transthoracale cardiale pacing (60/min, 5 mA, fixed rate); defibrillatie met gelijkstroom (3x, 200 J).</p><p>Traumatologie: koelen van patiënt (10 minuten). Obstetrie: afklemmen van de navelstreng. Isolatie: contactisolatie.</p><p>Medicatie: Acetylsalicylzuur 2 stuks, oraal toegediend.</p><p>Extra informatie behandeling: normale behandeling.</p></div>"
 * section[diagnosisConclusion]
@@ -157,7 +157,7 @@ Description: "Maximal example transfer summary note: reason, the instituted trea
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Letsel van het aangezicht. Moeilijk te observeren door de weersomstandigheden.</div>"
 * section[agreedWithPatient]
   * title = "Afspraken met patiënt"
-  * code = $loinc#69730-0 "Instructions"
+  * code = $sct#183049006 "advies aan patiënt gegeven (situatie)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Huisarts nog inlichten.</div>"
 
