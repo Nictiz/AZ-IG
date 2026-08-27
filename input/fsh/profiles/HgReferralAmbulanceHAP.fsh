@@ -1,6 +1,6 @@
 // NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // =============================================================================
-// Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic hg-Referral profiles, tightens cardinalities, applies obligations (in place of mustSupport) and fixes the message event. Dataset mappings live here (see DatasetMappings.fsh). Reference targets keep the core resource type alongside the transaction-specific zib profile, so the model stays open-world.
+// Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic hg-Referral profiles, tightens cardinalities, applies obligations with mustSupport (see HgActors.fsh) and fixes the message event. Dataset mappings live here (see DatasetMappings.fsh). Reference targets keep the core resource type alongside the transaction-specific zib profile, so the model stays open-world.
 //
 // Style: caret rules (^short/^alias/^definition/^comment/^slicing) are grouped under their element via indentation; cardinality, only, from, contains and insert stay at column 0.
 // =============================================================================
