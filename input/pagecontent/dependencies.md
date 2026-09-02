@@ -25,7 +25,7 @@ Technically, this IG is a FHIR package that declares the following dependencies.
 - nl-core (`nictiz.fhir.nl.r4.nl-core`) - the FHIR profiles that represent the zibs. This IG's transaction-specific zib profiles (`hg-Patient-AmbulanceHAP` and siblings) derive from nl-core, and every reference targets the nl-core profile beside the bare FHIR type.
 - zib2020 (`nictiz.fhir.nl.r4.zib2020`) - the zib layer that nl-core builds on; pulled in transitively.
 - elz (`nictiz.fhir.nl.r4.elz`) -is the FHIR implementation of the primary care (Eerstelijnszorg, ELZ)
-- FHIR tooling (`hl7.fhir.uv.tools.r4`) - supplies the Obligations and `ActorDefinition` machinery this IG uses for conformance instead of `mustSupport`.
+- FHIR tooling (`hl7.fhir.uv.tools.r4`) - supplies the Obligations and `ActorDefinition` machinery this IG uses to express its conformance expectations.
 
 Note that the project-specific terminology (the *Bijlagen* value set and the `acutezorg-codesysteem-16` code system) is not a package dependency: it is downloaded from ART-DECOR and embedded verbatim in `input/resources`. See the [Design Decisions](design-decisions.html) page for why, and the caveats that come with it.
 

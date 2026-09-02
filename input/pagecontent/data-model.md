@@ -35,7 +35,7 @@ Example messages under [Artifacts](artifacts.html) illustrate the model: a refer
 
 ### Reading obligations
 
-This IG uses the FHIR Obligations framework instead of `mustSupport`. Each obligation-marked element carries two actor-scoped expectations:
+This IG expresses support expectations with the FHIR Obligations framework. Each obligation-marked element carries `mustSupport = true` plus two actor-scoped expectations:
 
 - Sender (*hg-ActorSender-AmbulanceHAP*): for a mandatory element (min >= 1) it **SHALL** always populate it (`SHALL:populate`); for an optional element it **SHALL** populate it when it knows a value (`SHALL:populate-if-known`).
 - Receiver (*hg-ActorReceiver-AmbulanceHAP*): **SHALL** accept the element without raising an error (`SHALL:no-error`).
