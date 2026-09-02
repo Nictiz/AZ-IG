@@ -16,6 +16,7 @@ These pending items affect how the exchange is modeled or implemented; each is t
 | Architecture | Exchange paradigm not yet chosen | [#14](https://github.com/Nictiz/AZ-IG/issues/14) |
 | Architecture | Message 23 (AMB naar HA) out of scope for this version | [#15](https://github.com/Nictiz/AZ-IG/issues/15) |
 | Architecture | Message event codes based on ART-DECOR transactions (code = transaction number) - under development, settled with the exchange-paradigm choice | [#20](https://github.com/Nictiz/AZ-IG/issues/20) |
+| Architecture | `Task` deliberately omitted - to be decided together with the status semantics of *Bestemmingsstatus* and `Encounter.status` | [#42](https://github.com/Nictiz/AZ-IG/issues/42) |
 | Tooling | Example messages are a hand-authored interpretation of the ART-DECOR ADA test data - regenerate with the ADA-to-FHIR tooling once available | [#21](https://github.com/Nictiz/AZ-IG/issues/21) |
 | Conformance | Transport-level conformance to the Nictiz FHIR R4 IG (HTTP, search, error handling, CapabilityStatements) - completed once the exchange paradigm is chosen | [#22](https://github.com/Nictiz/AZ-IG/issues/22) |
 | Versioning | The IG version is provisional - align it with the ART-DECOR data set and functional design versions on publication | [#26](https://github.com/Nictiz/AZ-IG/issues/26) |
