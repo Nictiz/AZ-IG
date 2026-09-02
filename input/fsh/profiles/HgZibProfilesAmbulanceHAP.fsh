@@ -4,7 +4,7 @@
 //
 // Per the Nictiz profiling guidelines, cardinalities and conformance for the participating zibs are applied at the use case (information standard specific) layer, derived from the nl-core profiles. These carry the cardinalities the ART-DECOR transaction puts on the building blocks (Patient, HealthProfessional, HealthcareProvider), plus obligations for sender/receiver.
 //
-// Cardinalities follow the published AMB-HAP transaction (4.145, 2025-06-10) where tightened (gender 1..1). The patient identifier is kept 0..* (optional and repeatable - see the element comment) rather than hard-required; name and birthDate are left at nl-core cardinality with obligations.
+// Cardinalities follow the published AMB-HAP transaction (4.145, 2025-06-10) where tightened: the organization carries identifier 1..* and name 1..1 so both parties are unambiguously addressable. The patient identifier is kept 0..* (optional and repeatable - see the element comment) rather than hard-required; gender, name and birthDate are left at nl-core cardinality with obligations.
 // =============================================================================
 
 // Resource-local invariants. Severity is #warning for now (legitimate edge cases exist: a not-yet-
@@ -33,7 +33,7 @@ Description: "Patient in the ambulance to GP out-of-hours post (HAP) referral. D
 * name insert Obligation
 * name.text ^comment = "This element can be used to represent the full name as plain text when the name is not registered in a structured manner (i.e. without the structured `family`/`given` parts)."
 * gender 0..1
-* gender insert ObligationMandatory
+* gender insert Obligation
 * birthDate insert Obligation
 * contact.name only HgNameInformationAmbulanceHAP
 
