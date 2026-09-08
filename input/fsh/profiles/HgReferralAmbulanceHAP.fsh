@@ -65,7 +65,6 @@ Indien een patiënt wordt ingestuurd naar een ziekenhuis met een verkeerd BSN, d
   * ^definition = "Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt."
 * subject only Reference(Patient or HgPatientAmbulanceHAP)
 * subject insert ObligationMandatory
-* encounter only Reference(Encounter or HgEncounterAmbulanceHAP)
 * authoredOn 1..1
   * ^short = "SendDateTime"
   * ^alias[0] = "Datum en tijd"
