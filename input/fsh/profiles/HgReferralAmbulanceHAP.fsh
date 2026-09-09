@@ -17,7 +17,7 @@ Profile: HgReferralServiceRequestAmbulanceHAP
 Parent: HgReferralServiceRequest
 Id: hg-ReferralServiceRequest-AmbulanceHAP
 Title: "hg referral ServiceRequest - Ambulance to HAP"
-Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanceverwijzing, AMB naar HAP, message 24)."
+Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambulanceverwijzing, AMB naar HAP, message 24)."
 * . ^short = "Envelope"
   * ^alias[0] = "Envelop"
   * ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
@@ -101,7 +101,7 @@ Profile: HgReferralCompositionAmbulanceHAP
 Parent: HgReferralComposition
 Id: hg-ReferralComposition-AmbulanceHAP
 Title: "hg referral Composition - Ambulance to HAP"
-Description: "Transfer summary note for the ambulance to GP out-of-hours post (HAP) referral."
+Description: "Transfer summary note for the ambulance to GP out-of-hours service (HAP) referral."
 * . ^short = "Core"
   * ^alias[0] = "Kern"
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
@@ -176,7 +176,7 @@ Profile: HgReferralDocumentReferenceAmbulanceHAP
 Parent: HgReferralDocumentReference
 Id: hg-ReferralDocumentReference-AmbulanceHAP
 Title: "hg referral DocumentReference - Ambulance to HAP"
-Description: "Attached document for the ambulance to GP out-of-hours post (HAP) referral. The folded CommunicatieItem category and sender (as modeled in ART-DECOR) are carried on `category` and `author`."
+Description: "Attached document for the ambulance to GP out-of-hours service (HAP) referral. The folded CommunicatieItem category and sender (as modeled in ART-DECOR) are carried on `category` and `author`."
 * . ^short = "CommunicationItem"
   * ^alias[0] = "CommunicatieItem"
   * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list, PDF content) follow the [document specification for the Ambulanceverwijzing](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Specificatie_van_het_document_binnen_de_Ambulanceverwijzing_naar_de_Huisartsenpost) in the Nictiz functional design, and should be kept aligned with it as that specification is finalized."
@@ -236,7 +236,7 @@ Profile: HgReferralMessageHeaderAmbulanceHAP
 Parent: HgReferralMessageHeader
 Id: hg-ReferralMessageHeader-AmbulanceHAP
 Title: "hg referral MessageHeader - Ambulance to HAP"
-Description: "MessageHeader for the ambulance to GP out-of-hours post (HAP) referral PUSH."
+Description: "MessageHeader for the ambulance to GP out-of-hours service (HAP) referral PUSH."
 * eventCoding = HgMessageEvent#145
 * focus 1..1
 * focus only Reference(HgReferralServiceRequestAmbulanceHAP)
@@ -250,7 +250,7 @@ Profile: HgReferralBundleAmbulanceHAP
 Parent: HgReferralBundle
 Id: hg-ReferralBundle-AmbulanceHAP
 Title: "hg referral Bundle - Ambulance to HAP"
-Description: "Message bundle for the ambulance to GP out-of-hours post (HAP) referral PUSH."
+Description: "Message bundle for the ambulance to GP out-of-hours service (HAP) referral PUSH."
 * type = #message
 * timestamp 1..1
 * entry 1..*

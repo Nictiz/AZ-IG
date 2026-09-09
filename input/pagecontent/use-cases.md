@@ -4,14 +4,14 @@ This IG covers referral transactions from the [Richtlijn Gegevensuitwisseling Ac
 
 | Use case | Message | Status |
 |---|---|---|
-| [Ambulanceverwijzing naar HAP](#ambulanceverwijzing-naar-hap-amb-naar-hap) (AMB naar HAP) | Message 24 | Included in this version |
-| [Ambulanceverwijzing naar HA](#ambulanceverwijzing-naar-ha-amb-naar-ha) (AMB naar HA) | Message 23 | Planned |
+| [Ambulance referral to a GP out-of-hours service](#ambulanceverwijzing-naar-hap-amb-naar-hap) (*Ambulanceverwijzing naar HAP*; AMB → HAP) | Message 24 | Included in this version |
+| [Ambulance referral to a General Practitioner](#ambulanceverwijzing-naar-ha-amb-naar-ha) (*Ambulanceverwijzing naar HA*; AMB → HA) | Message 23 | Planned |
 
 ---
 
-### Ambulanceverwijzing naar HAP (AMB naar HAP)
+### Ambulance referral to a GP out-of-hours service (AMB → HAP)
 
-Handover of a patient by an ambulance professional to a GP out-of-hours post (HAP, *huisartsenpost*) after on-scene care. The exchange is one-directional (PUSH): the ambulance/RAV sends, the HAP receives.
+Handover of a patient by an ambulance professional to a GP out-of-hours service (HAP, *huisartsenpost*) after on-scene care. The exchange is one-directional (PUSH): the ambulance/RAV sends, the HAP receives.
 
 Functional design: [Section 2.16 of the Nictiz functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29) - see also the [Functional Design](functional-design.html) page in this IG.
 
@@ -33,6 +33,6 @@ Data exchange: see [Data Exchange](data-exchange.html) for the exchange paradigm
 
 ---
 
-### Ambulanceverwijzing naar HA (AMB naar HA)
+### Ambulance referral to a General Practitioner (AMB → HA)
 
 Handover of a patient by an ambulance professional to a GP (HA, *huisarts*). Follows the same pattern as AMB naar HAP; will add a parallel `hg-Referral*-AmbulanceHA` use case layer and a new message event code. Not yet defined in this version.

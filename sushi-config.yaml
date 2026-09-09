@@ -14,7 +14,7 @@ releaseLabel: qa-preview
 publisher:
   name: Nictiz
   url: http://nictiz.nl
-description: "FHIR R4 Implementation Guide for information exchange in acute care settings in the Netherlands (Acute Zorg), built on nl-core. The first use case is the Ambulanceverwijzing naar HAP (ambulance to GP out-of-hours post, AMB naar HAP)."
+description: "FHIR R4 Implementation Guide for information exchange in acute care settings in the Netherlands (Acute Zorg), built on nl-core. The first use case is the Ambulanceverwijzing naar HAP (ambulance to GP out-of-hours service, AMB naar HAP)."
 menu:
   Home: index.html
   Background:
