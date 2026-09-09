@@ -21,6 +21,25 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 * . ^short = "Envelope"
   * ^alias[0] = "Envelop"
   * ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
+* identifier ^slicing.discriminator[0].type = #pattern
+* identifier ^slicing.discriminator[0].path = "$this"
+* identifier ^slicing.rules = #open
+* identifier contains tripNumber 1..1
+* identifier[tripNumber] ^patternIdentifier.system = "urn:oid:2.16.840.1.113883.2.4.3.32.5"
+* identifier[tripNumber] ^short = "Trip number"
+* identifier[tripNumber] ^alias[0] = "Ritnummer"
+* identifier[tripNumber] ^definition = "Identificerend nummer van een specifieke ambulance-inzet of rit, waarmee de inzet binnen de administratie van de ambulancedienst kan worden getraceerd."
+* identifier[tripNumber] ^comment = """
+Het ritnummer bestaat uit een aantal onderdelen die worden gescheiden door een koppelteken "-". De structuur is [ambulancevoorziening-jaartal-ritvolgnummer-patiëntvolgnummer]
+
+* ambulancevoorziening N1..2 - Identificatienummer van de ambulancevoorziening
+* jaartal N4
+* ritvolgnummer N1..14 - Volgnummer van de rit, uniek binnen de ambulancevoorziening en het jaartal
+* patiëntvolgnummer N1..2 - Volgnummer van de patiënt binnen de rit. Dit is alleen hoger dan 1 als er meerdere patiënten vervoerd worden of als de rit is geannuleerd en vervolgens wordt de patiënt opnieuw ingestuurd (zie toelichting).
+
+**Toelichting**
+
+Indien een patiënt wordt ingestuurd naar een ziekenhuis met een verkeerd BSN, dan wordt deze rit geannuleerd. Het ritnummer heeft voor de extensie patiëntvolgnummer 1. Vanuit de ambulance wordt een nieuw bericht gestuurd met patiëntvolgnummer 2 en het nieuwe BSN, dus een “andere” patiënt. De annulering van de rit is wel belangrijk, want anders lijkt het alsof er 2 patiënten komen, wat in principe ook kan. Bij een annulering van de rit moet er een nieuw ritnummer komen waarbij het patiëntvolgnummer opgehoogd wordt met 1. Voorbeeld; Na 09-2023-1234567-1 komt 09-2023-1234567-2."""
 * status 1..1
   * ^short = "DestinationStatus"
   * ^alias[0] = "Bestemmingsstatus"
@@ -46,7 +65,6 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^definition = "Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt."
 * subject only Reference(Patient or HgPatientAmbulanceHAP)
 * subject insert ObligationMandatory
-* encounter only Reference(Encounter or HgEncounterAmbulanceHAP)
 * authoredOn 1..1
   * ^short = "SendDateTime"
   * ^alias[0] = "Datum en tijd"
