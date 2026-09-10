@@ -32,12 +32,12 @@ Interoperability requires agreements on five layers - the Nictiz [vijflagenmodel
     </tr>
     <tr>
       <td style="background-color:#95c11f;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">Applicatie</td>
-      <td>How systems exchange it: the FHIR R4 profiles, the message structure (MessageHeader/Bundle), CapabilityStatements and ActorDefinitions.</td>
+      <td>How systems exchange it: the FHIR R4 profiles, the transaction Bundle, CapabilityStatements and ActorDefinitions.</td>
       <td><a href="artifacts.html">Artifacts</a>, <a href="data-model.html">Data model</a></td>
     </tr>
     <tr>
       <td style="background-color:#009b3e;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">IT-infrastructuur</td>
-      <td>The transport: the exchange paradigm (FHIR Messaging, RESTful or FHIR Document), not yet chosen.</td>
+      <td>The transport: RESTful, the referral POSTed as a transaction Bundle.</td>
       <td><a href="data-exchange.html">Data exchange</a></td>
     </tr>
   </tbody>

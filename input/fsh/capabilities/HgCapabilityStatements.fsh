@@ -2,29 +2,32 @@
 // =============================================================================
 // CapabilityStatements for the Acute Zorg referral exchange.
 //
-// These are paradigm-neutral REQUIREMENTS-level statements describing what the sending and receiving systems must be capable of. They will be refined once the exchange paradigm (Messaging, REST, or Document) is chosen. Until then the rest.resource block is intentionally omitted; the exchange operations are described on the Data Exchange page.
+// REQUIREMENTS-level statements describing what the sending and receiving systems must be capable of. The exchange paradigm is RESTful (decided in GitHub issue #14): the referral travels as one transaction Bundle, so the sender needs the system-level transaction interaction and the receiver has to support it, next to create on each resource type the referral carries. The Messaging and Document options remain described on the Data Exchange page but are not modeled.
 // =============================================================================
 
 Instance: hg-CapabilityStatement-Sender
 InstanceOf: CapabilityStatement
 Usage: #definition
 Title: "hg referral Sender Capability Statement"
-Description: "Requirements on the sending system (ambulance/Regionale Ambulancevoorziening) for the Acute Zorg referral push. The sender produces and transmits the referral. The specific exchange paradigm (FHIR Messaging, RESTful, or FHIR Document) is not yet determined; this statement will be updated once chosen."
+Description: "Requirements on the sending system (ambulance/Regionale Ambulancevoorziening) for the Acute Zorg referral push. The sender produces the referral and POSTs it to the receiver as a transaction Bundle."
 * url = "http://nictiz.nl/fhir/CapabilityStatement/hg-CapabilityStatement-Sender"
 * name = "HgCapabilityStatementSender"
 * status = #draft
 * experimental = true
-* date = "2026-06-11"
+* date = "2026-09-02"
 * kind = #requirements
 * fhirVersion = #4.0.1
 * format[+] = #application/fhir+json
 * format[+] = #application/fhir+xml
 * implementationGuide = "http://nictiz.nl/fhir/ImplementationGuide/nictiz.fhir.nl.r4.acutezorg"
-* purpose = "Informative in nature; it does not represent minimum or maximum capabilities. The exchange paradigm has not yet been chosen (see the Data Exchange page); consult this Implementation Guide for the exact capability requirements."
+* purpose = "Informative in nature; it does not represent minimum or maximum capabilities. Consult this Implementation Guide for the exact capability requirements."
 * copyright = "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/."
 * rest[+]
   * mode = #client
-  * documentation = "PROVISIONAL: the exchange paradigm (FHIR Messaging, RESTful, or FHIR Document) has not yet been decided (see the Data Exchange page). The `rest` block below is illustrative of the resources and profiles the sending system must be able to produce; the binding interaction model will be fixed once a paradigm is chosen. The sending system produces a conformant referral and transmits it to the receiver. Required resources: ServiceRequest (hg-ReferralServiceRequest-AmbulanceHAP), Composition (hg-ReferralComposition-AmbulanceHAP), DocumentReference (hg-ReferralDocumentReference-AmbulanceHAP, when applicable), Patient (hg-Patient-AmbulanceHAP), Organization (hg-HealthcareProvider-Organization-AmbulanceHAP), PractitionerRole (hg-HealthProfessional-PractitionerRole-AmbulanceHAP), Practitioner (nl-core-HealthProfessional-Practitioner). Under FHIR Messaging: additionally MessageHeader (hg-ReferralMessageHeader-AmbulanceHAP) and Bundle (hg-ReferralBundle-AmbulanceHAP)."
+  * documentation = "The sending system produces a conformant referral and POSTs it to the receiver in one transaction, conforming to hg-ReferralBundle-AmbulanceHAP. The resources it has to be able to produce are listed below: ServiceRequest (hg-ReferralServiceRequest-AmbulanceHAP), Composition (hg-ReferralComposition-AmbulanceHAP), DocumentReference (hg-ReferralDocumentReference-AmbulanceHAP, when applicable), Patient (hg-Patient-AmbulanceHAP), Encounter (hg-Encounter-AmbulanceHAP), Organization (hg-HealthcareProvider-Organization-AmbulanceHAP), PractitionerRole (hg-HealthProfessional-PractitionerRole-AmbulanceHAP) and Practitioner (nl-core-HealthProfessional-Practitioner). The create interaction per resource type describes what the transaction entries do; the transaction itself is the system-level interaction below."
+  * interaction[+]
+    * code = #transaction
+    * documentation = "The referral is sent as one transaction Bundle conforming to hg-ReferralBundle-AmbulanceHAP: POST entries with urn:uuid fullUrls, so the references between the resources resolve within the transaction and no entry claims an identity on the receiving server."
   * resource[+]
     * type = #ServiceRequest
     * supportedProfile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-AmbulanceHAP"
@@ -62,22 +65,25 @@ Instance: hg-CapabilityStatement-Receiver
 InstanceOf: CapabilityStatement
 Usage: #definition
 Title: "hg referral Receiver Capability Statement"
-Description: "Requirements on the receiving system (GP out-of-hours post, HAP) for the Acute Zorg referral push. The receiver accepts and processes the referral. The specific exchange paradigm (FHIR Messaging, RESTful, or FHIR Document) is not yet determined; this statement will be updated once chosen."
+Description: "Requirements on the receiving system (GP out-of-hours post, HAP) for the Acute Zorg referral push. The receiver exposes a FHIR endpoint that accepts the referral as a transaction Bundle."
 * url = "http://nictiz.nl/fhir/CapabilityStatement/hg-CapabilityStatement-Receiver"
 * name = "HgCapabilityStatementReceiver"
 * status = #draft
 * experimental = true
-* date = "2026-06-11"
+* date = "2026-09-02"
 * kind = #requirements
 * fhirVersion = #4.0.1
 * format[+] = #application/fhir+json
 * format[+] = #application/fhir+xml
 * implementationGuide = "http://nictiz.nl/fhir/ImplementationGuide/nictiz.fhir.nl.r4.acutezorg"
-* purpose = "Informative in nature; it does not represent minimum or maximum capabilities. The exchange paradigm has not yet been chosen (see the Data Exchange page); consult this Implementation Guide for the exact capability requirements."
+* purpose = "Informative in nature; it does not represent minimum or maximum capabilities. Consult this Implementation Guide for the exact capability requirements."
 * copyright = "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/."
 * rest[+]
   * mode = #server
-  * documentation = "PROVISIONAL: the exchange paradigm (FHIR Messaging, RESTful, or FHIR Document) has not yet been decided (see the Data Exchange page). The `rest` block below is illustrative of the resources and profiles the receiving system must be able to accept; the binding interaction model will be fixed once a paradigm is chosen. The receiving system accepts a conformant referral and must not raise an error on any obligation-marked element (SHALL:no-error). Required resource types: ServiceRequest, Composition, DocumentReference, Patient, Organization, PractitionerRole, Practitioner. Under FHIR Messaging: additionally supports the $process-message operation on Bundle. Under RESTful: supports create interactions and transaction bundles on the relevant resource types."
+  * documentation = "The receiving system accepts a conformant referral as one transaction and must not raise an error on any obligation-marked element (SHALL:no-error). It answers the transaction with a transaction-response Bundle in which every entry was created. The resource types it has to accept are listed below: ServiceRequest, Composition, DocumentReference, Patient, Encounter, Organization, PractitionerRole and Practitioner."
+  * interaction[+]
+    * code = #transaction
+    * documentation = "Accepts the referral as one transaction Bundle conforming to hg-ReferralBundle-AmbulanceHAP, resolving the urn:uuid references between its entries."
   * resource[+]
     * type = #ServiceRequest
     * supportedProfile = "http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-AmbulanceHAP"

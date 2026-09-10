@@ -1,6 +1,6 @@
 // NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // =============================================================================
-// Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic hg-Referral profiles, tightens cardinalities, applies obligations with mustSupport (see HgActors.fsh) and fixes the message event. Dataset mappings live here (see DatasetMappings.fsh). Reference targets keep the core resource type alongside the transaction-specific zib profile, so the model stays open-world.
+// Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic hg-Referral profiles, tightens cardinalities, and applies obligations with mustSupport (see HgActors.fsh). Dataset mappings live here (see DatasetMappings.fsh). Reference targets keep the core resource type alongside the transaction-specific zib profile, so the model stays open-world.
 //
 // Style: caret rules (^short/^alias/^definition/^comment/^slicing) are grouped under their element via indentation; cardinality, only, from, contains and insert stay at column 0.
 // =============================================================================
@@ -224,27 +224,21 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
   * ^definition = "Datum van het aanmaken van het document."
 * content.attachment.creation insert Obligation
 
-Profile: HgReferralMessageHeaderAmbulanceHAP
-Parent: HgReferralMessageHeader
-Id: hg-ReferralMessageHeader-AmbulanceHAP
-Title: "hg referral MessageHeader - Ambulance to HAP"
-Description: "MessageHeader for the ambulance to GP out-of-hours post (HAP) referral PUSH."
-* eventCoding = HgMessageEvent#145
-* focus 1..1
-* focus only Reference(HgReferralServiceRequestAmbulanceHAP)
-* focus insert ObligationMandatory
-* sender 1..1
-* sender only Reference(Organization or HgHealthcareProviderOrganizationAmbulanceHAP)
-* sender insert ObligationMandatory
-* source 1..1
 
 Profile: HgReferralBundleAmbulanceHAP
 Parent: HgReferralBundle
 Id: hg-ReferralBundle-AmbulanceHAP
 Title: "hg referral Bundle - Ambulance to HAP"
-Description: "Message bundle for the ambulance to GP out-of-hours post (HAP) referral PUSH."
-* type = #message
+Description: "Transaction bundle for the ambulance to GP out-of-hours post (HAP) referral PUSH."
+* type = #transaction
 * timestamp 1..1
 * entry 1..*
 * entry.fullUrl 1..1
+  * ^comment = "In a transaction every entry needs a fullUrl. Use a urn:uuid, so no entry claims an identity on the receiving server and the references between the resources resolve within the transaction."
 * entry.resource 1..1
+* entry.request 1..1
+* entry.request.method
+  * ^comment = """
+The method is deliberately not fixed. A first send is a `POST`. A later send for the same trip updates the referral rather than creating a second one, and that is a conditional `PUT` on the trip number, for example `PUT ServiceRequest?identifier=urn:oid:2.16.840.1.113883.2.4.3.32.5|09-2026-1234567-1`.
+
+That second case follows from *Bestemmingsstatus*: the data set states that Geannuleerd and Overgedragen are the last message of the ambulance to this destination, so there is more than one message per trip and the receiver has to end up with one referral, not three. See [#38](https://github.com/Nictiz/AZ-IG/issues/38)."""
