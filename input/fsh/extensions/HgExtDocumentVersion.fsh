@@ -3,6 +3,8 @@ Extension: HgExtDocumentVersion
 Id: hg-ext-DocumentVersion
 Title: "hg document version"
 Description: "Version label of the referenced document (CDA externalDocument versionNumber, DocumentVersienummer). Maps to DocumentReference.version in R5/R6."
+* ^purpose = "This extension represents the DocumentVersienummer concept (hg-dataelement-5475) of the Document building block. FHIR R4 DocumentReference has no version element, so the extension bridges to the native DocumentReference.version added in R5/R6, after which it can be retired."
+* insert NictizMetadata
 * ^context[+].type = #element
 * ^context[=].expression = "DocumentReference"
 * value[x] only string
