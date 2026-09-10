@@ -67,7 +67,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^alias[2] = "Zorgaanbieder"
   * ^definition = "Geeft de volledige identificatie- en contactgegevens van de ontvanger van het bericht."
 * performer only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
-* performer insert ObligationConformanceRequired
+* performer insert ObligationConformanceMandatory
 * reasonCode 1..1
   * ^short = "MessageReason"
   * ^alias[0] = "RedenBericht"
@@ -82,7 +82,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^alias[1] = "CommunicatieItem"
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
 * supportingInfo only Reference(Resource or HgReferralCompositionAmbulanceHAP or HgReferralDocumentReferenceAmbulanceHAP)
-* supportingInfo insert ObligationConformanceRequired
+* supportingInfo insert ObligationConformanceMandatory
 * patientInstruction 0..1
   * ^short = "AgreedWithPatient"
   * ^alias[0] = "AfgesprokenMetPatient"
@@ -105,13 +105,13 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
   * ^alias[0] = "Patient"
   * ^definition = "Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt."
 * subject only Reference(Patient or HgPatientAmbulanceHAP)
-* subject insert ObligationConformanceRequired
+* subject insert ObligationConformanceMandatory
 * author 1..1
   * ^short = "Sender"
   * ^alias[0] = "Verzender"
   * ^definition = "Geeft de volledige identificatie- en contactgegevens van de verzender van het bericht."
 * author only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
-* author insert ObligationConformanceRequired
+* author insert ObligationConformanceMandatory
 * date 1..1
 * date insert ObligationConformanceRequired
 * title 1..1
@@ -132,7 +132,7 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
 * section[messageReason] insert CopiedFromServiceRequestComment
 * section[messageReason].text 1..1
 * section[messageReason].text.status = #additional
-* section[messageReason].text insert ObligationConformanceRequired
+* section[messageReason].text insert ObligationConformanceMandatory
 * section[messageReason].text insert SectionNarrativeComment
 * section[treatmentGiven] ^short = "SetTreatment"
   * ^alias[0] = "IngesteldeBehandeling"
