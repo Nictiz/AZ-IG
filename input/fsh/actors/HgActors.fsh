@@ -17,8 +17,8 @@ RuleSet: Obligation
 * ^extension[$obligation][+].extension[code].valueCode = #SHALL:no-error
 * ^extension[$obligation][=].extension[actor].valueCanonical = $hg-ActorReceiver
 
-// Mandatory elements (min >= 1): Sender SHALL populate; Receiver SHALL not error. Insert with: * <element> insert ObligationMandatory
-RuleSet: ObligationMandatory
+// Required elements (min >= 1), nullFlavor is allowed: Sender SHALL populate; Receiver SHALL not error. Insert with: * <element> insert ObligationConformanceRequired
+RuleSet: ObligationConformanceRequired
 * ^mustSupport = true
 * ^extension[$obligation][+].extension[code].valueCode = #SHALL:populate
 * ^extension[$obligation][=].extension[actor].valueCanonical = $hg-ActorSender

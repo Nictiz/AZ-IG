@@ -44,9 +44,9 @@ Title: "hg HealthcareProvider Organization - Ambulance to HAP"
 Description: "Sending (RAV) and receiving (HAP) organization in the ambulance referral. Derived from nl-core-HealthcareProvider-Organization; an identifier (e.g. URA) is required so the organization is unambiguously addressable."
 * obeys hg-org-1
 * identifier 1..*
-* identifier insert ObligationMandatory
+* identifier insert ObligationConformanceRequired
 * name 1..1
-* name insert ObligationMandatory
+* name insert ObligationConformanceRequired
 
 Profile: HgHealthProfessionalPractitionerRoleAmbulanceHAP
 Parent: $nlcore-PractitionerRole
