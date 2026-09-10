@@ -20,7 +20,7 @@ RuleSet: Obligation
 // Mandatory elements (min >= 1): Sender SHALL populate; Receiver SHALL not error. Insert with: * <element> insert ObligationMandatory
 RuleSet: ObligationMandatory
 * ^mustSupport = true
-* ^extension[$obligation][+].extension[code].valueCode = #SHALL:able-to-populate
+* ^extension[$obligation][+].extension[code].valueCode = #SHALL:populate
 * ^extension[$obligation][=].extension[actor].valueCanonical = $hg-ActorSender
 * ^extension[$obligation][+].extension[code].valueCode = #SHALL:no-error
 * ^extension[$obligation][=].extension[actor].valueCanonical = $hg-ActorReceiver
