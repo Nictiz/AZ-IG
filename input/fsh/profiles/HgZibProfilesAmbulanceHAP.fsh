@@ -51,5 +51,7 @@ Parent: $nlcore-PractitionerRole
 Id: hg-HealthProfessional-PractitionerRole-AmbulanceHAP
 Title: "hg HealthProfessional PractitionerRole - Ambulance to HAP"
 Description: "Role of the sending ambulance professional in the referral. Derived from nl-core-HealthProfessional-PractitionerRole."
+* identifier 1..*
 * practitioner insert Obligation
+* organization 1..1
 * organization insert Obligation
