@@ -18,6 +18,8 @@ Parent: HgReferralServiceRequest
 Id: hg-ReferralServiceRequest-AmbulanceHAP
 Title: "hg referral ServiceRequest - Ambulance to HAP"
 Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanceverwijzing, AMB naar HAP, message 24)."
+* ^purpose = "A derived profile from [hg-ReferralServiceRequest](http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest) for the Ambulanceverwijzing (AMB naar HAP) transaction. This profile adds the cardinalities, obligations and dataset mappings of that transaction, and fixes the referral code and category."
+* insert NictizMetadata
 * . ^short = "Envelope"
   * ^alias[0] = "Envelop"
   * ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
@@ -94,6 +96,8 @@ Parent: HgReferralComposition
 Id: hg-ReferralComposition-AmbulanceHAP
 Title: "hg referral Composition - Ambulance to HAP"
 Description: "Transfer summary note for the ambulance to GP out-of-hours post (HAP) referral."
+* ^purpose = "A derived profile from [hg-ReferralComposition](http://nictiz.nl/fhir/StructureDefinition/hg-ReferralComposition) for the Ambulanceverwijzing (AMB naar HAP) transaction. This profile adds the four note sections the transaction defines, with their codes, cardinalities and obligations."
+* insert NictizMetadata
 * . ^short = "Core"
   * ^alias[0] = "Kern"
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
@@ -169,6 +173,8 @@ Parent: HgReferralDocumentReference
 Id: hg-ReferralDocumentReference-AmbulanceHAP
 Title: "hg referral DocumentReference - Ambulance to HAP"
 Description: "Attached document for the ambulance to GP out-of-hours post (HAP) referral. The folded CommunicatieItem category and sender (as modeled in ART-DECOR) are carried on `category` and `author`."
+* ^purpose = "A derived profile from [hg-ReferralDocumentReference](http://nictiz.nl/fhir/StructureDefinition/hg-ReferralDocumentReference) for the Ambulanceverwijzing (AMB naar HAP) transaction. This profile adds the cardinalities and obligations of the transaction, and binds the document type to the ART-DECOR Bijlagen value set."
+* insert NictizMetadata
 * . ^short = "CommunicationItem"
   * ^alias[0] = "CommunicatieItem"
   * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list, PDF content) follow the [document specification for the Ambulanceverwijzing](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Specificatie_van_het_document_binnen_de_Ambulanceverwijzing_naar_de_Huisartsenpost) in the Nictiz functional design, and should be kept aligned with it as that specification is finalized."
@@ -230,6 +236,8 @@ Parent: HgReferralBundle
 Id: hg-ReferralBundle-AmbulanceHAP
 Title: "hg referral Bundle - Ambulance to HAP"
 Description: "Transaction bundle for the ambulance to GP out-of-hours post (HAP) referral PUSH."
+* ^purpose = "A derived profile from [hg-ReferralBundle](http://nictiz.nl/fhir/StructureDefinition/hg-ReferralBundle) for the Ambulanceverwijzing (AMB naar HAP) transaction. This profile adds the requirement that every entry carries a fullUrl and a request, so the references between the resources resolve within the transaction."
+* insert NictizMetadata
 * type = #transaction
 * timestamp 1..1
 * entry 1..*

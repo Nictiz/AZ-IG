@@ -21,7 +21,7 @@ Description: "Requirements on the sending system (ambulance/Regionale Ambulancev
 * format[+] = #application/fhir+xml
 * implementationGuide = "http://nictiz.nl/fhir/ImplementationGuide/nictiz.fhir.nl.r4.acutezorg"
 * purpose = "Informative in nature; it does not represent minimum or maximum capabilities. Consult this Implementation Guide for the exact capability requirements."
-* copyright = "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/."
+* insert NictizMetadataInstance
 * rest[+]
   * mode = #client
   * documentation = "The sending system produces a conformant referral and POSTs it to the receiver in one transaction, conforming to hg-ReferralBundle-AmbulanceHAP. The resources it has to be able to produce are listed below: ServiceRequest (hg-ReferralServiceRequest-AmbulanceHAP), Composition (hg-ReferralComposition-AmbulanceHAP), DocumentReference (hg-ReferralDocumentReference-AmbulanceHAP, when applicable), Patient (hg-Patient-AmbulanceHAP), Encounter (hg-Encounter-AmbulanceHAP), Organization (hg-HealthcareProvider-Organization-AmbulanceHAP), PractitionerRole (hg-HealthProfessional-PractitionerRole-AmbulanceHAP) and Practitioner (nl-core-HealthProfessional-Practitioner). The create interaction per resource type describes what the transaction entries do; the transaction itself is the system-level interaction below."
@@ -77,7 +77,7 @@ Description: "Requirements on the receiving system (GP out-of-hours post, HAP) f
 * format[+] = #application/fhir+xml
 * implementationGuide = "http://nictiz.nl/fhir/ImplementationGuide/nictiz.fhir.nl.r4.acutezorg"
 * purpose = "Informative in nature; it does not represent minimum or maximum capabilities. Consult this Implementation Guide for the exact capability requirements."
-* copyright = "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/."
+* insert NictizMetadataInstance
 * rest[+]
   * mode = #server
   * documentation = "The receiving system accepts a conformant referral as one transaction and must not raise an error on any obligation-marked element (SHALL:no-error). It answers the transaction with a transaction-response Bundle in which every entry was created. The resource types it has to accept are listed below: ServiceRequest, Composition, DocumentReference, Patient, Encounter, Organization, PractitionerRole and Practitioner."

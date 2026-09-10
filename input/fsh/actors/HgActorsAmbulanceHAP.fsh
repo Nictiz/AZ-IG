@@ -11,6 +11,8 @@ Usage: #definition
 Title: "hg referral Sender - Ambulance referral (AMBS, AZP-AVS)"
 Description: "Ambulance management system (AMBS) that produces and transmits the Ambulance referral to the HIS/HAPIS."
 * url = "http://nictiz.nl/fhir/ActorDefinition/hg-ActorSender-AmbulanceHAP"
+* insert NictizMetadataInstance
+* purpose = "Names the sending system role of the Ambulanceverwijzing so that support expectations can be bound to an actor. The obligations on the profiles reference this actor, which makes explicit what the sender has to produce, where a single mustSupport flag would only say that an element matters to someone."
 * name = "HgActorSenderAmbulanceHAP"
 * status = #active
 * type = #system
@@ -27,6 +29,8 @@ Usage: #definition
 Title: "hg referral Receiver - Ambulance referral (HIS/HAPIS, AZP-AVO)"
 Description: "GP information system (HIS) or GP out-of-hours post information system (HAPIS) that accepts the Ambulance referral from the AMBS."
 * url = "http://nictiz.nl/fhir/ActorDefinition/hg-ActorReceiver-AmbulanceHAP"
+* insert NictizMetadataInstance
+* purpose = "Names the receiving system role of the Ambulanceverwijzing so that support expectations can be bound to an actor. The obligations on the profiles reference this actor, which makes explicit what the receiver has to accept without raising an error."
 * name = "HgActorReceiverAmbulanceHAP"
 * status = #active
 * type = #system
