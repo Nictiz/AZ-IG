@@ -12,7 +12,7 @@
 // Optional elements (min 0): Sender SHALL populate if known; Receiver SHALL not error. Insert with: * <element> insert Obligation
 RuleSet: Obligation
 * ^mustSupport = true
-* ^extension[$obligation][+].extension[code].valueCode = #SHALL:populate-if-known
+* ^extension[$obligation][+].extension[code].valueCode = #SHALL:populate
 * ^extension[$obligation][=].extension[actor].valueCanonical = $hg-ActorSender
 * ^extension[$obligation][+].extension[code].valueCode = #SHALL:no-error
 * ^extension[$obligation][=].extension[actor].valueCanonical = $hg-ActorReceiver
