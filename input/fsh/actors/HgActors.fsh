@@ -24,3 +24,11 @@ RuleSet: ObligationConformanceRequired
 * ^extension[$obligation][=].extension[actor].valueCanonical = $hg-ActorSender
 * ^extension[$obligation][+].extension[code].valueCode = #SHALL:no-error
 * ^extension[$obligation][=].extension[actor].valueCanonical = $hg-ActorReceiver
+
+// Mandatory elements (min >= 1), no nullFlavor: Sender SHALL be able to populate; Receiver SHALL not error. Insert with: * <element> insert ObligationConformanceRequired
+RuleSet: ObligationConformanceMandatory
+* ^mustSupport = true
+* ^extension[$obligation][+].extension[code].valueCode = #SHALL:able-to-populate
+* ^extension[$obligation][=].extension[actor].valueCanonical = $hg-ActorSender
+* ^extension[$obligation][+].extension[code].valueCode = #SHALL:no-error
+* ^extension[$obligation][=].extension[actor].valueCanonical = $hg-ActorReceiver
