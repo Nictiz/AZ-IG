@@ -4,13 +4,13 @@ This page describes the data model for the Ambulanceverwijzing (AMB naar HAP) re
 
 ### Message structure
 
-A referral always carries the same clinical core, regardless of the exchange paradigm (see [Data Exchange](data-exchange.html)):
+A referral carries the following clinical core (see [Data Exchange](data-exchange.html) for how it travels):
 
 - *hg-ReferralServiceRequest-AmbulanceHAP* is the focal resource. It references the patient (*subject*), the sending ambulance (*requester*) and the receiving HAP (*performer*), and carries the clinical content through `supportingInfo`.
 - *supportingInfo* points to a *hg-ReferralComposition-AmbulanceHAP* for the transfer summary note (reason, instituted treatment, diagnosis or conclusion) and, when documents are attached, to one or more *hg-ReferralDocumentReference-AmbulanceHAP* resources.
 - The dataset's CommunicationItem wrapper is folded into *DocumentReference* (its category on *category*, its sender on *author*); the recipient is the *performer* of the referral.
 
-Under the FHIR Messaging paradigm, two wrapper resources are added on top of this core: *hg-ReferralMessageHeader-AmbulanceHAP* (which identifies the event and focuses the ServiceRequest) and *hg-ReferralBundle-AmbulanceHAP* (the message bundle). Under the RESTful or FHIR Document paradigms these wrappers are replaced by a transaction bundle or a document bundle respectively.
+One wrapper sits on top of this core: *hg-ReferralBundle-AmbulanceHAP*, the `transaction` Bundle the sender POSTs. It carries the resources above as `POST` entries with a `urn:uuid` `fullUrl` each, so the references between them resolve within the transaction and no entry claims an identity on the receiving server.
 
 Example messages under [Artifacts](artifacts.html) illustrate the model: a referral based on scenario 5b of the *Richtlijn Gegevensuitwisseling Acute Zorg*; a maximal message modelled on the ART-DECOR ADA test scenario, showing all participating resources and a document attachment; and a minimal message modelled on the ART-DECOR ADA minimal test scenario.
 
@@ -26,8 +26,7 @@ Example messages under [Artifacts](artifacts.html) illustrate the model: a refer
 | Organization | [`hg-HealthcareProvider-Organization-AmbulanceHAP`](StructureDefinition-hg-HealthcareProvider-Organization-AmbulanceHAP.html) | [`nl-core-HealthcareProvider-Organization`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthcareProvider-Organization) | Sending (RAV) and receiving (HAP) organizations |
 | PractitionerRole | [`hg-HealthProfessional-PractitionerRole-AmbulanceHAP`](StructureDefinition-hg-HealthProfessional-PractitionerRole-AmbulanceHAP.html) | [`nl-core-HealthProfessional-PractitionerRole`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthProfessional-PractitionerRole) | Role of the sending ambulance professional |
 | Practitioner | (none - nl-core directly) | [`nl-core-HealthProfessional-Practitioner`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthProfessional-Practitioner) | The ambulance professional |
-| MessageHeader | [`hg-ReferralMessageHeader-AmbulanceHAP`](StructureDefinition-hg-ReferralMessageHeader-AmbulanceHAP.html) | [`hg-ReferralMessageHeader`](StructureDefinition-hg-ReferralMessageHeader.html) | Messaging wrapper: event and focus |
-| Bundle | [`hg-ReferralBundle-AmbulanceHAP`](StructureDefinition-hg-ReferralBundle-AmbulanceHAP.html) | [`hg-ReferralBundle`](StructureDefinition-hg-ReferralBundle.html) | Messaging wrapper: the message bundle |
+| Bundle | [`hg-ReferralBundle-AmbulanceHAP`](StructureDefinition-hg-ReferralBundle-AmbulanceHAP.html) | [`hg-ReferralBundle`](StructureDefinition-hg-ReferralBundle.html) | The transaction that is POSTed |
 
  The free text of each *Composition* section is carried in the section's own narrative (*Composition.section.text*, whose *.div* holds plain text or the limited xhtml allowed for a Narrative).
 
@@ -46,7 +45,7 @@ Obligations are shown per element on each profile's page. The rationale for this
 
 - Validation. Validate instances with the official HL7 FHIR validator against the package `nictiz.fhir.nl.r4.acutezorg` together with its dependencies (nl-core, zib2020). A resource is conformant when it passes validation against the relevant profile.
 - Declaring conformance. In exchange, the nl-core profiles remain the normative basis. A sender that meets the tighter use case cardinalities **MAY** declare this by listing the use case profile canonical in *meta.profile*; a resource that conforms to a use case profile also satisfies nl-core.
-- Actor perspective. Validate from the relevant actor's perspective: a sending system against the Sender obligations, a receiving system against the Receiver obligations. Wrapper resources (`MessageHeader`, `Bundle`) are only required under the FHIR Messaging paradigm.
+- Actor perspective. Validate from the relevant actor's perspective: a sending system against the Sender obligations, a receiving system against the Receiver obligations. Validating the `Bundle` checks the transaction as a whole; validating an individual resource checks that resource on its own.
 
 ### Dutch-English element name mapping
 

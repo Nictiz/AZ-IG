@@ -4,7 +4,7 @@ This page currently covers the data exchange architecture for the Ambulanceverwi
 
 The exchange is one-directional (PUSH): the sending system produces and transmits a referral; the receiving system accepts and processes it.
 
-The specific exchange paradigm - how the FHIR resources are packaged and transmitted - has not yet been decided. Three options are being considered and are described below. The profiles in this IG are designed to remain valid under any of the three options; the choice of paradigm determines which wrapper resources (Bundle, MessageHeader) are required and how the HTTP interaction is structured.
+The exchange paradigm is RESTful: the sender POSTs the referral to the receiver's FHIR endpoint as a `transaction` Bundle. That is what this IG models, and it is described under Option 2 below. The two alternatives that were weighed, FHIR Messaging and FHIR Document, remain described for the reader who needs to know why they were not taken, but no profiles are provided for them.
 
 ### System context and broker
 
@@ -12,11 +12,11 @@ In practice, ambulance/RAV systems do not produce native FHIR resources. A broke
 
 ---
 
-### Option 1: FHIR Messaging
+### Option 1: FHIR Messaging (not chosen)
 
 The referral is wrapped in a `Bundle` of `type` `message`. The first entry is a `MessageHeader` that identifies the event and references the `ServiceRequest` via `focus`. All referenced resources are included in the same Bundle. The sender transmits the Bundle to the receiver's `$process-message` endpoint or via a store-and-forward intermediary.
 
-Profiles used: the use case Bundle and MessageHeader profiles (`hg-ReferralBundle-*` and `hg-ReferralMessageHeader-*`), and the use case profiles for the enclosed resources.
+Profiles that would be needed: a message Bundle profile and a MessageHeader profile, next to the use case profiles for the enclosed resources. Neither is provided in this IG.
 
 Fits well when: the infrastructure is event-driven or store-and-forward; the receiver does not expose a FHIR REST endpoint; the transaction must be atomic and self-contained.
 
@@ -24,11 +24,11 @@ Limitations: requires the sender to produce a complete, valid Bundle at the mome
 
 ---
 
-### Option 2: RESTful (FHIR REST API)
+### Option 2: RESTful (FHIR REST API) - the chosen paradigm
 
 The sender POSTs resources to the receiver's FHIR server using a transaction Bundle. The `ServiceRequest` is the focal resource; `Composition`, `DocumentReference`, `Patient`, `Organization`, and `PractitionerRole` are included in the same `transaction`. The receiver exposes a FHIR server.
 
-Profiles used: the use case profiles for all individual resources; no MessageHeader or message Bundle required.
+Profiles used: `hg-ReferralBundle-AmbulanceHAP` for the transaction, and the use case profiles for the resources it carries. No MessageHeader and no message Bundle.
 
 Fits well when: the receiver already hosts a FHIR server; query and update patterns are needed alongside the initial push; integration with standard FHIR tooling is a priority.
 
@@ -36,11 +36,11 @@ Limitations: requires the receiver to expose and maintain a FHIR REST API; manag
 
 ---
 
-### Option 3: FHIR Document
+### Option 3: FHIR Document (not chosen)
 
 The referral is wrapped in a `Bundle` of `type` document. The first entry is a `Composition` that organises the clinical content. The Bundle is an immutable, attestable clinical document that can be stored and exchanged as a unit.
 
-Profiles used: the use case Composition profile as the document anchor; a document Bundle (not a messaging Bundle); the use case profiles for the enclosed resources.
+Profiles that would be needed: a document Bundle profile with the use case Composition as its anchor, next to the use case profiles for the enclosed resources. No document Bundle profile is provided in this IG.
 
 Fits well when: the referral needs to be stored as a legal or attestable document; integration with document-sharing infrastructure (IHE XDS/MHD) is required.
 
@@ -50,11 +50,11 @@ Limitations: a document Bundle is immutable - corrections require a new document
 
 ### Decision status
 
-The exchange paradigm has not yet been selected. The decision will be driven by the target infrastructure and by alignment with other Acute Zorg use cases in this IG. This page will be updated once a paradigm is chosen.
+RESTful is the paradigm this IG designs against. The decision is recorded in [GitHub issue #14](https://github.com/Nictiz/AZ-IG/issues/14) and is not final until the agreement with the vendors and the infrastructure parties is in place for the beta release; until then it is the direction, not a commitment that binds those parties.
 
-The CapabilityStatements (`hg-CapabilityStatement-Sender` and `hg-CapabilityStatement-Receiver`) currently reflect paradigm-neutral requirements and will be refined once the paradigm is fixed.
+What follows from it is already applied: the referral is a `transaction` Bundle, the MessageHeader profile and the message event code system have been removed, and the CapabilityStatements state the system-level `transaction` interaction next to `create` per resource type.
 
-Likewise, the concrete transaction definitions a reader may expect from other Nictiz FHIR IGs - the search parameters, the request/response message structure, and the per-transaction profile lists - are added once the paradigm is chosen (see the [Open Items](open-items.html) page).
+The concrete transaction definitions a reader may expect from other Nictiz FHIR IGs - search parameters, HTTP headers, and the `Bundle.entry.fullUrl` conventions of the overarching [Nictiz FHIR R4 IG](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4) - still have to be worked out against this paradigm; see the [Open Items](open-items.html) page.
 
 ---
 
@@ -65,19 +65,14 @@ The formal sender requirements are defined in:
 - [hg referral Sender - Ambulanceverwijzing (AMBS, AZP-AVS)](ActorDefinition-hg-ActorSender-AmbulanceHAP.html)
 - [hg referral Sender CapabilityStatement](CapabilityStatement-hg-CapabilityStatement-Sender.html)
 
-In summary, regardless of paradigm, the sender **SHALL**:
+In summary, the sender **SHALL**:
 
 - Produce a conformant use case ServiceRequest as the focal resource
 - Populate every mandatory obligation-marked element (`SHALL:populate`) and every optional one it has a value for (`SHALL:populate-if-known`)
 - Produce a conformant use case Composition carrying the transfer summary note sections
 - Attach supporting documents as use case DocumentReference instances when available
 - Populate patient, organization, and professional resources conformant to the use case profiles
-
-Under Option 1 (Messaging): additionally produce use case Bundle and MessageHeader resources, and transmit the Bundle to the receiver's endpoint.
-
-Under Option 2 (REST): additionally POST resources to the receiver's FHIR server using a transaction Bundle to ensure atomicity.
-
-Under Option 3 (Document): additionally produce a document Bundle with the use case Composition as the first entry.
+- Package the referral as a `transaction` Bundle conforming to `hg-ReferralBundle-AmbulanceHAP` and POST it to the receiver's base URL, with a `urn:uuid` `fullUrl` per entry so the references between the resources resolve within the transaction.
 
 ---
 
@@ -92,10 +87,6 @@ In summary, the receiver **SHALL**:
 
 - Accept and process a referral push without raising an error on any obligation-marked element (`SHALL:no-error`)
 - Store or route the referral for clinical review
-- Handle all resource types included in the referral: `ServiceRequest`, `Composition`, `DocumentReference`, `Patient`, `Organization`, `PractitionerRole`, `Practitioner`
+- Handle all resource types included in the referral: `ServiceRequest`, `Composition`, `DocumentReference`, `Patient`, `Encounter`, `Organization`, `PractitionerRole`, `Practitioner`
+- Expose a FHIR endpoint that accepts a `transaction` Bundle, resolve the `urn:uuid` references between its entries, and answer with a `transaction-response` Bundle in which every entry was created.
 
-Under Option 1 (Messaging): additionally expose a `$process-message` endpoint or receive messages via an intermediary; process the Bundle of `type` `message`.
-
-Under Option 2 (REST): additionally expose a FHIR REST server supporting at minimum `create` interactions on the relevant resource types, and support transaction Bundles.
-
-Under Option 3 (Document): additionally accept a Bundle of `type` document and store or index it via the applicable document-sharing infrastructure.

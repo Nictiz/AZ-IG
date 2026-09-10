@@ -24,7 +24,7 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 |---|---|
 | Patientgegevens | `ServiceRequest.subject` → `Patient` |
 | Verzender - *zorgverlener* | `ServiceRequest.requester` → `PractitionerRole` |
-| Verzender - *zorgaanbieder* | `PractitionerRole.organization` → `Organization` or `ServiceRequest.requester` → `Organization`; <br>`MessageHeader.sender` → `Organization`;<br>`Composition.author` |
+| Verzender - *zorgaanbieder* | `PractitionerRole.organization` naar `Organization` or `ServiceRequest.requester` naar `Organization`;<br>`Composition.author` |
 | Ontvanger - *zorgaanbieder* | `ServiceRequest.performer` → `Organization` |
 | Bestemmingsstatus | `ServiceRequest.status` |
 |  Ritnummer  | `ServiceRequest.encounter` → `Encounter.identifier[tripNumber]`   |
@@ -33,7 +33,7 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | AfgesprokenMetPatient | `ServiceRequest.patientInstruction` |
 | Kern (link to the core) | `ServiceRequest.supportingInfo` → `Composition` |
 |   Dossiergegevens (link to the document)   |   `ServiceRequest.supportingInfo` → `DocumentReference`   |
-| Message type and event | `MessageHeader.eventCoding`; `Bundle.type = message` |
+| Transaction | `Bundle.type = transaction`; every entry a `POST` with a `urn:uuid` `fullUrl` |
 
 | Dataset concept (_verzender_ - _zorgverlener_)| FHIR element|
 |-|-|

@@ -40,7 +40,7 @@ This IG and the primary care ELZ package draw on the same ART-DECOR project; the
 - `hg-ReferralServiceRequest`: the ELZ profile fixes `status` to *completed* and defines a `category` slice with a primary-care-specific OID coding. Both are omitted here as they are ELZ specific; use case layers in this IG add their own `category` slice and `status` constraints where needed.
 - `hg-ReferralComposition`: the ELZ profile defines a detailed Envelope/Core section hierarchy specific to primary care (CarePath, RequiredConsultationFacilities, MessageReason, etc.). Section structure has proven to be use case specific, so no named sections are defined at the generic layer; each use case adds its own section slices.
 - `hg-ReferralTask`: present in ELZ. Not yet defined here; will be added when a use case requires explicit workflow tracking.
-- `hg-ReferralMessageHeader`, `hg-ReferralBundle`, `hg-ReferralDocumentReference`: present in this IG, not in ELZ.
+- `hg-ReferralBundle`, `hg-ReferralDocumentReference`: present in this IG, not in ELZ.
 
 These differences are not blocking while both packages are in beta, but they must be reconciled before either reaches a stable release (tracked on the [Open items](open-items.html) page).
 
