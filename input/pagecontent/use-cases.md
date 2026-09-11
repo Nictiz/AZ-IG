@@ -1,11 +1,11 @@
 ### Overview
 
-This IG covers referral transactions from the [Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf). Each use case maps to a specific message in the *richtlijn* and is implemented as a separate use case layer on top of the generic `hg-Referral*` profiles.
+This IG covers referral transactions from the [Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf). The information exchanged covers patient identification, the reason for referral, the treatment instituted on scene, the clinical conclusion or working diagnosis, and any supporting documents such as an clinical note or ECG. Each use case maps to a specific message in the *richtlijn* and is implemented as a separate use case layer on top of the generic `hg-Referral*` profiles.
 
 | Use case | Message | Status |
 |---|---|---|
-| [Ambulance referral to a GP out-of-hours service](#ambulanceverwijzing-naar-hap-amb-naar-hap) (*Ambulanceverwijzing naar HAP*; AMB → HAP) | Message 24 | Included in this version |
-| [Ambulance referral to a General Practitioner](#ambulanceverwijzing-naar-ha-amb-naar-ha) (*Ambulanceverwijzing naar HA*; AMB → HA) | Message 23 | Planned |
+| [Ambulance referral to a GP out-of-hours service](#ambulance-referral-to-a-gp-out-of-hours-service-amb--hap) (*Ambulanceverwijzing naar HAP*; AMB → HAP) | Message 24 | Included in this version |
+| [Ambulance referral to a General Practitioner](#ambulance-referral-to-a-general-practitioner-amb--ha) (*Ambulanceverwijzing naar HA*; AMB → HA) | Message 23 | Planned |
 
 ---
 

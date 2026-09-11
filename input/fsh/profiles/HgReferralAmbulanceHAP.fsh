@@ -17,7 +17,7 @@ Profile: HgReferralServiceRequestAmbulanceHAP
 Parent: HgReferralServiceRequest
 Id: hg-ReferralServiceRequest-AmbulanceHAP
 Title: "hg referral ServiceRequest - Ambulance to HAP"
-Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambulanceverwijzing, AMB naar HAP, message 24)."
+Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambulanceverwijzing, AMB → HAP, message 24)."
 * . ^short = "Envelope"
   * ^alias[0] = "Envelop"
   * ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
