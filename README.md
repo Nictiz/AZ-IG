@@ -2,7 +2,7 @@
 
 FHIR R4 Implementation Guide for information exchange in acute care settings in the Netherlands, following the Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022). Built on nl-core (zib2020, R4) and authored in FHIR Shorthand (FSH).
 
-The first use case is the ambulance to GP out-of-hours post referral (AMB naar HAP, message 24). Message 23 (AMB naar HA) follows the same pattern and is planned as a parallel use case layer.
+The first use case is the ambulance to GP out-of-hours service referral (AMB naar HAP, message 24). Message 23 (AMB naar HA) follows the same pattern and is planned as a parallel use case layer.
 
 Status: under development - no official release yet. This is the first Nictiz IG published as a proper HL7 FHIR Implementation Guide (using the HL7 IG Publisher and FHIR Shorthand), rather than as a specification on the Nictiz wiki. It therefore looks and works differently from earlier Nictiz FHIR documentation. The canonical output is a browsable IG with structured profiles, examples, and conformance resources - not a wiki page.
 

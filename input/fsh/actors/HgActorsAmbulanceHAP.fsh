@@ -25,12 +25,12 @@ Instance: hg-ActorReceiver-AmbulanceHAP
 InstanceOf: ActorDefinition
 Usage: #definition
 Title: "hg referral Receiver - Ambulance referral (HIS/HAPIS, AZP-AVO)"
-Description: "GP information system (HIS) or GP out-of-hours post information system (HAPIS) that accepts the Ambulance referral from the AMBS."
+Description: "GP information system (HIS) or GP out-of-hours service information system (HAPIS) that accepts the Ambulance referral from the AMBS."
 * url = "http://nictiz.nl/fhir/ActorDefinition/hg-ActorReceiver-AmbulanceHAP"
 * name = "HgActorReceiverAmbulanceHAP"
 * status = #active
 * type = #system
-* documentation = """The HG Referral Receiver is the system role fulfilled by a GP information system (HIS) or a GP out-of-hours post information system (HAPIS). It is responsible for the transaction Ontvangen Ambulanceverwijzing.
+* documentation = """The HG Referral Receiver is the system role fulfilled by a GP information system (HIS) or a GP out-of-hours service information system (HAPIS). It is responsible for the transaction Ontvangen Ambulanceverwijzing.
 
 In the Dutch functional design ([Ontwerp Acute Zorg, section 2.16](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)), this role is identified as Acute Zorg Proces - Ambulanceverwijzing Ontvangend with system role code AZP-AVO.
 
