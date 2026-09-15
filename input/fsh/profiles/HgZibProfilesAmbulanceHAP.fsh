@@ -45,9 +45,6 @@ Description: "Sending (RAV) and receiving (HAP) organization in the ambulance re
 * obeys hg-org-1
 * identifier 1..*
 * identifier insert ObligationMandatory
-* identifier ^slicing.discriminator[0].type = #pattern
-* identifier ^slicing.discriminator[0].path = "$this"
-* identifier ^slicing.rules = #open
 * identifier contains ambulanceService 0..1
 * identifier[ambulanceService] ^patternIdentifier.system = "urn:oid:2.16.840.1.113883.2.4.3.11.60.55.15.1"
 * identifier[ambulanceService] ^short = "Ambulance service"
