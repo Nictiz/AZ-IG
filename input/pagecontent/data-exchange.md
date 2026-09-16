@@ -4,7 +4,7 @@ This page currently covers the data exchange architecture for the Ambulanceverwi
 
 The exchange is one-directional (PUSH): the sending system produces and transmits a referral; the receiving system accepts and processes it.
 
-The exchange paradigm is RESTful: the sender POSTs the referral to the receiver's FHIR endpoint as a `transaction` Bundle. That is what this IG models, and it is described under Option 2 below. The two alternatives that were weighed, FHIR Messaging and FHIR Document, remain described for the reader who needs to know why they were not taken, but no profiles are provided for them.
+The exchange paradigm is RESTful: the sender POSTs the referral to the receiver's FHIR endpoint as a `transaction` Bundle. That is what this IG models, and it is described under Option 2 below. The two alternatives that were considered, FHIR Messaging and FHIR Document, remain described for the reader who needs to know why they were not taken, but no profiles are provided for them.
 
 ### System context and broker
 
