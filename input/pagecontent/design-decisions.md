@@ -22,7 +22,7 @@ The referral is modeled as a `ServiceRequest` on FHIR core, with `intent` fixed 
 
 ### Envelope and core: ServiceRequest and Composition
 
-The ART-DECOR data set nests its content in two containers: the *Envelop* (the outer envelope - addressing and triage: destination status, patient, send date/time, sender, recipient) and the *Kern* (the clinical core - reason, instituted treatment, diagnosis/conclusion, agreements with the patient, attachments). This IG splits those over two FHIR resources, each with its root mapped to its primary container: the `ServiceRequest` represents the *Envelop*, and the `Composition` represents the *Kern*.
+The ART-DECOR data set nests its content in two containers: the *Envelop* (the outer envelope - addressing and triage: patient, send date/time, sender, recipient) and the *Kern* (the clinical core - reason, instituted treatment, diagnosis/conclusion, agreements with the patient, attachments). This IG splits those over two FHIR resources, each with its root mapped to its primary container: the `ServiceRequest` represents the *Envelop*, and the `Composition` represents the *Kern*.
 
 The two are not watertight, and that is deliberate. The `ServiceRequest` (Envelop) also surfaces a few *Kern* elements - the reason (`reasonCode`), the agreements with the patient (`patientInstruction`) and a reference to the core (`supportingInfo`) - so that the receiving system can triage the referral early, before opening the document. Conversely the `Composition` (Kern) carries some *Envelop* elements - `subject`, `author` and `date` - because a FHIR document must declare its patient, author and date; these reuse the same patient, sender and timestamp the envelope carries.
 

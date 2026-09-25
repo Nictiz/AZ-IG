@@ -8,7 +8,6 @@ Target: "https://decor.nictiz.nl/ad/#/hg-/datasets/dataset/2.16.840.1.113883.2.4
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1673" "Envelop"
-* status -> "hg-dataelement-5556" "Bestemmingsstatus"
 // TypeBericht (1685): defined in the shared dataset; not explicitly modeled in AMB-HAP. Urgentie (1702): defined in the shared dataset; not explicitly modeled in AMB-HAP.
 * subject -> "hg-dataelement-1676" "Patient"
 * authoredOn -> "hg-dataelement-1684" "Datum en tijd"
