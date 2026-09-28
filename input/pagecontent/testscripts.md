@@ -11,7 +11,7 @@ This document describes the script to be followed during qualification testing f
 - The AMBIS fulfills the system role: Acute Care Process – Ambulance Referral Sending System [AZP-AVS]
 - The HAPIS fulfills the system role: Acute Care Process – Ambulance Referral Receiving System [AZP-AVO]
 
-#### 1.3 Testing Conditions
+#### Testing conditions
 
 The general Nictiz terms and conditions for testing and qualification apply when performing this test. The following specific conditions also apply:
 
@@ -20,21 +20,21 @@ The general Nictiz terms and conditions for testing and qualification apply when
 - The test documentation contains the data entered by the testing party.
 - Knowledge and understanding of the Acute Care Information Standard.
 
-#### 1.4 Glossary
+#### Glossary
 
 Nictiz uses certain abbreviations and terms. More information is available in the [general glossary](https://nictiz.nl/standaarden/begrippen/). A [thesaurus](https://thesauruszorgenwelzijn.multites.net/) is also available for looking up terms.
 
-### 2 Test Information
+### Test information
 
 Nictiz offers suppliers the opportunity to test whether their products and services correctly implement information standards in preparation for qualification. Screenshots are not required when performing these tests, but they can be helpful when correcting errors. Testing infrastructure requirements is not part of this test script.
 
-#### 2.1 Test Approach
+#### Test approach
 
 Keep a record of the findings from the tests performed. Analyse the findings, correct any errors where necessary, and test again.
 
-#### 2.2 Testing and Qualification Tools
+#### Testing and Qualification Tools
 
-##### 2.2.1 ConformanceLab
+##### ConformanceLab
 
 Nictiz provides the ConformanceLab test system for testing system roles and their associated information standards in preparation for the qualification process. Prospective and current participants can also use ConformanceLab during the development and testing phases to test and/or validate FHIR messages at an early stage.
 
@@ -42,9 +42,9 @@ A [separate guide is available](https://informatiestandaarden.nictiz.nl/wiki/kwa
 
 For suppliers acting as an intermediary for the transformation from CDA to FHIR, [ART-DECOR](https://informatiestandaarden.nictiz.nl/wiki/HL7v3_kwalificatiesimulator) is used as the source of information.
 
-### 3 Test Script
+### Test Script
 
-#### 3.1 Steps to Perform
+#### Step by step
 
 Perform the following steps for each scenario:
 
@@ -70,26 +70,24 @@ Perform the following steps for each scenario:
 3. Send the test patient to the test simulator (ConformanceLab).
 4. The test simulator (ConformanceLab) will receive and process the test patient.
 
-#### 3.2 Overview of Test Scenarios
+#### Overview of Test Scenarios
 
 | No. | Scenario | Test Objective | Expected Result | Test Data |
 | ---: | --- | --- | --- | --- |
 | 1 | Minimum message | Verify that all mandatory fields are processed, sent, and received correctly. | The message is sent successfully and accepted and processed by the receiving system in accordance with the information standard. | [Scenario - Minimal](#scenario-minimal) |
 | 2 | Maximum message | Verify that all mandatory and optional fields are processed, sent, and received correctly. | The message is sent successfully and accepted and processed by the receiving system in accordance with the information standard. | [Scenario - Maximal](#scenario-maximal) |
 
-### 4 Points to Consider for Test Data
-
-#### 4.1 Test Data for Registering Parties Based on the Functional Mapping
+#### Test Data for Registering Parties Based on the Functional Mapping
 
 The registration of the test data is based on the functional mapping described in [functional design](functional-design.html). This mapping describes how the data used in the exchange from the Ambulance to the Emergency Department (CDA V2.4.0) is converted into the elements of the Ambulance referral to a GP out-of-hours service (FHIR). It therefore forms the basis for the test scenarios.
 
 The [specification of the document within the ambulance referral to the out-of-hours GP service](functional-design.html) describes the structure of the ambulance handover.
 
-#### 4.2 Personal Data
+#### Personal Data
 
 The personal data includes a fictional Dutch citizen service number (fBSN) for testing purposes. It is intended only for use in the XIS when registering the test patient. A transformation service can use the fBSN to retrieve the source information from the ART-DECOR qualification simulator.
 
-#### 4.3 Variable T-Date
+#### Variable T-Date
 
 Test and qualification scenarios often use relative dates to prevent them from becoming outdated. For example, a date specified as “next week” will always remain in the future. The T-date is used to convert these relative dates into specific dates for testing and qualification.
 
@@ -97,11 +95,10 @@ For ConformanceLab, the T-date is always the Monday of the week in which the tes
 
 For the ART-DECOR qualification server, `T – 10D` means 10 days before the agreed date and time. The format is `yyyy-mm-ddThh:mm:ss`.
 
-#### Scenario Minimal
+### Scenario Minimal
 <table class="grid">
   <thead>
     <th colspan=2>Envelop</th>
-    </tr>
     <tr>
       <th>
         Gegevenselement
@@ -204,7 +201,7 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
     </tr>
     <tr>
       <td>CommunicatieItem.Document.DocumentInhoud</td>
-      <td></td>
+      <td>voorbeeldbericht minimaal</td>
     </tr>
     <tr>
       <td>CommunicatieItem.Document.DocumentNaam</td>
@@ -220,7 +217,7 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
   </tbody>
 </table>
 
-
+#### Example document handover minimal
   <style>
     * {
       box-sizing: border-box;
@@ -255,6 +252,10 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
 
     .ondertekening {
       margin-top: 35px;
+    }
+
+    caption {
+    text-align:left;
     }
 
   </style>
@@ -296,7 +297,7 @@ huisartsenspoedpost
     </main>
   </article>
 
-#### Scenario Maximal
+### Scenario Maximal
 <table class="grid">
   <thead>
     <th colspan=2>Bouwstenen</th>
@@ -308,7 +309,6 @@ huisartsenspoedpost
   <tbody>
       <td>Naamgegevens</td>
       <td></td>
-    </tr>
     <tr>
       <td>Initialen</td>
       <td>J.H.M.</td>
@@ -485,10 +485,6 @@ huisartsenspoedpost
       <td></td>
     </tr>
     <tr>
-      <td>Zorgaanbieder</td>
-      <td></td>
-    </tr>
-    <tr>
       <td>ZorgaanbiederIdentificatienummer</td>
       <td>
         25 (in identificerend systeem:
@@ -572,11 +568,7 @@ huisartsenspoedpost
   </thead>
   <tbody>
     <tr>
-      <td>RedenBericht</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Context</td>
+      <td>RedenBericht.Context</td>
       <td>
         Patiënt is vanuit acute ambulancezorg voor verdere zorg doorverwezen
         naar de huisartsenspoedpost
@@ -761,7 +753,7 @@ huisartsenspoedpost
     </tr>
     <tr>
     <td>DocumentInhoud</td>
-    <td></td>
+    <td>voorbeeldbericht maximaal</td>
     </tr>
     <tr>
     <td>DocumentNaam</td>
@@ -781,7 +773,7 @@ huisartsenspoedpost
 </tbody>
 </table>
 
-
+#### Example document handover maximal
 
 <article class="brief">
     <header class="briefhoofd">
@@ -807,8 +799,8 @@ huisartsenspoedpost
     <main>
       <p><strong>Conclusie</strong></p>
       Toestandsbeeld: Letsel van aangezicht <br>
-Toelichting toestandsbeeld:Moeilijk observeren door weersomstandigheden <br>
-Tijdstip overlijden patiënt : 8-05-2026 12:15 <br>
+Toelichting toestandsbeeld: Moeilijk observeren door weersomstandigheden <br>
+Tijdstip overlijden patiënt: 8-05-2026 12:15 <br>
 <br>
       <p><strong>Behandelingen</strong></p>
       Handeling luchtwegmanagement: Moeizame intubatie<br> 
