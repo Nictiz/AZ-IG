@@ -96,125 +96,171 @@ For ConformanceLab, the T-date is always the Monday of the week in which the tes
 For the ART-DECOR qualification server, `T – 10D` means 10 days before the agreed date and time. The format is `yyyy-mm-ddThh:mm:ss`.
 
 ### Scenario Minimal
-<table class="grid">
-  <thead>
-    <th colspan=2>Envelop</th>
-    <tr>
-      <th>
-        Gegevenselement
-      </th>
-      <th>Waarde</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Patiëntgegevens.Patient</td>
-      <td> onbekend</td>
-    </tr>
-    <tr>
-      <td>Verzender.Zorgverlener.ZorgverlenerIdentificatienummer</td>
-      <td>567891234 (in identificerend systeem: UZI Personen)</td>
-    </tr>
-    <tr>
-      <td>Verzender.ZorgaanbiederZorgaanbiederIdentificatienummer</td>
-      <td>
-        25 (in identificerend systeem:
-        2.16.840.1.113883.2.4.3.11.60.55.15.1)
-      </td>
-    </tr>
-    <tr>
-      <td>Ontvanger.Zorgaanbieder.ZorgaanbiederIdentificatienummer</td>
-      <td>06020806 (in identificerend systeem: AGB-Z)</td>
-    </tr>
-    <tr>
-      <td>Ontvanger.Zorgaanbieder.OrganisatieType</td>
-      <td>
-        Huisartsenpost (t.b.v. dienstwaarneming)
-        (code =N6 in codeSystem HL7 RoleCodeNL Care provider type (organizations))
-      </td>
-    </tr>
-    <tr>
-      <td>Bestemmingsgegevens.Bestemmingsstatus</td>
-      <td>
-        completed (code = completed in codeSystem HL7 ActStatus)
-      </td>
-    </tr>
-    <tr>
-      <td>Bestemmingsgegevens.Ritnummer</td>
-      <td>
-        25-2020-11-1 (in identificerend systeem:
-        2.16.840.1.113883.2.4.3.32.5)
-      </td>
-    </tr>
-    <tr>
-      <td>Bestemmingsgegevens.Datum en tijd</td>
-      <td>T</td>
-    </tr>
-  </tbody>
-</table>
-
 
 <table class="grid">
-  <thead>
-      <th colspan=2>Kern</th>
-    <tr>
-      <th>Gegevenselement</th>
-      <th>Waarde</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>RedenBericht.Context</td>
-      <td>
-        Patiënt is vanuit acute ambulancezorg voor verdere zorg doorverwezen
-        naar de huisartsenspoedpost
-      </td>
-    </tr>
-  </tbody>
+  <tr>
+    <th colspan="7">Envelop</th>
+  </tr>
+  <tr>
+    <th colspan="6">Gegevenselement</th>
+    <th>Waarde</th>
+  </tr>
+  <tr>
+    <td colspan="7">Patiëntgegevens</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="5">Patient</td>
+    <td>onbekend</a></td>
+  </tr>
+  <tr>
+    <td colspan="7">Verzender</td>
+  </tr>
+  <tr>
+    <td rowspan="9"></td>
+  </tr>
+  <tr>
+    <td colspan="6">Zorgverlener</td>
+  </tr>
+  <tr>
+    <td rowspan="7"></td>
+  </tr>
+  <tr>
+    <td colspan="4">ZorgverlenerIdentificatienummer</td>
+    <td>567891234 (in identificerend systeem: UZI Personen)</td>
+  </tr>
+  <tr>
+    <td colspan="5">Zorgaanbieder</td>
+  </tr>
+  <tr>
+    <td rowspan="4"></td>
+  </tr>
+  <tr>
+    <td colspan="4">Zorgaanbieder</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="2">ZorgaanbiederIdentificatienummer</td>
+    <td>25 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.60.55.15.1)</td>
+  </tr>
+  <tr>
+    <td colspan="7">Ontvanger</td>
+  </tr>
+  <tr>
+    <td rowspan="5"></td>
+  </tr>
+  <tr>
+    <td colspan="6">Zorgaanbieder</td>
+  </tr>
+  <tr>
+    <td rowspan="3"></td>
+  </tr>
+  <tr>
+    <td colspan="4">ZorgaanbiederIdentificatienummer</td>
+    <td>06020806 (in identificerend systeem: AGB-Z)</td>
+  </tr>
+  <tr>
+    <td colspan="4">OrganisatieType</td>
+    <td>
+      Huisartsenpost (t.b.v. dienstwaarneming) (code = 'N6' in codeSystem
+      '<span title="2.16.840.1.113883.2.4.15.1060">HL7 RoleCodeNL Care provider type (organizations)</span>')
+    </td>
+  </tr>
+  <tr>
+    <td colspan="7">Bestemmingsgegevens</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="5">Bestemmingsstatus</td>
+    <td>
+      completed (code = 'completed' in codeSystem
+      '<span title="2.16.840.1.113883.5.14">HL7 ActStatus</span>')
+    </td>
+  </tr>
+  <tr>
+    <td colspan="6">Ritnummer</td>
+    <td>25-2020-11-1 (in identificerend systeem: 2.16.840.1.113883.2.4.3.32.5)</td>
+  </tr>
+  <tr>
+    <td colspan="6">Datum en tijd</td>
+    <td>T</td>
+  </tr>
 </table>
- 
 
- <table class="grid">
-  <thead>
-    <th colspan=2>Dossiergegevens</th>
-    <tr>
-      <th>Gegevenselement</th>
-      <th>Waarde</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>CommunicatieItem.Document.DocumentIdentificatie</td>
-      <td>9068 (in identificerend systeem: 2.25)</td>
-    </tr>
-    <tr>
-      <td>CommunicatieItem.Document.DocumentSetIdentificatie</td>
-      <td>12 (in identificerend systeem: 2.25)</td>
-    </tr>
-    <tr>
-      <td>CommunicatieItem.Document.DocumentVersienummer</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>CommunicatieItem.Document.DocumentBestandtype</td>
-      <td>application/pdf</td>
-    </tr>
-    <tr>
-      <td>CommunicatieItem.Document.DocumentInhoud</td>
-      <td>voorbeeldbericht minimaal</td>
-    </tr>
-    <tr>
-      <td>CommunicatieItem.Document.DocumentNaam</td>
-      <td>minimale overdracht</td>
-    </tr>
-    <tr>
-      <td>CommunicatieItem.Document.DocumentType</td>
-      <td>
-        intern rapport/overdracht
-        (code = 006 in codeSystem 2.16.840.1.113883.2.4.3.11.60.55.5.16)
-      </td>
-    </tr>
-  </tbody>
+<table class="grid">
+  <tr>
+    <th colspan="4">Kern</th>
+  </tr>
+  <tr>
+    <th colspan="3">Gegevenselement</th>
+    <th>Waarde</th>
+  </tr>
+  <tr>
+    <td colspan="4">RedenBericht</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="2">Context</td>
+    <td>Patiënt is vanuit acute ambulancezorg voor verdere zorg doorverwezen naar de huisartsenspoedpost</td>
+  </tr>
+</table>
+
+<table class="grid">
+  <tr>
+    <th colspan="5">Dossiergegevens</th>
+  </tr>
+  <tr>
+    <th colspan="4">Gegevenselement</th>
+    <th>Waarde</th>
+  </tr>
+  <tr>
+    <td colspan="5">CommunicatieItem</td>
+  </tr>
+  <tr>
+    <td rowspan="10"></td>
+  </tr>
+  <tr>
+    <td colspan="4">Document</td>
+  </tr>
+  <tr>
+    <td rowspan="8"></td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentIdentificatie</td>
+    <td>9068 (in identificerend systeem: 2.25)</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentSetIdentificatie</td>
+    <td>12 (in identificerend systeem: 2.25)</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentVersienummer</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentBestandtype</td>
+    <td>application/pdf</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentInhoud</td>
+    <td>voorbeeldbericht</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentNaam</td>
+    <td>Bijlage.pdf</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentType</td>
+    <td>intern rapport/overdracht (code = '006' in codeSystem '2.16.840.1.113883.2.4.3.11.60.55.5.16')</td>
+  </tr>
 </table>
 
 #### Example document handover minimal
@@ -281,14 +327,14 @@ huisartsenspoedpost
       </p>
     </header>
     <main>
-      <p>Conclusie  </p>
+      <p><strong>Conclusie</strong>  </p>
       <p>Toestandsbeeld:</p>
-      <p>Behandelingen</p>
-      <p>Meldingsgegevens</p>
-      <p>Anamnese</p>
-      <p>Handelingen</p>
-      <p>Lichamelijk onderzoek</p>
-      <p>Meetwaarden</p>
+      <p><strong>Behandelingen</strong></p>
+      <p><strong>Meldingsgegevens</strong></p>
+      <p><strong>Anamnese</strong></p>
+      <p><strong>Handelingen</strong></p>
+      <p><strong>Lichamelijk onderzoek</strong></p>
+      <p><strong>Meetwaarden</strong></p>
       <div class="ondertekening">
       <p>Met vriendelijke groet, </p>
         <strong>RAV</strong><br>
@@ -298,480 +344,510 @@ huisartsenspoedpost
   </article>
 
 ### Scenario Maximal
-<table class="grid">
-  <thead>
-    <th colspan=2>Bouwstenen</th>
-    <tr>
-      <th>Gegevenselement</th>
-      <th>Waarde</th>
-    </tr>
-  </thead>
-  <tbody>
-      <td>Naamgegevens</td>
-      <td></td>
-    <tr>
-      <td>Initialen</td>
-      <td>J.H.M.</td>
-    </tr>
-    <tr>
-      <td>Naamgebruik</td>
-      <td>
-        Geslachtsnaam partner (code = NL2 in codeSystem ZIB Naamgebruik)
-      </td>
-    </tr>
-    <tr>
-      <td>GeslachtsnaamPartner</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>VoorvoegselsPartner</td>
-      <td>van</td>
-    </tr>
-    <tr>
-      <td>AchternaamPartner</td>
-      <td>XXX_Baatenburg</td>
-    </tr>
-    <tr>
-      <td>Adresgegevens</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Straat</td>
-      <td>Knolweg</td>
-    </tr>
-    <tr>
-      <td>Huisnummer</td>
-      <td>1003</td>
-    </tr>
-    <tr>
-      <td>Postcode</td>
-      <td>9999ZA</td>
-    </tr>
-    <tr>
-      <td>Woonplaats</td>
-      <td>Stitswerd</td>
-    </tr>
-    <tr>
-      <td>Land</td>
-      <td>
-        Nederland (code = NL in codeSystem ISO 3166-1 (alpha-2))
-      </td>
-    </tr>
-    <tr>
-      <td>AdditioneleInformatie</td>
-      <td>naast de derde brug rechts</td>
-    </tr>
-    <tr>
-      <td>Contactgegevens</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Telefoonnummers</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Telefoonnummer</td>
-      <td>611234567</td>
-    </tr>
-    <tr>
-      <td>EmailAdressen</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>EmailAdres</td>
-      <td>giesput@myweb.nl</td>
-    </tr>
-    <tr>
-      <td>Identificatienummer</td>
-      <td>
-        999910589 (in identificerend systeem:
-        2.16.840.1.113883.2.4.3.11.60.103.2.36)
-      </td>
-    </tr>
-    <tr>
-      <td>Geboortedatum</td>
-      <td>6 aug 1954</td>
-    </tr>
-    <tr>
-      <td>Geslacht</td>
-      <td>
-        Vrouw (code = F in codeSystem HL7 AdministrativeGender)
-      </td>
-    </tr>
-    <tr>
-      <td>Contactpersoon</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Naamgegevens</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>VolledigeNaam</td>
-      <td>Putten</td>
-    </tr>
-    <tr>
-      <td>Contactgegevens</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Telefoonnummers</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Telefoonnummer</td>
-      <td>0611234567</td>
-    </tr>
-    <tr>
-      <td>Relatie</td>
-      <td>
-        Anders (code = OTH in codeSystem HL7 NullFlavor): FAMMEMB
-      </td>
-    </tr>
-  </tbody>
-</table>
 
 <table class="grid">
-  <thead>
-    <th colspan=2>Envelop</th>
-    <tr>
-      <th>Gegevenselement</th>
-      <th>Waarde</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Patiëntgegevens</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Patient</td>
-      <td>
-        Zie <a href="#XXX_Baatenburg">Patient: XXX_Baatenburg</a>
-      </td>
-    </tr>
-    <tr>
-      <td>Verzender</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Zorgverlener</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>ZorgverlenerIdentificatienummer</td>
-      <td>123456789 (in identificerend systeem: UZI Personen)</td>
-    </tr>
-    <tr>
-      <td>Specialisme</td>
-      <td>
-        Verpleegkundige (code = 30.000 in codeSystem RoleCodeNL - zorgverlenertype (personen))
-      </td>
-    </tr>
-    <tr>
-      <td>Contactgegevens</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Telefoonnummers</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Telefoonnummer</td>
-      <td>0612345678</td>
-    </tr>
-    <tr>
-      <td>Zorgaanbieder</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>ZorgaanbiederIdentificatienummer</td>
-      <td>
-        25 (in identificerend systeem:
-        2.16.840.1.113883.2.4.3.11.60.55.15.1)
-      </td>
-    </tr>
-    <tr>
-      <td>OrganisatieNaam</td>
-      <td>RAV</td>
-    </tr>
-    <tr>
-      <td>Zorgaanbieder</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>ZorgaanbiederIdentificatienummer</td>
-      <td>
-        25 (in identificerend systeem:
-        2.16.840.1.113883.2.4.3.11.60.55.15.1)
-      </td>
-    </tr>
-    <tr>
-      <td>OrganisatieNaam</td>
-      <td>RAV</td>
-    </tr>
-    <tr>
-      <td>Ontvanger</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Zorgaanbieder</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>ZorgaanbiederIdentificatienummer</td>
-      <td>6010860 (in identificerend systeem: AGB-Z)</td>
-    </tr>
-    <tr>
-      <td>OrganisatieNaam</td>
-      <td>HAP</td>
-    </tr>
-    <tr>
-      <td>OrganisatieType</td>
-      <td>
-        Huisartsenpost (t.b.v. dienstwaarneming)
-        (code = N6 in codeSystem HL7 RoleCodeNL Care provider type (organizations))
-      </td>
-    </tr>
-    <tr>
-      <td>Bestemmingsgegevens</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Bestemmingsstatus</td>
-      <td>
-        completed (code = completed in codeSystem HL7 ActStatus)
-      </td>
-    </tr>
-    <tr>
-      <td>Ritnummer</td>
-      <td>
-        25-2020-10-1 (in identificerend systeem:
-        2.16.840.1.113883.2.4.3.32.5)
-      </td>
-    </tr>
-    <tr>
-      <td>Datum en tijd</td>
-      <td>T</td>
-    </tr>
-  </tbody>
-</table>
-
-
-<table class="grid">
-  <thead>
-    <th colspan=2>Kern</th>
-    <tr>
-      <th>Gegevenselement</th>
-      <th>Waarde</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>RedenBericht.Context</td>
-      <td>
-        Patiënt is vanuit acute ambulancezorg voor verdere zorg doorverwezen
-        naar de huisartsenspoedpost
-      </td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Handelingen luchtweg management: intubatie van trachea</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Moeizame intubatie? Ja</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Handelingen oxygenatie en ventilatie: kunstmatige beademing</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Beademing machine Fi O2: 0.50</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Beademing machine AMV: 6L/min</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Beademing machine Freq.: 10/min</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Beademing machine Peep: 3cm[H2O]</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Hoeveelheid zuurstof: 3L/min</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Handelingen oxygenatie en ventilatie: handmatige beademing</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Handelingen circulatie: cardioversie</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Cardioversies aantal: 2</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Cardioversie maximale energie: 600 Joule</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Return Of Spontaneous Circulation (ROSC): Nee</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>AED aangesloten voor aankomst: Ja</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>AED-schokken aantal: 5</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Handelingen circulatie: transthoracale cardiale pacing</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Pacemaker frequentie: 60 /min</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Pacemaker stroomsterkte: 5 mA</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Pacemaker modus: fixed rate</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Handelingen circulatie: defibrillatie met gelijkstroom</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Defibrillaties aantal: 3</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Defibrillatie energie: 200 Joule</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Handelingen traumatologie: koelen van patiënt</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Koelen tijdsduur: 10 minuten</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Handelingen obstetrie: afklemmen van navelstreng</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Handelingen isolatie: contactisolatie</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Medicatie toegediend? Ja</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Medicatienaam: Acetylsalicylzuur</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Toegediende hoeveelheid medicatie: 2 stuk</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Medicatie toedieningsvorm: oraal toedienen van medicatie</td>
-    </tr>
-    <tr>
-      <td>IngesteldeBehandeling</td>
-      <td>Extra informatie behandeling: Normale behandeling</td>
-    </tr>
-    <tr>
-      <td>Diagnose / Conclusie</td>
-      <td>
-        letsel van aangezicht. Moeilijk observeren door weersomstandigheden
-      </td>
-    </tr>
-    <tr>
-      <td>AfgesprokenMetPatient</td>
-      <td>Huisarts nog inlichten</td>
-    </tr>
-  </tbody>
-</table>
-
-
-<table class="grid">
-  <thead>
-    <th colspan=2>Dossiergegevens</th>
-    <tr>
-      <th>Gegevenselement</th>
-      <th>Waarde</th>
-    </tr>
-  </thead>
-<tbody>
-    <tr>
-    <td>CommunicatieItem</td>
-    <td></td>
-    </tr>
-    <tr>
-    <td>Document</td>
-    <td></td>
-    </tr>
-    <tr>
-    <td>DocumentIdentificatie</td>
-    <td>
-        9068 (in identificerend systeem:
-        2.16.840.1.113883.2.4.3.11.999.103.3)
+  <tr>
+    <th colspan="6">Bouwstenen</th>
+  </tr>
+  <tr>
+    <th colspan="5">Gegevenselement</th>
+    <th>Waarde</th>
+  </tr>
+  <tr>
+    <td colspan="6">
+      <span id="XXX_Baatenburg" title="Intern ID = XXX_Baatenburg">Patient XXX_Baatenburg</span>
     </td>
-    </tr>
-    <tr>
-    <td>DocumentSetIdentificatie</td>
+  </tr>
+  <tr>
+    <td rowspan="28"></td>
+  </tr>
+  <tr>
+    <td colspan="5">Naamgegevens</td>
+  </tr>
+  <tr>
+    <td rowspan="7"></td>
+  </tr>
+  <tr>
+    <td colspan="3">Initialen</td>
+    <td>J.H.M.</td>
+  </tr>
+  <tr>
+    <td colspan="3">Naamgebruik</td>
     <td>
-        12 (in identificerend systeem:
-        2.16.840.1.113883.2.4.3.11.999.103.3)
+      Geslachtsnaam partner (code = 'NL2' in codeSystem
+      '<span title="2.16.840.1.113883.2.4.3.11.60.101.5.4">ZIB Naamgebruik</span>')
     </td>
-    </tr>
-    <tr>
-    <td>DocumentVersienummer</td>
-    <td>1</td>
-    </tr>
-    <tr>
-    <td>DocumentBestandtype</td>
-    <td>application/pdf</td>
-    </tr>
-    <tr>
-    <td>DocumentInhoud</td>
-    <td>voorbeeldbericht maximaal</td>
-    </tr>
-    <tr>
-    <td>DocumentNaam</td>
-    <td>ambulance verslag</td>
-    </tr>
-    <tr>
-    <td>DocumentCreatieDatumTijd</td>
+  </tr>
+  <tr>
+    <td colspan="4">GeslachtsnaamPartner</td>
+  </tr>
+  <tr>
+    <td rowspan="3"></td>
+  </tr>
+  <tr>
+    <td colspan="2">VoorvoegselsPartner</td>
+    <td>van</td>
+  </tr>
+  <tr>
+    <td colspan="2">AchternaamPartner</td>
+    <td>XXX_Baatenburg</td>
+  </tr>
+  <tr>
+    <td colspan="5">Adresgegevens</td>
+  </tr>
+  <tr>
+    <td rowspan="7"></td>
+  </tr>
+  <tr>
+    <td colspan="3">Straat</td>
+    <td>Knolweg</td>
+  </tr>
+  <tr>
+    <td colspan="3">Huisnummer</td>
+    <td>1003</td>
+  </tr>
+  <tr>
+    <td colspan="3">Postcode</td>
+    <td>9999ZA</td>
+  </tr>
+  <tr>
+    <td colspan="3">Woonplaats</td>
+    <td>Stitswerd</td>
+  </tr>
+  <tr>
+    <td colspan="3">Land</td>
+    <td>Nederland (code = 'NL' in codeSystem 'ISO 3166-1 (alpha-2)')</td>
+  </tr>
+  <tr>
+    <td colspan="3">AdditioneleInformatie</td>
+    <td>naast de derde brug rechts</td>
+  </tr>
+  <tr>
+    <td colspan="5">Contactgegevens</td>
+  </tr>
+  <tr>
+    <td rowspan="7"></td>
+  </tr>
+  <tr>
+    <td colspan="4">Telefoonnummers</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="2">Telefoonnummer</td>
+    <td>611234567</td>
+  </tr>
+  <tr>
+    <td colspan="4">EmailAdressen</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="2">EmailAdres</td>
+    <td>giesput@myweb.nl</td>
+  </tr>
+  <tr>
+    <td colspan="4">Identificatienummer</td>
+    <td>999910589 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.60.103.2.36)</td>
+  </tr>
+  <tr>
+    <td colspan="4">Geboortedatum</td>
+    <td>6 aug 1954</td>
+  </tr>
+  <tr>
+    <td colspan="4">Geslacht</td>
+    <td>
+      Vrouw (code = 'F' in codeSystem
+      '<span title="2.16.840.1.113883.5.1">HL7 AdministrativeGender</span>')
+    </td>
+  </tr>
+  <tr>
+    <td colspan="6">Contactpersoon</td>
+  </tr>
+  <tr>
+    <td rowspan="10"></td>
+  </tr>
+  <tr>
+    <td colspan="5">Naamgegevens</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="3">VolledigeNaam</td>
+    <td>Putten</td>
+  </tr>
+  <tr>
+    <td colspan="5">Contactgegevens</td>
+  </tr>
+  <tr>
+    <td rowspan="4"></td>
+  </tr>
+  <tr>
+    <td colspan="4">Telefoonnummers</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="2">Telefoonnummer</td>
+    <td>0611234567</td>
+  </tr>
+  <tr>
+    <td colspan="4">Relatie</td>
+    <td>
+      Anders (code = 'OTH' in codeSystem
+      '<span title="2.16.840.1.113883.5.1008">HL7 NullFlavor</span>'): FAMMEMB
+    </td>
+  </tr>
+</table>
+
+<table class="grid">
+  <tr>
+    <th colspan="7">Envelop</th>
+  </tr>
+  <tr>
+    <th colspan="6">Gegevenselement</th>
+    <th>Waarde</th>
+  </tr>
+  <tr>
+    <td colspan="7">Patiëntgegevens</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="5">Patient</td>
+    <td>Zie <a href="#XXX_Baatenburg">Patient: XXX_Baatenburg</a></td>
+  </tr>
+  <tr>
+    <td colspan="7">Verzender</td>
+  </tr>
+  <tr>
+    <td rowspan="20"></td>
+  </tr>
+  <tr>
+    <td colspan="6">Zorgverlener</td>
+  </tr>
+  <tr>
+    <td rowspan="14"></td>
+  </tr>
+  <tr>
+    <td colspan="4">ZorgverlenerIdentificatienummer</td>
+    <td>123456789 (in identificerend systeem: UZI Personen)</td>
+  </tr>
+  <tr>
+    <td colspan="4">Specialisme</td>
+    <td>Verpleegkundige (code = '30.000' in codeSystem 'RoleCodeNL - zorgverlenertype (personen)')</td>
+  </tr>
+  <tr>
+    <td colspan="5">Contactgegevens</td>
+  </tr>
+  <tr>
+    <td rowspan="4"></td>
+  </tr>
+  <tr>
+    <td colspan="4">Telefoonnummers</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="2">Telefoonnummer</td>
+    <td>0612345678</td>
+  </tr>
+  <tr>
+    <td colspan="5">Zorgaanbieder</td>
+  </tr>
+  <tr>
+    <td rowspan="5"></td>
+  </tr>
+  <tr>
+    <td colspan="4">Zorgaanbieder</td>
+  </tr>
+  <tr>
+    <td rowspan="3"></td>
+  </tr>
+  <tr>
+    <td colspan="2">ZorgaanbiederIdentificatienummer</td>
+    <td>25 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.60.55.15.1)</td>
+  </tr>
+  <tr>
+    <td colspan="2">OrganisatieNaam</td>
+    <td>RAV</td>
+  </tr>
+  <tr>
+    <td colspan="6">Zorgaanbieder</td>
+  </tr>
+  <tr>
+    <td rowspan="3"></td>
+  </tr>
+  <tr>
+    <td colspan="4">ZorgaanbiederIdentificatienummer</td>
+    <td>25 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.60.55.15.1)</td>
+  </tr>
+  <tr>
+    <td colspan="4">OrganisatieNaam</td>
+    <td>RAV</td>
+  </tr>
+  <tr>
+    <td colspan="7">Ontvanger</td>
+  </tr>
+  <tr>
+    <td rowspan="6"></td>
+  </tr>
+  <tr>
+    <td colspan="6">Zorgaanbieder</td>
+  </tr>
+  <tr>
+    <td rowspan="4"></td>
+  </tr>
+  <tr>
+    <td colspan="4">ZorgaanbiederIdentificatienummer</td>
+    <td>6010860 (in identificerend systeem: AGB-Z)</td>
+  </tr>
+  <tr>
+    <td colspan="4">OrganisatieNaam</td>
+    <td>HAP</td>
+  </tr>
+  <tr>
+    <td colspan="4">OrganisatieType</td>
+    <td>
+      Huisartsenpost (t.b.v. dienstwaarneming) (code = 'N6' in codeSystem
+      '<span title="2.16.840.1.113883.2.4.15.1060">HL7 RoleCodeNL Care provider type (organizations)</span>')
+    </td>
+  </tr>
+  <tr>
+    <td colspan="7">Bestemmingsgegevens</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="5">Bestemmingsstatus</td>
+    <td>
+      completed (code = 'completed' in codeSystem
+      '<span title="2.16.840.1.113883.5.14">HL7 ActStatus</span>')
+    </td>
+  </tr>
+  <tr>
+    <td colspan="6">Ritnummer</td>
+    <td>25-2020-10-1 (in identificerend systeem: 2.16.840.1.113883.2.4.3.32.5)</td>
+  </tr>
+  <tr>
+    <td colspan="6">Datum en tijd</td>
     <td>T</td>
-    </tr>
-    <tr>
-    <td>DocumentType</td>
-    <td>
-        intern rapport/overdracht
-        (code = 006 in codeSystem 2.16.840.1.113883.2.4.3.11.60.55.5.16)
-    </td>
-    </tr>
-</tbody>
+  </tr>
 </table>
+
+<table class="grid">
+  <tr>
+    <th colspan="4">Kern</th>
+  </tr>
+  <tr>
+    <th colspan="3">Gegevenselement</th>
+    <th>Waarde</th>
+  </tr>
+  <tr>
+    <td colspan="4">RedenBericht</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="2">Context</td>
+    <td>Patiënt is vanuit acute ambulancezorg voor verdere zorg doorverwezen naar de huisartsenspoedpost</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Handelingen luchtweg management: intubatie van trachea</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Moeizame intubatie? Ja</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Handelingen oxygenatie en ventilatie: kunstmatige beademing</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Beademing machine Fi O2: 0.50</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Beademing machine AMV: 6L/min</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Beademing machine Freq.: 10/min</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Beademing machine Peep: 3cm[H2O]</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Hoeveelheid zuurstof: 3L/min</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Handelingen oxygenatie en ventilatie: handmatige beademing</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Handelingen circulatie: cardioversie</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Cardioversies aantal: 2</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Cardioversie maximale energie: 600 Joule</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Return Of Spontaneous Circulation (ROSC): Nee</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>AED aangesloten voor aankomst: Ja</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>AED-schokken aantal: 5</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Handelingen circulatie: transthoracale cardiale pacing</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Pacemaker frequentie: 60 /min</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Pacemaker stroomsterkte: 5 mA</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Pacemaker modus: fixed rate</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Handelingen circulatie:defibrillatie met gelijkstroom</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Defibrillaties aantal: 3</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Defibrillatie energie: 200 Joule</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Handelingen traumatologie: koelen van patiënt</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Koelen tijdsduur: 10 minuten</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Handelingen obstetrie: afklemmen van navelstreng</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Handelingen isolatie: contactisolatie</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Medicatie toegediend? Ja</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Medicatienaam: Acetylsalicylzuur</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Toegediende hoeveelheid medicatie: 2 stuk</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Medicatie toedieningsvorm: oraal toedienen van medicatie</td>
+  </tr>
+  <tr>
+    <td colspan="3">IngesteldeBehandeling</td>
+    <td>Extra informatie behandeling: Normale behandeling</td>
+  </tr>
+  <tr>
+    <td colspan="3">Diagnose / Conclusie</td>
+    <td>letsel van aangezicht. Moeilijk observeren door weersomstandigheden</td>
+  </tr>
+  <tr>
+    <td colspan="3">AfgesprokenMetPatient</td>
+    <td>Huisarts nog inlichten</td>
+  </tr>
+</table>
+
+<table class="grid">
+  <tr>
+    <th colspan="5">Dossiergegevens</th>
+  </tr>
+  <tr>
+    <th colspan="4">Gegevenselement</th>
+    <th>Waarde</th>
+  </tr>
+  <tr>
+    <td colspan="5">CommunicatieItem</td>
+  </tr>
+  <tr>
+    <td rowspan="11"></td>
+  </tr>
+  <tr>
+    <td colspan="4">Document</td>
+  </tr>
+  <tr>
+    <td rowspan="9"></td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentIdentificatie</td>
+    <td>9068 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.999.103.3)</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentSetIdentificatie</td>
+    <td>12 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.999.103.3)</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentVersienummer</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentBestandtype</td>
+    <td>application/pdf</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentInhoud</td>
+    <td>voorbeeldbericht</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentNaam</td>
+    <td>ambulance verslag</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentCreatieDatumTijd</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td colspan="2">DocumentType</td>
+    <td>intern rapport/overdracht (code = '006' in codeSystem '2.16.840.1.113883.2.4.3.11.60.55.5.16')</td>
+  </tr>
+</table>
+
 
 #### Example document handover maximal
 
