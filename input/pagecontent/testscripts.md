@@ -113,7 +113,7 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
   </tr>
   <tr>
     <td colspan="5">Patient</td>
-    <td>onbekend</a></td>
+    <td>onbekend</td>
   </tr>
   <tr>
     <td colspan="7">Verzender</td>
