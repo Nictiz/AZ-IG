@@ -179,7 +179,7 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
     <td rowspan="2"></td>
   </tr>
   <tr>
-    <td colspan="6">Ritnummer</td>
+    <td colspan="5">Ritnummer</td>
     <td>25-2020-11-1 (in identificerend systeem: 2.16.840.1.113883.2.4.3.32.5)</td>
   </tr>
   <tr>
@@ -323,7 +323,6 @@ huisartsenspoedpost
       <p><strong>Handelingen</strong></p>
       <p><strong>Lichamelijk onderzoek</strong></p>
       <p><strong>Meetwaarden</strong></p>
-      </div>
     </main>
   </article>
 
@@ -614,7 +613,7 @@ huisartsenspoedpost
     <td rowspan="2"></td>
   </tr>
   <tr>
-    <td colspan="6">Ritnummer</td>
+    <td colspan="5">Ritnummer</td>
     <td>25-2020-10-1 (in identificerend systeem: 2.16.840.1.113883.2.4.3.32.5)</td>
   </tr>
   <tr>
