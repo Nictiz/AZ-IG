@@ -61,3 +61,21 @@ Transaction - the AMB-HAP-specific transaction definition (which elements are us
 OID: `2.16.840.1.113883.2.4.3.11.60.103.4.145`, effective date 2025-06-10 - [view published transaction](https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260317T103425/tr-2.16.840.1.113883.2.4.3.11.60.103.4.145-2025-06-10T000000.html)
 
 Each profile in this IG carries `Mapping` entries that trace FHIR elements back to their corresponding dataset element identifiers (`hg-dataelement-NNNN`). These mappings are visible on the Mappings tab of each profile page. See the [Design Decisions](design-decisions.html#dataset-traceability) page for the mapping conventions used.
+
+### Functional design
+
+This use case corresponds to message 24 in The Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022) ([PDF](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)).
+
+**Systems & System Roles**
+
+The ambulance service and out-of-hours GP service each use their own information system: the Ambulance Information System (AMBS) and Out-of-Hours GP Information System (HAPIS). Each system has different system roles that enable data exchange between these systems in the context of an ambulance referral. In ART-DECOR, these system roles are described as Actors.
+
+The AMBS fulfils the following system role:
+- Acute Care Process – Ambulance Referral Sending [AZP-AVS] System.
+
+The HAPIS fulfils the following system role:
+- Acute Care Process – Ambulance Referral Receiving [AZP-AVO] System.
+
+
+![Alternatieve tekst](../../util/SysteemrolAMBS.jpg)![Alternatieve tekst](../../util/SysteemrolHAPIS.jpg)
+Figure: System Roles for Ambulance Referral to HAP 
