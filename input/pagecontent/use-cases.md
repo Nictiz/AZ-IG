@@ -1,6 +1,6 @@
 ### Overview
 
-This IG covers referral transactions from the [Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf). The information exchanged covers patient identification, the reason for referral, the treatment instituted on scene, the clinical conclusion or working diagnosis, and any supporting documents such as an clinical note or ECG. Each use case maps to a specific message in the *richtlijn* and is implemented as a separate use case layer on top of the generic `hg-Referral*` profiles.
+This IG covers referral transactions from the [Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf). The information exchanged covers patient identification, the reason for referral, the treatment instituted on scene, the clinical conclusion or working diagnosis, and any supporting documents such as an clinical note or ECG. Each use case maps to a specific message in the *richtlijn* and is implemented as a separate use case layer on top of the generic `hg-*` profiles.
 
 | Use case | Message | Status |
 |---|---|---|

@@ -15,7 +15,7 @@ Status: under development - no official release yet. This is the first Nictiz IG
 
 - `sushi-config.yaml` - project configuration, dependencies, and menu
 - `input/fsh/aliases.fsh` - canonical URL and code system aliases
-- `input/fsh/profiles/` - generic `hg-Referral*` layer (FHIR core based) and the `hg-Referral*-AmbulanceHAP` use case layer derived from it
+- `input/fsh/profiles/` - generic `hg-*` layer (FHIR core based) and the `hg-Referral*-AmbulanceHAP` use case layer derived from it
 - `input/fsh/extensions/` - `hg-ext-DocumentVersion` (document version, R5/R6 bridge)
 - `input/fsh/terminology/` - local code systems and value sets (message events, destination status, document-identifier type)
 - `input/fsh/mappings/` - dataset traceability mappings attached to the use case profiles

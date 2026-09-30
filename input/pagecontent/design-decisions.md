@@ -54,7 +54,7 @@ FHIR defines no standard code to distinguish a document instance id from a set i
 
 The version number has no R4 element, so it rides the [`hg-ext-DocumentVersion`](StructureDefinition-hg-ext-DocumentVersion.html) extension; this maps directly to the native `DocumentReference.version` element in R5/R6, after which the extension is retired.
 
-Because this identity model follows the shared dataset's document structure rather than anything use-case specific, the `identifier` slicing structure and the version extension are defined on the generic `hg-ReferralDocumentReference` profile; the use case layer adds the cardinalities (including forbidding `masterIdentifier` with `0..0`) and the obligations. This `type`-code scheme is posted to the FHIR community chat for confirmation and may be revised; see the [Open Items](open-items.html) page.
+Because this identity model follows the shared dataset's document structure rather than anything use-case specific, the `identifier` slicing structure and the version extension are defined on the generic `hg-DocumentReference` profile; the use case layer adds the cardinalities (including forbidding `masterIdentifier` with `0..0`) and the obligations. This `type`-code scheme is posted to the FHIR community chat for confirmation and may be revised; see the [Open Items](open-items.html) page.
 
 ### Profile layering and naming
 

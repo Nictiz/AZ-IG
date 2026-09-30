@@ -28,5 +28,5 @@ NLCORE --> AZ
 TOOLS --> AZ
 AD ..> AZ : implemented by
 AD ..> ELZ : primary care transactions
-ELZ ..> AZ : intended dependency\n(shared generic hg-Referral* profiles)
+ELZ ..> AZ : intended dependency\n(shared generic hg-* profiles)
 @enduml
