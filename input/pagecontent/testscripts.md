@@ -98,13 +98,15 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
 ### Scenario Minimal
 
 <table class="grid">
-  <tr>
-    <th colspan="7">Envelop</th>
-  </tr>
-  <tr>
-    <th colspan="6">Gegevenselement</th>
-    <th>Waarde</th>
-  </tr>
+  <thead>
+    <tr>
+      <th colspan="7">Envelop</th>
+    </tr>
+    <tr>
+      <th colspan="6">Gegevenselement</th>
+      <th>Waarde</th>
+    </tr>
+  </thead>
   <tr>
     <td colspan="7">Patiëntgegevens</td>
   </tr>
@@ -177,13 +179,6 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
     <td rowspan="2"></td>
   </tr>
   <tr>
-    <td colspan="5">Bestemmingsstatus</td>
-    <td>
-      completed (code = 'completed' in codeSystem
-      '<span title="2.16.840.1.113883.5.14">HL7 ActStatus</span>')
-    </td>
-  </tr>
-  <tr>
     <td colspan="6">Ritnummer</td>
     <td>25-2020-11-1 (in identificerend systeem: 2.16.840.1.113883.2.4.3.32.5)</td>
   </tr>
@@ -194,13 +189,15 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
 </table>
 
 <table class="grid">
-  <tr>
-    <th colspan="4">Kern</th>
-  </tr>
-  <tr>
-    <th colspan="3">Gegevenselement</th>
-    <th>Waarde</th>
-  </tr>
+  <thead>
+    <tr>
+      <th colspan="4">Kern</th>
+    </tr>
+    <tr>
+      <th colspan="3">Gegevenselement</th>
+      <th>Waarde</th>
+    </tr>
+  </thead>
   <tr>
     <td colspan="4">RedenBericht</td>
   </tr>
@@ -214,13 +211,15 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
 </table>
 
 <table class="grid">
-  <tr>
-    <th colspan="5">Dossiergegevens</th>
-  </tr>
-  <tr>
-    <th colspan="4">Gegevenselement</th>
-    <th>Waarde</th>
-  </tr>
+  <thead>
+    <tr>
+      <th colspan="5">Dossiergegevens</th>
+    </tr>
+    <tr>
+      <th colspan="4">Gegevenselement</th>
+      <th>Waarde</th>
+    </tr>
+  </thead>
   <tr>
     <td colspan="5">CommunicatieItem</td>
   </tr>
@@ -280,11 +279,6 @@ This is an example of a handover from the ambulance. This example sets out the e
       box-shadow: 0 4px 20px rgb(0 0 0 / 15%);
     }
 
-    .datum {
-      text-align: right;
-      margin-bottom: 30px;
-    }
-
     .briefhoofd {
       margin-bottom: 20px;
     }
@@ -295,10 +289,6 @@ This is an example of a handover from the ambulance. This example sets out the e
 
     .onderwerp {
       margin-bottom: 25px;
-    }
-
-    .ondertekening {
-      margin-top: 35px;
     }
 
     caption {
@@ -318,9 +308,6 @@ This is an example of a handover from the ambulance. This example sets out the e
         <strong>Geboortedatum</strong><br>
         <strong>Contactgegevens</strong><br>  
       </div>
-        <p class="datum">
-        <time datetime="2026-09-27">Amsterdam, 27 september 2026</time>
-        </p>
         <p class="onderwerp">
         <strong>Reden/hulpvraag:</strong> Patiënt is vanuit acute ambulancezorg voor 
 verdere zorg doorverwezen naar de 
@@ -336,10 +323,6 @@ huisartsenspoedpost
       <p><strong>Handelingen</strong></p>
       <p><strong>Lichamelijk onderzoek</strong></p>
       <p><strong>Meetwaarden</strong></p>
-      <div class="ondertekening">
-      <p>Met vriendelijke groet, </p>
-        <strong>RAV</strong><br>
-        <i>Deze brief is elektronisch opgesteld en daarom niet ondertekend</i><br>
       </div>
     </main>
   </article>
@@ -347,13 +330,15 @@ huisartsenspoedpost
 ### Scenario Maximal
 
 <table class="grid">
-  <tr>
-    <th colspan="6">Bouwstenen</th>
-  </tr>
-  <tr>
-    <th colspan="5">Gegevenselement</th>
-    <th>Waarde</th>
-  </tr>
+  <thead> 
+    <tr>
+      <th colspan="6">Bouwstenen</th>
+    </tr>
+    <tr>
+      <th colspan="5">Gegevenselement</th>
+      <th>Waarde</th>
+    </tr>
+  </thead>
   <tr>
     <td colspan="6">
       <span id="XXX_Baatenburg" title="Intern ID = XXX_Baatenburg">Patient XXX_Baatenburg</span>
@@ -506,13 +491,15 @@ huisartsenspoedpost
 </table>
 
 <table class="grid">
-  <tr>
-    <th colspan="7">Envelop</th>
-  </tr>
-  <tr>
-    <th colspan="6">Gegevenselement</th>
-    <th>Waarde</th>
-  </tr>
+  <thead>
+    <tr>
+      <th colspan="7">Envelop</th>
+    </tr>
+    <tr>
+      <th colspan="6">Gegevenselement</th>
+      <th>Waarde</th>
+    </tr>
+  </thead>
   <tr>
     <td colspan="7">Patiëntgegevens</td>
   </tr>
@@ -627,13 +614,6 @@ huisartsenspoedpost
     <td rowspan="2"></td>
   </tr>
   <tr>
-    <td colspan="5">Bestemmingsstatus</td>
-    <td>
-      completed (code = 'completed' in codeSystem
-      '<span title="2.16.840.1.113883.5.14">HL7 ActStatus</span>')
-    </td>
-  </tr>
-  <tr>
     <td colspan="6">Ritnummer</td>
     <td>25-2020-10-1 (in identificerend systeem: 2.16.840.1.113883.2.4.3.32.5)</td>
   </tr>
@@ -644,13 +624,15 @@ huisartsenspoedpost
 </table>
 
 <table class="grid">
-  <tr>
-    <th colspan="4">Kern</th>
-  </tr>
-  <tr>
-    <th colspan="3">Gegevenselement</th>
-    <th>Waarde</th>
-  </tr>
+  <thead>
+    <tr>
+      <th colspan="4">Kern</th>
+    </tr>
+    <tr>
+      <th colspan="3">Gegevenselement</th>
+      <th>Waarde</th>
+    </tr>
+  </thead>
   <tr>
     <td colspan="4">RedenBericht</td>
   </tr>
@@ -796,13 +778,15 @@ huisartsenspoedpost
 </table>
 
 <table class="grid">
-  <tr>
-    <th colspan="5">Dossiergegevens</th>
-  </tr>
-  <tr>
-    <th colspan="4">Gegevenselement</th>
-    <th>Waarde</th>
-  </tr>
+  <thead>
+    <tr>
+      <th colspan="5">Dossiergegevens</th>
+    </tr>
+    <tr>
+      <th colspan="4">Gegevenselement</th>
+      <th>Waarde</th>
+    </tr>
+  </thead>
   <tr>
     <td colspan="5">CommunicatieItem</td>
   </tr>
@@ -865,9 +849,6 @@ This is an example of a handover from the ambulance. This example sets out the e
         <strong>Geboortedatum</strong> 06-08-1954 <br>
         <strong>Contactgegevens</strong> 611234567 <br>  
       </div>
-        <p class="datum">
-        <time datetime="2026-09-27">Amsterdam, 27 september 2026</time>
-        </p>
         <p class="onderwerp">
         <strong>Reden/hulpvraag:</strong> Patiënt is vanuit acute ambulancezorg voor 
 verdere zorg doorverwezen naar de 
@@ -1177,10 +1158,5 @@ Tijdsduur tussen weeën: 2 min<br>
 Naam: huisarts J.T Test <br>
 Toelichting/afspraken: terugbellen<br>
 <br>
-      <div class="ondertekening">
-      <p>Met vriendelijke groet, </p>
-        <strong>RAV</strong><br>
-        <i>Deze brief is elektronisch opgesteld en daarom niet ondertekend</i><br>
-      </div>
-    </main>
-  </article>
+  </main>
+</article>
