@@ -264,6 +264,7 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
 </table>
 
 #### Example document handover minimal
+This is an example of a handover from the ambulance. This example sets out the end-user requirements and makes no statements regarding technical realization or implementation. Following a careful process analysis with healthcare providers, the end users determined the sequence of chapters and the content of the medical information.
   <style>
     * {
       box-sizing: border-box;
@@ -850,6 +851,7 @@ huisartsenspoedpost
 
 
 #### Example document handover maximal
+This is an example of a handover from the ambulance. This example sets out the end-user requirements and makes no statements regarding technical realization or implementation. Following a careful process analysis with healthcare providers, the end users determined the sequence of chapters and the content of the medical information.
 
 <article class="brief">
     <header class="briefhoofd">
