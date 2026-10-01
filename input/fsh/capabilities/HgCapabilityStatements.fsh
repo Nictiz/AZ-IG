@@ -65,7 +65,7 @@ Instance: hg-CapabilityStatement-Receiver
 InstanceOf: CapabilityStatement
 Usage: #definition
 Title: "hg referral Receiver Capability Statement"
-Description: "Requirements on the receiving system (GP out-of-hours post, HAP) for the Acute Zorg referral push. The receiver exposes a FHIR endpoint that accepts the referral as a transaction Bundle."
+Description: "Requirements on the receiving system (GP out-of-hours service, HAP) for the Acute Zorg referral push. The receiver exposes a FHIR endpoint that accepts the referral as a transaction Bundle."
 * url = "http://nictiz.nl/fhir/CapabilityStatement/hg-CapabilityStatement-Receiver"
 * name = "HgCapabilityStatementReceiver"
 * status = #draft
