@@ -35,4 +35,4 @@ Data exchange: see [Data exchange](data-exchange.html) for the exchange paradigm
 
 ### Ambulance referral to a General Practitioner (AMB → HA)
 
-Handover of a patient by an ambulance professional to a GP (HA, *huisarts*). Follows the same pattern as AMB naar HAP; will add a parallel `hg-Referral*-AmbulanceHA` use case layer and a new message event code. Not yet defined in this version.
+Handover of a patient by an ambulance professional to a GP (HA, *huisarts*). Follows the same pattern as AMB naar HAP; will add a parallel `hg-Referral*-AmbulanceHA` use case layer. Not yet defined in this version.

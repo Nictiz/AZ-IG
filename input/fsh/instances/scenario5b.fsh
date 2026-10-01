@@ -162,43 +162,43 @@ Description: "Example attached document (an ECG) accompanying the referral in sc
   * title = "12-afleidingen ECG"
   * creation = "2026-06-08T11:05:00+02:00"
 
-Instance: hg-ReferralMessageHeader-AmbulanceHAP-referral
-InstanceOf: HgReferralMessageHeaderAmbulanceHAP
-Usage: #example
-Title: "MessageHeader - ambulance referral"
-Description: "Example MessageHeader focusing the referral ServiceRequest for the scenario 5b message."
-* eventCoding = HgMessageEvent#145 "Verwijzing ambulance naar huisartsenpost"
-* focus = Reference(hg-ReferralServiceRequest-AmbulanceHAP-referral)
-* focus.type = "ServiceRequest"
-* focus.display = "Ambulanceverwijzing naar huisartsenpost"
-* sender = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-rav)
-* sender.type = "Organization"
-* sender.display = "RAV Utrecht"
-* source.endpoint = "https://ambulance.example.nl/fhir"
-* destination.endpoint = "https://hap.example.nl/fhir"
 
 Instance: hg-ReferralBundle-AmbulanceHAP-referral
 InstanceOf: HgReferralBundleAmbulanceHAP
 Usage: #example
-Title: "Bundle - ambulance referral message (scenario 5b)"
-Description: "Example message Bundle containing the complete ambulance-to-HAP referral for scenario 5b."
-* type = #message
+Title: "Bundle - ambulance referral transaction (scenario 5b)"
+Description: "Example transaction Bundle containing the complete ambulance-to-HAP referral for scenario 5b."
+* type = #transaction
 * timestamp = "2026-06-08T11:15:05+02:00"
-* entry[+].fullUrl = "http://nictiz.nl/fhir/MessageHeader/hg-ReferralMessageHeader-AmbulanceHAP-referral"
-* entry[=].resource = hg-ReferralMessageHeader-AmbulanceHAP-referral
 * entry[+].fullUrl = "http://nictiz.nl/fhir/ServiceRequest/hg-ReferralServiceRequest-AmbulanceHAP-referral"
 * entry[=].resource = hg-ReferralServiceRequest-AmbulanceHAP-referral
+* entry[=].request.method = #POST
+* entry[=].request.url = "ServiceRequest"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/Composition/hg-ReferralComposition-AmbulanceHAP-referral"
 * entry[=].resource = hg-ReferralComposition-AmbulanceHAP-referral
+* entry[=].request.method = #POST
+* entry[=].request.url = "Composition"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/Patient/hg-Patient-AmbulanceHAP-patrick"
 * entry[=].resource = hg-Patient-AmbulanceHAP-patrick
+* entry[=].request.method = #POST
+* entry[=].request.url = "Patient"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/Practitioner/hg-HealthProfessional-Practitioner-AmbulanceHAP-ambu"
 * entry[=].resource = hg-HealthProfessional-Practitioner-AmbulanceHAP-ambu
+* entry[=].request.method = #POST
+* entry[=].request.url = "Practitioner"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/PractitionerRole/hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu"
 * entry[=].resource = hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu
+* entry[=].request.method = #POST
+* entry[=].request.url = "PractitionerRole"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-rav"
 * entry[=].resource = hg-HealthcareProvider-Organization-AmbulanceHAP-rav
+* entry[=].request.method = #POST
+* entry[=].request.url = "Organization"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-hap"
 * entry[=].resource = hg-HealthcareProvider-Organization-AmbulanceHAP-hap
+* entry[=].request.method = #POST
+* entry[=].request.url = "Organization"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/DocumentReference/hg-ReferralDocumentReference-AmbulanceHAP-ecg"
 * entry[=].resource = hg-ReferralDocumentReference-AmbulanceHAP-ecg
+* entry[=].request.method = #POST
+* entry[=].request.url = "DocumentReference"

@@ -14,7 +14,7 @@ All example resources use fictional test data only.
 | Maximal | ART-DECOR ADA test `az-ave-tst-2-maximaal` | A richly populated message: structured patient with address, telecom and a contact person; a sending nurse; all four Composition sections; and a document attachment. | [Bundle](Bundle-hg-ReferralBundle-AmbulanceHAP-max.html) |
 | Minimal | ART-DECOR ADA test `az-ave-tst-3-minimaalTestdag` | A lean message: a patient known by name and gender only, organizations addressed by URA, a free-text reason and the report attachment. | [Bundle](Bundle-hg-ReferralBundle-AmbulanceHAP-min.html) |
 
-### Functional mapping
+### Mappings
 
 How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenarios) map to FHIR in this IG. The authoritative, element-level mappings to the `hg-dataelement-NNNN` identifiers are on the Mappings tab of each profile; the table below is a functional summary to help read the examples.
 
@@ -24,7 +24,7 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 |---|---|
 | Patientgegevens | `ServiceRequest.subject` → `Patient` |
 | Verzender - *zorgverlener* | `ServiceRequest.requester` → `PractitionerRole` |
-| Verzender - *zorgaanbieder* | `PractitionerRole.organization` → `Organization` or `ServiceRequest.requester` → `Organization`; <br>`MessageHeader.sender` → `Organization`;<br>`Composition.author` |
+| Verzender - *zorgaanbieder* | `PractitionerRole.organization` to `Organization` or `ServiceRequest.requester` to `Organization`;<br>`Composition.author` |
 | Ontvanger - *zorgaanbieder* | `ServiceRequest.performer` → `Organization` |
 | Bestemmingsstatus | `ServiceRequest.status` |
 |  Ritnummer  | `ServiceRequest.encounter` → `Encounter.identifier[tripNumber]`   |
@@ -33,7 +33,7 @@ How the dataset concepts (as seen in the ART-DECOR data set and the ADA scenario
 | AfgesprokenMetPatient | `ServiceRequest.patientInstruction` |
 | Kern (link to the core) | `ServiceRequest.supportingInfo` → `Composition` |
 |   Dossiergegevens (link to the document)   |   `ServiceRequest.supportingInfo` → `DocumentReference`   |
-| Message type and event | `MessageHeader.eventCoding`; `Bundle.type = message` |
+| Transaction | `Bundle.type = transaction`; every entry a `POST` with a `urn:uuid` `fullUrl` |
 
 | Dataset concept (_verzender_ - _zorgverlener_)| FHIR element|
 |-|-|

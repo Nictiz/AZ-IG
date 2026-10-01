@@ -56,24 +56,18 @@ Description: "Generic attached document for a referral (for example an ECG or ph
 * identifier[documentSetId].type = HgDocumentIdentifierType#document-set-id
 * extension contains HgExtDocumentVersion named documentVersion 0..*
 
-Profile: HgReferralMessageHeader
-Parent: MessageHeader
-Id: hg-ReferralMessageHeader
-Title: "hg referral MessageHeader"
-Description: "Generic MessageHeader for a referral PUSH. Focuses the referral ServiceRequest; the event is bound to the referral transactions and fixed to one at the use case layer."
-* event[x] only Coding
-// The event is one of the ART-DECOR referral transactions (hg-message-event); the use case fixes its specific transaction code.
-* eventCoding from HgMessageEvents (required)
-* focus only Reference(HgReferralServiceRequest)
-* sender only Reference(Practitioner or PractitionerRole or Organization or $nlcore-PractitionerRole or $nlcore-Organization)
-* sender insert PartyReferenceComment
-
+// The exchange paradigm is RESTful (decided in GitHub issue #14), so the referral
+// travels as a transaction Bundle: one POST that writes the ServiceRequest and
+// every resource it references, with the internal references resolved through the
+// entry fullUrls. There is no MessageHeader and no message Bundle; the Messaging
+// and Document options remain described on the Data Exchange page but are not
+// modeled.
 Profile: HgReferralBundle
 Parent: Bundle
 Id: hg-ReferralBundle
 Title: "hg referral Bundle"
-Description: "Generic message bundle for a referral PUSH. The first entry SHALL be the MessageHeader."
-* type = #message
+Description: "Generic transaction bundle for a referral PUSH: the referral ServiceRequest together with the resources it references."
+* type = #transaction
 
 // =============================================================================
 // hg-ReferralTask (not yet defined)
