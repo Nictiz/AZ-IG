@@ -22,7 +22,6 @@ Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambul
   * ^alias[0] = "Envelop"
   * ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
 * status 1..1
-* status = #completed
   * ^comment = "The status is set to the fixed value Completed, as the referral messaging sent only once."
 * status insert ObligationMandatory
 * intent 1..1
