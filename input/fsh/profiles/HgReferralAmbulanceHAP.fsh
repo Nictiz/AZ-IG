@@ -220,7 +220,6 @@ Description: "Attached document for the ambulance to GP out-of-hours service (HA
   * ^definition = "Datum van het aanmaken van het document."
 * content.attachment.creation insert Obligation
 
-Profile: HgReferralMessageHeaderAmbulanceHAP
 Profile: HgReferralBundleAmbulanceHAP
 Parent: HgReferralBundle
 Id: hg-ReferralBundle-AmbulanceHAP
