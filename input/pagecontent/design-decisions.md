@@ -54,7 +54,7 @@ In the source, an attached document is a CDA `externalDocument` carrying three i
 
 FHIR R4 `DocumentReference` offered `masterIdentifier` (0..1, the document's master id) alongside `identifier` (0..\*, other ids). R5/R6 removed `masterIdentifier`, folding it into `identifier`. To avoid a breaking remodel when this IG moves to R5/R6, we already adopt the R5/R6 shape now: both the document id and the set id are carried on `identifier`, and `masterIdentifier` is forbidden (`0..0`).
 
-FHIR defines no standard code to distinguish a document instance id from a set id and explicitly leaves disambiguation of multiple identifiers "to the implementation context". We therefore slice `identifier` by `type` using a small local code system ([`acutezorg` document-identifier-type](CodeSystem-hg-document-identifier-type.html): `document-id` / `document-set-id`) - authored in FSH because it is a structural modelling code, not a clinical concept from the dataset. Each CDA `II` maps as `system` = `urn:oid:{II.root}` and `value` = `{II.extension}`.
+FHIR defines no standard code to distinguish a document instance id from a set id and explicitly leaves disambiguation of multiple identifiers "to the implementation context". We therefore slice `identifier` by `type` using a small local code system ([`acutezorg` document-identifier-type](CodeSystem-hg-document-identifier-type.html): `document-id` / `document-set-id`) - authored in FSH because it is a structural modelling code, not a clinical concept from the dataset. Each CDA `II` maps as `system` = `urn:oid:{II.root}` and `value` = `{II.extension}`; both are required, so both halves of the `II` are always present.
 
 The version number has no R4 element, so it rides the [`hg-ext-DocumentVersion`](StructureDefinition-hg-ext-DocumentVersion.html) extension; this maps directly to the native `DocumentReference.version` element in R5/R6, after which the extension is retired.
 
@@ -78,12 +78,12 @@ Support expectations are expressed with the FHIR Obligations framework. Two syst
 
 Beyond cardinalities, bindings and slicing, the use case profiles carry a small number of FHIRPath invariants - only for rules that structure cannot express, and kept resource-local so they also hold when a resource is validated standalone:
 
-- `hg-Patient-AmbulanceHAP` obeys `hg-pat-1`: the patient must be matchable at the receiver (an `identifier` or a `name` is present).
-- `hg-HealthcareProvider-Organization-AmbulanceHAP` obeys `hg-org-1`: the organization should be unambiguously addressable (a URA `identifier` is present).
+- `hg-pat-1` in `hg-Patient-AmbulanceHAP`: the receiver needs to match the patient against its own records, so an `identifier` or a `name` **SHOULD** be present.
+- `hg-org-1` in `hg-HealthcareProvider-Organization-AmbulanceHAP`: the organization needs to be uniquely identified, so a URA `identifier` (`system` = `http://fhir.nl/fhir/NamingSystem/ura`) **SHOULD** be present.
 
 Both are `#warning` for now, because a not-yet-identified ambulance patient and addressing other than by URA are legitimate edge cases; they can be raised to `#error` once the ART-DECOR conformance mapping confirms the requirement (see the [Open Items](open-items.html) page).
 
-Two further categories are deliberately *not* enforced as invariants yet. Transaction-level rules (for example, that the Bundle contains the `ServiceRequest` and the `Composition` it points to) are tracked as an open item rather than enforced. Cross-resource subject consistency (the `Composition` and `DocumentReference` subject being the same patient as the `ServiceRequest`) and a couple of `DocumentReference` structural tightenings are tracked as open items rather than enforced, to avoid `resolve()`-based invariants that are unreliable in standalone validation and to avoid constraining ahead of the dataset.
+Two further categories are deliberately *not* enforced as invariants yet. Transaction-level rules (for example, that the Bundle contains the `ServiceRequest` and the `Composition` it points to) are tracked as an open item rather than enforced. Cross-resource subject consistency (the `Composition` and `DocumentReference` subject being the same patient as the `ServiceRequest`) is tracked as an open item rather than enforced, to avoid `resolve()`-based invariants that are unreliable in standalone validation.
 
 ### Reference modeling (open world)
 
