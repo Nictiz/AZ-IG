@@ -9,7 +9,6 @@ These pending items affect how the exchange is modeled or implemented; each is t
 | Profiles | `Composition.section` codes still under review | [#6](https://github.com/Nictiz/AZ-IG/issues/6) |
 | Profiles | Patient name as free text (`HumanName.text`) - dataset component needed | [#7](https://github.com/Nictiz/AZ-IG/issues/7) |
 | Profiles | ART-DECOR mapping ids to be re-verified (functional-spec changes); mapping target URL pending the new ART-DECOR publication | [#17](https://github.com/Nictiz/AZ-IG/issues/17) |
-| Profiles | Cross-resource subject consistency (Composition/DocumentReference vs ServiceRequest) - guidance or transaction-level check | [#19](https://github.com/Nictiz/AZ-IG/issues/19) |
 | Profiles | Realign with the refreshed ART-DECOR transaction (2026-06): stale mapping ids (sender/receiver party sub-elements), new `Ritnummer` (`ServiceRequest.identifier`), receiver `OrganisatieType`, and `Patient.gender` cardinality | [#27](https://github.com/Nictiz/AZ-IG/issues/27) |
 | Architecture | Canonical URL overlap with the ELZ package | [#13](https://github.com/Nictiz/AZ-IG/issues/13) |
 | Architecture | Exchange paradigm is RESTful, and modeled as such; the agreement with the vendors and infrastructure parties is still to be made for the beta release | [#14](https://github.com/Nictiz/AZ-IG/issues/14) |

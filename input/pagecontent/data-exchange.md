@@ -72,6 +72,7 @@ In summary, the sender **SHALL**:
 - Produce a conformant use case Composition carrying the transfer summary note sections
 - Attach supporting documents as use case DocumentReference instances when available
 - Populate patient, organization, and professional resources conformant to the use case profiles
+- Reference the same patient, in the same reference form, as `subject` of the ServiceRequest, the Composition and every DocumentReference (invariant `hg-bundle-1`)
 - Package the referral as a `transaction` Bundle conforming to `hg-ReferralBundle-AmbulanceHAP` and POST it to the receiver's base URL, with a `urn:uuid` `fullUrl` per entry so the references between the resources resolve within the transaction.
 
 ---
