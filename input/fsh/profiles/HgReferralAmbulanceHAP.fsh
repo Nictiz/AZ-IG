@@ -228,11 +228,20 @@ Description: "Attached document for the ambulance to GP out-of-hours service (HA
   * ^definition = "Datum van het aanmaken van het document."
 * content.attachment.creation insert Obligation
 
+// Bundle-level invariant: the parts of one referral name one patient. It compares the subject
+// reference strings within the transaction, so it needs no resolve() and holds whenever the Bundle
+// is validated as a whole. A sender therefore writes the patient reference in one form.
+Invariant: hg-bundle-1
+Description: "The ServiceRequest, the Composition and every DocumentReference in the referral SHALL have the same patient as subject."
+Severity: #error
+Expression: "(entry.resource.ofType(ServiceRequest).subject.reference | entry.resource.ofType(Composition).subject.reference | entry.resource.ofType(DocumentReference).subject.reference).count() <= 1"
+
 Profile: HgReferralBundleAmbulanceHAP
 Parent: HgReferralBundle
 Id: hg-ReferralBundle-AmbulanceHAP
 Title: "hg referral Bundle - Ambulance to HAP"
 Description: "Transaction bundle for the ambulance to GP out-of-hours service (HAP) referral PUSH."
+* obeys hg-bundle-1
 * type = #transaction
 * timestamp 1..1
 * entry 1..*

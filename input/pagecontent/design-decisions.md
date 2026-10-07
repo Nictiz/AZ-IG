@@ -76,14 +76,20 @@ Support expectations are expressed with the FHIR Obligations framework. Two syst
 
 ### Invariants and constraints
 
-Beyond cardinalities, bindings and slicing, the use case profiles carry a small number of FHIRPath invariants - only for rules that structure cannot express, and kept resource-local so they also hold when a resource is validated standalone:
+Beyond cardinalities, bindings and slicing, the use case profiles carry a small number of FHIRPath invariants - only for rules that structure cannot express. The resource-level ones are kept resource-local so they also hold when a resource is validated standalone:
 
 - `hg-pat-1` in `hg-Patient-AmbulanceHAP`: the receiver needs to match the patient against its own records, so an `identifier` or a `name` **SHOULD** be present.
 - `hg-org-1` in `hg-HealthcareProvider-Organization-AmbulanceHAP`: the organization needs to be uniquely identified, so a URA `identifier` (`system` = `http://fhir.nl/fhir/NamingSystem/ura`) **SHOULD** be present.
 
 Both are `#warning` for now, because a not-yet-identified ambulance patient and addressing other than by URA are legitimate edge cases; they can be raised to `#error` once the ART-DECOR conformance mapping confirms the requirement (see the [Open Items](open-items.html) page).
 
-Two further categories are deliberately *not* enforced as invariants yet. Transaction-level rules (for example, that the Bundle contains the `ServiceRequest` and the `Composition` it points to) are tracked as an open item rather than enforced. Cross-resource subject consistency (the `Composition` and `DocumentReference` subject being the same patient as the `ServiceRequest`) is tracked as an open item rather than enforced, to avoid `resolve()`-based invariants that are unreliable in standalone validation.
+One invariant sits on the transaction Bundle, because it compares resources:
+
+- `hg-bundle-1` in `hg-ReferralBundle-AmbulanceHAP`: the `subject` of the `ServiceRequest`, the `Composition` and every `DocumentReference` **SHALL** reference the same patient.
+
+It compares the `subject.reference` values within the Bundle and needs no `resolve()`, so it holds whenever the Bundle is validated as a whole. A sender therefore writes the patient reference in the same form throughout the Bundle. It is `#error`, because a referral whose parts name different patients has no legitimate use.
+
+Transaction-level rules beyond this one (for example, that the Bundle contains the `ServiceRequest` and the `Composition` it points to) are deliberately *not* enforced as invariants yet.
 
 ### Reference modeling (open world)
 
