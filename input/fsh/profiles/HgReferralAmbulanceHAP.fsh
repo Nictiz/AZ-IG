@@ -21,10 +21,9 @@ Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambul
 * . ^short = "Envelope"
   * ^alias[0] = "Envelop"
   * ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
-* status 1..1
+* status
   * ^comment = "The status is set to the fixed value Completed, as the referral messaging sent only once."
 * status insert ObligationMandatory
-* intent 1..1
 * intent insert ObligationMandatory
 * code = $sct#11131000146102
 * category ^slicing.discriminator[0].type = #pattern
@@ -36,7 +35,7 @@ Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambul
 * category contains referralType 1..1
 * category[referralType] = $sct#308292007
 * category insert ObligationMandatory
-* subject 1..1
+* subject
   * ^short = "Patient"
   * ^alias[0] = "Patient"
   * ^definition = "Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt."
@@ -48,7 +47,7 @@ Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambul
   * ^alias[0] = "Datum en tijd"
   * ^definition = "Geeft het tijdstip waarop de verzender het bericht afrondt en aanbiedt voor verzending."
 * authoredOn insert ObligationMandatory
-* requester 0..1
+* requester
   * ^short = "Sender"
   * ^alias[0] = "Verzender"
   * ^alias[1] = "Zorgverlener"
@@ -79,7 +78,7 @@ Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambul
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
 * supportingInfo only Reference(Resource or HgReferralCompositionAmbulanceHAP or HgReferralDocumentReferenceAmbulanceHAP)
 * supportingInfo insert ObligationMandatory
-* patientInstruction 0..1
+* patientInstruction
   * ^short = "AgreedWithPatient"
   * ^alias[0] = "AfgesprokenMetPatient"
   * ^definition = "In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op het veld 'Afspraken met patiënt'."
@@ -94,7 +93,6 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours service
   * ^alias[0] = "Kern"
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
 * type = $loinc#28651-8
-* status 1..1
 * status insert ObligationMandatory
 * subject 1..1
   * ^short = "Patient"
@@ -108,9 +106,7 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours service
   * ^definition = "Geeft de volledige identificatie- en contactgegevens van de verzender van het bericht."
 * author only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
 * author insert ObligationMandatory
-* date 1..1
 * date insert ObligationMandatory
-* title 1..1
 * title insert ObligationMandatory
 // Re-declare the section slicing (inherited from the generic parent) so the snapshot generator anchors the slice child elements (.code, .text) in this profile.
 * section ^slicing.discriminator[0].type = #pattern
