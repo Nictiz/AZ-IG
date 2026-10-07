@@ -38,7 +38,7 @@ The paradigm is RESTful: the sender POSTs the referral to the receiver as one `t
 
 What follows from the choice is applied throughout: `hg-ReferralBundle` is a `transaction`, there is no MessageHeader profile and no message event code system, and the CapabilityStatements state the system-level `transaction` interaction next to `create` per resource type. A transaction is the right unit here because the referral is not one resource: `ServiceRequest.subject`, `supportingInfo`, `requester` and `performer` all point at resources the receiver does not hold, so posting the ServiceRequest on its own would deliver references that resolve nowhere.
 
-The decision is recorded in [#14](https://github.com/Nictiz/AZ-IG/issues/14). It is the direction this IG designs against; the agreement with the vendors and the infrastructure parties is still to be made for the beta release.
+The decision is recorded in [#14](https://github.com/Nictiz/AZ-IG/issues/14). It is revisited if the agreement with the vendors and the infrastructure parties leads elsewhere.
 
 ### Terminology
 
