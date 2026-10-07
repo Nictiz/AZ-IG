@@ -1,0 +1,34 @@
+@startuml
+' Use PlantUML's built-in layout engine (no Graphviz/dot dependency in the IG Publisher build)
+!pragma layout smetana
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam rectangle {
+  BackgroundColor white
+}
+
+rectangle "hg-ReferralBundle-AmbulanceHAP\n(transaction)" as Bundle {
+  rectangle "hg-ReferralServiceRequest-AmbulanceHAP" as SR
+  rectangle "hg-ReferralComposition-AmbulanceHAP" as Comp
+  rectangle "hg-ReferralDocumentReference-AmbulanceHAP" as DocRef
+  rectangle "hg-Patient-AmbulanceHAP" as Pat
+  rectangle "hg-Encounter-AmbulanceHAP" as Enc
+  rectangle "hg-HealthProfessional-PractitionerRole-AmbulanceHAP" as PR
+  rectangle "Practitioner" as Prac
+  rectangle "hg-HealthcareProvider-Organization-AmbulanceHAP" as Org
+}
+
+SR --> Comp : supportingInfo
+SR --> DocRef : supportingInfo
+SR --> Pat : subject
+SR --> Enc : encounter
+SR --> PR : requester\nperformer
+SR --> Org : requester\nperformer
+Comp --> Pat : subject
+Comp --> PR : author
+Comp --> Org : author
+DocRef --> PR : author
+DocRef --> Org : author
+PR --> Prac : practitioner
+PR --> Org : organization
+@enduml
