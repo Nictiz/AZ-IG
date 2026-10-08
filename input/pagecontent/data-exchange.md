@@ -8,7 +8,7 @@ The exchange paradigm is RESTful: the sender POSTs the referral to the receiver'
 
 ### System context and broker
 
-In practice, ambulance/RAV systems do not produce native FHIR resources. A broker component - operated separately from both the RAV and the HAP - converts the native message format (e.g. an HL7 v2 or proprietary format) to FHIR and forwards it to the receiver. This broker is transparent from a conformance perspective: this IG defines what the FHIR content must look like and what the receiving system must be able to accept, regardless of whether the FHIR content was produced directly by the sending system or by an intermediary. The broker is not a formal actor in this IG.
+In practice, ambulance/RAV systems do not produce native FHIR resources. A broker component converts the native message format (e.g. an HL7 v2 or proprietary format) to FHIR and forwards it to the receiver. This broker is transparent from a conformance perspective: this IG defines what the FHIR content must look like and what the receiving system must be able to accept, regardless of whether the FHIR content was produced directly by the sending system or by an intermediary. The broker is not a formal actor in this IG. Whether a broker is used, and who operates it, is agreed between the vendors and infrastructure parties; this IG does not prescribe it.
 
 ---
 
