@@ -54,7 +54,7 @@ RESTful is the paradigm this IG designs against. The decision is recorded in [Gi
 
 What follows from it is already applied: the referral is a `transaction` Bundle, the MessageHeader profile and the message event code system have been removed, and the CapabilityStatements state the system-level `transaction` interaction next to `create` per resource type.
 
-The concrete transaction definitions a reader may expect from other Nictiz FHIR IGs - search parameters, HTTP headers, and the `Bundle.entry.fullUrl` conventions of the overarching [Nictiz FHIR R4 IG](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4) - still have to be worked out against this paradigm; see the [Open Items](open-items.html) page.
+The transport-level principles of the overarching Nictiz FHIR R4 IG apply; see [Conformance to the Nictiz FHIR R4 IG](design-decisions.html#conformance-to-the-nictiz-fhir-r4-ig).
 
 ---
 
@@ -88,5 +88,5 @@ In summary, the receiver **SHALL**:
 - Accept and process a referral push without raising an error on any obligation-marked element (`SHALL:no-error`)
 - Store or route the referral for clinical review
 - Handle all resource types included in the referral: `ServiceRequest`, `Composition`, `DocumentReference`, `Patient`, `Encounter`, `Organization`, `PractitionerRole`, `Practitioner`
-- Expose a FHIR endpoint that accepts a `transaction` Bundle, resolve the `urn:uuid` references between its entries, and answer with a `transaction-response` Bundle in which every entry was created.
+- Expose a FHIR endpoint that accepts a `transaction` Bundle, resolve the `urn:uuid` references between its entries, and answer with a `transaction-response` Bundle in which every entry was created, or matched to an existing resource where the receiver deduplicates a secondary resource ([§2.11 of the Nictiz FHIR R4 IG](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#Including_.22secondary.22_resources_when_sending_information)).
 
