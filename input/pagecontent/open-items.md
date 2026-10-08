@@ -12,11 +12,8 @@ These pending items affect how the exchange is modeled or implemented; each is t
 | Profiles | `DocumentReference` - identifier slice `system`/`value` cardinality, and whether the attachment `contentType` is always PDF | [#18](https://github.com/Nictiz/AZ-IG/issues/18) |
 | Profiles | Cross-resource subject consistency (Composition/DocumentReference vs ServiceRequest) - guidance or transaction-level check | [#19](https://github.com/Nictiz/AZ-IG/issues/19) |
 | Profiles | Realign with the refreshed ART-DECOR transaction (2026-06): stale mapping ids (sender/receiver party sub-elements), new `Ritnummer` (`ServiceRequest.identifier`), receiver `OrganisatieType`, and `Patient.gender` cardinality | [#27](https://github.com/Nictiz/AZ-IG/issues/27) |
-| Architecture | Canonical URL overlap with the ELZ package | [#13](https://github.com/Nictiz/AZ-IG/issues/13) |
-| Architecture | Exchange paradigm is RESTful, and modeled as such; the agreement with the vendors and infrastructure parties is still to be made for the beta release | [#14](https://github.com/Nictiz/AZ-IG/issues/14) |
 | Architecture | Message 23 (AMB → HA) out of scope for this version | [#15](https://github.com/Nictiz/AZ-IG/issues/15) |
-| Architecture | Message event codes based on ART-DECOR transactions (code = transaction number) - under development, settled with the exchange-paradigm choice | [#20](https://github.com/Nictiz/AZ-IG/issues/20) |
-| Architecture | `Task` deliberately omitted - to be decided together with the status semantics of *Bestemmingsstatus* and `Encounter.status` | [#42](https://github.com/Nictiz/AZ-IG/issues/42) |
+| Architecture | Workflow (`Task`) not supported; the beta.1 test phase uses a single transaction with all resources, how a workflow is implemented is to be determined | [#84](https://github.com/Nictiz/AZ-IG/issues/84) |
 | Tooling | Example messages are a hand-authored interpretation of the ART-DECOR ADA test data - regenerate with the ADA-to-FHIR tooling once available | [#21](https://github.com/Nictiz/AZ-IG/issues/21) |
 | Conformance | Transport-level conformance to the Nictiz FHIR R4 IG (HTTP, search, error handling, CapabilityStatements) - to be worked out against the RESTful paradigm | [#22](https://github.com/Nictiz/AZ-IG/issues/22) |
 | Examples | The example Bundles use `POST` entries whose resources still carry an `id`, because a FSH `Instance` cannot be inlined without one. A real sender uses `urn:uuid` `fullUrl` values and no resource ids | [#21](https://github.com/Nictiz/AZ-IG/issues/21) |
