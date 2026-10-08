@@ -79,3 +79,7 @@ The HAPIS fulfils the following system role:
 
 ![Alternatieve tekst](../../util/SysteemrolAMBS.jpg)![Alternatieve tekst](../../util/SysteemrolHAPIS.jpg)
 Figure: System Roles for Ambulance Referral to HAP 
+
+
+<div>{% include systemrollsAMBS.svg %}</div>
+<br clear="all"/>
