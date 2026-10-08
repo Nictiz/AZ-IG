@@ -5,10 +5,10 @@ skinparam defaultFontName Arial
 skinparam componentStyle uml2
 skinparam linetype ortho
 
-frame "cmp Systeemrollen AMBS" {
+frame "cmp System roles HIS" {
 
-  component "AMBS" as AMBS #FFF8E8 {
-    component "AZP-AVS" as AZP_AVS #FFF8E8
+  component "HIS" as HIS #FFF8E8 {
+    component "AZP-AVO" as AZP_AVO #FFF8E8
   }
 }
 

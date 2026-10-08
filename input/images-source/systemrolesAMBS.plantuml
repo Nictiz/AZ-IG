@@ -1,0 +1,15 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam componentStyle uml2
+skinparam linetype ortho
+
+frame "cmp System roles AMBS" {
+
+  component "AMBS" as AMBS #FFF8E8 {
+    component "AZP-AVS" as AZP_AVS #FFF8E8
+  }
+}
+
+@enduml

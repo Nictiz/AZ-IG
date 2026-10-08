@@ -1,0 +1,15 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam componentStyle uml2
+skinparam linetype ortho
+
+frame "cmp System roles HAPIS" {
+
+  component "HAPIS" as HAPIS #FFF8E8 {
+    component "AZP-AVO" as AZP_AVO #FFF8E8
+  }
+}
+
+@enduml
