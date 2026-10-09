@@ -49,11 +49,12 @@ Description: "Example patient for the maximal ambulance-to-HAP referral (ART-DEC
 * contact.telecom.value = "0611234567"
 
 Instance: hg-HealthProfessional-Practitioner-AmbulanceHAP-max
-InstanceOf: Practitioner
+InstanceOf: HgHealthProfessionalPractitionerAmbulanceHAP
 Usage: #example
 Title: "Practitioner - ambulance nurse (maximal example)"
 Description: "Example sending ambulance professional (nurse) for the maximal ambulance-to-HAP referral, identified by a UZI number."
-* meta.profile = "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner"
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-Practitioner-AmbulanceHAP"
+* meta.profile[+] = $nlcore-Practitioner
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"
 * identifier.value = "123456789"
 
