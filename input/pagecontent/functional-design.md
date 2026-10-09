@@ -109,9 +109,12 @@ The image below shows the interrelationships between the processes, business rol
  <div>{% include transaction.svg %}</div>
 <br clear="all"/>
 Figure: Transaction for ambulance referral to GP and GP out-of-hours service
-<br>
+</br>
+</br>
 The image above shows that certain business activities result in a specific transaction. This transaction is performed by a system role and is part of a transaction group. The data elements exchanged between system roles as part of the transactions are specified in the "Ambulance referral to GP or GP out-of-hours service" (AMB → HAP) scenario.
 The table below allows for direct access to the relevant use cases (scenarios), transaction groups, and/or transactions in ART-DECOR or other documentation. Where a link is provided, the description of the transaction(s) or transaction group(s) is available.
+</br>
+</br>
 
 <table class="grid">
   <thead>
@@ -271,13 +274,13 @@ The following ambulance data can be included within the sections. If a specific 
   <tr>
     <td>Toestandsbeeld:  &lt;value&gt; displayname</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.425 (MedicalCondition). meerdere waarden zijn mogelijk, dus ook zo tonen gesepareerd met een komma.</td>
-    <td></td>
+    <td> Nieuwe versie Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.425 (MedicalCondition)</td>
     <td></td>
   </tr>
   <tr>
     <td>Toelichting toestandsbeeld: &lt;text&gt;</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.425 (MedicalCondition)</td>
-    <td></td>
+    <td> Nieuwe versie Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.425 (MedicalCondition)</td>
     <td></td>
   </tr>
   <tr>
@@ -361,7 +364,7 @@ The following ambulance data can be included within the sections. If a specific 
   <tr>
     <td>Defibrillaties aantal: &lt;value&gt;</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1148 (DefiblirationsNumber)</td>
-    <td></td>
+    <td>Nieuwe versie van template Defibrillation Energy</td>
     <td></td>
   </tr>
   <tr>
@@ -467,7 +470,7 @@ The following ambulance data can be included within the sections. If a specific 
     <td></td>
   </tr>
   <tr>
-    <td>colspan=2 Afspraken met de patiënt</td>
+    <td>Afspraken met de patiënt</td>
     <td></td>
     <td></td>
   </tr>
@@ -630,7 +633,7 @@ The following ambulance data can be included within the sections. If a specific 
   <tr>
     <td>Circulation sufficiënt? ja/nee</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.450 (Circulation) bevat 2.16.840.1.113883.2.4.3.11.60.55.10.451 (CirculationSufficient). Geeft aan of het "circulation" sufficiënt is. De waarde "false" betekend dat het "circulation" sufficiënt is, en het antwoord 'ja'.  De waarde "true" geeft het antwoord 'nee'.</td>
-    <td></td>
+    <td>Nieuwe template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9034 (Circulation Sufficient (2024))</td>
     <td></td>
   </tr>
   <tr>
@@ -666,7 +669,7 @@ The following ambulance data can be included within the sections. If a specific 
   <tr>
     <td>Pupil: &lt;value&gt; displayname</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.457 (pupil_observation). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.87 Pupillen SNOMED, meerdere antwoorden mogelijk, ook zo tonen</td>
-    <td></td>
+    <td>Nieuwe versie template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.457 (pupil_observation)</td>
     <td></td>
   </tr>
   <tr>
