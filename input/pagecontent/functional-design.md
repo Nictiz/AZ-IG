@@ -1160,3 +1160,180 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
 </thead>
 </table>
+
+### Mapping the ambulance handover to the SEH (CDA) to the ambulance referral to the out-of-hours GP service (FHIR), and mapping to the zibs
+
+The mappings between the data elements are shown in the table below. Data elements shown in red are <b>not</b> relevant to the exchange. Data elements shown in blue require special attention because the terminology differs.
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>AMB-SEH gegevenselement</th>
+      <th>AMB-HAP gegevenselement</th>
+      <th>Opmerking</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Persoonsgegevens</td><td>Patient</td><td></td></tr>
+    <tr><td>Persoonsidentificatie</td><td>Identificatienummer</td><td>Vanuit de ambulance wordt de patientidentificatie vestuurd middels de BSN. Het is nog niet uitgezocht of er meerdere type identificaties verstuurd of ontvangen kunnen worden. BSN is zeer waardevol om te ontvangen door HAP. Indien door spoedzorg de BSN ontbreekt, wordt uitgewisseld d.m.v. data-absent reason "unknown"</td></tr>
+    <tr><td>Naamgegevens</td><td>Naamgegevens</td><td></td></tr>
+    <tr><td></td><td>Voornamen</td><td></td></tr>
+    <tr><td>Initialen</td><td>Initialen</td><td></td></tr>
+    <tr><td></td><td>Roepnaam</td><td></td></tr>
+    <tr><td>Soort naam</td><td>Naamgebruik</td><td>Ondersteuning deel waardenlijst is toegestaan: Geslachtsnaam, geslachtsnaam partner. Vanuit HIS wordt vanuit BSN alleen geboorte achternaam opgehaald.</td></tr>
+    <tr><td>Achternaam</td><td>Geslachtsnaam/GeslachtsnaamPartner</td><td>Voor de HAP is geslachtsnaam voldoende</td></tr>
+    <tr><td>Voorvoegsel</td><td>Voorvoegsels/VoorvoegselsPartner</td><td></td></tr>
+    <tr><td>Achternaam</td><td>Achternaam/AchternaamPartner</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Titels</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling: geen toegevoegde waarde NAW gegevens</td></tr>
+    <tr><td>Adresgegevens</td><td>Adresgegevens</td><td></td></tr>
+    <tr><td>Straat</td><td>Straat</td><td></td></tr>
+    <tr><td>Huisnummer</td><td>Huisnummer</td><td></td></tr>
+    <tr><td>Huisletter</td><td>Huisnummerletter</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">AanduidingBijNummer</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling: geen meerwaarde</td></tr>
+    <tr><td>Huisnummertoevoeging</td><td>Huisnummertoevoeging</td><td>brievenbus geen noodzaak voor HAP</td></tr>
+    <tr><td>Postcode</td><td>Postcode</td><td></td></tr>
+    <tr><td>Locatiebeschrijving</td><td><span style="color: #0000ff">AdditioneleInformatie</span></td><td>&lt;unitID&gt; in &lt;/addr&gt;</td></tr>
+    <tr><td>Woonplaats</td><td>Woonplaats</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Gemeente</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling: geen toegevoegde waarde, wordt gevonden met postcode/huisnummer</td></tr>
+    <tr><td>Land</td><td>Land</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Adressoort</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling: wanneer het openbare ruimte betreft is de zorg altijd voor de ambulance en niet voor de HAP</td></tr>
+    <tr><td>Overige contactgegevens</td><td>Contactgegevens</td><td></td></tr>
+    <tr><td>Telefoonnummers</td><td>Telefoonnummers</td><td></td></tr>
+    <tr><td>Telefoonnummer</td><td>Telefoonnummer</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">TelecomType</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling: als er maar terugbelnummer bekend is, overige geen meerwaarde</td></tr>
+    <tr><td></td><td><span style="color: #db1304">NummerSoort</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling: als er maar terugbelnummer bekend is, overige geen meerwaarde</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Toelichting</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling: handig te weten of het telefoonnummer van patient of anders is</td></tr>
+    <tr><td>E-mailadressen</td><td>EmailAdressen</td><td></td></tr>
+    <tr><td>E-mailadres</td><td>EmailAdres</td><td>niet nodig op de HAP</td></tr>
+    <tr><td></td><td><span style="color: #db1304">EmailSoort</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling: niet nodig op de HAP</td></tr>
+    <tr><td>Geboortedatum</td><td>Geboortedatum</td><td></td></tr>
+    <tr><td>Geslacht</td><td>Geslacht</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">MeerlingIndicator</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling: minder relevant voor HAP. Wordt nu niet geregistreerd door ambulance. Indien de informatiebehoefte wordt aangegeven, te bespreken voor een volgende versie van het bericht.</td></tr>
+    <tr><td></td><td><span style="color: #db1304">OverlijdensIndicator</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling: Natuurlijk overlijden doet HAP. En niet-natuurlijk overlijden forensisch arts. Geen registratie bij de patient door de ambulance. Wel komt tijdstip van overlijden in de bijlage mee.</td></tr>
+    <tr><td></td><td><span style="color: #db1304">DatumOverlijden</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling: Natuurlijk overlijden doet HAP. En niet-natuurlijk overlijden forensisch arts. Geen registratie bij de patient door de ambulance. Wel komt tijdstip van overlijden in de bijlage mee.</td></tr>
+    <tr><td>Contactpersoon patiënt</td><td>Contactpersoon</td><td></td></tr>
+    <tr><td></td><td>Naamgegevens</td><td></td></tr>
+    <tr><td>Achternaam</td><td><span style="color: #0000ff">Volledige naam</span></td><td>Vanuit AMBISsen blijkt dat ongestructureerd de volledige naam wordt geregistreerd</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Voornamen</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Initialen</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Roepnaam</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Naamgebruik</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Geslachtsnaampartner.VoorvoegselPartner</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Geslachtsnaampartner.AchternaamPartner</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Titels</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td>Adresgegevens</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Straat</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Huisnummer</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Huisnummerletter</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Huisnummertoevoeging</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">AanduidingbijNummer</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Postcode</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Woonplaats</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Gemeente</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Land</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">AdditionaleInformatie</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">AdresSoort</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td>Contactgegevens.Telefoonnummers</td><td></td></tr>
+    <tr><td>Telefoonnummer</td><td>Telefoonnummer</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Telecomtype</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">NummerSoort</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Toelichting</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td>Contactgegevens.Emailadressen</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Emailadres</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">EmailadresSoort</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td>Relatie tot patiënt</td><td>Relatie</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Rol</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Toelichting</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td>Ritgegevens Ambulance</td><td>Verzendende Zorgverlener</td><td></td></tr>
+    <tr><td>Ambulanceverpleegkundige Identificatie</td><td>Zorgverleneridentificatienummer</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Naamgegevens</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #0000ff">Specialisme</span></td><td>UZI waarde 30.000 Verpleegkundige of &lt;br&gt; Vektis AGB-medische specialismen waarde 9100 Verpleegkundigen, niet nader gespecificeerd</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Geslacht</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Adresgegevens</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td>Telefoon ambulance</td><td><span style="color: #0000ff">Contactgegevens.Telefoonnummers.Telefoonnummer</span></td><td>Om de zorgverlener te bereiken, gaat dat via het telefoonnummer van de ambulance</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Contactgegevens.Emailadressen</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Zorgverlenerrol</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td>Ambulance</td><td>Verzendende Zorgaanbieder</td><td></td></tr>
+    <tr><td>Ambulancevoorziening</td><td>ZorgaanbiederIdentificatienummer</td><td></td></tr>
+    <tr><td></td><td><span style="color: #0000ff">OrganisatieNaam</span></td><td>RAV-naam</td></tr>
+    <tr><td></td><td>OrganisatieLocatie</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Locatienaam</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwissel</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Locatienummer</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwissel</td></tr>
+    <tr><td></td><td>Adresgegevens</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Straat</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Huisnummer</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Huisnummerletter</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Huisnummertoevoeging</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">AanduidingbijNummer</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Postcode</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Woonplaats</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Gemeente</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Land</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">AdditionaleInformatie</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">AdresSoort</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td>Contactgegevens.Telefoonnummers</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Telefoonnummers</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Telecomtype</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">NummerSoort</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Toelichting</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td>Contactgegevens.Emailadressen</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Emailadres</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">EmailadresSoort</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td>Bestemmingsgegevens</td><td>Ontvangende zorgaanbieder</td><td></td></tr>
+    <tr><td>Bestemmingscode</td><td>ZorgaanbiederIdentificatienummer</td><td>Mapping vanuit LSDV met LSP-ID: https://nictiz.atlassian.net/wiki/spaces/POB/pages/930938881/Bestemmingscode+-+ketenafspraak</td></tr>
+    <tr><td>Locatie of afdeling</td><td><span style="color: #0000ff">OrganisatieNaam</span></td><td>HAP-naam. Bekend vanuit het LSDV-lijst. In de CDA-XML staat de OID van de LSDV-lijst. Dit wordt nog uitgezocht in https://nictiz.atlassian.net/browse/AZ-1133</td></tr>
+    <tr><td></td><td><span style="color: #db1304">AfdelingSpecialisme</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">OrganisatieType</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td>OrganisatieLocatie</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Locatienaam</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Locatienummer</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td>Adresgegevens</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Straat</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Huisnummer</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Huisnummerletter</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Huisnummertoevoeging</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">AanduidingbijNummer</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Postcode</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Woonplaats</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Gemeente</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Land</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">AdditionaleInformatie</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">AdresSoort</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td>Contactgegevens.Telefoonnummers</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Telefoonnummers</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Telecomtype</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">NummerSoort</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">Toelichting</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td>Contactgegevens.Emailadressen</td><td></td></tr>
+    <tr><td></td><td><span style="color: #db1304">Emailadres</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td></td><td><span style="color: #db1304">EmailadresSoort</span></td><td>n.a.v. gesprekken met het zorgveld niet relevant voor de uitwisseling</td></tr>
+    <tr><td>Bestemmingsgegevens</td><td>Bestemmingsgegevens</td><td></td></tr>
+    <tr><td>Bestemmingsstatus</td><td>Bestemmingsstatus</td><td>De bestemmingsstatus overgedragen wordt gemapt op servicerequest.status=completed</td></tr>
+    <tr><td></td><td>Datum en tijd</td><td>Datum en tijd van bericht versturen</td></tr>
+    <tr><td>Ritnummer</td><td>Ritnummer</td><td>Ritnummer van de ambulance</td></tr>
+    <tr><td></td><td>Kern</td><td></td></tr>
+    <tr><td>Reden bericht (vanaf V2.5.0)</td><td><span style="color: #0000ff">Reden bericht.Context</span></td><td>Wanneer een patiënt vanuit de acute ambulancezorg wordt doorverwezen naar de Huisartsenpost (HAP) en de specifieke bestemmingsgegevens, zoals Reden Bericht (pas operationeel in V2.5.0) ontbreekt in de overdracht, genereert het systeem automatisch een vaste tekst: Patiënt is vanuit acute ambulancezorg voor verdere zorg doorverwezen naar de huisartsenspoedpost</td></tr>
+    <tr><td>Behandeling</td><td>Ingestelde Behandeling</td><td>Elke behandeling in aparte Ingestelde behandeling sectie</td></tr>
+    <tr><td>Luchtweg management (therapeutisch)</td><td><span style="color: #0000ff">Ingestelde Behandeling</span></td><td></td></tr>
+    <tr><td>Oxygenatie en ventilatie (therapeutisch)</td><td><span style="color: #0000ff">Ingestelde Behandeling</span></td><td></td></tr>
+    <tr><td>Circulatie (therapeutisch)</td><td><span style="color: #0000ff">Ingestelde Behandeling</span></td><td></td></tr>
+    <tr><td>Traumatologie (therapeutisch)</td><td><span style="color: #0000ff">Ingestelde Behandeling</span></td><td></td></tr>
+    <tr><td>Obstetrie (therapeutisch)</td><td><span style="color: #0000ff">Ingestelde Behandeling</span></td><td></td></tr>
+    <tr><td>Wijze van isolatie</td><td><span style="color: #0000ff">Ingestelde Behandeling</span></td><td></td></tr>
+    <tr><td>Medicatie</td><td><span style="color: #0000ff">Ingestelde Behandeling</span></td><td></td></tr>
+    <tr><td>Extra informatie behandeling</td><td><span style="color: #0000ff">Ingestelde Behandeling</span></td><td></td></tr>
+    <tr><td>Toestandsbeelden/Werkdiagnosen</td><td>Diagnose/Conclusie</td><td>Toestandsbeelden/werkdiagnose weergavenamen en toelichting toestandsbeeld</td></tr>
+    <tr><td>Toestandsbeeld titel</td><td><span style="color: #0000ff">Diagnose/Conclusie</span></td><td></td></tr>
+    <tr><td>Toelichting Toestandsbeeld</td><td><span style="color: #0000ff">Diagnose/Conclusie</span></td><td></td></tr>
+    <tr><td>Afspraken met patiënt</td><td>AfgesprokenMetPatient</td><td></td></tr>
+    <tr><td>Bijlage</td><td>Dossiergegevens.CommunicatieItem.Document</td><td></td></tr>
+    <tr><td>Bijlage id</td><td>DocumentIdentificatie</td><td></td></tr>
+    <tr><td>Bijlageset id</td><td>DocumentSetIdentificatie</td><td></td></tr>
+    <tr><td>Versie</td><td>DocumentVersienummer</td><td>Hoe versie gemapt gaat worden van CDA naar FHIR, staat nog in analyse bij de HL7 Community https://nictiz.atlassian.net/browse/AZ-1158</td></tr>
+    <tr><td>Media Type</td><td>DocumentBestandtype</td><td></td></tr>
+    <tr><td>Bijlage inhoud</td><td>DocumentInhoud</td><td></td></tr>
+    <tr><td>Bestandsnaam</td><td>DocumentNaam</td><td></td></tr>
+    <tr><td>Creatiedatum</td><td>DocumentCreatieDatumTijd</td><td></td></tr>
+    <tr><td>Type bijlage</td><td>DocumentType</td><td></td></tr>
+  </tbody>
+</table>
