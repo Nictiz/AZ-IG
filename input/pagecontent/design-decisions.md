@@ -10,7 +10,16 @@ Mandatory vs Required, and missing data (§2.13). The core IG distinguishes the 
 
 Narrative (§2.14). The free-text *rubrieken* are carried in the relevant `Composition.section.text` (with `text.status = additional`); see [Envelope and core](#envelope-and-core-servicerequest-and-composition). This IG does not additionally require a generated `Resource.text` narrative on each resource.
 
-Still to be worked out. The core IG's transport-level principles - HTTP headers (§2.3), search (§2.7), error handling and `OperationOutcome` (§2.9), the informative role of CapabilityStatements (§2.10), secondary resources in transactions (§2.11) and `Bundle.entry.fullUrl` conventions (§2.8) - now have a paradigm to be worked out against, but that has not been done yet. Tracked as an open item ([#22](https://github.com/Nictiz/AZ-IG/issues/22)).
+Transport (§2.3, §2.7 to §2.11). The transport-level principles apply as the core IG states them, with the receiver as server and the sender as client:
+
+- [HTTP headers (§2.3)](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#HTTP_headers) apply as stated.
+- [Search (§2.7)](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#Search) does not apply: the exchange is a push without search.
+- [`.id`, `.identifier` and `.fullUrl` (§2.8)](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#Usage_of_the_.id.2C_.identifier_and_.fullUrl_elements_in_FHIR_instances): every entry in the transaction Bundle is a create, so it **SHOULD NOT** carry an `.id` and has a `urn:uuid` `fullUrl`.
+- [Handling errors (§2.9)](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#Handling_errors) applies. Whether the receiver rejects a referral that violates the profiles with `422` is not decided yet ([#22](https://github.com/Nictiz/AZ-IG/issues/22)).
+- [CapabilityStatements (§2.10)](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#CapabilityStatements) are informative, as stated in their `purpose`.
+- [Secondary resources (§2.11)](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#Including_.22secondary.22_resources_when_sending_information) apply, including deduplication by the receiver.
+
+Also not decided yet: whether the receiver supports `read` on the resources it received ([#22](https://github.com/Nictiz/AZ-IG/issues/22)).
 
 ### Base profiles
 

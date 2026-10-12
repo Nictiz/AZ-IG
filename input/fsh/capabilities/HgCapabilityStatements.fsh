@@ -80,7 +80,7 @@ Description: "Requirements on the receiving system (GP out-of-hours service, HAP
 * copyright = "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/."
 * rest[+]
   * mode = #server
-  * documentation = "The receiving system accepts a conformant referral as one transaction and must not raise an error on any obligation-marked element (SHALL:no-error). It answers the transaction with a transaction-response Bundle in which every entry was created. The resource types it has to accept are listed below: ServiceRequest, Composition, DocumentReference, Patient, Encounter, Organization, PractitionerRole and Practitioner."
+  * documentation = "The receiving system accepts a conformant referral as one transaction and must not raise an error on any obligation-marked element (SHALL:no-error). It answers the transaction with a transaction-response Bundle in which every entry was created, or matched to an existing resource where the receiver deduplicates a secondary resource (section 2.11 of the Nictiz FHIR R4 IG). The resource types it has to accept are listed below: ServiceRequest, Composition, DocumentReference, Patient, Encounter, Organization, PractitionerRole and Practitioner."
   * interaction[+]
     * code = #transaction
     * documentation = "Accepts the referral as one transaction Bundle conforming to hg-ReferralBundle-AmbulanceHAP, resolving the urn:uuid references between its entries."
