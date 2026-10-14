@@ -254,7 +254,7 @@ The following ambulance data can be included within the sections. If a specific 
     <td>Overige contactgegevens:  &lt;telecom&gt;</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.101 (CDA recordTarget) bij element: &lt;telecom&gt;</td>
     <td></td>
-    <td>vrijheidsgraad, niet verplicht voor kwalificatie. Telefoonnummer van patient is zeer wenselijk, anders kan patient niet teruggebeld worden.</td>
+    <td>Degree of flexibility; not mandatory for qualification. The patient's telephone number is highly desirable; otherwise, it is not possible to call the patient back.</td>
   </tr>
   <tr>
     <td>Reden</td>
@@ -270,7 +270,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Toestandsbeeld:  &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.425 (MedicalCondition). meerdere waarden zijn mogelijk, dus ook zo tonen gesepareerd met een komma.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.425 (MedicalCondition). Multiple values ​​are possible, so display them separated by a comma..</td>
     <td></td>
     <td></td>
   </tr>
@@ -294,19 +294,19 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Handeling luchtweg management:&lt; code &gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1134 (AirwayManagement) De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.100 (Handelingen luchtweg management SNOMED), meerdere waarden zijn mogelijk dus ook zo tonen gesepareerd met een komma</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1134 (AirwayManagement) The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.100 (Handelingen luchtweg management SNOMED), Multiple values ​​are possible, so display them separated by a comma.</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Moeizame intubatie?</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1135 (DifficultIntubation) ja/nee &lt;observation&gt; negationInd</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9037. De waarde van @code MOET komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.124 Moeizame intubatie.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9037. The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.124 Moeizame intubatie.</td>
     <td></td>
   </tr>
   <tr>
     <td>Handelingen oxygenatie en ventilatie : &lt; code &gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1136 (OxygenationAndVentilation)  De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.106 (Handelingen oxygenatie en ventilatie SNOMED)), meerdere waarden zijn mogelijk dus ook zo tonen gesepareerd met een komma</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1136 (OxygenationAndVentilation)  The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.106 (Handelingen oxygenatie en ventilatie SNOMED)), Multiple values ​​are possible, so display them separated by a comma.</td>
     <td></td>
     <td></td>
   </tr>
@@ -342,7 +342,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Handelingen circulatie : &lt; code &gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1142 (CirculationTherapeutic). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.101 (Handelingen circulatie SNOMED), meerdere waarden zijn mogelijk dus ook zo tonen gesepareerd met een komma</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1142 (CirculationTherapeutic). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.101 (Handelingen circulatie SNOMED), Multiple values ​​are possible, so display them separated by a comma.</td>
     <td></td>
     <td></td>
   </tr>
@@ -402,13 +402,13 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Pacemaker modus: &lt;value&gt;</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1145 (Pacemaker Modus). De waarde van @code MOET komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.77 Pacemaker modus</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1145 (Pacemaker Modus). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.77 Pacemaker modus</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Handelingen traumatologie : &lt; code &gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1151 (Traumatology). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.102 (Handelingen traumatologie SNOMED), meerdere waarden zijn mogelijk dus ook zo tonen gesepareerd met een komma</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1151 (Traumatology).The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.102 (Handelingen traumatologie SNOMED), Multiple values ​​are possible, so display them separated by a comma.</td>
     <td></td>
     <td></td>
   </tr>
@@ -420,13 +420,13 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Handelingen obstetrie:&lt; code &gt; displayName</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1153 (HandelingenObstetrieSNOMED). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.103 Handelingen Obstetrie SNOMED, meerdere waarden zijn mogelijk dus ook zo tonen gesepareerd met een komma</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1153 (HandelingenObstetrieSNOMED). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.103 Handelingen Obstetrie SNOMED, Multiple values ​​are possible, so display them separated by a comma.</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Handelingen isolatie: &lt; code &gt; displayName</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1155 (IsolationKind). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.104 Handelingen Isolatie SNOMED, meerdere waarden zijn mogelijk dus ook zo tonen gesepareerd met een komma</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1155 (IsolationKind).The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.104 Handelingen Isolatie SNOMED, Multiple values ​​are possible, so display them separated by a comma.</td>
     <td></td>
     <td></td>
   </tr>
@@ -438,8 +438,8 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Medicatienaam: &lt; code &gt; displayname</td>
-    <td>Template ID:2.16.840.1.113883.2.4.3.11.60.55.10.1157 (MedicationName). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.18 (Medicatieoverzicht), meerdere waarden zijn mogelijk, dus ook zo tonen. In combinatie met toegediende hoeveelheid medicatie, tijd medicatietoediening en medicatie toedieningsvorm.</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1157 (MedicationName). De waarde van @code MOET komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.126 Generieke Product Kenmerk (2023‑11‑16 14:31:25)</td>
+    <td>Template ID:2.16.840.1.113883.2.4.3.11.60.55.10.1157 (MedicationName). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.18 (Medicatieoverzicht), meerdere waarden zijn mogelijk, dus ook zo tonen. In combinatie met toegediende hoeveelheid medicatie, tijd medicatietoediening en medicatie toedieningsvorm.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1157 (MedicationName). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.126 Generieke Product Kenmerk (2023‑11‑16 14:31:25)</td>
     <td></td>
   </tr>
   <tr>
@@ -456,8 +456,8 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Medicatie toedieningsvorm: &lt;value&gt; displayName</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1158 (MedicationAdministartionProcedure). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.48 Medicatie handelingen SNOMED</td>
-    <td>niet meer aanwezig in 2.5.0</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1158 (MedicationAdministartionProcedure). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.48 Medicatie handelingen SNOMED</td>
+    <td>no longer present in 2.5.0</td>
     <td></td>
   </tr>
   <tr>
@@ -528,7 +528,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Meldkamerurgentie: &lt;value&gt;</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1170 (Urgency)/ De waarde van @value moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.123 (Urgentie)</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1170 (Urgency)/ The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.123 (Urgentie)</td>
     <td></td>
     <td></td>
   </tr>
@@ -551,7 +551,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Allergie: &lt;value&gt;</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.464 (Ample).  Meerdere &lt; code &gt; &lt; value &gt; pairs mogelijk en dus ook zo tonen. De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.105 Anamnese SNOMED</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.464 (Ample).  Meerdere &lt; code &gt; &lt; value &gt; pairs mogelijk en dus ook zo tonen. The value of @code MUST come from the value list  2.16.840.1.113883.2.4.3.11.60.55.11.105 Anamnese SNOMED</td>
     <td>Risico op kruisinfectie komt niet meer voor in V2.5.0</td>
     <td></td>
   </tr>
@@ -564,7 +564,7 @@ The following ambulance data can be included within the sections. If a specific 
   <tr>
     <td>Verdenking infectieziekte?  ja/nee &lt;observation&gt; negationInd</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.465 (Infection Risk). De waarde "false" betekent dat de verdenking voor infectieziekten aanwezig is, het antwoord is dan ja</td>
-    <td>Besmettingsrisico: &lt;value&gt; uit Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9033 Infection Risk (2024). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.128 Besmettingsrisico SNOMED (BSA)</td>
+    <td>Besmettingsrisico: &lt;value&gt; uit Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9033 Infection Risk (2024). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.128 Besmettingsrisico SNOMED (BSA)</td>
     <td></td>
   </tr>
   <tr>
@@ -581,7 +581,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Handelingen Ademhaling en beademing: &lt; code &gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1131 (Breathing And Ventilation). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.97 (Handelingen ademhaling en beademing SNOMED), meerdere waarden zijn mogelijk dus ook zo tonen gesepareerd met een komma</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1131 (Breathing And Ventilation). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.97 (Handelingen ademhaling en beademing SNOMED), Multiple values ​​are possible, so display them separated by a comma.</td>
     <td></td>
     <td></td>
   </tr>
@@ -593,7 +593,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Overige diagnostische handelingen: &lt; code &gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1133. De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.99 Handelingen overig diagnostisch SNOMED, meerdere waarden zijn mogelijk dus ook zo tonen gesepareerd met een komma</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1133. The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.99 Handelingen overig diagnostisch SNOMED, Multiple values ​​are possible, so display them separated by a comma.</td>
     <td></td>
     <td></td>
   </tr>
@@ -606,7 +606,7 @@ The following ambulance data can be included within the sections. If a specific 
   <tr>
     <td>Airway vrij?  ja/nee &lt;observation&gt; negationInd</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.446 (Airway). Geeft aan of de luchtweg vrij is. De waarde "false" betekend dat de luchtweg vrij is, en het antwoord 'ja'. De waarde "true" geeft het antwoord 'nee'</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9035. De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.117 Airway vrij</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9035. The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.117 Airway vrij</td>
     <td></td>
   </tr>
   <tr>
@@ -623,7 +623,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Breathing observaties: &lt;value&gt;</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.448 (BreathingObservations). Meerdere antwoorden mogelijk, dus ook zo tonen.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.448 (BreathingObservations). multiple answers possible, so display accordingly.</td>
     <td></td>
     <td></td>
   </tr>
@@ -641,13 +641,13 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Huid observatie: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.453 (SkinObservation). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.38 Huidskleur SNOMED, meerdere antwoorden mogelijk, ook zo tonen.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.453 (SkinObservation). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.38 Huidskleur SNOMED, multiple answers possible, so display accordingly.</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>AVPU: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.455 (AVPU). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.39 AVPU SNOMED.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.455 (AVPU). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.39 AVPU SNOMED.</td>
     <td></td>
     <td></td>
   </tr>
@@ -660,12 +660,12 @@ The following ambulance data can be included within the sections. If a specific 
   <tr>
     <td>Neurologische observaties: &lt; code &gt; displayname</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1132 (Counsciousness And Neurological Status). Alleen de waarden 26544005 spierzwakte, 77743009coördinatiestoornis, 52931000146103 sensibiliteitsstoornis van huid, 63102001 visuele stoornis, 33561000146106 acute duizeligheid, 33571000146100 acute evenwichtsstoornis bij @code uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.98 (Handelingen bewustzijn en neurologische status SNOMED)</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9044. De waarde van @code MOET komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.131 Neurologie SNOMED.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9044. The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.131 Neurologie SNOMED.</td>
     <td></td>
   </tr>
   <tr>
     <td>Pupil: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.457 (pupil_observation). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.87 Pupillen SNOMED, meerdere antwoorden mogelijk, ook zo tonen</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.457 (pupil_observation). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.87 Pupillen SNOMED, multiple answers possible, so display accordingly</td>
     <td></td>
     <td></td>
   </tr>
@@ -683,7 +683,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Intoxicatie: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.459 (Intoxication). Type intoxicatie moet hier worden geduid. De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.93 Intoxicatie SNOMED (DYNAMISCH), meerdere antwoorden mogelijk, dus ook zo tonen.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.459 (Intoxication). Type intoxicatie moet hier worden geduid. The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.93 Intoxicatie SNOMED (DYNAMISCH), multiple answers possible, so display accordingly.</td>
     <td></td>
     <td></td>
   </tr>
@@ -701,31 +701,31 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Hoofd en gelaat observaties: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.467 (Head And Face Observations). Bevat de observaties aan hoofd en gelaat; De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.70 Hoofd en gelaat SNOMED (DYNAMISCH), meerdere antwoorden mogelijk, dus ook zo tonen.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.467 (Head And Face Observations). Bevat de observaties aan hoofd en gelaat; The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.70 Hoofd en gelaat SNOMED (DYNAMISCH), multiple answers possible, so display accordingly.</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Bloedverlies: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.468 (Loss Of Blood). Geeft gedetailleerde omschrijving van bloedverlies aan; De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.59 Bloedverlies SNOMED (DYNAMISCH), meerdere antwoorden mogelijk, dus ook zo tonen.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.468 (Loss Of Blood). Geeft gedetailleerde omschrijving van bloedverlies aan; The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.59 Bloedverlies SNOMED (DYNAMISCH), multiple answers possible, so display accordingly.</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Liquorverlies: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.469 (Loss Of Liquor). Geeft gedetailleerde omschrijving van liquorverlies aan; De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.51 Liquorverlies SNOMED (DYNAMISCH). meerdere antwoorden mogelijk, dus ook zo tonen.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.469 (Loss Of Liquor). Geeft gedetailleerde omschrijving van liquorverlies aan; The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.51 Liquorverlies SNOMED (DYNAMISCH). multiple answers possible, so display accordingly.</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Pijnlocatie: &lt;value&gt;</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.470 (Pain Location). Meerdere antwoorden mogelijk, dus ook zo tonen.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.470 (Pain Location). multiple answers possible, so display accordingly.</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Verwonding: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.466 (HeadAndFace) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.471 (Wound). Geeft het type van de wond aan; De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED (DYNAMISCH)</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.466 (HeadAndFace) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.471 (Wound). Geeft het type van de wond aan; The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED (DYNAMISCH)</td>
     <td></td>
     <td></td>
   </tr>
@@ -737,13 +737,13 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Nek, hals, CWK observaties: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.472 (NeckThroatCWK) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.473 (NeckThroatCWKObservations). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.88 Nek, Hals, CWK SNOMED, meerdere antwoorden mogelijk, dus ook zo tonen.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.472 (NeckThroatCWK) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.473 (NeckThroatCWKObservations). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.88 Nek, Hals, CWK SNOMED, multiple answers possible, so display accordingly.</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Verwonding: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.472 (NeckThroatCWK) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.471 (Wound). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED, meerdere antwoorden mogelijk, dus ook zo tonen.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.472 (NeckThroatCWK) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.471 (Wound). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED, multiple answers possible, so display accordingly.</td>
     <td></td>
     <td></td>
   </tr>
@@ -755,19 +755,19 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Thorax observaties: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.474 (Thorax) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.475 (ThoraxObservations). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.66 Borst SNOMED , meerdere antwoorden mogelijk, dus ook zo tonen.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.474 (Thorax) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.475 (ThoraxObservations). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.66 Borst SNOMED , multiple answers possible, so display accordingly.</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Pijn bij compressie: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.476 (PainByCompression). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.66 Borst SNOMED , meerdere antwoorden mogelijk, dus ook zo tonen</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.476 (PainByCompression). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.66 Borst SNOMED , multiple answers possible, so display accordingly</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Verwonding: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.474 (Thorax) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.471(Wound). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED, meerdere antwoorden mogelijk, dus ook zo tonen.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.474 (Thorax) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.471(Wound). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED, multiple answers possible, so display accordingly.</td>
     <td></td>
     <td></td>
   </tr>
@@ -779,13 +779,13 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Rug observaties: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.480 (BackObservations). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.89 Rug SNOMED , meerdere antwoorden mogelijk, dus ook zo tonen.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.480 (BackObservations). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.89 Rug SNOMED , multiple answers possible, so display accordingly.</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Verwonding: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.479 (Back) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.471(Wound). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED, meerdere antwoorden mogelijk, dus ook zo tonen</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.479 (Back) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.471(Wound). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED, multiple answers possible, so display accordingly</td>
     <td></td>
     <td></td>
   </tr>
@@ -797,19 +797,19 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Abdomen observaties: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.482 (Abdomen Observations). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.64 Abdomen SNOMED, meerdere antwoorden mogelijk, dus ook zo tonen</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.482 (Abdomen Observations). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.64 Abdomen SNOMED, multiple answers possible, so display accordingly</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Locatie druk-/ loslaatpijn: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.484 (AbdomenLocation). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.91 Locatie op lichaam(sdeel) SNOMED, meerdere antwoorden mogelijk, dus ook zo tonen</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.484 (AbdomenLocation). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.91 Locatie op lichaam(sdeel) SNOMED, multiple answers possible, so display accordingly</td>
     <td></td>
-    <td>Locatie zwelling / oedeem en Locatie pulserende zwelling afwezig in het document</td>
+    <td>Locatie zwelling / oedeem and Locatie pulserende zwelling absent in the document</td>
   </tr>
   <tr>
     <td>Verwonding: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.481 (Abdomen) bevat template ID:  2.16.840.1.113883.2.4.3.11.60.55.10.471 (Wound), De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED, meerdere antwoorden mogelijk, dus ook zo tonen</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.481 (Abdomen) bevat template ID:  2.16.840.1.113883.2.4.3.11.60.55.10.471 (Wound), The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED, multiple answers possible, so display accordingly</td>
     <td></td>
     <td></td>
   </tr>
@@ -821,13 +821,13 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Bekken observaties: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.487 (PelvisObservations). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.65 Bekken SNOMED, meerdere antwoorden mogelijk, dus ook zo tonen</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.487 (PelvisObservations). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.65 Bekken SNOMED, multiple answers possible, so display accordingly</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Verwonding: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.486 (Pelvis) bevat Template ID:2.16.840.1.113883.2.4.3.11.60.55.10.471 (Wound). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED , meerdere antwoorden mogelijk, dus ook zo tonen</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.486 (Pelvis) bevat Template ID:2.16.840.1.113883.2.4.3.11.60.55.10.471 (Wound). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED , multiple answers possible, so display accordingly</td>
     <td></td>
     <td></td>
   </tr>
@@ -845,7 +845,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Bevinding betreffende bovenste extremiteit: &lt;value&gt; displayname</td>
-    <td>Template ID:2.16.840.1.113883.2.4.3.11.60.55.10.9028 (ArmSingleExtremity) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.489 (Arm Extremity Observation). De arm waar het over gaat bevat 2.16.840.1.113883.2.4.3.11.60.55.10.9029 Laterality, en deze gecombineerd met De observatie(s) over deze arm in 2.16.840.1.113883.2.4.3.11.60.55.10.489 Arm Extremity Observation en Wound, meerdere antwoorden mogelijk, dus ook zo tonen</td>
+    <td>Template ID:2.16.840.1.113883.2.4.3.11.60.55.10.9028 (ArmSingleExtremity) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.489 (Arm Extremity Observation). De arm waar het over gaat bevat 2.16.840.1.113883.2.4.3.11.60.55.10.9029 Laterality, en deze gecombineerd met De observatie(s) over deze arm in 2.16.840.1.113883.2.4.3.11.60.55.10.489 Arm Extremity Observation en Wound, multiple answers possible, so display accordingly</td>
     <td></td>
     <td></td>
   </tr>
@@ -857,7 +857,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Verwonding: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.488 (ArmsExtremity) bevat Template ID:2.16.840.1.113883.2.4.3.11.60.55.10.471 (Wound). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED , meerdere antwoorden mogelijk, dus ook zo tonen</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.488 (ArmsExtremity) bevat Template ID:2.16.840.1.113883.2.4.3.11.60.55.10.471 (Wound). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED , multiple answers possible, so display accordingly</td>
     <td></td>
     <td></td>
   </tr>
@@ -875,7 +875,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Bevinding betreffende onderste extremiteit:  &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9030 (LegSingleExtremity) bevat Bevat 2.16.840.1.113883.2.4.3.11.60.55.10.491 Leg Extremity Observation. Het been waar het over gaat, bevat  2.16.840.1.113883.2.4.3.11.60.55.10.9029 Laterality, en deze gecombineerd met de observatie(s) over dit been uit 2.16.840.1.113883.2.4.3.11.60.55.10.491 Leg Extremity Observation en wound, meerdere antwoorden mogelijk, dus ook zo tonen</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9030 (LegSingleExtremity) bevat Bevat 2.16.840.1.113883.2.4.3.11.60.55.10.491 Leg Extremity Observation. Het been waar het over gaat, bevat  2.16.840.1.113883.2.4.3.11.60.55.10.9029 Laterality, en deze gecombineerd met de observatie(s) over dit been uit 2.16.840.1.113883.2.4.3.11.60.55.10.491 Leg Extremity Observation en wound, multiple answers possible, so display accordingly</td>
     <td></td>
     <td></td>
   </tr>
@@ -887,25 +887,25 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Verwonding: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9030 (LegSingleExtremity) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.471 (Wound). Indien Extremiteit Observaties is gelijk aan 416462003 verwonding (aandoening). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.9030 (LegSingleExtremity) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.471 (Wound). Indien Extremiteit Observaties is gelijk aan 416462003 verwonding (aandoening). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.53 Wond SNOMED.</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Uitscheiding observaties: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.493 (ExcretionObservations). Meerdere antwoorden mogelijk, dus ook zo tonen</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.493 (ExcretionObservations). multiple answers possible, so display accordingly</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Braken: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.494 (Vormiting). Indien Uitscheiding observaties = 'braken (aandoening). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.67 Braken SNOMED</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.494 (Vormiting). Indien Uitscheiding observaties = 'braken (aandoening). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.67 Braken SNOMED</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Incontinent: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.495 (Incontinent). Indien Uitscheiding observaties = 'incontinentie (bevinding). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.92 Incontinent SNOMED</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.495 (Incontinent). Indien Uitscheiding observaties = 'incontinentie (bevinding). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.92 Incontinent SNOMED</td>
     <td></td>
     <td></td>
   </tr>
@@ -917,7 +917,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Verloskunde/Gynaecologie observaties: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.497 (ObstetricsObservations). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.49 Verloskunde / gynaecologie SNOMED, meerdere antwoorden mogelijk, dus ook zo tonen</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.497 (ObstetricsObservations). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.49 Verloskunde / gynaecologie SNOMED, multiple answers possible, so display accordingly</td>
     <td></td>
     <td></td>
   </tr>
@@ -953,7 +953,7 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>Hartritme: &lt;value&gt; displayname</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1126 (HeartRhythm). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.47 Hartritmes SNOMED (DYNAMISCH)</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1126 (HeartRhythm). The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.55.11.47 Hartritmes SNOMED (DYNAMISCH)</td>
     <td></td>
     <td></td>
   </tr>
@@ -1055,19 +1055,19 @@ The following ambulance data can be included within the sections. If a specific 
   </tr>
   <tr>
     <td>GCS_Eyes</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1110 (GlasgowComaScale) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1111 (GCSEyes). Een combinatie van code en display om te tonen zou mooi zijn. De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.40.2.12.8.1 GCS_EyesCodelijst</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1110 (GlasgowComaScale) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1111 (GCSEyes). A combination of code and a display would be nice. The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.40.2.12.8.1 GCS_EyesCodelijst</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>GCS_Motor</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1110 (GlasgowComaScale) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1112 (GCSMotor). Een combinatie van code en display om te tonen zou mooi zijn. De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.40.2.12.8.2 GCS_MotorCodelijst (DYNAMISCH)</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1110 (GlasgowComaScale) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1112 (GCSMotor). A combination of code and a display would be nice. The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.40.2.12.8.2 GCS_MotorCodelijst (DYNAMISCH)</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>GCS_Verbal</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1110 (GlasgowComaScale) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1113 (GCSVerbal). Een combinatie van code en display om te tonen zou mooi zijn. De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.40.2.12.8.3 GCS_VerbalCodelijst (DYNAMISCH) of De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.40.2.12.8.4 GCS_VerbalCodelijstKleuter (DYNAMISCH) of De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.40.2.12.8.5 GCS_VerbalCodelijstBaby (DYNAMISCH), afhankelijk van de geboortedatum van patient</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1110 (GlasgowComaScale) bevat Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1113 (GCSVerbal). A combination of code and a display would be nice. The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.40.2.12.8.3 GCS_VerbalCodelijst (DYNAMISCH) of The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.40.2.12.8.4 GCS_VerbalCodelijstKleuter (DYNAMISCH) of The value of @code MUST come from the value list. 2.16.840.1.113883.2.4.3.11.60.40.2.12.8.5 GCS_VerbalCodelijstBaby (DYNAMISCH), afhankelijk van de geboortedatum van patient</td>
     <td></td>
     <td></td>
   </tr>
@@ -1141,11 +1141,12 @@ The following ambulance data can be included within the sections. If a specific 
     <td>Telefoonnummer: &lt;telecom&gt;</td>
     <td>Template ID 2.16.840.1.113883.2.4.3.11.60.55.10.438 (ConsultingExternalProfessionalSection) bevat 2.16.840.1.113883.2.4.3.11.60.55.10.440 (ConsultationGiver)</td>
     <td></td>
-    <td>vrijheidsgraad, niet verplicht voor kwalificatie</td>
+    <td>degree of flexibility, not mandatory for qualification
+ </td>
   </tr>
   <tr>
     <td>Type consultgever: &lt; code &gt; displayname</td>
-    <td>Template ID 2.16.840.1.113883.2.4.3.11.60.55.10.438 (ConsultingExternalProfessionalSection) bevat 2.16.840.1.113883.2.4.3.11.60.55.10.440 (ConsultationGiver). De waarde van @code moet komen uit waardelijst 2.16.840.1.113883.2.4.3.11.60.55.11.15 Consultgever op afstand</td>
+    <td>Template ID 2.16.840.1.113883.2.4.3.11.60.55.10.438 (ConsultingExternalProfessionalSection) bevat 2.16.840.1.113883.2.4.3.11.60.55.10.440 (ConsultationGiver). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.15 Consultgever op afstand</td>
     <td></td>
     <td></td>
   </tr>
