@@ -19,44 +19,44 @@
     <description value="Verwijzing ambulance naar huisartsenpost"/>
     <fhirVersion value="4.0.1"/>
     <mapping>
-        <identity value="EerstelijnszorgBouwstenen"/>
-        <uri value="http://decor.nictiz.nl/decor/services/RetrieveTransaction?prefix=hg-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.103.4.145&amp;effectiveDate=2025-06-10T00:00:00"/>
-        <name value="Eerstelijnszorg - Bouwstenen"/>
-    </mapping>
-    <mapping>
         <identity value="NlzorgZorgaanbieder-3.4"/>
-        <uri value="http://decor.nictiz.nl/decor/services/RetrieveTransaction?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.103.4.145&amp;effectiveDate=2025-06-10T00:00:00"/>
+        <uri value="http://decor.nictiz.nl/decor/services/RetrieveDataSet?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.40.3.17.2&amp;effectiveDate=2020-09-01T00:00:00"/>
         <name value="nl.zorg.Zorgaanbieder 3.4"/>
     </mapping>
     <mapping>
         <identity value="NlzorgpartAdresgegevens-1.1"/>
-        <uri value="http://decor.nictiz.nl/decor/services/RetrieveTransaction?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.103.4.145&amp;effectiveDate=2025-06-10T00:00:00"/>
+        <uri value="http://decor.nictiz.nl/decor/services/RetrieveDataSet?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.40.3.20.5&amp;effectiveDate=2020-09-01T00:00:00"/>
         <name value="nl.zorg.part.Adresgegevens 1.1"/>
     </mapping>
     <mapping>
         <identity value="NlzorgZorgverlener-3.5"/>
-        <uri value="http://decor.nictiz.nl/decor/services/RetrieveTransaction?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.103.4.145&amp;effectiveDate=2025-06-10T00:00:00"/>
+        <uri value="http://decor.nictiz.nl/decor/services/RetrieveDataSet?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.40.3.17.1&amp;effectiveDate=2020-09-01T00:00:00"/>
         <name value="nl.zorg.Zorgverlener 3.5"/>
     </mapping>
     <mapping>
         <identity value="NlzorgpartContactgegevens-1.2"/>
-        <uri value="http://decor.nictiz.nl/decor/services/RetrieveTransaction?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.103.4.145&amp;effectiveDate=2025-06-10T00:00:00"/>
+        <uri value="http://decor.nictiz.nl/decor/services/RetrieveDataSet?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.40.3.20.6&amp;effectiveDate=2020-09-01T00:00:00"/>
         <name value="nl.zorg.part.Contactgegevens 1.2"/>
     </mapping>
     <mapping>
         <identity value="NlzorgContactpersoon-3.4"/>
-        <uri value="http://decor.nictiz.nl/decor/services/RetrieveTransaction?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.103.4.145&amp;effectiveDate=2025-06-10T00:00:00"/>
+        <uri value="http://decor.nictiz.nl/decor/services/RetrieveDataSet?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.40.3.3.1&amp;effectiveDate=2020-09-01T00:00:00"/>
         <name value="nl.zorg.Contactpersoon 3.4"/>
     </mapping>
     <mapping>
         <identity value="NlzorgpartNaamgegevens-1.1"/>
-        <uri value="http://decor.nictiz.nl/decor/services/RetrieveTransaction?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.103.4.145&amp;effectiveDate=2025-06-10T00:00:00"/>
+        <uri value="http://decor.nictiz.nl/decor/services/RetrieveDataSet?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.40.3.20.4&amp;effectiveDate=2020-09-01T00:00:00"/>
         <name value="nl.zorg.part.Naamgegevens 1.1"/>
     </mapping>
     <mapping>
         <identity value="NlzorgPatient-3.2"/>
-        <uri value="http://decor.nictiz.nl/decor/services/RetrieveTransaction?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.103.4.145&amp;effectiveDate=2025-06-10T00:00:00"/>
+        <uri value="http://decor.nictiz.nl/decor/services/RetrieveDataSet?prefix=zib2020bbr-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.40.3.0.1&amp;effectiveDate=2020-09-01T00:00:00"/>
         <name value="nl.zorg.Patient 3.2"/>
+    </mapping>
+    <mapping>
+        <identity value="EerstelijnszorgBouwstenen"/>
+        <uri value="http://decor.nictiz.nl/decor/services/RetrieveDataSet?prefix=hg-&amp;version=&amp;language=nl-NL&amp;id=2.16.840.1.113883.2.4.3.11.60.103.1.1&amp;effectiveDate=2020-10-19T17:52:39"/>
+        <name value="Eerstelijnszorg - Bouwstenen"/>
     </mapping>
     <kind value="logical"/>
     <abstract value="false"/>
@@ -80,7 +80,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1199--20210322100358">
             <path value="Verwijzingambulancenaarhuisartsenpost.bouwstenen"/>
             <short value="Geeft de generieke bouwstenen die in de specifieke bouwstenen worden gebruikt."/>
-            <definition value="-"/>
+            <definition value="Geeft de generieke bouwstenen die in de specifieke bouwstenen worden gebruikt."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -149,13 +149,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="De naamgegevens van de patiënt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Patient's full name."/>
                     </extension>
                 </extension>
             </definition>
@@ -189,13 +189,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Officiële voornamen van de persoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person’s official first names."/>
                     </extension>
                 </extension>
             </definition>
@@ -233,13 +233,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Initialen van de persoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person’s initials."/>
                     </extension>
                 </extension>
             </definition>
@@ -277,13 +277,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="De naam waarmee de persoon gebruikelijk aangesproken wordt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The name normally used to address the person."/>
                     </extension>
                 </extension>
             </definition>
@@ -321,13 +321,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Dit concept geeft de achternaam of volgorde van achternamen aan waarmee de persoon aangesproken of aangeschreven wil worden.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="This concept indicates the last name or order of last names with which the person is to be addressed."/>
                     </extension>
                 </extension>
             </definition>
@@ -417,13 +417,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Bij de eigen achternaam behorende voorvoegsels.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Prefix to the person’s own last name."/>
                     </extension>
                 </extension>
             </definition>
@@ -461,13 +461,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Officiële achternaam van de persoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person’s official last name"/>
                     </extension>
                 </extension>
             </definition>
@@ -545,13 +545,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Bij de achternaam van de partner behorende voorvoegsels">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Prefix to the partner’s last name."/>
                     </extension>
                 </extension>
             </definition>
@@ -589,13 +589,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Officiële achternaam van de partner.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Partner’s official last name."/>
                     </extension>
                 </extension>
             </definition>
@@ -633,13 +633,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Adresgegevens van de patiënt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Patient's address information."/>
                     </extension>
                 </extension>
             </definition>
@@ -673,13 +673,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Straatnaam van het adres.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Street name of the address."/>
                     </extension>
                 </extension>
             </definition>
@@ -717,13 +717,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Huisnummer van het adres.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="House number of the address."/>
                     </extension>
                 </extension>
             </definition>
@@ -761,13 +761,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Een alfabetisch teken achter het huisnummer zoals dit door het gemeentebestuur is toegekend.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="A letter following the house number as assigned by the municipal authorities."/>
                     </extension>
                 </extension>
             </definition>
@@ -805,13 +805,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Die letters of tekens die noodzakelijk zijn om, naast het huisnummer en de letter, de brievenbus te vinden.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The letters or signs needed to locate the mailbox, in addition to the house number and letter."/>
                     </extension>
                 </extension>
             </definition>
@@ -853,7 +853,7 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Postcode van het adres.&#xA;Bij Nederlandse adressen bij voorkeur de postcode uit de Postcodetabel (OID: 2.16.840.1.113883.2.4.4.15) gebruiken.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
@@ -896,7 +896,7 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Een geografisch bepaald gebied dat een deel is van het gemeentelijke grondgebied.&#xA;Bij Nederlandse woonplaatsen bij voorkeur de naam uit de GBA tabel 33 (OID: 2.16.840.1.113883.2.4.6.14) gebruiken.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
@@ -940,13 +940,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Land waar het adres zich bevindt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Country in which the address is located."/>
                     </extension>
                 </extension>
             </definition>
@@ -964,77 +964,20 @@
             <example>
                 <label value="1"/>
                 <valueCodeableConcept>
-                    <coding>
-                        <system value="http://terminology.hl7.org/CodeSystem/iso3166-1edition2alpha2"/>
-                        <code value="NL"/>
-                        <display value="Nederland"/>
-                    </coding>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
-                        <code value="6030"/>
-                        <display value="Nederland"/>
-                    </coding>
                     <text value="Nederland"/>
                 </valueCodeableConcept>
             </example>
             <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="LandCodelijsten"/>
+                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.121.11.10--20200901000000"/>
+            </binding>
             <mapping>
                 <identity value="NlzorgpartAdresgegevens-1.1"/>
                 <map value="NL-CM-20.5.5"/>
                 <comment value="Land (EQUIV)"/>
             </mapping>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.24--20201021094827.coding">
-            <path value="Verwijzingambulancenaarhuisartsenpost.bouwstenen.patient.adresgegevens.land.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <definition value="-"/>
-            <min value="1"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.24--20201021094827.coding:LandISOCodelijst">
-            <path value="Verwijzingambulancenaarhuisartsenpost.bouwstenen.patient.adresgegevens.land.coding"/>
-            <sliceName value="LandISOCodelijst"/>
-            <definition value="ISO 3166-1 (alpha-2) - Alle waarden"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="required"/>
-                <description value="LandISOCodelijst"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.20.5.2--20200901000000"/>
-            </binding>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.24--20201021094827.coding:LandGBACodelijst">
-            <path value="Verwijzingambulancenaarhuisartsenpost.bouwstenen.patient.adresgegevens.land.coding"/>
-            <sliceName value="LandGBACodelijst"/>
-            <definition value="GBA Tabel 34 (Landentabel) - Alle waarden"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="required"/>
-                <description value="LandGBACodelijst"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.20.5.1--20200901000000"/>
-            </binding>
         </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.25--20201021094827">
             <path value="Verwijzingambulancenaarhuisartsenpost.bouwstenen.patient.adresgegevens.additioneleInformatie"/>
@@ -1048,13 +991,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Extra informatie zoals naam van het gebouw, gebouwnummer, ingang, routenummer.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Extra information such as the building name, building number, entrance, route number."/>
                     </extension>
                 </extension>
             </definition>
@@ -1092,13 +1035,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Telefoonnummer(s) of e-mailadres(sen) van de patiënt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Patient’s telephone number(s) or e-mail address(es)."/>
                     </extension>
                 </extension>
             </definition>
@@ -1172,13 +1115,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Een telefoonnummer van de persoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person's telephone number."/>
                     </extension>
                 </extension>
             </definition>
@@ -1256,13 +1199,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Een e-mailadres van de persoon">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person's e-mail address"/>
                     </extension>
                 </extension>
             </definition>
@@ -1306,7 +1249,16 @@
                     </extension>
                 </extension>
             </definition>
-            <comment value="* 0..*R Identificatienummer&#xA;* 0..1R BSN"/>
+            <comment value="Burgerservicenummer (OID: 2.16.840.1.113883.2.4.6.3)&#xA;&#xA;&#xA;* 0..*R Identificatienummer&#xA;* 1..1R BSN">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="en-US"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Burgerservicenummer (OID: 2.16.840.1.113883.2.4.6.3)&#xA;&#xA;&#xA;* 0..*R Identificatienummer&#xA;* 1..1R BSN"/>
+                    </extension>
+                </extension>
+            </comment>
             <alias value="PatientIdentificationNumber"/>
             <min value="0"/>
             <max value="*"/>
@@ -1382,13 +1334,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Administratief geslacht van de patiënt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Patient’s administrative gender."/>
                     </extension>
                 </extension>
             </definition>
@@ -1478,13 +1430,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Naamgegevens van contactpersoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Full name of the contact."/>
                     </extension>
                 </extension>
             </definition>
@@ -1526,6 +1478,10 @@
             <type>
                 <code value="string"/>
             </type>
+            <example>
+                <label value="1"/>
+                <valueString value="Jannie Putten"/>
+            </example>
             <mustSupport value="true"/>
         </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5266--20221130123035">
@@ -1540,13 +1496,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Telefoonnummer en/of e-mailadres van contactpersoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The contact’s telephone number and/or e-mail address."/>
                     </extension>
                 </extension>
             </definition>
@@ -1620,13 +1576,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Een telefoonnummer van de persoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person's telephone number."/>
                     </extension>
                 </extension>
             </definition>
@@ -1664,13 +1620,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Definieert de familiaire relatie van de contactpersoon tot de patiënt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Defines the contact’s familial relationship to the patient."/>
                     </extension>
                 </extension>
             </definition>
@@ -1701,7 +1657,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1673--20211110140357">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop"/>
             <short value="Geeft alle relevante gegevens in de envelop conform de richtlijn."/>
-            <definition value="-"/>
+            <definition value="Geeft alle relevante gegevens in de envelop conform de richtlijn."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -1717,7 +1673,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1679--20211110144602">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.patientgegevens"/>
             <short value="Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt.    "/>
-            <definition value="-"/>
+            <definition value="Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt.&#xA;&#xA; &#xA;&#xA; "/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -1812,7 +1768,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5089--20220921200553">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender"/>
             <short value="Geeft de volledige identificatie- en contactgegevens van de verzender van het bericht.   In de HASP-richtlijn van de NHG is aangegeven dat de beheerder meestal de verzender is van het bericht.   Binnen de informatiestandaard huisartsenzorg wordt de beheerder altijd beschouwd als de verzender."/>
-            <definition value="-"/>
+            <definition value="Geeft de volledige identificatie- en contactgegevens van de verzender van het bericht.&#xA;&#xA; &#xA;&#xA;In de HASP-richtlijn van de NHG is aangegeven dat de beheerder meestal de verzender is van het bericht.&#xA;&#xA; &#xA;&#xA;Binnen de informatiestandaard huisartsenzorg wordt de beheerder altijd beschouwd als de verzender."/>
             <alias value="Sender"/>
             <min value="1"/>
             <max value="1"/>
@@ -1959,11 +1915,6 @@
             <example>
                 <label value="1"/>
                 <valueCodeableConcept>
-                    <coding>
-                        <system value="http://fhir.nl/fhir/NamingSystem/uzi-rolcode"/>
-                        <code value="01.010"/>
-                        <display value="Cardioloog"/>
-                    </coding>
                     <text value="Cardioloog"/>
                 </valueCodeableConcept>
             </example>
@@ -1992,40 +1943,6 @@
                 <max value="*"/>
             </base>
         </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding:SpecialismeUZICodelijst">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
-            <sliceName value="SpecialismeUZICodelijst"/>
-            <definition value="RoleCodeNL (Zorgverlenertype (personen)) - Alle waarden"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="required"/>
-                <description value="SpecialismeUZICodelijst"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.6--20200901000000"/>
-            </binding>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding:SpecialismeAGBCodelijst">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
-            <sliceName value="SpecialismeAGBCodelijst"/>
-            <definition value="COD016-VEKT (Vektis AGB-medische specialismen) - Alle waarden"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="required"/>
-                <description value="SpecialismeAGBCodelijst"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.7--20200901000000"/>
-            </binding>
-        </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding:NHGTabel12SoortDerde">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
             <sliceName value="NHGTabel12SoortDerde"/>
@@ -2043,6 +1960,32 @@
                 <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.4--20201104131148"/>
             </binding>
         </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding:SpecialismeCodelijsten">
+            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
+            <sliceName value="SpecialismeCodelijsten"/>
+            <definition value="Samengestelde waardelijst van de losse waardelijsten zoals deze in de zib Zorgverlener staan voor NL-CM:17.1.4 Specialisme. Deze waardelijst bestaat als zodanig niet in de zib maar maakt het eenvoudiger om naar alle waardelijsten tegelijk te verwijzen">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="en-US"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Value set combining the distinct value sets that the zib HealthProfessional binds to for NL-CM:17.1.4 Specialty. This value set as such does not exist in the zib but facilitates referencing all these value sets at the same time"/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="CodeableConcept.coding"/>
+                <min value="0"/>
+                <max value="*"/>
+            </base>
+            <binding>
+                <strength value="required"/>
+                <description value="SpecialismeCodelijsten"/>
+                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.121.11.22--20200901000000"/>
+            </binding>
+        </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5842--20260622082912">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.contactgegevens"/>
             <short value="Telefoonnummer(s) of e-mailadres(sen) van de zorgverlener.">
@@ -2055,13 +1998,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Telefoonnummer(s) of e-mailadres(sen) van de zorgverlener.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Health professional’s telephone number(s) or e-mail address(es)."/>
                     </extension>
                 </extension>
             </definition>
@@ -2140,13 +2083,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Een telefoonnummer van de persoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person's telephone number."/>
                     </extension>
                 </extension>
             </definition>
@@ -2184,13 +2127,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="De organisatie waarbij de zorgverlener werkzaam is.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The organization the health professional works for."/>
                     </extension>
                 </extension>
             </definition>
@@ -2490,7 +2433,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1680--20211110145437">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ontvanger"/>
             <short value="Geeft de volledige identificatie- en contactgegevens van de ontvanger van het bericht.   In de HASP-richtlijn wordt de ontvanger aangeduid met de geadresseerde."/>
-            <definition value="-"/>
+            <definition value="Geeft de volledige identificatie- en contactgegevens van de ontvanger van het bericht.&#xA;&#xA; &#xA;&#xA;In de HASP-richtlijn wordt de ontvanger aangeduid met de geadresseerde."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -2638,154 +2581,6 @@
                 <comment value="OrganisatieNaam (EQUIV)"/>
             </mapping>
         </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5781--20260603094918">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ontvanger.zorgaanbieder.organisatieType"/>
-            <short value="De type zorgaanbieder, bijvoorbeeld algemeen ziekenhuis en verpleeghuis.">
-                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
-                    <extension url="lang">
-                        <valueCode value="en-US"/>
-                    </extension>
-                    <extension url="content">
-                        <valueMarkdown value="The type of healthcare provider, such as general hospital, or nursing home."/>
-                    </extension>
-                </extension>
-            </short>
-            <definition value="De type zorgaanbieder, bijvoorbeeld algemeen ziekenhuis en verpleeghuis. Indien dit veld gevuld is en voor het ZorgaanbiederIdentificatieNummer een AGB code gebruikt wordt dient het type overeen te komen met het type dat impliciet in de AGB code opgenomen is.">
-                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
-                    <extension url="lang">
-                        <valueCode value="en-US"/>
-                    </extension>
-                    <extension url="content">
-                        <valueMarkdown value="The type of healthcare provider, such as general hospital, or nursing home. If this field is filled in and an AGB code is used for the HealthcareProviderIdentificationNumber, the type must match the type implicitly contained in the AGB code."/>
-                    </extension>
-                </extension>
-            </definition>
-            <requirements value="Voor het duiden van een OrganisatieType is NHG tabel 12 'Soort derde' toegevoegd naast de van de zib Zorgaanbieder-v3.4 (2020) geërfde OrganisatieTypeCodelijst (Codestelselnaam: RoleCodeNL, Codesysteem OID: 2.16.840.1.113883.2.4.15.1060). Huisartsen gebruiken - voor zover bekend - alleen de NHG 12 voor het duiden van OrganiesatieType of andere derde partijen.&#xA;&#xA;Deze toevoeging is besproken met het NHG."/>
-            <alias value="OrganizationType"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ontvanger.zorgaanbieder.organisatieType"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <example>
-                <label value="1"/>
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://nictiz.nl/fhir/NamingSystem/organization-type"/>
-                        <code value="Z4"/>
-                        <display value="Zelfstandig behandelcentrum"/>
-                    </coding>
-                    <text value="Zelfstandig behandelcentrum"/>
-                </valueCodeableConcept>
-            </example>
-            <mustSupport value="true"/>
-            <mapping>
-                <identity value="NlzorgZorgaanbieder-3.4"/>
-                <map value="NL-CM-17.2.4"/>
-                <comment value="OrganisatieType (SPEC)"/>
-            </mapping>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5781--20260603094918.coding">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ontvanger.zorgaanbieder.organisatieType.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <definition value="-"/>
-            <min value="1"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5781--20260603094918.coding:OrganisatieTypeCodelijst">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ontvanger.zorgaanbieder.organisatieType.coding"/>
-            <sliceName value="OrganisatieTypeCodelijst"/>
-            <definition value="-"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="extensible"/>
-                <description value="OrganisatieTypeCodelijst"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.2.3--20200901000000"/>
-            </binding>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5781--20260603094918.coding:NHGTabel12SoortDerde">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ontvanger.zorgaanbieder.organisatieType.coding"/>
-            <sliceName value="NHGTabel12SoortDerde"/>
-            <definition value="NHG Tabel 12 Soort derde heeft tot doel bij de zorg betrokken specialismen of organisaties te registreren in het HIS, meer specifiek om inkomende of uitgaande correspondentie en verwijzingen te categoriseren."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="preferred"/>
-                <description value="NHG Tabel 12 Soort derde"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.4--20201104131148"/>
-            </binding>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5555--20250821072958">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.bestemmingsgegevens"/>
-            <short value="Dit is een groep gegevens over de bestemming waar de patiënt naar toe gaat."/>
-            <definition value="-"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Verwijzingambulancenaarhuisartsenpost.envelop.bestemmingsgegevens"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="Base"/>
-            </type>
-            <mustSupport value="true"/>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5556--20250821073017">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.bestemmingsgegevens.bestemmingsstatus"/>
-            <short value="Geeft de status van de ambulance naar deze bestemming."/>
-            <definition value="Geeft de status van de ambulance naar deze bestemming. De waarden zijn:&#xA;&#xA;* Actief = patiënt is onderweg naar de bestemming. &#xA;* Geannuleerd = patiënt gaat niet meer naar de bestemming. Dit is het laatste bericht van de ambulance naar de bestemming.&#xA;* Overgedragen =  patiënt is overgedragen aan de bestemming. Dit is het laatste bericht van de ambulance naar de bestemming.&#xA;&#xA; "/>
-            <requirements value="Bij de status &#34;geannuleerd&#34; zijn er verschillende mogelijkheden, zoals patiënt gaat naar andere bestemming of patiënt gaat niet meer naar een zorginstelling.&#xA;&#xA;[20250218] Koppeling tussen transactie element ‘Bestemmingsstatus’ en veld in template (statusCode) is aangemaakt.&#xA;&#xA;[20250224] Terminologiekoppeling tussen transactie element ‘Bestemmingsstatus’ en SNOMED code 416342005 observatie betreffende verrichting (waarneembare entiteit) is verwijderd."/>
-            <min value="1"/>
-            <max value="1"/>
-            <base>
-                <path value="Verwijzingambulancenaarhuisartsenpost.envelop.bestemmingsgegevens.bestemmingsstatus"/>
-                <min value="1"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <example>
-                <label value="1"/>
-                <valueCodeableConcept>
-                    <text value="Actief"/>
-                </valueCodeableConcept>
-            </example>
-            <mustSupport value="true"/>
-            <binding>
-                <strength value="required"/>
-                <description value="Bestemmingsstatussen"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.55.11.116--20250827000000"/>
-            </binding>
-        </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.6034--20260624133541">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ritnummer"/>
             <short value="Het ritnummer bestaat uit een aantal onderdelen die worden gescheiden door een koppelteken &#34;-&#34;."/>
@@ -2812,13 +2607,13 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1684--20211110150321">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.datumentijd"/>
             <short value="Geeft het tijdstip waarop de verzender het bericht afrondt en aanbiedt voor verzending.   Dit gegeven kan automatisch worden ingevuld door de verzendende applicatie."/>
-            <definition value="-"/>
+            <definition value="Geeft het tijdstip waarop de verzender het bericht afrondt en aanbiedt voor verzending.&#xA;&#xA; &#xA;&#xA;Dit gegeven kan automatisch worden ingevuld door de verzendende applicatie."/>
             <alias value="DateTimeSend"/>
-            <min value="1"/>
+            <min value="0"/>
             <max value="1"/>
             <base>
                 <path value="Verwijzingambulancenaarhuisartsenpost.envelop.datumentijd"/>
-                <min value="1"/>
+                <min value="0"/>
                 <max value="1"/>
             </base>
             <type>
@@ -2833,7 +2628,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1709--20211115095055">
             <path value="Verwijzingambulancenaarhuisartsenpost.kern"/>
             <short value="Geeft de zorginhoudelijke kerngegevens van de berichten die genoemd zijn in de verschillende NHG-richtlijnen voor verwijzing, update, ontslag, directe toegang en eindrapportage voor paramedici.  "/>
-            <definition value="-"/>
+            <definition value="Geeft de zorginhoudelijke kerngegevens van de berichten die genoemd zijn in de verschillende NHG-richtlijnen voor verwijzing, update, ontslag, directe toegang en eindrapportage voor paramedici.&#xA;&#xA; "/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -2854,7 +2649,7 @@
                 <display value="verwijzing voor (waarneembare entiteit)"/>
             </code>
             <short value="Geeft de reden van de verwijzing of de update.Hierbij is de beschrijving als vrije tekst op aangeven van het NHG verplicht.Daarnaast kan er ook een ICPC-code van de episode worden meegestuurd, al dan niet aangevuld met meer details over de vastlegging van de ICPC."/>
-            <definition value="-"/>
+            <definition value="Geeft de reden van de verwijzing of de update.&#xA;Hierbij is de beschrijving als vrije tekst op aangeven van het NHG verplicht.&#xA;Daarnaast kan er ook een ICPC-code van de episode worden meegestuurd, al dan niet aangevuld met meer details over de vastlegging van de ICPC."/>
             <alias value="ReasonMessage"/>
             <min value="1"/>
             <max value="1"/>
@@ -2907,7 +2702,7 @@
                 <display value="behandeling gegeven (situatie)"/>
             </code>
             <short value="Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht.In de richtlijn HASP Paramedicus wordt dit veld in de verwijzing, de update door de paramedicus en het DT-bericht 'Beleid, ingestelde behandeling' genoemd.In de richtlijn HASP Medisch Specialist wordt dit veld in het ontslagbericht 'Beleid' genoemd.In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op het veld 'Beleid'Zie voor het verwijsbericht en de update de HASP-medische specialist richtlijn en HASP-paramedische richtlijn van het NHG.Zie voor het DT-bericht de HASP-paramedische richtlijn van het NHG."/>
-            <definition value="-"/>
+            <definition value="Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht.&#xA;&#xA;* In de richtlijn HASP Paramedicus wordt dit veld in de verwijzing, de update door de paramedicus en het DT-bericht 'Beleid, ingestelde behandeling' genoemd.&#xA;* In de richtlijn HASP Medisch Specialist wordt dit veld in het ontslagbericht 'Beleid' genoemd.&#xA;* In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op het veld 'Beleid'&#xA;&#xA;Zie voor het verwijsbericht en de update de HASP-medische specialist richtlijn en HASP-paramedische richtlijn van het NHG.&#xA;Zie voor het DT-bericht de HASP-paramedische richtlijn van het NHG."/>
             <requirements value="[22-5-2026] Toegevoegd 51847-2 Assessment+Plan. Indien het datasetconcept wordt gebruikt als een document-sectie, dient LOINC te worden gebruikt. Bij uitwisselen van de situatie ‘ingestelde behandeling/beleid’ dient SNOMED 182991002 behandeling gegeven te worden gebruikt voor de uitwisseling."/>
             <min value="0"/>
             <max value="*"/>
@@ -2933,7 +2728,7 @@
                 <display value="Conclusies "/>
             </code>
             <short value="Geeft de diagnose en/of conclusie.In de HASP-paramedicus richtlijn (NHG) is aangegeven:In het bericht 'DT' van de paramedicus komt de diagnose of conclusie.In het bericht 'eindrapportage van de paramedicus komt de conclusie. In de HASP-medische specialist richtlijn (NHG) is aangegeven:In het bericht 'ontslag' van de medische specialist komt de diagnose en/of conclusie.In de HASP-GGZ richtlijn (NHG) is aangegeven:In het bericht 'na intake' van de GGZ komt de diagnose en/of conclusie.In het bericht 'kennisgeving overdracht behandeling' van de GGZ komt de diagnose en/of conclusie.In het bericht 'einde behandeling / voortgang' ontslagbericht van de GGZ komt de diagnose en/of conclusie.In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op de opsommingen van de titels van de toestandsbeelden in de Ambulance."/>
-            <definition value="-"/>
+            <definition value="Geeft de diagnose en/of conclusie.&#xA;&#xA;In de HASP-paramedicus richtlijn (NHG) is aangegeven:&#xA;&#xA;* In het bericht 'DT' van de paramedicus komt de diagnose of conclusie.&#xA;* In het bericht 'eindrapportage van de paramedicus komt de conclusie.&#xA;&#xA; &#xA;In de HASP-medische specialist richtlijn (NHG) is aangegeven:&#xA;&#xA;* In het bericht 'ontslag' van de medische specialist komt de diagnose en/of conclusie.&#xA;&#xA;In de HASP-GGZ richtlijn (NHG) is aangegeven:&#xA;&#xA;* In het bericht 'na intake' van de GGZ komt de diagnose en/of conclusie.&#xA;* In het bericht 'kennisgeving overdracht behandeling' van de GGZ komt de diagnose en/of conclusie.&#xA;* In het bericht 'einde behandeling / voortgang' ontslagbericht van de GGZ komt de diagnose en/of conclusie.&#xA;&#xA;In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op de opsommingen van de titels van de toestandsbeelden in de Ambulance."/>
             <requirements value="[20260518] Terminologiekoppeling gewijzigd van 60022001|mogelijke diagnose (kwalificatiewaarde)| naar LOINC 55110-1 conclusies voor het gebruik in een document als documentsectie."/>
             <alias value="Diagnosis / Conclusion"/>
             <min value="0"/>
@@ -2987,7 +2782,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1725--20211115111052">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens"/>
             <short value="Geeft de gegevens die in het dossier staan."/>
-            <definition value="-"/>
+            <definition value="Geeft de gegevens die in het dossier staan."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -3020,7 +2815,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5472--20250611144114">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document"/>
             <short value="Document"/>
-            <definition value="-"/>
+            <definition value="Document"/>
             <min value="1"/>
             <max value="*"/>
             <base>
@@ -3052,7 +2847,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5474--20250611144226">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentSetIdentificatie"/>
             <short value="Identificatienummer van de set waar het document toe behoort"/>
-            <definition value="-"/>
+            <definition value="Identificatienummer van de set waar het document toe behoort"/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -3068,7 +2863,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5475--20250611144258">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentVersienummer"/>
             <short value="Versienummer van het document"/>
-            <definition value="-"/>
+            <definition value="Versienummer van het document"/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -3084,7 +2879,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5476--20250611144329">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentBestandtype"/>
             <short value="Het bestandtype als mimetype, bijvoorbeeld &#34;application/pdf&#34; of &#34;text/plain&#34;.Voor de verwijzing vanuit de Ambulance naar de Huisarts of Huisartsenpost is dit een pdf."/>
-            <definition value="-"/>
+            <definition value="Het bestandtype als mimetype, bijvoorbeeld &#34;application/pdf&#34; of &#34;text/plain&#34;.&#xA;Voor de verwijzing vanuit de Ambulance naar de Huisarts of Huisartsenpost is dit een pdf."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -3104,7 +2899,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5477--20250611144354">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentInhoud"/>
             <short value="Geeft de inhoud van de bijlage (blob)"/>
-            <definition value="-"/>
+            <definition value="Geeft de inhoud van de bijlage (blob)"/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -3120,7 +2915,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5552--20250820135844">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentNaam"/>
             <short value="De bestandsnaam die het document heeft bij de verzender."/>
-            <definition value="-"/>
+            <definition value="De bestandsnaam die het document heeft bij de verzender."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -3140,7 +2935,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5553--20250820140054">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentCreatieDatumTijd"/>
             <short value="Datum van het aanmaken van het document"/>
-            <definition value="-"/>
+            <definition value="Datum van het aanmaken van het document"/>
             <min value="0"/>
             <max value="1"/>
             <base>
@@ -3198,7 +2993,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1199--20210322100358">
             <path value="Verwijzingambulancenaarhuisartsenpost.bouwstenen"/>
             <short value="Geeft de generieke bouwstenen die in de specifieke bouwstenen worden gebruikt."/>
-            <definition value="-"/>
+            <definition value="Geeft de generieke bouwstenen die in de specifieke bouwstenen worden gebruikt."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -3267,13 +3062,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="De naamgegevens van de patiënt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Patient's full name."/>
                     </extension>
                 </extension>
             </definition>
@@ -3307,13 +3102,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Officiële voornamen van de persoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person’s official first names."/>
                     </extension>
                 </extension>
             </definition>
@@ -3351,13 +3146,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Initialen van de persoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person’s initials."/>
                     </extension>
                 </extension>
             </definition>
@@ -3395,13 +3190,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="De naam waarmee de persoon gebruikelijk aangesproken wordt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The name normally used to address the person."/>
                     </extension>
                 </extension>
             </definition>
@@ -3439,13 +3234,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Dit concept geeft de achternaam of volgorde van achternamen aan waarmee de persoon aangesproken of aangeschreven wil worden.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="This concept indicates the last name or order of last names with which the person is to be addressed."/>
                     </extension>
                 </extension>
             </definition>
@@ -3535,13 +3330,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Bij de eigen achternaam behorende voorvoegsels.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Prefix to the person’s own last name."/>
                     </extension>
                 </extension>
             </definition>
@@ -3579,13 +3374,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Officiële achternaam van de persoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person’s official last name"/>
                     </extension>
                 </extension>
             </definition>
@@ -3663,13 +3458,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Bij de achternaam van de partner behorende voorvoegsels">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Prefix to the partner’s last name."/>
                     </extension>
                 </extension>
             </definition>
@@ -3707,13 +3502,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Officiële achternaam van de partner.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Partner’s official last name."/>
                     </extension>
                 </extension>
             </definition>
@@ -3751,13 +3546,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Adresgegevens van de patiënt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Patient's address information."/>
                     </extension>
                 </extension>
             </definition>
@@ -3791,13 +3586,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Straatnaam van het adres.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Street name of the address."/>
                     </extension>
                 </extension>
             </definition>
@@ -3835,13 +3630,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Huisnummer van het adres.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="House number of the address."/>
                     </extension>
                 </extension>
             </definition>
@@ -3879,13 +3674,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Een alfabetisch teken achter het huisnummer zoals dit door het gemeentebestuur is toegekend.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="A letter following the house number as assigned by the municipal authorities."/>
                     </extension>
                 </extension>
             </definition>
@@ -3923,13 +3718,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Die letters of tekens die noodzakelijk zijn om, naast het huisnummer en de letter, de brievenbus te vinden.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The letters or signs needed to locate the mailbox, in addition to the house number and letter."/>
                     </extension>
                 </extension>
             </definition>
@@ -3971,7 +3766,7 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Postcode van het adres.&#xA;Bij Nederlandse adressen bij voorkeur de postcode uit de Postcodetabel (OID: 2.16.840.1.113883.2.4.4.15) gebruiken.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
@@ -4014,7 +3809,7 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Een geografisch bepaald gebied dat een deel is van het gemeentelijke grondgebied.&#xA;Bij Nederlandse woonplaatsen bij voorkeur de naam uit de GBA tabel 33 (OID: 2.16.840.1.113883.2.4.6.14) gebruiken.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
@@ -4058,13 +3853,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Land waar het adres zich bevindt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Country in which the address is located."/>
                     </extension>
                 </extension>
             </definition>
@@ -4082,77 +3877,20 @@
             <example>
                 <label value="1"/>
                 <valueCodeableConcept>
-                    <coding>
-                        <system value="http://terminology.hl7.org/CodeSystem/iso3166-1edition2alpha2"/>
-                        <code value="NL"/>
-                        <display value="Nederland"/>
-                    </coding>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
-                        <code value="6030"/>
-                        <display value="Nederland"/>
-                    </coding>
                     <text value="Nederland"/>
                 </valueCodeableConcept>
             </example>
             <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="LandCodelijsten"/>
+                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.121.11.10--20200901000000"/>
+            </binding>
             <mapping>
                 <identity value="NlzorgpartAdresgegevens-1.1"/>
                 <map value="NL-CM-20.5.5"/>
                 <comment value="Land (EQUIV)"/>
             </mapping>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.24--20201021094827.coding">
-            <path value="Verwijzingambulancenaarhuisartsenpost.bouwstenen.patient.adresgegevens.land.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <definition value="-"/>
-            <min value="1"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.24--20201021094827.coding:LandISOCodelijst">
-            <path value="Verwijzingambulancenaarhuisartsenpost.bouwstenen.patient.adresgegevens.land.coding"/>
-            <sliceName value="LandISOCodelijst"/>
-            <definition value="ISO 3166-1 (alpha-2) - Alle waarden"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="required"/>
-                <description value="LandISOCodelijst"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.20.5.2--20200901000000"/>
-            </binding>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.24--20201021094827.coding:LandGBACodelijst">
-            <path value="Verwijzingambulancenaarhuisartsenpost.bouwstenen.patient.adresgegevens.land.coding"/>
-            <sliceName value="LandGBACodelijst"/>
-            <definition value="GBA Tabel 34 (Landentabel) - Alle waarden"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="required"/>
-                <description value="LandGBACodelijst"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.20.5.1--20200901000000"/>
-            </binding>
         </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.25--20201021094827">
             <path value="Verwijzingambulancenaarhuisartsenpost.bouwstenen.patient.adresgegevens.additioneleInformatie"/>
@@ -4166,13 +3904,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Extra informatie zoals naam van het gebouw, gebouwnummer, ingang, routenummer.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Extra information such as the building name, building number, entrance, route number."/>
                     </extension>
                 </extension>
             </definition>
@@ -4210,13 +3948,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Telefoonnummer(s) of e-mailadres(sen) van de patiënt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Patient’s telephone number(s) or e-mail address(es)."/>
                     </extension>
                 </extension>
             </definition>
@@ -4290,13 +4028,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Een telefoonnummer van de persoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person's telephone number."/>
                     </extension>
                 </extension>
             </definition>
@@ -4374,13 +4112,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Een e-mailadres van de persoon">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person's e-mail address"/>
                     </extension>
                 </extension>
             </definition>
@@ -4424,7 +4162,16 @@
                     </extension>
                 </extension>
             </definition>
-            <comment value="* 0..*R Identificatienummer&#xA;* 0..1R BSN"/>
+            <comment value="Burgerservicenummer (OID: 2.16.840.1.113883.2.4.6.3)&#xA;&#xA;&#xA;* 0..*R Identificatienummer&#xA;* 1..1R BSN">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="en-US"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Burgerservicenummer (OID: 2.16.840.1.113883.2.4.6.3)&#xA;&#xA;&#xA;* 0..*R Identificatienummer&#xA;* 1..1R BSN"/>
+                    </extension>
+                </extension>
+            </comment>
             <alias value="PatientIdentificationNumber"/>
             <min value="0"/>
             <max value="*"/>
@@ -4500,13 +4247,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Administratief geslacht van de patiënt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Patient’s administrative gender."/>
                     </extension>
                 </extension>
             </definition>
@@ -4596,13 +4343,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Naamgegevens van contactpersoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Full name of the contact."/>
                     </extension>
                 </extension>
             </definition>
@@ -4644,6 +4391,10 @@
             <type>
                 <code value="string"/>
             </type>
+            <example>
+                <label value="1"/>
+                <valueString value="Jannie Putten"/>
+            </example>
             <mustSupport value="true"/>
         </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5266--20221130123035">
@@ -4658,13 +4409,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Telefoonnummer en/of e-mailadres van contactpersoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The contact’s telephone number and/or e-mail address."/>
                     </extension>
                 </extension>
             </definition>
@@ -4738,13 +4489,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Een telefoonnummer van de persoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person's telephone number."/>
                     </extension>
                 </extension>
             </definition>
@@ -4782,13 +4533,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Definieert de familiaire relatie van de contactpersoon tot de patiënt.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Defines the contact’s familial relationship to the patient."/>
                     </extension>
                 </extension>
             </definition>
@@ -4819,7 +4570,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1673--20211110140357">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop"/>
             <short value="Geeft alle relevante gegevens in de envelop conform de richtlijn."/>
-            <definition value="-"/>
+            <definition value="Geeft alle relevante gegevens in de envelop conform de richtlijn."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -4835,7 +4586,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1679--20211110144602">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.patientgegevens"/>
             <short value="Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt.    "/>
-            <definition value="-"/>
+            <definition value="Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt.&#xA;&#xA; &#xA;&#xA; "/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -4930,7 +4681,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5089--20220921200553">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender"/>
             <short value="Geeft de volledige identificatie- en contactgegevens van de verzender van het bericht.   In de HASP-richtlijn van de NHG is aangegeven dat de beheerder meestal de verzender is van het bericht.   Binnen de informatiestandaard huisartsenzorg wordt de beheerder altijd beschouwd als de verzender."/>
-            <definition value="-"/>
+            <definition value="Geeft de volledige identificatie- en contactgegevens van de verzender van het bericht.&#xA;&#xA; &#xA;&#xA;In de HASP-richtlijn van de NHG is aangegeven dat de beheerder meestal de verzender is van het bericht.&#xA;&#xA; &#xA;&#xA;Binnen de informatiestandaard huisartsenzorg wordt de beheerder altijd beschouwd als de verzender."/>
             <alias value="Sender"/>
             <min value="1"/>
             <max value="1"/>
@@ -5077,11 +4828,6 @@
             <example>
                 <label value="1"/>
                 <valueCodeableConcept>
-                    <coding>
-                        <system value="http://fhir.nl/fhir/NamingSystem/uzi-rolcode"/>
-                        <code value="01.010"/>
-                        <display value="Cardioloog"/>
-                    </coding>
                     <text value="Cardioloog"/>
                 </valueCodeableConcept>
             </example>
@@ -5110,40 +4856,6 @@
                 <max value="*"/>
             </base>
         </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding:SpecialismeUZICodelijst">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
-            <sliceName value="SpecialismeUZICodelijst"/>
-            <definition value="RoleCodeNL (Zorgverlenertype (personen)) - Alle waarden"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="required"/>
-                <description value="SpecialismeUZICodelijst"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.6--20200901000000"/>
-            </binding>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding:SpecialismeAGBCodelijst">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
-            <sliceName value="SpecialismeAGBCodelijst"/>
-            <definition value="COD016-VEKT (Vektis AGB-medische specialismen) - Alle waarden"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="required"/>
-                <description value="SpecialismeAGBCodelijst"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.7--20200901000000"/>
-            </binding>
-        </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding:NHGTabel12SoortDerde">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
             <sliceName value="NHGTabel12SoortDerde"/>
@@ -5161,6 +4873,32 @@
                 <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.4--20201104131148"/>
             </binding>
         </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding:SpecialismeCodelijsten">
+            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
+            <sliceName value="SpecialismeCodelijsten"/>
+            <definition value="Samengestelde waardelijst van de losse waardelijsten zoals deze in de zib Zorgverlener staan voor NL-CM:17.1.4 Specialisme. Deze waardelijst bestaat als zodanig niet in de zib maar maakt het eenvoudiger om naar alle waardelijsten tegelijk te verwijzen">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="en-US"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Value set combining the distinct value sets that the zib HealthProfessional binds to for NL-CM:17.1.4 Specialty. This value set as such does not exist in the zib but facilitates referencing all these value sets at the same time"/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="CodeableConcept.coding"/>
+                <min value="0"/>
+                <max value="*"/>
+            </base>
+            <binding>
+                <strength value="required"/>
+                <description value="SpecialismeCodelijsten"/>
+                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.121.11.22--20200901000000"/>
+            </binding>
+        </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5842--20260622082912">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.contactgegevens"/>
             <short value="Telefoonnummer(s) of e-mailadres(sen) van de zorgverlener.">
@@ -5173,13 +4911,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Telefoonnummer(s) of e-mailadres(sen) van de zorgverlener.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="Health professional’s telephone number(s) or e-mail address(es)."/>
                     </extension>
                 </extension>
             </definition>
@@ -5258,13 +4996,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="Een telefoonnummer van de persoon.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The person's telephone number."/>
                     </extension>
                 </extension>
             </definition>
@@ -5302,13 +5040,13 @@
                     </extension>
                 </extension>
             </short>
-            <definition value="-">
+            <definition value="De organisatie waarbij de zorgverlener werkzaam is.">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="-"/>
+                        <valueMarkdown value="The organization the health professional works for."/>
                     </extension>
                 </extension>
             </definition>
@@ -5608,7 +5346,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1680--20211110145437">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ontvanger"/>
             <short value="Geeft de volledige identificatie- en contactgegevens van de ontvanger van het bericht.   In de HASP-richtlijn wordt de ontvanger aangeduid met de geadresseerde."/>
-            <definition value="-"/>
+            <definition value="Geeft de volledige identificatie- en contactgegevens van de ontvanger van het bericht.&#xA;&#xA; &#xA;&#xA;In de HASP-richtlijn wordt de ontvanger aangeduid met de geadresseerde."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -5756,154 +5494,6 @@
                 <comment value="OrganisatieNaam (EQUIV)"/>
             </mapping>
         </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5781--20260603094918">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ontvanger.zorgaanbieder.organisatieType"/>
-            <short value="De type zorgaanbieder, bijvoorbeeld algemeen ziekenhuis en verpleeghuis.">
-                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
-                    <extension url="lang">
-                        <valueCode value="en-US"/>
-                    </extension>
-                    <extension url="content">
-                        <valueMarkdown value="The type of healthcare provider, such as general hospital, or nursing home."/>
-                    </extension>
-                </extension>
-            </short>
-            <definition value="De type zorgaanbieder, bijvoorbeeld algemeen ziekenhuis en verpleeghuis. Indien dit veld gevuld is en voor het ZorgaanbiederIdentificatieNummer een AGB code gebruikt wordt dient het type overeen te komen met het type dat impliciet in de AGB code opgenomen is.">
-                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
-                    <extension url="lang">
-                        <valueCode value="en-US"/>
-                    </extension>
-                    <extension url="content">
-                        <valueMarkdown value="The type of healthcare provider, such as general hospital, or nursing home. If this field is filled in and an AGB code is used for the HealthcareProviderIdentificationNumber, the type must match the type implicitly contained in the AGB code."/>
-                    </extension>
-                </extension>
-            </definition>
-            <requirements value="Voor het duiden van een OrganisatieType is NHG tabel 12 'Soort derde' toegevoegd naast de van de zib Zorgaanbieder-v3.4 (2020) geërfde OrganisatieTypeCodelijst (Codestelselnaam: RoleCodeNL, Codesysteem OID: 2.16.840.1.113883.2.4.15.1060). Huisartsen gebruiken - voor zover bekend - alleen de NHG 12 voor het duiden van OrganiesatieType of andere derde partijen.&#xA;&#xA;Deze toevoeging is besproken met het NHG."/>
-            <alias value="OrganizationType"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ontvanger.zorgaanbieder.organisatieType"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <example>
-                <label value="1"/>
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://nictiz.nl/fhir/NamingSystem/organization-type"/>
-                        <code value="Z4"/>
-                        <display value="Zelfstandig behandelcentrum"/>
-                    </coding>
-                    <text value="Zelfstandig behandelcentrum"/>
-                </valueCodeableConcept>
-            </example>
-            <mustSupport value="true"/>
-            <mapping>
-                <identity value="NlzorgZorgaanbieder-3.4"/>
-                <map value="NL-CM-17.2.4"/>
-                <comment value="OrganisatieType (SPEC)"/>
-            </mapping>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5781--20260603094918.coding">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ontvanger.zorgaanbieder.organisatieType.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <definition value="-"/>
-            <min value="1"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5781--20260603094918.coding:OrganisatieTypeCodelijst">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ontvanger.zorgaanbieder.organisatieType.coding"/>
-            <sliceName value="OrganisatieTypeCodelijst"/>
-            <definition value="-"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="extensible"/>
-                <description value="OrganisatieTypeCodelijst"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.2.3--20200901000000"/>
-            </binding>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5781--20260603094918.coding:NHGTabel12SoortDerde">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ontvanger.zorgaanbieder.organisatieType.coding"/>
-            <sliceName value="NHGTabel12SoortDerde"/>
-            <definition value="NHG Tabel 12 Soort derde heeft tot doel bij de zorg betrokken specialismen of organisaties te registreren in het HIS, meer specifiek om inkomende of uitgaande correspondentie en verwijzingen te categoriseren."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="preferred"/>
-                <description value="NHG Tabel 12 Soort derde"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.4--20201104131148"/>
-            </binding>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5555--20250821072958">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.bestemmingsgegevens"/>
-            <short value="Dit is een groep gegevens over de bestemming waar de patiënt naar toe gaat."/>
-            <definition value="-"/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Verwijzingambulancenaarhuisartsenpost.envelop.bestemmingsgegevens"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="Base"/>
-            </type>
-            <mustSupport value="true"/>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5556--20250821073017">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.bestemmingsgegevens.bestemmingsstatus"/>
-            <short value="Geeft de status van de ambulance naar deze bestemming."/>
-            <definition value="Geeft de status van de ambulance naar deze bestemming. De waarden zijn:&#xA;&#xA;* Actief = patiënt is onderweg naar de bestemming. &#xA;* Geannuleerd = patiënt gaat niet meer naar de bestemming. Dit is het laatste bericht van de ambulance naar de bestemming.&#xA;* Overgedragen =  patiënt is overgedragen aan de bestemming. Dit is het laatste bericht van de ambulance naar de bestemming.&#xA;&#xA; "/>
-            <requirements value="Bij de status &#34;geannuleerd&#34; zijn er verschillende mogelijkheden, zoals patiënt gaat naar andere bestemming of patiënt gaat niet meer naar een zorginstelling.&#xA;&#xA;[20250218] Koppeling tussen transactie element ‘Bestemmingsstatus’ en veld in template (statusCode) is aangemaakt.&#xA;&#xA;[20250224] Terminologiekoppeling tussen transactie element ‘Bestemmingsstatus’ en SNOMED code 416342005 observatie betreffende verrichting (waarneembare entiteit) is verwijderd."/>
-            <min value="1"/>
-            <max value="1"/>
-            <base>
-                <path value="Verwijzingambulancenaarhuisartsenpost.envelop.bestemmingsgegevens.bestemmingsstatus"/>
-                <min value="1"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <example>
-                <label value="1"/>
-                <valueCodeableConcept>
-                    <text value="Actief"/>
-                </valueCodeableConcept>
-            </example>
-            <mustSupport value="true"/>
-            <binding>
-                <strength value="required"/>
-                <description value="Bestemmingsstatussen"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.55.11.116--20250827000000"/>
-            </binding>
-        </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.6034--20260624133541">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.ritnummer"/>
             <short value="Het ritnummer bestaat uit een aantal onderdelen die worden gescheiden door een koppelteken &#34;-&#34;."/>
@@ -5930,13 +5520,13 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1684--20211110150321">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.datumentijd"/>
             <short value="Geeft het tijdstip waarop de verzender het bericht afrondt en aanbiedt voor verzending.   Dit gegeven kan automatisch worden ingevuld door de verzendende applicatie."/>
-            <definition value="-"/>
+            <definition value="Geeft het tijdstip waarop de verzender het bericht afrondt en aanbiedt voor verzending.&#xA;&#xA; &#xA;&#xA;Dit gegeven kan automatisch worden ingevuld door de verzendende applicatie."/>
             <alias value="DateTimeSend"/>
-            <min value="1"/>
+            <min value="0"/>
             <max value="1"/>
             <base>
                 <path value="Verwijzingambulancenaarhuisartsenpost.envelop.datumentijd"/>
-                <min value="1"/>
+                <min value="0"/>
                 <max value="1"/>
             </base>
             <type>
@@ -5951,7 +5541,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1709--20211115095055">
             <path value="Verwijzingambulancenaarhuisartsenpost.kern"/>
             <short value="Geeft de zorginhoudelijke kerngegevens van de berichten die genoemd zijn in de verschillende NHG-richtlijnen voor verwijzing, update, ontslag, directe toegang en eindrapportage voor paramedici.  "/>
-            <definition value="-"/>
+            <definition value="Geeft de zorginhoudelijke kerngegevens van de berichten die genoemd zijn in de verschillende NHG-richtlijnen voor verwijzing, update, ontslag, directe toegang en eindrapportage voor paramedici.&#xA;&#xA; "/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -5972,7 +5562,7 @@
                 <display value="verwijzing voor (waarneembare entiteit)"/>
             </code>
             <short value="Geeft de reden van de verwijzing of de update.Hierbij is de beschrijving als vrije tekst op aangeven van het NHG verplicht.Daarnaast kan er ook een ICPC-code van de episode worden meegestuurd, al dan niet aangevuld met meer details over de vastlegging van de ICPC."/>
-            <definition value="-"/>
+            <definition value="Geeft de reden van de verwijzing of de update.&#xA;Hierbij is de beschrijving als vrije tekst op aangeven van het NHG verplicht.&#xA;Daarnaast kan er ook een ICPC-code van de episode worden meegestuurd, al dan niet aangevuld met meer details over de vastlegging van de ICPC."/>
             <alias value="ReasonMessage"/>
             <min value="1"/>
             <max value="1"/>
@@ -6025,7 +5615,7 @@
                 <display value="behandeling gegeven (situatie)"/>
             </code>
             <short value="Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht.In de richtlijn HASP Paramedicus wordt dit veld in de verwijzing, de update door de paramedicus en het DT-bericht 'Beleid, ingestelde behandeling' genoemd.In de richtlijn HASP Medisch Specialist wordt dit veld in het ontslagbericht 'Beleid' genoemd.In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op het veld 'Beleid'Zie voor het verwijsbericht en de update de HASP-medische specialist richtlijn en HASP-paramedische richtlijn van het NHG.Zie voor het DT-bericht de HASP-paramedische richtlijn van het NHG."/>
-            <definition value="-"/>
+            <definition value="Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht.&#xA;&#xA;* In de richtlijn HASP Paramedicus wordt dit veld in de verwijzing, de update door de paramedicus en het DT-bericht 'Beleid, ingestelde behandeling' genoemd.&#xA;* In de richtlijn HASP Medisch Specialist wordt dit veld in het ontslagbericht 'Beleid' genoemd.&#xA;* In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op het veld 'Beleid'&#xA;&#xA;Zie voor het verwijsbericht en de update de HASP-medische specialist richtlijn en HASP-paramedische richtlijn van het NHG.&#xA;Zie voor het DT-bericht de HASP-paramedische richtlijn van het NHG."/>
             <requirements value="[22-5-2026] Toegevoegd 51847-2 Assessment+Plan. Indien het datasetconcept wordt gebruikt als een document-sectie, dient LOINC te worden gebruikt. Bij uitwisselen van de situatie ‘ingestelde behandeling/beleid’ dient SNOMED 182991002 behandeling gegeven te worden gebruikt voor de uitwisseling."/>
             <min value="0"/>
             <max value="*"/>
@@ -6051,7 +5641,7 @@
                 <display value="Conclusies "/>
             </code>
             <short value="Geeft de diagnose en/of conclusie.In de HASP-paramedicus richtlijn (NHG) is aangegeven:In het bericht 'DT' van de paramedicus komt de diagnose of conclusie.In het bericht 'eindrapportage van de paramedicus komt de conclusie. In de HASP-medische specialist richtlijn (NHG) is aangegeven:In het bericht 'ontslag' van de medische specialist komt de diagnose en/of conclusie.In de HASP-GGZ richtlijn (NHG) is aangegeven:In het bericht 'na intake' van de GGZ komt de diagnose en/of conclusie.In het bericht 'kennisgeving overdracht behandeling' van de GGZ komt de diagnose en/of conclusie.In het bericht 'einde behandeling / voortgang' ontslagbericht van de GGZ komt de diagnose en/of conclusie.In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op de opsommingen van de titels van de toestandsbeelden in de Ambulance."/>
-            <definition value="-"/>
+            <definition value="Geeft de diagnose en/of conclusie.&#xA;&#xA;In de HASP-paramedicus richtlijn (NHG) is aangegeven:&#xA;&#xA;* In het bericht 'DT' van de paramedicus komt de diagnose of conclusie.&#xA;* In het bericht 'eindrapportage van de paramedicus komt de conclusie.&#xA;&#xA; &#xA;In de HASP-medische specialist richtlijn (NHG) is aangegeven:&#xA;&#xA;* In het bericht 'ontslag' van de medische specialist komt de diagnose en/of conclusie.&#xA;&#xA;In de HASP-GGZ richtlijn (NHG) is aangegeven:&#xA;&#xA;* In het bericht 'na intake' van de GGZ komt de diagnose en/of conclusie.&#xA;* In het bericht 'kennisgeving overdracht behandeling' van de GGZ komt de diagnose en/of conclusie.&#xA;* In het bericht 'einde behandeling / voortgang' ontslagbericht van de GGZ komt de diagnose en/of conclusie.&#xA;&#xA;In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op de opsommingen van de titels van de toestandsbeelden in de Ambulance."/>
             <requirements value="[20260518] Terminologiekoppeling gewijzigd van 60022001|mogelijke diagnose (kwalificatiewaarde)| naar LOINC 55110-1 conclusies voor het gebruik in een document als documentsectie."/>
             <alias value="Diagnosis / Conclusion"/>
             <min value="0"/>
@@ -6105,7 +5695,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.1725--20211115111052">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens"/>
             <short value="Geeft de gegevens die in het dossier staan."/>
-            <definition value="-"/>
+            <definition value="Geeft de gegevens die in het dossier staan."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -6138,7 +5728,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5472--20250611144114">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document"/>
             <short value="Document"/>
-            <definition value="-"/>
+            <definition value="Document"/>
             <min value="1"/>
             <max value="*"/>
             <base>
@@ -6170,7 +5760,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5474--20250611144226">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentSetIdentificatie"/>
             <short value="Identificatienummer van de set waar het document toe behoort"/>
-            <definition value="-"/>
+            <definition value="Identificatienummer van de set waar het document toe behoort"/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -6186,7 +5776,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5475--20250611144258">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentVersienummer"/>
             <short value="Versienummer van het document"/>
-            <definition value="-"/>
+            <definition value="Versienummer van het document"/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -6202,7 +5792,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5476--20250611144329">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentBestandtype"/>
             <short value="Het bestandtype als mimetype, bijvoorbeeld &#34;application/pdf&#34; of &#34;text/plain&#34;.Voor de verwijzing vanuit de Ambulance naar de Huisarts of Huisartsenpost is dit een pdf."/>
-            <definition value="-"/>
+            <definition value="Het bestandtype als mimetype, bijvoorbeeld &#34;application/pdf&#34; of &#34;text/plain&#34;.&#xA;Voor de verwijzing vanuit de Ambulance naar de Huisarts of Huisartsenpost is dit een pdf."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -6222,7 +5812,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5477--20250611144354">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentInhoud"/>
             <short value="Geeft de inhoud van de bijlage (blob)"/>
-            <definition value="-"/>
+            <definition value="Geeft de inhoud van de bijlage (blob)"/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -6238,7 +5828,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5552--20250820135844">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentNaam"/>
             <short value="De bestandsnaam die het document heeft bij de verzender."/>
-            <definition value="-"/>
+            <definition value="De bestandsnaam die het document heeft bij de verzender."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -6258,7 +5848,7 @@
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5553--20250820140054">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentCreatieDatumTijd"/>
             <short value="Datum van het aanmaken van het document"/>
-            <definition value="-"/>
+            <definition value="Datum van het aanmaken van het document"/>
             <min value="0"/>
             <max value="1"/>
             <base>
