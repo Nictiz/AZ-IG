@@ -131,7 +131,7 @@ Usage: #example
 Title: "Composition - maximal transfer summary note"
 Description: "Maximal example transfer summary note: reason, the instituted treatment, the diagnosis/conclusion and the agreement with the patient, for the maximal ambulance-to-HAP referral."
 * status = #final
-* type = $loinc#28651-8 "Samenvatting van overdracht [bevinding] in {instelling} d.m.v. {rol} (document)"
+* type = $loinc#28651-8 "Samenvatting van overdracht [bevinding] in {instelling} d.m.v. verpleegkundige (document)"
 * subject = Reference(hg-Patient-AmbulanceHAP-max)
 * subject.type = "Patient"
 * subject.display = "J.H.M. van Baatenburg"
@@ -142,12 +142,12 @@ Description: "Maximal example transfer summary note: reason, the instituted trea
 * title = "Ambulanceverwijzing naar huisartsenpost"
 * section[messageReason]
   * title = "Reden van verwijzing"
-  * code = $loinc#46239-0 "verwijzing voor (waarneembare entiteit)"
+  * code = $loinc#46239-0 "Belangrijkste klacht + reden voor bezoek [bevinding] (tekstueel)"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Patiënt is vanuit acute ambulancezorg voor verdere zorg doorverwezen naar de huisartsenspoedpost.</div>"
 * section[treatmentGiven]
   * title = "Ingestelde behandeling"
-  * code = $loinc#51847-2 "Behandelplan [bevinding] in {instelling} d.m.v. {rol} (document)"
+  * code = $loinc#51847-2 "Evaluation + Plan note"
   * text.status = #additional
   * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Luchtweg: intubatie van de trachea (moeizame intubatie).</p><p>Oxygenatie en ventilatie: kunstmatige beademing (machine FiO2 0.50, AMV 6 L/min, frequentie 10/min, PEEP 3 cmH2O), handmatige beademing, zuurstof 3 L/min.</p><p>Circulatie: cardioversie (2x, max 600 J); ROSC nee; AED aangesloten voor aankomst (5 schokken); transthoracale cardiale pacing (60/min, 5 mA, fixed rate); defibrillatie met gelijkstroom (3x, 200 J).</p><p>Traumatologie: koelen van patiënt (10 minuten). Obstetrie: afklemmen van de navelstreng. Isolatie: contactisolatie.</p><p>Medicatie: Acetylsalicylzuur 2 stuks, oraal toegediend.</p><p>Extra informatie behandeling: normale behandeling.</p></div>"
 * section[diagnosisConclusion]
@@ -187,43 +187,43 @@ Description: "Example attached document (the ambulance report PDF) accompanying 
   * title = "ambulance verslag"
   * creation = "2026-06-20T13:50:00+02:00"
 
-Instance: hg-ReferralMessageHeader-AmbulanceHAP-max
-InstanceOf: HgReferralMessageHeaderAmbulanceHAP
-Usage: #example
-Title: "MessageHeader - maximal ambulance referral"
-Description: "Example MessageHeader focusing the referral ServiceRequest for the maximal ambulance-to-HAP referral message."
-* eventCoding = HgMessageEvent#145 "Verwijzing ambulance naar huisartsenpost"
-* focus = Reference(hg-ReferralServiceRequest-AmbulanceHAP-max)
-* focus.type = "ServiceRequest"
-* focus.display = "Ambulanceverwijzing naar huisartsenpost"
-* sender = Reference(hg-HealthcareProvider-Organization-AmbulanceHAP-max-rav)
-* sender.type = "Organization"
-* sender.display = "RAV"
-* source.endpoint = "https://ambulance.example.nl/fhir"
-* destination.endpoint = "https://hap.example.nl/fhir"
 
 Instance: hg-ReferralBundle-AmbulanceHAP-max
 InstanceOf: HgReferralBundleAmbulanceHAP
 Usage: #example
-Title: "Bundle - maximal ambulance referral message"
-Description: "Maximal example message Bundle for an ambulance-to-HAP referral (ART-DECOR ADA test az-ave-tst-2-maximaal), containing the complete referral with the document attachment."
-* type = #message
+Title: "Bundle - maximal ambulance referral transaction"
+Description: "Maximal example transaction Bundle for an ambulance-to-HAP referral (ART-DECOR ADA test az-ave-tst-2-maximaal), containing the complete referral with the document attachment."
+* type = #transaction
 * timestamp = "2026-06-20T14:00:05+02:00"
-* entry[+].fullUrl = "http://nictiz.nl/fhir/MessageHeader/hg-ReferralMessageHeader-AmbulanceHAP-max"
-* entry[=].resource = hg-ReferralMessageHeader-AmbulanceHAP-max
 * entry[+].fullUrl = "http://nictiz.nl/fhir/ServiceRequest/hg-ReferralServiceRequest-AmbulanceHAP-max"
 * entry[=].resource = hg-ReferralServiceRequest-AmbulanceHAP-max
+* entry[=].request.method = #POST
+* entry[=].request.url = "ServiceRequest"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/Composition/hg-ReferralComposition-AmbulanceHAP-max"
 * entry[=].resource = hg-ReferralComposition-AmbulanceHAP-max
+* entry[=].request.method = #POST
+* entry[=].request.url = "Composition"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/Patient/hg-Patient-AmbulanceHAP-max"
 * entry[=].resource = hg-Patient-AmbulanceHAP-max
+* entry[=].request.method = #POST
+* entry[=].request.url = "Patient"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/Practitioner/hg-HealthProfessional-Practitioner-AmbulanceHAP-max"
 * entry[=].resource = hg-HealthProfessional-Practitioner-AmbulanceHAP-max
+* entry[=].request.method = #POST
+* entry[=].request.url = "Practitioner"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/PractitionerRole/hg-HealthProfessional-PractitionerRole-AmbulanceHAP-max"
 * entry[=].resource = hg-HealthProfessional-PractitionerRole-AmbulanceHAP-max
+* entry[=].request.method = #POST
+* entry[=].request.url = "PractitionerRole"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-max-rav"
 * entry[=].resource = hg-HealthcareProvider-Organization-AmbulanceHAP-max-rav
+* entry[=].request.method = #POST
+* entry[=].request.url = "Organization"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-max-hap"
 * entry[=].resource = hg-HealthcareProvider-Organization-AmbulanceHAP-max-hap
+* entry[=].request.method = #POST
+* entry[=].request.url = "Organization"
 * entry[+].fullUrl = "http://nictiz.nl/fhir/DocumentReference/hg-ReferralDocumentReference-AmbulanceHAP-max"
 * entry[=].resource = hg-ReferralDocumentReference-AmbulanceHAP-max
+* entry[=].request.method = #POST
+* entry[=].request.url = "DocumentReference"

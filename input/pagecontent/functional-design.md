@@ -32,24 +32,18 @@ Interoperability requires agreements on five layers - the Nictiz [vijflagenmodel
     </tr>
     <tr>
       <td style="background-color:#95c11f;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">Applicatie</td>
-      <td>How systems exchange it: the FHIR R4 profiles, the message structure (MessageHeader/Bundle), CapabilityStatements and ActorDefinitions.</td>
+      <td>How systems exchange it: the FHIR R4 profiles, the transaction Bundle, CapabilityStatements and ActorDefinitions.</td>
       <td><a href="artifacts.html">Artifacts</a>, <a href="data-model.html">Data model</a></td>
     </tr>
     <tr>
       <td style="background-color:#009b3e;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">IT-infrastructuur</td>
-      <td>The transport: the exchange paradigm (FHIR Messaging, RESTful or FHIR Document), not yet chosen.</td>
+      <td>The transport: RESTful, the referral POSTed as a transaction Bundle.</td>
       <td><a href="data-exchange.html">Data exchange</a></td>
     </tr>
   </tbody>
 </table>
 
 The two conditional columns, *wet- en regelgeving* and *beveiliging*, apply across every layer and are out of scope of this IG.
-
-### Use case: Ambulanceverwijzing (AMB naar HAP), section 2.16
-
-[Section 2.16 of the functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29) covers the handover of a patient by an ambulance professional to a GP out-of-hours post (HAP, *huisartsenpost*) after on-scene care. This corresponds to message 24 in the *richtlijn* (AMB naar HAP). The exchange is one-directional (PUSH): the ambulance/Regionale Ambulancevoorziening (RAV) sends, the HAP receives.
-
-The information exchanged covers patient identification, the reason for referral, the treatment instituted on scene, the clinical conclusion or working diagnosis, and any supporting documents such as an clinical note or ECG.
 
 ### ART-DECOR dataset
 

@@ -25,7 +25,7 @@ Technically, this IG is a FHIR package that declares the following dependencies.
 - nl-core (`nictiz.fhir.nl.r4.nl-core`) - the FHIR profiles that represent the zibs. This IG's transaction-specific zib profiles (`hg-Patient-AmbulanceHAP` and siblings) derive from nl-core, and every reference targets the nl-core profile beside the bare FHIR type.
 - zib2020 (`nictiz.fhir.nl.r4.zib2020`) - the zib layer that nl-core builds on; pulled in transitively.
 - elz (`nictiz.fhir.nl.r4.elz`) -is the FHIR implementation of the primary care (Eerstelijnszorg, ELZ)
-- FHIR tooling (`hl7.fhir.uv.tools.r4`) - supplies the Obligations and `ActorDefinition` machinery this IG uses for conformance instead of `mustSupport`.
+- FHIR tooling (`hl7.fhir.uv.tools.r4`) - supplies the Obligations and `ActorDefinition` machinery this IG uses to express its conformance expectations.
 
 Note that the project-specific terminology (the *Bijlagen* value set and the `acutezorg-codesysteem-16` code system) is not a package dependency: it is downloaded from ART-DECOR and embedded verbatim in `input/resources`. See the [Design Decisions](design-decisions.html) page for why, and the caveats that come with it.
 
@@ -40,7 +40,7 @@ This IG and the primary care ELZ package draw on the same ART-DECOR project; the
 - `hg-ReferralServiceRequest`: the ELZ profile fixes `status` to *completed* and defines a `category` slice with a primary-care-specific OID coding. Both are omitted here as they are ELZ specific; use case layers in this IG add their own `category` slice and `status` constraints where needed.
 - `hg-ReferralComposition`: the ELZ profile defines a detailed Envelope/Core section hierarchy specific to primary care (CarePath, RequiredConsultationFacilities, MessageReason, etc.). Section structure has proven to be use case specific, so no named sections are defined at the generic layer; each use case adds its own section slices.
 - `hg-ReferralTask`: present in ELZ. Not yet defined here; will be added when a use case requires explicit workflow tracking.
-- `hg-ReferralMessageHeader`, `hg-ReferralBundle`, `hg-ReferralDocumentReference`: present in this IG, not in ELZ.
+- `hg-ReferralBundle`, `hg-ReferralDocumentReference`: present in this IG, not in ELZ.
 
 These differences are not blocking while both packages are in beta, but they must be reconciled before either reaches a stable release (tracked on the [Open items](open-items.html) page).
 

@@ -76,7 +76,7 @@ issue "Resolve canonical URL overlap with ELZ" "architecture,decision" \
 issue "Choose the exchange paradigm (Messaging / RESTful / Document)" "architecture,decision" \
 "The exchange paradigm is not yet chosen. The CapabilityStatements and Data Exchange page will be finalized once decided."
 
-issue "Message 23 (AMB naar HA) as a parallel use case" "architecture" \
+issue "Message 23 (AMB → HA) as a parallel use case" "architecture" \
 "Out of scope for this version. Can be added as a parallel hg-Referral*-AmbulanceHA use case layer with a new ambulance-referral-to-ha event code; no changes to the HAP profiles required."
 
 echo "== Done =="
