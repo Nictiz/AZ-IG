@@ -415,7 +415,7 @@ If @negationInd="true", then no AED was connected prior to arrival; in this case
   </tr>
   <tr>
     <td>Koelen tijdsduur: &lt;value&gt; value met unit</td>
-    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1152 (CoolingTime). Deze is voorwaardelijk bij Handelingen traumatologie = '105382002 koelen van patiënt (verrichting)'.</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1152 (CoolingTime). This is conditional uponHandelingen traumatologie = '105382002 koelen van patiënt (verrichting)'.</td>
     <td></td>
     <td></td>
   </tr>
