@@ -109,12 +109,12 @@ The image below shows the interrelationships between the processes, business rol
  <div>{% include transaction.svg %}</div>
 <br clear="all"/>
 Figure: Transaction for ambulance referral to GP and GP out-of-hours service
-</br>
-</br>
+<br>
+<br>
 The image above shows that certain business activities result in a specific transaction. This transaction is performed by a system role and is part of a transaction group. The data elements exchanged between system roles as part of the transactions are specified in the "Ambulance referral to GP or GP out-of-hours service" (AMB → HAP) scenario.
 The table below allows for direct access to the relevant use cases (scenarios), transaction groups, and/or transactions in ART-DECOR or other documentation. Where a link is provided, the description of the transaction(s) or transaction group(s) is available.
-</br>
-</br>
+<br>
+<br>
 
 <table class="grid">
   <thead>

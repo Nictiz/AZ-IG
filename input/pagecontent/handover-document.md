@@ -1,10 +1,10 @@
 Specification of the document within the ambulance referral to the out-of-hours GP service
 The specifications regarding the document's content are presented in the table below.
-</br>
+<br>
 <table class="grid">
   <thead>
     <tr>
-      <th>Ambulance Referral Categories</th>
+      <th>Ambulance handover Categories</th>
     </tr>
   </thead>
   <tbody>
@@ -100,7 +100,7 @@ The following ambulance data can be included within the sections. If a specific 
     <td>Overige contactgegevens:  &lt;telecom&gt;</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.101 (CDA recordTarget) at the element: &lt;telecom&gt;</td>
     <td></td>
-    <td>Degree of flexibility; not mandatory for qualification. The patient's telephone number is highly desirable; otherwise, it is not possible to call the patient back.</td>
+    <td>Not mandatory for qualification. The patient's telephone number is highly desirable; otherwise, it is not possible to call the patient back.</td>
   </tr>
   <tr>
     <td>Reden/Hulpvraag</td>
@@ -988,7 +988,7 @@ If @negationInd="true", then no AED was connected prior to arrival; in this case
     <td>Telefoonnummer: &lt;telecom&gt;</td>
     <td>Template ID 2.16.840.1.113883.2.4.3.11.60.55.10.438 (ConsultingExternalProfessionalSection) contains 2.16.840.1.113883.2.4.3.11.60.55.10.440 (ConsultationGiver)</td>
     <td></td>
-    <td>degree of flexibility, not mandatory for qualification
+    <td>Not mandatory for qualification
  </td>
   </tr>
   <tr>

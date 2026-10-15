@@ -5,9 +5,9 @@ The mappings between the data elements are shown in the table below. Data elemen
 <table class="grid">
   <thead>
     <tr>
-      <th>AMB-SEH gegevenselement</th>
-      <th>AMB-HAP gegevenselement</th>
-      <th>Opmerking</th>
+      <th>AMB-SEH data element</th>
+      <th>AMB-HAP data element</th>
+      <th>Remark</th>
     </tr>
   </thead>
   <tbody>
@@ -148,8 +148,6 @@ Vektis AGB medical specialties value 9100 Nurses, not further specified</td></tr
     <tr><td></td><td>Contactgegevens.Emailadressen</td><td></td></tr>
     <tr><td></td><td><span style="color: #db1304">Emailadres</span></td><td>not relevant for the use case AMB-HAP</td></tr>
     <tr><td></td><td><span style="color: #db1304">EmailadresSoort</span></td><td>not relevant for the use case AMB-HAP</td></tr>
-    <tr><td>Bestemmingsgegevens</td><td>Bestemmingsgegevens</td><td></
-    <td></tr>
     <tr><td></td><td>Datum en tijd</td><td>Date and time of sending</td></tr>
     <tr><td>Ritnummer</td><td>Ritnummer</td><td>'Ritnummer' of the ambulance</td></tr>
     <tr><td></td><td>Kern</td><td></td></tr>
