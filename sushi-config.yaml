@@ -20,6 +20,8 @@ menu:
   Background:
     Use cases: use-cases.html
     Functional design: functional-design.html
+    Handover document: handover-document.html
+    Mapping data elements: mapping-data-elements.html
     Dependencies: dependencies.html
   Specification:
     Data model: data-model.html
@@ -40,6 +42,10 @@ pages:
     title: Use cases
   functional-design.md:
     title: Functional design
+  handover-document.md:
+    title: Handover document
+  mapping-data-elements.md:
+    title: Mapping data elements
   dependencies.md:
     title: Dependencies
   data-model.md:
