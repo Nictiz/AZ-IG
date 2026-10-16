@@ -138,7 +138,7 @@
             <coding>
               <system value="http://loinc.org"/>
               <code value="69730-0"/>
-              <display value="Instructions"/>
+              <display value="instructies voor zorgafnemer"/>
             </coding>
           </code>
           <text>
