@@ -24,7 +24,7 @@ Description: "Requirements on the sending system (ambulance/Regionale Ambulancev
 * copyright = "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/."
 * rest[+]
   * mode = #client
-  * documentation = "The sending system produces a conformant referral and POSTs it to the receiver in one transaction, conforming to hg-ReferralBundle-AmbulanceHAP. The resources it has to be able to produce are listed below: ServiceRequest (hg-ReferralServiceRequest-AmbulanceHAP), Composition (hg-ReferralComposition-AmbulanceHAP), DocumentReference (hg-ReferralDocumentReference-AmbulanceHAP, when applicable), Patient (hg-Patient-AmbulanceHAP), Encounter (hg-Encounter-AmbulanceHAP), Organization (hg-HealthcareProvider-Organization-AmbulanceHAP), PractitionerRole (hg-HealthProfessional-PractitionerRole-AmbulanceHAP) and Practitioner (nl-core-HealthProfessional-Practitioner). The create interaction per resource type describes what the transaction entries do; the transaction itself is the system-level interaction below."
+  * documentation = "The sending system produces a conformant referral and POSTs it to the receiver in one transaction, conforming to hg-ReferralBundle-AmbulanceHAP. The resources it has to be able to produce are listed below: ServiceRequest (hg-ReferralServiceRequest-AmbulanceHAP), Composition (hg-ReferralComposition-AmbulanceHAP), DocumentReference (hg-ReferralDocumentReference-AmbulanceHAP, when applicable), Patient (hg-Patient-AmbulanceHAP), Encounter (hg-Encounter-AmbulanceHAP), Organization (hg-HealthcareProvider-Organization-AmbulanceHAP), PractitionerRole (hg-HealthProfessional-PractitionerRole-AmbulanceHAP) and Practitioner (hg-HealthProfessional-Practitioner-AmbulanceHAP). The create interaction per resource type describes what the transaction entries do; the transaction itself is the system-level interaction below."
   * interaction[+]
     * code = #transaction
     * documentation = "The referral is sent as one transaction Bundle conforming to hg-ReferralBundle-AmbulanceHAP: POST entries with urn:uuid fullUrls, so the references between the resources resolve within the transaction and no entry claims an identity on the receiving server."
@@ -58,7 +58,7 @@ Description: "Requirements on the sending system (ambulance/Regionale Ambulancev
     * interaction[+].code = #create
   * resource[+]
     * type = #Practitioner
-    * supportedProfile = "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner"
+    * supportedProfile = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-Practitioner-AmbulanceHAP"
     * interaction[+].code = #create
 
 Instance: hg-CapabilityStatement-Receiver
@@ -114,5 +114,5 @@ Description: "Requirements on the receiving system (GP out-of-hours service, HAP
     * interaction[+].code = #create
   * resource[+]
     * type = #Practitioner
-    * supportedProfile = "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner"
+    * supportedProfile = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-Practitioner-AmbulanceHAP"
     * interaction[+].code = #create

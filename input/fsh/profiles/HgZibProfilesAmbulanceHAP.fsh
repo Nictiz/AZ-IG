@@ -56,8 +56,17 @@ Parent: $nlcore-PractitionerRole
 Id: hg-HealthProfessional-PractitionerRole-AmbulanceHAP
 Title: "hg HealthProfessional PractitionerRole - Ambulance to HAP"
 Description: "Role of the sending ambulance professional in the referral. Derived from nl-core-HealthProfessional-PractitionerRole."
+* practitioner only Reference(Practitioner or $nlcore-Practitioner or HgHealthProfessionalPractitionerAmbulanceHAP)
 * practitioner insert Obligation
 * organization insert Obligation
+
+Profile: HgHealthProfessionalPractitionerAmbulanceHAP
+Parent: $nlcore-Practitioner
+Id: hg-HealthProfessional-Practitioner-AmbulanceHAP
+Title: "hg HealthProfessional Practitioner - Ambulance to HAP"
+Description: "Sending ambulance professional in the referral. Derived from nl-core-HealthProfessional-Practitioner; the transaction requires at least one ZorgverlenerIdentificatienummer, so identifier is 1..*."
+* identifier 1..*
+* identifier insert ObligationMandatory
 
 Profile: HgEncounterAmbulanceHAP
 Parent: $nlcore-Encounter
