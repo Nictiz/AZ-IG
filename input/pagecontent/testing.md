@@ -10,9 +10,7 @@ All example resources use fictional test data only.
 
 | Example | Source | What it shows | Message |
 |---|---|---|---|
-| Scenario 5b | *Richtlijn Gegevensuitwisseling Acute Zorg* | A worked ambulance-to-HAP referral after on-scene care, with an ECG attachment. | [Bundle](Bundle-hg-ReferralBundle-AmbulanceHAP-referral.html) |
-| Maximal | ART-DECOR ADA test `az-ave-tst-2-maximaal` | A richly populated message: structured patient with address, telecom and a contact person; a sending nurse; all four Composition sections; and a document attachment. | [Bundle](Bundle-hg-ReferralBundle-AmbulanceHAP-max.html) |
-| Minimal | ART-DECOR ADA test `az-ave-tst-3-minimaalTestdag` | A lean message: a patient known by name and gender only, organizations addressed by URA, a free-text reason and the report attachment. | [Bundle](Bundle-hg-ReferralBundle-AmbulanceHAP-min.html) |
+| Example 1 | *Richtlijn Gegevensuitwisseling Acute Zorg* | Contains a structured patient with address, telecom and a contact person; a sending nurse; all four Composition sections; and a document attachment. | [Bundle](Bundle-hg-ReferralBundle-AmbulanceHAP-example.html) |
 
 ### Mappings
 
