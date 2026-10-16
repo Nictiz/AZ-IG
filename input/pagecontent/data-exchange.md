@@ -50,7 +50,7 @@ Limitations: a document Bundle is immutable - corrections require a new document
 
 ### Decision status
 
-RESTful is the paradigm this IG designs against. The decision is recorded in [GitHub issue #14](https://github.com/Nictiz/AZ-IG/issues/14) and is not final until the agreement with the vendors and the infrastructure parties is in place for the beta release; until then it is the direction, not a commitment that binds those parties.
+RESTful is the chosen paradigm. The decision is recorded in [GitHub issue #14](https://github.com/Nictiz/AZ-IG/issues/14). It is revisited if the agreement with the vendors and the infrastructure parties leads elsewhere.
 
 What follows from it is already applied: the referral is a `transaction` Bundle, the MessageHeader profile and the message event code system have been removed, and the CapabilityStatements state the system-level `transaction` interaction next to `create` per resource type.
 
