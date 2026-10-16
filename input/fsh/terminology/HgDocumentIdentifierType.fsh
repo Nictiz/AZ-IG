@@ -3,6 +3,8 @@ CodeSystem: HgDocumentIdentifierType
 Id: hg-document-identifier-type
 Title: "hg document identifier type codes"
 Description: "Local codes distinguishing the folded CDA externalDocument identifiers on `DocumentReference.identifier`: the document instance id (`.id`) and the version-independent set id (`.setId`)."
+* ^purpose = "FHIR defines no standard code to tell a document instance identifier from a version-independent set identifier, and leaves disambiguation of multiple identifiers to implementation context. This local code system supplies the two discriminator values that the identifier slicing on the referral DocumentReference needs."
+* insert NictizMetadata
 * ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete

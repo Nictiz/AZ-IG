@@ -16,6 +16,8 @@ Parent: ServiceRequest
 Id: hg-ReferralServiceRequest
 Title: "hg referral ServiceRequest"
 Description: "Generic referral request (workflow 'request' on FHIR core ServiceRequest) for Acute Zorg referrals. Open-world: nl-core targets are added next to the base resources; cardinalities and mustSupport are left to the use case layer."
+* ^purpose = "A use case independent profile for the referral request itself, on FHIR core ServiceRequest. It carries the structure every Acute Zorg referral shares, without cardinality tightening or obligations, so that each transaction can derive its own use case profile from it. Constraints belong on that derived profile, not here."
+* insert NictizMetadata
 // status: deliberately not fixed to #completed here. The ELZ (primary care) use case documents status as always 'completed' (referral is done when sent), but other use cases may use different values. Status is the responsibility of the use case layer.
 //
 // category: the ELZ profile defines a messageType slice on category with a primary-care- specific OID coding. That slice is not carried here; each use case adds its own category/messageType slice in its own use case layer.
@@ -32,6 +34,8 @@ Parent: Composition
 Id: hg-ReferralComposition
 Title: "hg referral Composition"
 Description: "Generic transfer summary note carrying the textual *rubrieken* as Composition sections. Open-world base for the use case layer."
+* ^purpose = "A use case independent profile for the transfer summary note that accompanies a referral, on FHIR core Composition. It carries the section structure every Acute Zorg referral shares, without cardinality tightening or obligations, so that each transaction can derive its own use case profile from it."
+* insert NictizMetadata
 // Document type (Composition.type) is intentionally NOT fixed here - it is use case specific. Each use case layer fixes it.
 //
 // Section structure: deliberately left open at this layer. Experience from the ELZ (primary care) profiles shows that section codes and content are highly use case specific - the ELZ profile defines an Envelope/Core section hierarchy with sections such as CarePath, RequiredConsultationFacilities, MessageReason, SetTreatment, ProposedProcedure, and FurtherImportant, none of which apply directly to the ambulance use case. Each use case layer defines its own section slicing (discriminator and named slices) with the codes appropriate for that transaction; the slicing is intentionally NOT declared here so the use case profile owns it and its snapshot anchors the slice children correctly.
@@ -44,6 +48,8 @@ Parent: DocumentReference
 Id: hg-ReferralDocumentReference
 Title: "hg referral DocumentReference"
 Description: "Generic attached document for a referral (for example an ECG or photo). Open-world base for the use case layer."
+* ^purpose = "A use case independent profile for a document attached to a referral, on FHIR core DocumentReference. It carries the identifier slicing and the version extension that follow from the shared ART-DECOR dataset, without cardinality tightening or obligations, so that each transaction can derive its own use case profile from it."
+* insert NictizMetadata
 * subject only Reference(Patient or Practitioner or Group or Device or $nlcore-Patient)
 * author only Reference(Practitioner or PractitionerRole or Organization or Device or Patient or RelatedPerson or $nlcore-PractitionerRole or $nlcore-Organization or $nlcore-Patient or $nlcore-ContactPerson)
 * author insert PartyReferenceComment
@@ -67,6 +73,8 @@ Parent: Bundle
 Id: hg-ReferralBundle
 Title: "hg referral Bundle"
 Description: "Generic transaction bundle for a referral PUSH: the referral ServiceRequest together with the resources it references."
+* ^purpose = "A use case independent profile for the transaction that carries a referral, on FHIR core Bundle. The referral is not one resource: the ServiceRequest references the patient, the summary note, the attachments and the parties, so it travels as one transaction. The exchange paradigm is RESTful, decided in GitHub issue #14."
+* insert NictizMetadata
 * type = #transaction
 
 // =============================================================================
