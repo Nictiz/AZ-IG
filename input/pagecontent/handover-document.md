@@ -304,7 +304,7 @@ If @negationInd="true", then no AED was connected prior to arrival; in this case
   <tr>
     <td>Medicatie toedieningsvorm: &lt;value&gt; displayName</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.1158 (MedicationAdministartionProcedure). The value of @code MUST come from the value list 2.16.840.1.113883.2.4.3.11.60.55.11.48 Medicatie handelingen SNOMED</td>
-    <td>no longer present in 2.5.0</td>
+    <td>No longer present in V2.5.0</td>
     <td></td>
   </tr>
   <tr>
@@ -399,7 +399,7 @@ If @negationInd="true", then no AED was connected prior to arrival; in this case
   <tr>
     <td>Allergie: &lt;value&gt;</td>
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.464 (Ample).  Multiple &lt; code &gt; &lt; value &gt; pairs are possible, and should therefore be displayed as such. The value of @code MUST come from the value list  2.16.840.1.113883.2.4.3.11.60.55.11.105 Anamnese SNOMED</td>
-    <td>Risico op kruisinfectie komt niet meer voor in V2.5.0</td>
+    <td>'Risico op kruisinfectie' no longer occurs in V2.5.0</td>
     <td></td>
   </tr>
   <tr>
