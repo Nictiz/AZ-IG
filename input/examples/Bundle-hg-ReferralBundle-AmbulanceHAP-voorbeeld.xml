@@ -5,13 +5,14 @@
   <meta>
     <profile value="http://nictiz.nl/fhir/StructureDefinition/hg-ReferralBundle-AmbulanceHAP"/>
   </meta>
-  <type value="bundle"/>
+  <language value="nl"/>
+  <type value="transaction"/>
   <timestamp value="2026-06-20T14:00:05+02:00"/>
   <entry>
     <fullUrl value="http://nictiz.nl/fhir/ServiceRequest/hg-ReferralServiceRequest-AmbulanceHAP-example"/>
     <resource>
       <ServiceRequest xmlns="http://hl7.org/fhir">
-        <id value="05-2019-12345678901314-11-ServiceRequest"/>
+        <id value="hg-ReferralServiceRequest-AmbulanceHAP-example"/>
         <meta>
           <profile value="http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-ambulanceHAP"/>
         </meta>
@@ -59,9 +60,13 @@
         <patientInstruction value="Signalen van toenemend oedeem besproken; bij twijfel of constatering van verergering van de klachten neemt mevrouw op eigen initiatief weer contact op."/>
       </ServiceRequest>
     </resource>
+    <request>
+      <method value="POST"/>
+      <url value="ServiceRequest"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://nictiz.nl/fhir/Composition/hg-ReferralComposition-AmbulanceHAP-example"/>
+    <fullUrl value="http://nictiz.nl/fhir/Composition/composition-ambu-az-ave-voorbeeldbericht-AMB-HAP"/>
     <resource>
       <Composition xmlns="http://hl7.org/fhir">
         <id value="composition-ambu-az-ave-voorbeeldbericht-AMB-HAP"/>
@@ -84,6 +89,7 @@
           <type value="Patient"/>
           <display value="Patient, Johanna Petronella Maria (Jo) van Putten-van der Giessen"/>
         </subject>
+        <date value="2026-06-08T11:15:00+02:00"/>
         <author>
           <reference value="Organization/org-00003338"/>
           <type value="Organization"/>
@@ -148,9 +154,13 @@
         </section>
       </Composition>
     </resource>
+    <request>
+      <method value="POST"/>
+      <url value="Composition"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://nictiz.nl/fhir/Patient/hg-Patient-AmbulanceHAP-example"/>
+    <fullUrl value="http://nictiz.nl/fhir/Patient/patient-van-Putten-van-der-Giessen"/>
     <resource>
       <Patient xmlns="http://hl7.org/fhir">
         <id value="patient-van-Putten-van-der-Giessen"/>
@@ -262,9 +272,13 @@
         </contact>
       </Patient>
     </resource>
+    <request>
+      <method value="POST"/>
+      <url value="Patient"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://nictiz.nl/fhir/Practitioner/hg-HealthProfessional-Practitioner-AmbulanceHAP-example"/>
+    <fullUrl value="http://nictiz.nl/fhir/Practitioner/prac-10000020"/>
     <resource>
       <Practitioner xmlns="http://hl7.org/fhir">
         <id value="prac-10000020"/>
@@ -281,9 +295,13 @@
         </telecom>
       </Practitioner>
     </resource>
+    <request>
+      <method value="POST"/>
+      <url value="Practitioner"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://nictiz.nl/fhir/PractitionerRole/hg-HealthProfessional-PractitionerRole-AmbulanceHAP-example"/>
+    <fullUrl value="http://nictiz.nl/fhir/PractitionerRole/pracrole-10000020"/>
     <resource>
       <PractitionerRole xmlns="http://hl7.org/fhir">
         <id value="pracrole-10000020"/>
@@ -313,9 +331,13 @@
         </telecom>
       </PractitionerRole>
     </resource>
+    <request>
+      <method value="POST"/>
+      <url value="PractitionerRole"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://nictiz.nl/fhir/Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-example-rav"/>
+    <fullUrl value="http://nictiz.nl/fhir/Organization/org-00003338"/>
     <resource>
       <Organization xmlns="http://hl7.org/fhir">
         <id value="org-00003338"/>
@@ -329,9 +351,13 @@
         <name value="Ambulance Post"/>
       </Organization>
     </resource>
+    <request>
+      <method value="POST"/>
+      <url value="Organization"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://nictiz.nl/fhir/Organization/hg-HealthcareProvider-Organization-AmbulanceHAP-example-hap"/>
+    <fullUrl value="http://nictiz.nl/fhir/Organization/org-00003336"/>
     <resource>
       <Organization xmlns="http://hl7.org/fhir">
         <id value="org-00003336"/>
@@ -345,9 +371,13 @@
         <name value="Huisartsencentrum Huiske"/>
       </Organization>
     </resource>
+    <request>
+      <method value="POST"/>
+      <url value="Organization"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://nictiz.nl/fhir/DocumentReference/hg-ReferralDocumentReference-AmbulanceHAP-example"/>
+    <fullUrl value="http://nictiz.nl/fhir/DocumentReference/documentreference-3478"/>
     <resource>
       <DocumentReference xmlns="http://hl7.org/fhir">
         <id value="documentreference-3478"/>
@@ -389,5 +419,9 @@
         </content>
       </DocumentReference>
     </resource>
+    <request>
+      <method value="POST"/>
+      <url value="DocumentReference"/>
+    </request>
   </entry>
 </Bundle>
