@@ -116,7 +116,7 @@
             <coding>
               <system value="http://loinc.org"/>
               <code value="51847-2"/>
-              <display value="Evaluation + Plan note"/>
+              <display value="Beoordelingsverslag en behandelplan"/>
             </coding>
           </code>
           <text>
