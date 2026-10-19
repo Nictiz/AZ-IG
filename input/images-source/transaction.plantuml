@@ -11,33 +11,33 @@ skinparam usecase {
 skinparam actorStyle stickman
 skinparam packageStyle rectangle
 
-rectangle "uc Use Case – Ambulance referral from GP to GP out-of-hours service" {
+rectangle "uc Use Case - Ambulance referral to GP or GP out-of-hours service" {
 
-  actor "General practitioner" as GP
-  actor "GP out-of-hours service" as 
+  actor "General practitioner" as gp
+  actor "GP out-of-hours service" as hap
   actor "Ambulance" as ambulance
 
-  usecase "Receving referral" as receving
-  usecase "Sending referral" sending
+  usecase "Receiving referral" as receiving
+  usecase "Sending referral" as sending
   usecase "Referral (PUSH)" as push
 
   rectangle "AZP-AVO" as avo {
-    usecase "Receving referral" as receiving_avo
+    usecase "Receiving referral" as receiving_avo
   }
 
   rectangle "AZP-AVS" as avs {
-    usecase "Sending referral" as sending_avo
+    usecase "Sending referral" as sending_avs
   }
 
-  GP -- receving
-  GPoutofservice -- receving
+  gp -- receiving
+  hap -- receiving
   ambulance -- sending
 
-  receving ..> receiving_avo
-  sending ..> sending_avo
+  receiving ..> receiving_avo
+  sending ..> sending_avs
 
   receiving_avo ..> push : <<include>>
-  sending_avo ..> push : <<include>>
+  sending_avs ..> push : <<include>>
 }
 
 @enduml
