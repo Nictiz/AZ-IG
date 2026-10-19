@@ -13,7 +13,7 @@ This IG covers referral transactions from the [Richtlijn Gegevensuitwisseling Ac
 
 Handover of a patient by an ambulance professional to a GP out-of-hours service (HAP, *huisartsenpost*) after on-scene care. The exchange is one-directional (PUSH): the ambulance/regionale ambulancevoorziening (RAV) sends, the HAP receives.
 
-Functional design: [Section 2.16 of the Nictiz functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29) - see also the [Functional Design](functional-design.html) page in this IG.
+Functional design: See the [Functional Design](functional-design.html) page in this IG.
 
 Actors:
 

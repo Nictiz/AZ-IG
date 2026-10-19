@@ -1,0 +1,43 @@
+@startuml
+left to right direction
+
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam usecase {
+  BackgroundColor #FFF8E8
+  BorderColor #555555
+}
+skinparam actorStyle stickman
+skinparam packageStyle rectangle
+
+rectangle "uc Use Case – Ambulance referral from GP to GP out-of-hours service" {
+
+  actor "General practitioner" as GP
+  actor "GP out-of-hours service" as 
+  actor "Ambulance" as ambulance
+
+  usecase "Receving referral" as receving
+  usecase "Sending referral" sending
+  usecase "Referral (PUSH)" as push
+
+  rectangle "AZP-AVO" as avo {
+    usecase "Receving referral" as receiving_avo
+  }
+
+  rectangle "AZP-AVS" as avs {
+    usecase "Sending referral" as sending_avo
+  }
+
+  GP -- receving
+  GPoutofservice -- receving
+  ambulance -- sending
+
+  receving ..> receiving_avo
+  sending ..> sending_avo
+
+  receiving_avo ..> push : <<include>>
+  sending_avo ..> push : <<include>>
+}
+
+@enduml
