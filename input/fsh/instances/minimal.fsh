@@ -25,7 +25,7 @@ InstanceOf: HgPatientAmbulanceHAP
 Usage: #example
 Title: "Patient - Bakkersz (minimal example)"
 Description: "Example patient for the minimal ambulance-to-HAP referral (ART-DECOR ADA test az-ave-tst-3-minimaalTestdag): known only by family name and the mandatory gender, with no identifier. The name alone satisfies the patient-identifiable rule (hg-pat-1)."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-Patient-AmbulanceHAP"
 * meta.profile[+] = $nlcore-Patient
 * name.use = #official
 * name.text = "Bakkersz"
@@ -37,7 +37,7 @@ InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - RAV (minimal example)"
 Description: "Example sending organization (Regionale Ambulancevoorziening) for the minimal ambulance-to-HAP referral, addressed by URA."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
 * meta.profile[+] = $nlcore-Organization
 * identifier.system = $ura
 * identifier.value = "00000001"
@@ -48,7 +48,7 @@ InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - HAP (minimal example)"
 Description: "Example receiving organization (huisartsenpost) for the minimal ambulance-to-HAP referral, addressed by URA."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
 * meta.profile[+] = $nlcore-Organization
 * identifier.system = $ura
 * identifier.value = "00000002"

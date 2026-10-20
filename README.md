@@ -8,8 +8,8 @@ Status: under development - no official release yet. This is the first Nictiz IG
 
 ## Identity
 
-- Package id: `nictiz.fhir.nl.r4.acutezorg`
-- Canonical base: `http://nictiz.nl/fhir` (shared Nictiz base; artifacts are disambiguated by the `hg-` id prefix, e.g. `http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest`)
+- Package id: `nictiz.nl.az`
+- Canonical base: `http://ig.nictiz.nl/az` (e.g. `http://ig.nictiz.nl/az/StructureDefinition/hg-ServiceRequest`); the `hg-` id prefix is the ART-DECOR project prefix
 
 ## Layout
 

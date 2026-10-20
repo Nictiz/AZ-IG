@@ -14,7 +14,7 @@ RuleSet: CopiedFromServiceRequestComment
 * ^comment = "This content originates on the referral `ServiceRequest`, which is always the authoritative source. The `ServiceRequest` carries it so the receiving system can triage the referral early; the same value is copied into this Composition section so it is documented and persisted in the receiving system's record. The `ServiceRequest` value remains authoritative - this section is a documentation copy."
 
 Profile: HgReferralServiceRequestAmbulanceHAP
-Parent: HgReferralServiceRequest
+Parent: HgServiceRequest
 Id: hg-ReferralServiceRequest-AmbulanceHAP
 Title: "hg referral ServiceRequest - Ambulance to HAP"
 Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambulanceverwijzing, AMB → HAP, message 24)."
@@ -85,7 +85,7 @@ Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambul
 * patientInstruction insert Obligation
 
 Profile: HgReferralCompositionAmbulanceHAP
-Parent: HgReferralComposition
+Parent: HgComposition
 Id: hg-ReferralComposition-AmbulanceHAP
 Title: "hg referral Composition - Ambulance to HAP"
 Description: "Transfer summary note for the ambulance to GP out-of-hours service (HAP) referral."
@@ -157,7 +157,7 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours service
 * section[agreedWithPatient].text insert SectionNarrativeComment
 
 Profile: HgReferralDocumentReferenceAmbulanceHAP
-Parent: HgReferralDocumentReference
+Parent: HgDocumentReference
 Id: hg-ReferralDocumentReference-AmbulanceHAP
 Title: "hg referral DocumentReference - Ambulance to HAP"
 Description: "Attached document for the ambulance to GP out-of-hours service (HAP) referral. The folded CommunicatieItem category and sender (as modeled in ART-DECOR) are carried on `category` and `author`."
@@ -217,7 +217,7 @@ Description: "Attached document for the ambulance to GP out-of-hours service (HA
 * content.attachment.creation insert Obligation
 
 Profile: HgReferralBundleAmbulanceHAP
-Parent: HgReferralBundle
+Parent: HgBundle
 Id: hg-ReferralBundle-AmbulanceHAP
 Title: "hg referral Bundle - Ambulance to HAP"
 Description: "Transaction bundle for the ambulance to GP out-of-hours service (HAP) referral PUSH."
