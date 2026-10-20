@@ -1249,22 +1249,22 @@
                     </extension>
                 </extension>
             </definition>
-            <comment value="Burgerservicenummer (OID: 2.16.840.1.113883.2.4.6.3)&#xA;&#xA;&#xA;* 0..*R Identificatienummer&#xA;* 1..1R BSN">
+            <comment value="Burgerservicenummer (OID: 2.16.840.1.113883.2.4.6.3)&#xA;&#xA;&#xA;* 1..* Maximaal 1 BSN is toegestaan, andere identificatienummers zijn optioneel">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="Burgerservicenummer (OID: 2.16.840.1.113883.2.4.6.3)&#xA;&#xA;&#xA;* 0..*R Identificatienummer&#xA;* 1..1R BSN"/>
+                        <valueMarkdown value="Burgerservicenummer (OID: 2.16.840.1.113883.2.4.6.3)&#xA;&#xA;&#xA;* 1..* Maximaal 1 BSN is toegestaan, andere identificatienummers zijn optioneel"/>
                     </extension>
                 </extension>
             </comment>
             <alias value="PatientIdentificationNumber"/>
-            <min value="0"/>
+            <min value="1"/>
             <max value="*"/>
             <base>
                 <path value="Verwijzingambulancenaarhuisartsenpost.bouwstenen.patient.identificatienummer"/>
-                <min value="0"/>
+                <min value="1"/>
                 <max value="*"/>
             </base>
             <type>
@@ -1919,72 +1919,16 @@
                 </valueCodeableConcept>
             </example>
             <mustSupport value="true"/>
-            <mapping>
-                <identity value="NlzorgZorgverlener-3.5"/>
-                <map value="NL-CM-17.1.4"/>
-                <comment value="Specialisme (SPEC)"/>
-            </mapping>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <definition value="-"/>
-            <min value="1"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding:NHGTabel12SoortDerde">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
-            <sliceName value="NHGTabel12SoortDerde"/>
-            <definition value="NHG Tabel 12 Soort derde heeft tot doel bij de zorg betrokken specialismen of organisaties te registreren in het HIS, meer specifiek om inkomende of uitgaande correspondentie en verwijzingen te categoriseren."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="required"/>
-                <description value="NHG Tabel 12 Soort derde"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.4--20201104131148"/>
-            </binding>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding:SpecialismeCodelijsten">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
-            <sliceName value="SpecialismeCodelijsten"/>
-            <definition value="Samengestelde waardelijst van de losse waardelijsten zoals deze in de zib Zorgverlener staan voor NL-CM:17.1.4 Specialisme. Deze waardelijst bestaat als zodanig niet in de zib maar maakt het eenvoudiger om naar alle waardelijsten tegelijk te verwijzen">
-                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
-                    <extension url="lang">
-                        <valueCode value="en-US"/>
-                    </extension>
-                    <extension url="content">
-                        <valueMarkdown value="Value set combining the distinct value sets that the zib HealthProfessional binds to for NL-CM:17.1.4 Specialty. This value set as such does not exist in the zib but facilitates referencing all these value sets at the same time"/>
-                    </extension>
-                </extension>
-            </definition>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
             <binding>
                 <strength value="required"/>
                 <description value="SpecialismeCodelijsten"/>
                 <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.121.11.22--20200901000000"/>
             </binding>
+            <mapping>
+                <identity value="NlzorgZorgverlener-3.5"/>
+                <map value="NL-CM-17.1.4"/>
+                <comment value="Specialisme (SPEC)"/>
+            </mapping>
         </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5842--20260622082912">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.contactgegevens"/>
@@ -2694,7 +2638,7 @@
             <code>
                 <system value="http://loinc.org"/>
                 <code value="51847-2"/>
-                <display value="Evaluation + Plan note"/>
+                <display value="beoordelingsverslag en behandelplan"/>
             </code>
             <code>
                 <system value="http://snomed.info/sct"/>
@@ -2752,7 +2696,7 @@
             <code>
                 <system value="http://loinc.org"/>
                 <code value="69730-0"/>
-                <display value="Instructions"/>
+                <display value="Instructies aan zorgafnemer"/>
             </code>
             <code>
                 <system value="http://snomed.info/sct"/>
@@ -2878,8 +2822,8 @@
         </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5476--20250611144329">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentBestandtype"/>
-            <short value="Het bestandtype als mimetype, bijvoorbeeld &#34;application/pdf&#34; of &#34;text/plain&#34;.Voor de verwijzing vanuit de Ambulance naar de Huisarts of Huisartsenpost is dit een pdf."/>
-            <definition value="Het bestandtype als mimetype, bijvoorbeeld &#34;application/pdf&#34; of &#34;text/plain&#34;.&#xA;Voor de verwijzing vanuit de Ambulance naar de Huisarts of Huisartsenpost is dit een pdf."/>
+            <short value="Het bestandtype als mimetype, bijvoorbeeld &#34;application/pdf&#34; of &#34;text/plain&#34;."/>
+            <definition value="Het bestandtype als mimetype, bijvoorbeeld &#34;application/pdf&#34; of &#34;text/plain&#34;."/>
             <min value="1"/>
             <max value="1"/>
             <base>
@@ -4162,22 +4106,22 @@
                     </extension>
                 </extension>
             </definition>
-            <comment value="Burgerservicenummer (OID: 2.16.840.1.113883.2.4.6.3)&#xA;&#xA;&#xA;* 0..*R Identificatienummer&#xA;* 1..1R BSN">
+            <comment value="Burgerservicenummer (OID: 2.16.840.1.113883.2.4.6.3)&#xA;&#xA;&#xA;* 1..* Maximaal 1 BSN is toegestaan, andere identificatienummers zijn optioneel">
                 <extension url="http://hl7.org/fhir/StructureDefinition/translation">
                     <extension url="lang">
                         <valueCode value="en-US"/>
                     </extension>
                     <extension url="content">
-                        <valueMarkdown value="Burgerservicenummer (OID: 2.16.840.1.113883.2.4.6.3)&#xA;&#xA;&#xA;* 0..*R Identificatienummer&#xA;* 1..1R BSN"/>
+                        <valueMarkdown value="Burgerservicenummer (OID: 2.16.840.1.113883.2.4.6.3)&#xA;&#xA;&#xA;* 1..* Maximaal 1 BSN is toegestaan, andere identificatienummers zijn optioneel"/>
                     </extension>
                 </extension>
             </comment>
             <alias value="PatientIdentificationNumber"/>
-            <min value="0"/>
+            <min value="1"/>
             <max value="*"/>
             <base>
                 <path value="Verwijzingambulancenaarhuisartsenpost.bouwstenen.patient.identificatienummer"/>
-                <min value="0"/>
+                <min value="1"/>
                 <max value="*"/>
             </base>
             <type>
@@ -4832,72 +4776,16 @@
                 </valueCodeableConcept>
             </example>
             <mustSupport value="true"/>
-            <mapping>
-                <identity value="NlzorgZorgverlener-3.5"/>
-                <map value="NL-CM-17.1.4"/>
-                <comment value="Specialisme (SPEC)"/>
-            </mapping>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <definition value="-"/>
-            <min value="1"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding:NHGTabel12SoortDerde">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
-            <sliceName value="NHGTabel12SoortDerde"/>
-            <definition value="NHG Tabel 12 Soort derde heeft tot doel bij de zorg betrokken specialismen of organisaties te registreren in het HIS, meer specifiek om inkomende of uitgaande correspondentie en verwijzingen te categoriseren."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <binding>
-                <strength value="required"/>
-                <description value="NHG Tabel 12 Soort derde"/>
-                <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.4--20201104131148"/>
-            </binding>
-        </element>
-        <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5828--20260622082912.coding:SpecialismeCodelijsten">
-            <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.specialisme.coding"/>
-            <sliceName value="SpecialismeCodelijsten"/>
-            <definition value="Samengestelde waardelijst van de losse waardelijsten zoals deze in de zib Zorgverlener staan voor NL-CM:17.1.4 Specialisme. Deze waardelijst bestaat als zodanig niet in de zib maar maakt het eenvoudiger om naar alle waardelijsten tegelijk te verwijzen">
-                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
-                    <extension url="lang">
-                        <valueCode value="en-US"/>
-                    </extension>
-                    <extension url="content">
-                        <valueMarkdown value="Value set combining the distinct value sets that the zib HealthProfessional binds to for NL-CM:17.1.4 Specialty. This value set as such does not exist in the zib but facilitates referencing all these value sets at the same time"/>
-                    </extension>
-                </extension>
-            </definition>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="CodeableConcept.coding"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
             <binding>
                 <strength value="required"/>
                 <description value="SpecialismeCodelijsten"/>
                 <valueSet value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.121.11.22--20200901000000"/>
             </binding>
+            <mapping>
+                <identity value="NlzorgZorgverlener-3.5"/>
+                <map value="NL-CM-17.1.4"/>
+                <comment value="Specialisme (SPEC)"/>
+            </mapping>
         </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5842--20260622082912">
             <path value="Verwijzingambulancenaarhuisartsenpost.envelop.verzender.zorgverlener.contactgegevens"/>
@@ -5607,7 +5495,7 @@
             <code>
                 <system value="http://loinc.org"/>
                 <code value="51847-2"/>
-                <display value="Evaluation + Plan note"/>
+                <display value="beoordelingsverslag en behandelplan"/>
             </code>
             <code>
                 <system value="http://snomed.info/sct"/>
@@ -5665,7 +5553,7 @@
             <code>
                 <system value="http://loinc.org"/>
                 <code value="69730-0"/>
-                <display value="Instructions"/>
+                <display value="Instructies aan zorgafnemer"/>
             </code>
             <code>
                 <system value="http://snomed.info/sct"/>
@@ -5791,8 +5679,8 @@
         </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5476--20250611144329">
             <path value="Verwijzingambulancenaarhuisartsenpost.dossiergegevens.communicatieItem.document.documentBestandtype"/>
-            <short value="Het bestandtype als mimetype, bijvoorbeeld &#34;application/pdf&#34; of &#34;text/plain&#34;.Voor de verwijzing vanuit de Ambulance naar de Huisarts of Huisartsenpost is dit een pdf."/>
-            <definition value="Het bestandtype als mimetype, bijvoorbeeld &#34;application/pdf&#34; of &#34;text/plain&#34;.&#xA;Voor de verwijzing vanuit de Ambulance naar de Huisarts of Huisartsenpost is dit een pdf."/>
+            <short value="Het bestandtype als mimetype, bijvoorbeeld &#34;application/pdf&#34; of &#34;text/plain&#34;."/>
+            <definition value="Het bestandtype als mimetype, bijvoorbeeld &#34;application/pdf&#34; of &#34;text/plain&#34;."/>
             <min value="1"/>
             <max value="1"/>
             <base>
