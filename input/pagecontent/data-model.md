@@ -16,6 +16,11 @@ Example messages under [Artifacts](artifacts.html) illustrate the model: a refer
 
 ### Profiles in this use case
 
+The diagram shows the use case profiles in the transaction Bundle and the references between them. Each arrow is labeled with the referencing element. The table below links each profile and the profile it is derived from.
+
+<div>{% include data-model.svg %}</div>
+<br clear="all"/>
+
 | Resource | Use case profile | Derived from | Role in the referral |
 |---|---|---|---|
 | ServiceRequest | [`hg-ReferralServiceRequest-AmbulanceHAP`](StructureDefinition-hg-ReferralServiceRequest-AmbulanceHAP.html) | [`hg-ReferralServiceRequest`](StructureDefinition-hg-ReferralServiceRequest.html) | Focal resource: the referral request |
