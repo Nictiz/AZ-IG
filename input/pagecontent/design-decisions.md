@@ -81,7 +81,7 @@ Vendors that already support nl-core do not need to rebuild their FHIR infrastru
 
 ### Canonical base
 
-The canonical base of this IG is `http://ig.nictiz.nl/az`, the namespace under which Nictiz publishes its IGs. The Profiling Guidelines (§10.1.1.1) give use cases based on zibs the base `http://nictiz.nl/fhir`, and use cases based on generic building blocks the base `http://ig.nictiz.nl/[ig name]`. This IG is based on zibs through nl-core, but uses the `ig.nictiz.nl` base so that it can be published there. Profiles from nl-core and zib2020 keep their own `http://nictiz.nl/fhir` canonicals. The `hg-` id prefix stays the ART-DECOR project prefix, as the guidelines prescribe.
+The canonical base of this IG is `http://ig.nictiz.nl/az`, the namespace under which Nictiz publishes its IGs. The Profiling Guidelines (§10.1.1.1) give use cases based on zibs the base `http://nictiz.nl/fhir`, and use cases based on generic building blocks the base `http://ig.nictiz.nl/gbb`. This IG is based on zibs through nl-core, but uses the `ig.nictiz.nl` base so that it can be published there. Profiles from nl-core and zib2020 keep their own `http://nictiz.nl/fhir` canonicals. The `hg-` id prefix stays the ART-DECOR project prefix, as the guidelines prescribe.
 
 ### Conformance via obligations
 
