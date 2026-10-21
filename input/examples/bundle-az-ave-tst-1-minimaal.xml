@@ -1,18 +1,18 @@
 <Bundle xmlns="http://hl7.org/fhir">
    <id value="bundle-az-ave-tst-1-minimaal"/>
    <meta>
-      <profile value="http://nictiz.nl/fhir/StructureDefinition/hg-ReferralBundle-AmbulanceHAP"/>
+      <profile value="/hg-ReferralBundle-AmbulanceHAP"/>
    </meta>
    <language value="nl"/>
    <type value="transaction"/>
-   <total value="9"/>
+   <timestamp value="2000-01-01"/>
    <entry>
-      <fullUrl value="http://nictiz.nl/fhir/Patient/patient-"/>
+      <fullUrl value="Patient/patient-"/>
       <resource>
          <Patient>
             <id value="patient-"/>
             <meta>
-               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-Patient"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-Patient-AmbulanceHAP"/>
             </meta>
             <identifier>
                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.103.4"/>
@@ -26,12 +26,12 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://nictiz.nl/fhir/PractitionerRole/pracrole-567891234"/>
+      <fullUrl value="PractitionerRole/pracrole-567891234"/>
       <resource>
          <PractitionerRole>
             <id value="pracrole-567891234"/>
             <meta>
-               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-HealthProfessional-PractitionerRole"/>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole"/>
             </meta>
             <practitioner>
                <reference value="Practitioner/prac-567891234"/>
@@ -51,12 +51,12 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://nictiz.nl/fhir/Practitioner/prac-567891234"/>
+      <fullUrl value="Practitioner/prac-567891234"/>
       <resource>
          <Practitioner>
             <id value="prac-567891234"/>
             <meta>
-               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-HealthProfessional-Practitioner"/>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner"/>
             </meta>
             <identifier>
                <system value="http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"/>
@@ -70,12 +70,12 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://nictiz.nl/fhir/Organization/org-24"/>
+      <fullUrl value="Organization/org-24"/>
       <resource>
          <Organization>
             <id value="org-24"/>
             <meta>
-               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-HealthcareProvider-Organization"/>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization"/>
             </meta>
             <identifier>
                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.55.15.1"/>
@@ -89,12 +89,12 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://nictiz.nl/fhir/Organization/org-06020806"/>
+      <fullUrl value="Organization/org-06020806"/>
       <resource>
          <Organization>
             <id value="org-06020806"/>
             <meta>
-               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-HealthcareProvider-Organization"/>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization"/>
             </meta>
             <identifier>
                <system value="http://fhir.nl/fhir/NamingSystem/agb-z"/>
@@ -108,12 +108,12 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://nictiz.nl/fhir/Encounter/encounter-24-2020-11-1"/>
+      <fullUrl value="Encounter/encounter-24-2020-11-1"/>
       <resource>
          <Encounter>
             <id value="encounter-24-2020-11-1"/>
             <meta>
-               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-ReferralServiceRequest-ambulanceHAP"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-ReferralServiceRequest-AmbulanceHAP"/>
             </meta>
             <identifier>
                <system value="urn:oid:2.16.840.1.113883.2.4.3.32.5"/>
@@ -131,12 +131,12 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://nictiz.nl/fhir/ServiceRequest/servicerequest-az-ave-tst-1-minimaal"/>
+      <fullUrl value="ServiceRequest/servicerequest-az-ave-tst-1-minimaal"/>
       <resource>
          <ServiceRequest>
             <id value="servicerequest-az-ave-tst-1-minimaal"/>
             <meta>
-               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-ReferralServiceRequest-ambulanceHAP"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-ReferralServiceRequest-AmbulanceHAP"/>
             </meta>
             <identifier>
                <value value="az-ave-tst-1-minimaal"/>
@@ -192,12 +192,12 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://nictiz.nl/fhir/Composition/composition-ambu-az-ave-tst-1-minimaal"/>
+      <fullUrl value="Composition/composition-ambu-az-ave-tst-1-minimaal"/>
       <resource>
          <Composition>
             <id value="composition-ambu-az-ave-tst-1-minimaal"/>
             <meta>
-               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-ReferralComposition-ambulanceHAP"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-ReferralComposition-AmbulanceHAP"/>
             </meta>
             <identifier>
                <value value="az-ave-tst-1-minimaal"/>
@@ -244,12 +244,12 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://nictiz.nl/fhir/DocumentReference/documentreference-9069"/>
+      <fullUrl value="DocumentReference/documentreference-9069"/>
       <resource>
          <DocumentReference>
             <id value="documentreference-9069"/>
             <meta>
-               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-DocumentReference-ambulanceHAP"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-DocumentReference-AmbulanceHAP"/>
             </meta>
             <masterIdentifier>
                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.103.3"/>
