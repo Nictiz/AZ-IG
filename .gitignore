@@ -13,3 +13,4 @@ Thumbs.db
 _updatePublisher.sh
 _gencontinuous.sh
 _build.sh
+/Requirements-fromNarrative.json

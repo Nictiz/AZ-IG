@@ -8,14 +8,14 @@ Status: under development - no official release yet. This is the first Nictiz IG
 
 ## Identity
 
-- Package id: `nictiz.fhir.nl.r4.acutezorg`
-- Canonical base: `http://nictiz.nl/fhir` (shared Nictiz base; artifacts are disambiguated by the `hg-` id prefix, e.g. `http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest`)
+- Package id: `nictiz.nl.az`
+- Canonical base: `http://ig.nictiz.nl/az` (e.g. `http://ig.nictiz.nl/az/StructureDefinition/hg-ServiceRequest`); the `hg-` id prefix is the ART-DECOR project prefix
 
 ## Layout
 
 - `sushi-config.yaml` - project configuration, dependencies, and menu
 - `input/fsh/aliases.fsh` - canonical URL and code system aliases
-- `input/fsh/profiles/` - generic `hg-Referral*` layer (FHIR core based) and the `hg-Referral*-AmbulanceHAP` use case layer derived from it
+- `input/fsh/profiles/` - generic `hg-*` layer (FHIR core based) and the `hg-Referral*-AmbulanceHAP` use case layer derived from it
 - `input/fsh/extensions/` - `hg-ext-DocumentVersion` (document version, R5/R6 bridge)
 - `input/fsh/terminology/` - local code systems and value sets (message events, destination status, document-identifier type)
 - `input/fsh/mappings/` - dataset traceability mappings attached to the use case profiles
