@@ -1,10 +1,11 @@
 ### Background
 
-The information exchange described in this Implementation Guide is defined by two Nictiz documents:
+The information exchange described in this Implementation Guide is defined by:
 
-- The Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022) ([PDF](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)) is the policy-level guideline that establishes which data must be exchanged between parties in acute care settings in the Netherlands. It defines the scenarios, parties, and content requirements at a clinical level.
+- The Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022) ([PDF](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)) is the policy-level guideline that establishes which data must be exchanged between parties in acute care settings in the Netherlands. It defines the scenarios, parties, and content requirements at a clinical level. This use cases corresponds to message 23 and 24 in the guideline.
 
-- The Ontwerp Gegevensuitwisseling Acute Zorg ([functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg)) is the Nictiz functional design document that translates the ([richtlijn](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf))* into structured, implementable information exchange specifications. It defines datasets, message structures, and exchange directions for each use case.
+In the autumn of 2023, AZN and InEen merged the 2017 agreements on resource allocation and the HAP+RAV cooperation framework into a single national guideline for collaboration between HAPs (GP out-of-hours services) and RAVs (regional ambulance services):
+- Samenwerking HAP-RAV [Guideline](https://www.ambulancezorg.nl/themas/kwaliteit-van-zorg/ketensamenwerking/samenwerking-hap-rav)
 
 ### Position in the Nictiz five-layer model
 
@@ -29,22 +30,16 @@ Interoperability requires agreements on five layers - the Nictiz [vijflagenmodel
     </tr>
     <tr>
       <td style="background-color:#95c11f;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">Applicatie</td>
-      <td>How systems exchange it: the FHIR R4 profiles, the message structure (MessageHeader/Bundle), CapabilityStatements and ActorDefinitions.</td>
+      <td>How systems exchange it: the FHIR R4 profiles, the transaction Bundle, CapabilityStatements and ActorDefinitions.</td>
     </tr>
     <tr>
       <td style="background-color:#009b3e;color:#fff;font-weight:600;text-align:center;white-space:nowrap;">IT-infrastructuur</td>
-      <td>The transport: the exchange paradigm (FHIR Messaging, RESTful or FHIR Document), not yet chosen.</td>
+      <td>The transport: RESTful, the referral POSTed as a transaction Bundle.</td>
     </tr>
   </tbody>
 </table>
 
 The two conditional columns, *wet- en regelgeving* and *beveiliging*, apply across every layer and are out of scope of this IG.
-
-### Use case: Ambulanceverwijzing (AMB naar HAP), section 2.16
-
-[Section 2.16 of the functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29) covers the handover of a patient by an ambulance professional to a GP out-of-hours post (HAP, *huisartsenpost*) after on-scene care. This corresponds to message 24 in the *richtlijn* (AMB naar HAP). The exchange is one-directional (PUSH): the ambulance/Regionale Ambulancevoorziening (RAV) sends, the HAP receives.
-
-The information exchanged covers patient identification, the reason for referral, the treatment instituted on scene, the clinical conclusion or working diagnosis, and any supporting documents such as an clinical note or ECG.
 
 ### ART-DECOR dataset
 
@@ -62,3 +57,98 @@ Transaction - the AMB-HAP-specific transaction definition (which elements are us
 OID: `2.16.840.1.113883.2.4.3.11.60.103.4.145`, effective date 2025-06-10 - [view published transaction](https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260317T103425/tr-2.16.840.1.113883.2.4.3.11.60.103.4.145-2025-06-10T000000.html)
 
 Each profile in this IG carries `Mapping` entries that trace FHIR elements back to their corresponding dataset element identifiers (`hg-dataelement-NNNN`). These mappings are visible on the Mappings tab of each profile page. See the [Design Decisions](design-decisions.html#dataset-traceability) page for the mapping conventions used.
+
+### Systems & System Roles
+
+The ambulance service and out-of-hours GP service each use their own information system: the Ambulance Information System (AMBS) and Out-of-Hours GP Information System (HAPIS). Each system has different system roles that enable data exchange between these systems in the context of an ambulance referral. In ART-DECOR, these system roles are described as Actors.
+
+The AMBS fulfils the following system role:
+- Acute Zorg Proces - Ambulanceverwijzing Sturend [AZP-AVS] System.
+
+The HIS fulfils the following system role:
+- Acute Zorg Proces - Ambulanceverwijzing Ontvangend [AZP-AVO] System.
+
+The HAPIS fulfils the following system role:
+- Acute Zorg Proces - Ambulanceverwijzing Ontvangend [AZP-AVO] Systeem.
+
+
+<div class="diagram-row">
+  <div>{% include systemrolesAMBS.svg %}</div>
+  <div>{% include systemrolesHAPIS.svg %}</div>
+  <div>{% include systemrolesHIS.svg %}</div>
+</div>
+<br clear="all"/>
+Figure: System Roles for ambulance referral to GP and GP out-of-hours service
+
+<style>
+  .diagram-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .diagram-row > div {
+    flex: 1;
+  }
+
+  .diagram-row svg {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+
+### Transactions & Transaction Groups
+The image below shows the interrelationships between the processes, business roles, systems, system roles, transactions, and transaction group involved in ambulance referrals to a general practitioner or out-of-hours GP service.
+
+ <div>{% include transaction.svg %}</div>
+<br clear="all"/>
+Figure: Transaction for ambulance referral to GP and GP out-of-hours service
+<br>
+<br>
+The image above shows that certain business activities result in a specific transaction. This transaction is performed by a system role and is part of a transaction group. The data elements exchanged between system roles as part of the transactions are specified in the "Ambulance referral to GP or GP out-of-hours service" (AMB → HAP) scenario.
+The table below allows for direct access to the relevant use cases (scenarios), transaction groups, and/or transactions in ART-DECOR or other documentation. Where a link is provided, the description of the transaction(s) or transaction group(s) is available.
+<br>
+<br>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Use Case(s) (Scenario's)</th>
+      <th>Transaction group</th>
+      <th>Transaction</th>
+      <th>Systeem rol(es)</th>
+      <th>Systems</th>
+      <th>Business roles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ambulance transfer to GP ot GP out-of-hours service (AMB → HA of HAP)</td>
+      <td>Referral (PUSH)</td>
+      <td>Sending Ambulance referral</td>
+      <td>AZP-AVS</td>
+      <td>AMBS</td>
+      <td>Ambulance</td>
+    </tr>
+    <tr>
+      <td>Ambulance transfer to GP or GP out-of-hours (AMB → HA of HAP)</td>
+      <td>Referral (PUSH)</td>
+      <td>Receiving Ambulance referral</td>
+      <td>AZP-AVO</td>
+      <td>HIS</td>
+      <td>GP</td>
+    </tr>
+    <tr>
+      <td>Ambulance transfer to GP or GP out-of-hours (AMB → HA of HAP)</td>
+      <td>Referral (PUSH)</td>
+      <td>Receiving Ambulance referral</td>
+      <td>AZP-AVO</td>
+      <td>HAPIS</td>
+      <td>GP out-of-hours service</td>
+    </tr>
+  </tbody>
+</table>
+Table Ambulance transfer to GP or GP out-of-hours
+
+

@@ -28,15 +28,13 @@ A number of profile decisions and architectural choices are still pending. See t
 
 ### Versioning and releases
 
-Versions follow the Nictiz [Nationaal Releasebeleid](https://nationalebibliotheek.nictiz.nl/assets/uploads/2026/03/20260122_Nationaal-releasebeleid-versie-0.9.pdf) (semantic versioning). Concept publications preceding the first release carry a suffix - `0.y.z-alpha` (for consultation), `0.y.z-beta` (feature-complete, for testing in a test setting) or `0.y.z-rc` (release candidate); the first full publication is `1.0.0`. From `1.0.0` onward, incompatible changes increment the major version, compatible functional changes the minor, and compatible fixes the patch. Versions before `1.0.0` - including the current one - are pre-publication and intended for review and testing, not for production use.
-
-The current version number is provisional and was chosen independently. On first publication it will be aligned with the release versions of the upstream ART-DECOR data set and functional design, so the Acute Zorg release is coherent across all three (see the [Open items](open-items.html) page).
+Versions follow the Nictiz [Nationaal Releasebeleid](https://nationalebibliotheek.nictiz.nl/assets/uploads/2026/03/20260122_Nationaal-releasebeleid-versie-0.9.pdf) (semantic versioning). From `1.0.0` onward, incompatible changes increment the major version, compatible functional changes the minor, and compatible fixes the patch.
 
 The notable changes per version are on the [Changelog](changelog.html) page; the per-version downloadable packages and the full issue-level history are in the [GitHub repository](https://github.com/Nictiz/AZ-IG).
 
 ### Dependencies
 
-The [Dependencies](dependencies.html) page lists the FHIR packages this IG depends on and explains how they and the upstream specifications (functional design, ART-DECOR data set, zibs) relate, including the relationship with the primary care ELZ package.
+The [Dependencies](dependencies.html) page lists the FHIR packages this IG depends on and explains how they and the upstream specifications (functional design, ART-DECOR data set, zibs) relate, and where the `hg-` prefix comes from.
 
 ### Building this IG
 

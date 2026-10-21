@@ -70,13 +70,10 @@ issue "Add a Downloads page" "infrastructure" \
 issue "Publication: version history and publication status" "infrastructure" \
 "Wire up the formal FHIR publication (package-list.json, publication-request.json) and reconcile with the GitHub Releases-based changelog. The two expected pre-publication messages (package-list fetch, no publication request) resolve at publication time."
 
-issue "Resolve canonical URL overlap with ELZ" "architecture,decision" \
-"The generic hg-Referral* canonicals exist in both this package and nictiz.fhir.nl.r4.elz. Intended direction: ELZ depends on Acute Zorg. Reconcile before either reaches a stable release."
-
 issue "Choose the exchange paradigm (Messaging / RESTful / Document)" "architecture,decision" \
 "The exchange paradigm is not yet chosen. The CapabilityStatements and Data Exchange page will be finalized once decided."
 
-issue "Message 23 (AMB naar HA) as a parallel use case" "architecture" \
+issue "Message 23 (AMB → HA) as a parallel use case" "architecture" \
 "Out of scope for this version. Can be added as a parallel hg-Referral*-AmbulanceHA use case layer with a new ambulance-referral-to-ha event code; no changes to the HAP profiles required."
 
 echo "== Done =="

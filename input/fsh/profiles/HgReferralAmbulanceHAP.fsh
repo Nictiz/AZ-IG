@@ -1,6 +1,6 @@
 // NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // =============================================================================
-// Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic hg-Referral profiles, tightens cardinalities, applies obligations (in place of mustSupport) and fixes the message event. Dataset mappings live here (see DatasetMappings.fsh). Reference targets keep the core resource type alongside the transaction-specific zib profile, so the model stays open-world.
+// Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic hg-Referral profiles, tightens cardinalities, and applies obligations with mustSupport (see HgActors.fsh). Dataset mappings live here (see DatasetMappings.fsh). Reference targets keep the core resource type alongside the transaction-specific zib profile, so the model stays open-world.
 //
 // Style: caret rules (^short/^alias/^definition/^comment/^slicing) are grouped under their element via indentation; cardinality, only, from, contains and insert stay at column 0.
 // =============================================================================
@@ -14,21 +14,16 @@ RuleSet: CopiedFromServiceRequestComment
 * ^comment = "This content originates on the referral `ServiceRequest`, which is always the authoritative source. The `ServiceRequest` carries it so the receiving system can triage the referral early; the same value is copied into this Composition section so it is documented and persisted in the receiving system's record. The `ServiceRequest` value remains authoritative - this section is a documentation copy."
 
 Profile: HgReferralServiceRequestAmbulanceHAP
-Parent: HgReferralServiceRequest
+Parent: HgServiceRequest
 Id: hg-ReferralServiceRequest-AmbulanceHAP
 Title: "hg referral ServiceRequest - Ambulance to HAP"
-Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanceverwijzing, AMB naar HAP, message 24)."
+Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambulanceverwijzing, AMB → HAP, message 24)."
 * . ^short = "Envelope"
   * ^alias[0] = "Envelop"
   * ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
-* status 1..1
-  * ^short = "DestinationStatus"
-  * ^alias[0] = "Bestemmingsstatus"
-  * ^definition = "Geeft de status van de ambulance naar deze bestemming. De waarden zijn: Actief = patiënt is onderweg naar de bestemming. Geannuleerd = patiënt gaat niet meer naar de bestemming. Dit is het laatste bericht van de ambulance naar de bestemming. Overgedragen = patiënt is overgedragen aan de bestemming. Dit is het laatste bericht van de ambulance naar de bestemming."
-  * ^comment = "Bestemmingsstatus value mapping to ServiceRequest.status (request-status): Actief = active; Geannuleerd = revoked (FHIR R4 uses 'revoked' where ART-DECOR/STU3 used 'cancelled'); Overgedragen = completed."
-* status from HgDestinationStatus (required)
+* status
+  * ^comment = "The status is set to the fixed value Completed, as the referral messaging sent only once."
 * status insert ObligationMandatory
-* intent 1..1
 * intent insert ObligationMandatory
 * code = $sct#11131000146102
 * category ^slicing.discriminator[0].type = #pattern
@@ -40,7 +35,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
 * category contains referralType 1..1
 * category[referralType] = $sct#308292007
 * category insert ObligationMandatory
-* subject 1..1
+* subject
   * ^short = "Patient"
   * ^alias[0] = "Patient"
   * ^definition = "Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt."
@@ -52,7 +47,7 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^alias[0] = "Datum en tijd"
   * ^definition = "Geeft het tijdstip waarop de verzender het bericht afrondt en aanbiedt voor verzending."
 * authoredOn insert ObligationMandatory
-* requester 0..1
+* requester
   * ^short = "Sender"
   * ^alias[0] = "Verzender"
   * ^alias[1] = "Zorgverlener"
@@ -83,22 +78,21 @@ Description: "Ambulance to GP out-of-hours post (HAP) referral request (Ambulanc
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
 * supportingInfo only Reference(Resource or HgReferralCompositionAmbulanceHAP or HgReferralDocumentReferenceAmbulanceHAP)
 * supportingInfo insert ObligationMandatory
-* patientInstruction 0..1
+* patientInstruction
   * ^short = "AgreedWithPatient"
   * ^alias[0] = "AfgesprokenMetPatient"
   * ^definition = "In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op het veld 'Afspraken met patiënt'."
 * patientInstruction insert Obligation
 
 Profile: HgReferralCompositionAmbulanceHAP
-Parent: HgReferralComposition
+Parent: HgComposition
 Id: hg-ReferralComposition-AmbulanceHAP
 Title: "hg referral Composition - Ambulance to HAP"
-Description: "Transfer summary note for the ambulance to GP out-of-hours post (HAP) referral."
+Description: "Transfer summary note for the ambulance to GP out-of-hours service (HAP) referral."
 * . ^short = "Core"
   * ^alias[0] = "Kern"
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
 * type = $loinc#28651-8
-* status 1..1
 * status insert ObligationMandatory
 * subject 1..1
   * ^short = "Patient"
@@ -112,9 +106,7 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
   * ^definition = "Geeft de volledige identificatie- en contactgegevens van de verzender van het bericht."
 * author only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
 * author insert ObligationMandatory
-* date 1..1
 * date insert ObligationMandatory
-* title 1..1
 * title insert ObligationMandatory
 // Re-declare the section slicing (inherited from the generic parent) so the snapshot generator anchors the slice child elements (.code, .text) in this profile.
 * section ^slicing.discriminator[0].type = #pattern
@@ -165,13 +157,13 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours post (H
 * section[agreedWithPatient].text insert SectionNarrativeComment
 
 Profile: HgReferralDocumentReferenceAmbulanceHAP
-Parent: HgReferralDocumentReference
+Parent: HgDocumentReference
 Id: hg-ReferralDocumentReference-AmbulanceHAP
 Title: "hg referral DocumentReference - Ambulance to HAP"
-Description: "Attached document for the ambulance to GP out-of-hours post (HAP) referral. The folded CommunicatieItem category and sender (as modeled in ART-DECOR) are carried on `category` and `author`."
+Description: "Attached document for the ambulance to GP out-of-hours service (HAP) referral. The folded CommunicatieItem category and sender (as modeled in ART-DECOR) are carried on `category` and `author`."
 * . ^short = "CommunicationItem"
   * ^alias[0] = "CommunicatieItem"
-  * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list, PDF content) follow the [document specification for the Ambulanceverwijzing](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Specificatie_van_het_document_binnen_de_Ambulanceverwijzing_naar_de_Huisartsenpost) in the Nictiz functional design, and should be kept aligned with it as that specification is finalized."
+  * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list) follow the [document specification for the Ambulanceverwijzing](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Specificatie_van_het_document_binnen_de_Ambulanceverwijzing_naar_de_Huisartsenpost) in the Nictiz functional design, and should be kept aligned with it as that specification is finalized."
 // masterIdentifier is removed in R5/R6 (folded into identifier); the document and set ids are carried on the identifier slices defined in the generic layer. See the Design Decisions page.
 * masterIdentifier 0..0
 * identifier[documentId] 1..1
@@ -179,12 +171,20 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
   * ^alias[0] = "DocumentIdentificatie"
   * ^definition = "Het identificatienummer van het document."
 * identifier[documentId] insert ObligationMandatory
+* identifier[documentId].system 1..1
+* identifier[documentId].system insert ObligationMandatory
+* identifier[documentId].value 1..1
+* identifier[documentId].value insert ObligationMandatory
 * identifier[documentSetId] 1..1
   * ^short = "DocumentSetIdentification"
   * ^alias[0] = "DocumentSetIdentificatie"
   * ^definition = "Identificatienummer van de set waar het document toe behoort."
   * ^comment = "1..1: the dataset element DocumentSetIdentificatie (hg-dataelement-5474) prescribes a set identifier on every document, so it is required here, even though CDA externalDocument.setId is optional in the general CDA model."
 * identifier[documentSetId] insert ObligationMandatory
+* identifier[documentSetId].system 1..1
+* identifier[documentSetId].system insert ObligationMandatory
+* identifier[documentSetId].value 1..1
+* identifier[documentSetId].value insert ObligationMandatory
 * extension[documentVersion] 0..1
   * ^short = "DocumentVersion"
   * ^alias[0] = "DocumentVersienummer"
@@ -207,7 +207,7 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
 * content.attachment.contentType 1..1
   * ^short = "DocumentMediaType"
   * ^alias[0] = "DocumentBestandtype"
-  * ^definition = "Het bestandtype als mimetype, bijvoorbeeld \"application/pdf\" of \"text/plain\". Voor de verwijzing vanuit de Ambulance naar de Huisarts of Huisartsenpost is dit een pdf."
+  * ^definition = "Het bestandtype als mimetype, bijvoorbeeld \"application/pdf\" of \"text/plain\"."
 * content.attachment.contentType insert ObligationMandatory
 * content.attachment.data 1..1
   * ^short = "DocumentContent"
@@ -224,27 +224,20 @@ Description: "Attached document for the ambulance to GP out-of-hours post (HAP) 
   * ^definition = "Datum van het aanmaken van het document."
 * content.attachment.creation insert Obligation
 
-Profile: HgReferralMessageHeaderAmbulanceHAP
-Parent: HgReferralMessageHeader
-Id: hg-ReferralMessageHeader-AmbulanceHAP
-Title: "hg referral MessageHeader - Ambulance to HAP"
-Description: "MessageHeader for the ambulance to GP out-of-hours post (HAP) referral PUSH."
-* eventCoding = HgMessageEvent#145
-* focus 1..1
-* focus only Reference(HgReferralServiceRequestAmbulanceHAP)
-* focus insert ObligationMandatory
-* sender 1..1
-* sender only Reference(Organization or HgHealthcareProviderOrganizationAmbulanceHAP)
-* sender insert ObligationMandatory
-* source 1..1
-
 Profile: HgReferralBundleAmbulanceHAP
-Parent: HgReferralBundle
+Parent: HgBundle
 Id: hg-ReferralBundle-AmbulanceHAP
 Title: "hg referral Bundle - Ambulance to HAP"
-Description: "Message bundle for the ambulance to GP out-of-hours post (HAP) referral PUSH."
-* type = #message
+Description: "Transaction bundle for the ambulance to GP out-of-hours service (HAP) referral PUSH."
+* type = #transaction
 * timestamp 1..1
 * entry 1..*
 * entry.fullUrl 1..1
+  * ^comment = "In a transaction every entry needs a fullUrl. Use a urn:uuid, so no entry claims an identity on the receiving server and the references between the resources resolve within the transaction."
 * entry.resource 1..1
+* entry.request 1..1
+* entry.request.method
+  * ^comment = """
+The method is deliberately not fixed. A first send is a `POST`. A later send for the same trip updates the referral rather than creating a second one, and that is a conditional `PUT` on the trip number, for example `PUT ServiceRequest?identifier=urn:oid:2.16.840.1.113883.2.4.3.32.5|09-2026-1234567-1`.
+
+That second case follows from *Bestemmingsstatus*: the data set states that Geannuleerd and Overgedragen are the last message of the ambulance to this destination, so there is more than one message per trip and the receiver has to end up with one referral, not three. See [#38](https://github.com/Nictiz/AZ-IG/issues/38)."""

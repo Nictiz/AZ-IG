@@ -2,20 +2,20 @@
 
 FHIR R4 Implementation Guide for information exchange in acute care settings in the Netherlands, following the Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022). Built on nl-core (zib2020, R4) and authored in FHIR Shorthand (FSH).
 
-The first use case is the ambulance to GP out-of-hours post referral (AMB naar HAP, message 24). Message 23 (AMB naar HA) follows the same pattern and is planned as a parallel use case layer.
+The first use case is the ambulance to GP out-of-hours service referral (AMB → HAP, message 24). Message 23 (AMB → HA) follows the same pattern and is planned as a parallel use case layer.
 
 Status: under development - no official release yet. This is the first Nictiz IG published as a proper HL7 FHIR Implementation Guide (using the HL7 IG Publisher and FHIR Shorthand), rather than as a specification on the Nictiz wiki. It therefore looks and works differently from earlier Nictiz FHIR documentation. The canonical output is a browsable IG with structured profiles, examples, and conformance resources - not a wiki page.
 
 ## Identity
 
-- Package id: `nictiz.fhir.nl.r4.acutezorg`
-- Canonical base: `http://nictiz.nl/fhir` (shared Nictiz base; artifacts are disambiguated by the `hg-` id prefix, e.g. `http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest`)
+- Package id: `nictiz.nl.az`
+- Canonical base: `http://ig.nictiz.nl/az` (e.g. `http://ig.nictiz.nl/az/StructureDefinition/hg-ServiceRequest`); the `hg-` id prefix is the ART-DECOR project prefix
 
 ## Layout
 
 - `sushi-config.yaml` - project configuration, dependencies, and menu
 - `input/fsh/aliases.fsh` - canonical URL and code system aliases
-- `input/fsh/profiles/` - generic `hg-Referral*` layer (FHIR core based) and the `hg-Referral*-AmbulanceHAP` use case layer derived from it
+- `input/fsh/profiles/` - generic `hg-*` layer (FHIR core based) and the `hg-Referral*-AmbulanceHAP` use case layer derived from it
 - `input/fsh/extensions/` - `hg-ext-DocumentVersion` (document version, R5/R6 bridge)
 - `input/fsh/terminology/` - local code systems and value sets (message events, destination status, document-identifier type)
 - `input/fsh/mappings/` - dataset traceability mappings attached to the use case profiles
