@@ -6,7 +6,7 @@
             <start value="2025-06-10T00:00:00Z"/>
         </valuePeriod>
     </extension><!-- http:/decor.nictiz.nl/fhir/4.0/hg-/hg-/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.103.4.145-\-20250610000000 -->
-    <url value="http://decor.nictiz.nl/fhir/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.103.1.1--20201019175239"/>
+    <url value="http://ig.nictiz.nl/az/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.103.1.1--20201019175239"/>
     <identifier>
         <use value="official"/>
         <system value="urn:ietf:rfc:3986"/>
