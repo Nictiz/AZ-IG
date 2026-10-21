@@ -146,7 +146,7 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
     <td colspan="7">Verzender</td>
   </tr>
   <tr>
-    <td rowspan="9"></td>
+    <td rowspan="12"></td>
   </tr>
   <tr>
     <td colspan="6">Zorgverlener</td>
@@ -172,40 +172,37 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
   </tr>
   <tr>
     <td colspan="2">ZorgaanbiederIdentificatienummer</td>
-    <td>25 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.60.55.15.1)</td>
-  </tr>
-  <tr>
-    <td colspan="7">Ontvanger</td>
-  </tr>
-  <tr>
-    <td rowspan="5"></td>
+    <td>24 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.60.55.15.1)</td>
   </tr>
   <tr>
     <td colspan="6">Zorgaanbieder</td>
   </tr>
   <tr>
-    <td rowspan="3"></td>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="4">ZorgaanbiederIdentificatienummer</td>
+    <td>24 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.60.55.15.1)</td>
+  </tr>
+  <tr>
+    <td colspan="7">Ontvanger</td>
+  </tr>
+  <tr>
+    <td rowspan="4"></td>
+  </tr>
+  <tr>
+    <td colspan="6">Zorgaanbieder</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
   </tr>
   <tr>
     <td colspan="4">ZorgaanbiederIdentificatienummer</td>
     <td>06020806 (in identificerend systeem: AGB-Z)</td>
   </tr>
   <tr>
-    <td colspan="4">OrganisatieType</td>
-    <td>
-      Huisartsenpost (t.b.v. dienstwaarneming) (code = 'N6' in codeSystem
-      '<span title="2.16.840.1.113883.2.4.15.1060">HL7 RoleCodeNL Care provider type (organizations)</span>')
-    </td>
-  </tr>
-  <tr>
-    <td colspan="7">Bestemmingsgegevens</td>
-  </tr>
-  <tr>
-    <td rowspan="2"></td>
-  </tr>
-  <tr>
-    <td colspan="5">Ritnummer</td>
-    <td>25-2020-11-1 (in identificerend systeem: 2.16.840.1.113883.2.4.3.32.5)</td>
+    <td colspan="6">Ritnummer</td>
+    <td>24-2020-11-1 (in identificerend systeem: 2.16.840.1.113883.2.4.3.32.5)</td>
   </tr>
   <tr>
     <td colspan="6">Datum en tijd</td>
@@ -259,11 +256,11 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
   </tr>
   <tr>
     <td colspan="2">DocumentIdentificatie</td>
-    <td>9068 (in identificerend systeem: 2.25)</td>
+    <td>9069 (in identificerend systeem: 2.25)</td>
   </tr>
   <tr>
     <td colspan="2">DocumentSetIdentificatie</td>
-    <td>12 (in identificerend systeem: 2.25)</td>
+    <td>13 (in identificerend systeem: 2.25)</td>
   </tr>
   <tr>
     <td colspan="2">DocumentVersienummer</td>
@@ -837,11 +834,11 @@ huisartsenspoedpost
   </tr>
   <tr>
     <td colspan="2">DocumentBestandtype</td>
-    <td>application/pdf</td>
+    <td>text/plain</td>
   </tr>
   <tr>
     <td colspan="2">DocumentInhoud</td>
-    <td>voorbeeldbericht</td>
+    <td>YW1idWxhbmNlIHZlcnNsYWc=</td>
   </tr>
   <tr>
     <td colspan="2">DocumentNaam</td>
