@@ -10,7 +10,16 @@ Mandatory vs Required, and missing data (§2.13). The core IG distinguishes the 
 
 Narrative (§2.14). The free-text *rubrieken* are carried in the relevant `Composition.section.text` (with `text.status = additional`); see [Envelope and core](#envelope-and-core-servicerequest-and-composition). This IG does not additionally require a generated `Resource.text` narrative on each resource.
 
-Still to be worked out. The core IG's transport-level principles - HTTP headers (§2.3), search (§2.7), error handling and `OperationOutcome` (§2.9), the informative role of CapabilityStatements (§2.10), secondary resources in transactions (§2.11) and `Bundle.entry.fullUrl` conventions (§2.8) - now have a paradigm to be worked out against, but that has not been done yet. Tracked as an open item ([#22](https://github.com/Nictiz/AZ-IG/issues/22)).
+Transport (§2.3, §2.7 to §2.11). The transport-level principles apply as the core IG states them, with the receiver as server and the sender as client:
+
+- [HTTP headers (§2.3)](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#HTTP_headers) apply as stated.
+- [Search (§2.7)](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#Search) does not apply: the exchange is a push without search.
+- [`.id`, `.identifier` and `.fullUrl` (§2.8)](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#Usage_of_the_.id.2C_.identifier_and_.fullUrl_elements_in_FHIR_instances): every entry in the transaction Bundle is a create, so it **SHOULD NOT** carry an `.id` and has a `urn:uuid` `fullUrl`.
+- [Handling errors (§2.9)](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#Handling_errors) applies. Whether the receiver rejects a referral that violates the profiles with `422` is not decided yet ([#22](https://github.com/Nictiz/AZ-IG/issues/22)).
+- [CapabilityStatements (§2.10)](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#CapabilityStatements) are informative, as stated in their `purpose`.
+- [Secondary resources (§2.11)](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#Including_.22secondary.22_resources_when_sending_information) apply, including deduplication by the receiver.
+
+Also not decided yet: whether the receiver supports `read` on the resources it received ([#22](https://github.com/Nictiz/AZ-IG/issues/22)).
 
 ### Base profiles
 
@@ -36,9 +45,9 @@ We deliberately omit `Task` and follow the ad-hoc workflow pattern. See the [Wor
 
 The paradigm is RESTful: the sender POSTs the referral to the receiver as one `transaction` Bundle. The [Data Exchange](data-exchange.html) page describes that option, and the two alternatives that were weighed and not taken.
 
-What follows from the choice is applied throughout: `hg-ReferralBundle` is a `transaction`, there is no MessageHeader profile and no message event code system, and the CapabilityStatements state the system-level `transaction` interaction next to `create` per resource type. A transaction is the right unit here because the referral is not one resource: `ServiceRequest.subject`, `supportingInfo`, `requester` and `performer` all point at resources the receiver does not hold, so posting the ServiceRequest on its own would deliver references that resolve nowhere.
+What follows from the choice is applied throughout: `hg-Bundle` is a `transaction`, there is no MessageHeader profile and no message event code system, and the CapabilityStatements state the system-level `transaction` interaction next to `create` per resource type. A transaction is the right unit here because the referral is not one resource: `ServiceRequest.subject`, `supportingInfo`, `requester` and `performer` all point at resources the receiver does not hold, so posting the ServiceRequest on its own would deliver references that resolve nowhere.
 
-The decision is recorded in [#14](https://github.com/Nictiz/AZ-IG/issues/14). It is the direction this IG designs against; the agreement with the vendors and the infrastructure parties is still to be made for the beta release.
+The decision is recorded in [#14](https://github.com/Nictiz/AZ-IG/issues/14). It is revisited if the agreement with the vendors and the infrastructure parties leads elsewhere.
 
 ### Terminology
 
@@ -54,21 +63,25 @@ In the source, an attached document is a CDA `externalDocument` carrying three i
 
 FHIR R4 `DocumentReference` offered `masterIdentifier` (0..1, the document's master id) alongside `identifier` (0..\*, other ids). R5/R6 removed `masterIdentifier`, folding it into `identifier`. To avoid a breaking remodel when this IG moves to R5/R6, we already adopt the R5/R6 shape now: both the document id and the set id are carried on `identifier`, and `masterIdentifier` is forbidden (`0..0`).
 
-FHIR defines no standard code to distinguish a document instance id from a set id and explicitly leaves disambiguation of multiple identifiers "to the implementation context". We therefore slice `identifier` by `type` using a small local code system ([`acutezorg` document-identifier-type](CodeSystem-hg-document-identifier-type.html): `document-id` / `document-set-id`) - authored in FSH because it is a structural modelling code, not a clinical concept from the dataset. Each CDA `II` maps as `system` = `urn:oid:{II.root}` and `value` = `{II.extension}`.
+FHIR defines no standard code to distinguish a document instance id from a set id and explicitly leaves disambiguation of multiple identifiers "to the implementation context". We therefore slice `identifier` by `type` using a small local code system ([`acutezorg` document-identifier-type](CodeSystem-hg-document-identifier-type.html): `document-id` / `document-set-id`) - authored in FSH because it is a structural modelling code, not a clinical concept from the dataset. Each CDA `II` maps as `system` = `urn:oid:{II.root}` and `value` = `{II.extension}`; both are required, so both halves of the `II` are always present.
 
 The version number has no R4 element, so it rides the [`hg-ext-DocumentVersion`](StructureDefinition-hg-ext-DocumentVersion.html) extension; this maps directly to the native `DocumentReference.version` element in R5/R6, after which the extension is retired.
 
-Because this identity model follows the shared dataset's document structure rather than anything use-case specific, the `identifier` slicing structure and the version extension are defined on the generic `hg-ReferralDocumentReference` profile; the use case layer adds the cardinalities (including forbidding `masterIdentifier` with `0..0`) and the obligations. This `type`-code scheme is posted to the FHIR community chat for confirmation and may be revised; see the [Open Items](open-items.html) page.
+Because this identity model follows the shared dataset's document structure rather than anything use-case specific, the `identifier` slicing structure and the version extension are defined on the generic `hg-DocumentReference` profile; the use case layer adds the cardinalities (including forbidding `masterIdentifier` with `0..0`) and the obligations. This `type`-code scheme is posted to the FHIR community chat for confirmation and may be revised; see the [Open Items](open-items.html) page.
 
 ### Profile layering and naming
 
-Following the [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4), profiles are organised in two layers. A generic, open-world layer on FHIR core carries the reusable referral structure with no cardinality tightening and no obligations: `hg-ReferralServiceRequest`, `hg-ReferralComposition`, `hg-ReferralDocumentReference` and `hg-ReferralBundle`. A use case layer derives from these for this transaction and adds cardinalities, obligations (see below) and the dataset mappings: `hg-ReferralServiceRequest-AmbulanceHAP` and its siblings. Names use the `hg-` project prefix with the use case appended; other referral transactions can reuse the generic layer and add their own use case profiles.
+Following the [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4), profiles are organised in two layers. A generic, open-world layer on FHIR core carries the reusable referral structure with no cardinality tightening and no obligations: `hg-ServiceRequest`, `hg-Composition`, `hg-DocumentReference` and `hg-Bundle`. A use case layer derives from these for this transaction and adds cardinalities, obligations (see below) and the dataset mappings: `hg-ReferralServiceRequest-AmbulanceHAP` and its siblings. Names use the `hg-` project prefix with the use case appended; other referral transactions can reuse the generic layer and add their own use case profiles.
 
-Alongside these, three transaction-specific zib profiles carry the dataset's cardinalities on the participating building blocks, each derived from the corresponding nl-core profile: `hg-Patient-AmbulanceHAP` (from nl-core-Patient), `hg-HealthcareProvider-Organization-AmbulanceHAP` (from nl-core-HealthcareProvider-Organization) and `hg-HealthProfessional-PractitionerRole-AmbulanceHAP` (from nl-core-HealthProfessional-PractitionerRole). These hold the minima needed to identify the patient and the sending/receiving organizations and should be reconciled against the published dataset's exact multiplicities.
+Alongside these, four transaction-specific zib profiles carry the dataset's cardinalities on the participating building blocks, each derived from the corresponding nl-core profile: `hg-Patient-AmbulanceHAP` (from nl-core-Patient), `hg-HealthcareProvider-Organization-AmbulanceHAP` (from nl-core-HealthcareProvider-Organization), `hg-HealthProfessional-PractitionerRole-AmbulanceHAP` (from nl-core-HealthProfessional-PractitionerRole) and `hg-HealthProfessional-Practitioner-AmbulanceHAP` (from nl-core-HealthProfessional-Practitioner). These hold the minima needed to identify the patient, the sending professional and the sending/receiving organizations and should be reconciled against the published dataset's exact multiplicities.
 
 These transaction-specific profiles are primarily intended for validation, not for constraining data exchange. In exchange, the corresponding nl-core profiles remain the normative basis. Implementers may however declare conformance to the tighter use case profiles via `meta.profile` in the resource if they wish to signal that the stricter cardinalities are met.
 
 Vendors that already support nl-core do not need to rebuild their FHIR infrastructure for this transaction: the use case layer only adds a named validation profile on top of what is already there. Different use cases may still require functional or workflow adaptations beyond the FHIR layer.
+
+### Canonical base
+
+The canonical base of this IG is `http://ig.nictiz.nl/az`, the namespace under which Nictiz publishes its IGs. The Profiling Guidelines (§10.1.1.1) give use cases based on zibs the base `http://nictiz.nl/fhir`, and use cases based on generic building blocks the base `http://ig.nictiz.nl/gbb`. This IG is based on zibs through nl-core, but uses the `ig.nictiz.nl` base so that it can be published there. Profiles from nl-core and zib2020 keep their own `http://nictiz.nl/fhir` canonicals. The `hg-` id prefix stays the ART-DECOR project prefix, as the guidelines prescribe.
 
 ### Conformance via obligations
 
@@ -76,14 +89,20 @@ Support expectations are expressed with the FHIR Obligations framework. Two syst
 
 ### Invariants and constraints
 
-Beyond cardinalities, bindings and slicing, the use case profiles carry a small number of FHIRPath invariants - only for rules that structure cannot express, and kept resource-local so they also hold when a resource is validated standalone:
+Beyond cardinalities, bindings and slicing, the use case profiles carry a small number of FHIRPath invariants - only for rules that structure cannot express. The resource-level ones are kept resource-local so they also hold when a resource is validated standalone:
 
-- `hg-Patient-AmbulanceHAP` obeys `hg-pat-1`: the patient must be matchable at the receiver (an `identifier` or a `name` is present).
-- `hg-HealthcareProvider-Organization-AmbulanceHAP` obeys `hg-org-1`: the organization should be unambiguously addressable (a URA `identifier` is present).
+- `hg-pat-1` in `hg-Patient-AmbulanceHAP`: the receiver needs to match the patient against its own records, so an `identifier` or a `name` **SHOULD** be present.
+- `hg-org-1` in `hg-HealthcareProvider-Organization-AmbulanceHAP`: the organization needs to be uniquely identified, so a URA `identifier` (`system` = `http://fhir.nl/fhir/NamingSystem/ura`) **SHOULD** be present.
 
 Both are `#warning` for now, because a not-yet-identified ambulance patient and addressing other than by URA are legitimate edge cases; they can be raised to `#error` once the ART-DECOR conformance mapping confirms the requirement (see the [Open Items](open-items.html) page).
 
-Two further categories are deliberately *not* enforced as invariants yet. Transaction-level rules (for example, that the Bundle contains the `ServiceRequest` and the `Composition` it points to) are tracked as an open item rather than enforced. Cross-resource subject consistency (the `Composition` and `DocumentReference` subject being the same patient as the `ServiceRequest`) and a couple of `DocumentReference` structural tightenings are tracked as open items rather than enforced, to avoid `resolve()`-based invariants that are unreliable in standalone validation and to avoid constraining ahead of the dataset.
+One invariant sits on the transaction Bundle, because it compares resources:
+
+- `hg-bundle-1` in `hg-ReferralBundle-AmbulanceHAP`: the `subject` of the `ServiceRequest`, the `Composition` and every `DocumentReference` **SHALL** reference the same patient.
+
+It compares the `subject.reference` values within the Bundle and needs no `resolve()`, so it holds whenever the Bundle is validated as a whole. A sender therefore writes the patient reference in the same form throughout the Bundle. It is `#error`, because a referral whose parts name different patients has no legitimate use.
+
+Transaction-level rules beyond this one (for example, that the Bundle contains the `ServiceRequest` and the `Composition` it points to) are deliberately *not* enforced as invariants yet.
 
 ### Reference modeling (open world)
 
@@ -107,6 +126,6 @@ The resource map - which resources participate, how they reference each other, a
 
 Each use case profile carries `Mapping` entries back to the ART-DECOR dataset *Verwijzing ambulance naar huisartsenpost* (OID 2.16.840.1.113883.2.4.3.11.60.103.1.1), under the identity `hg-dataset-20201019`, following the [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4). FHIR elements point at the dataset data-element ids (`hg-dataelement-NNNN`).
 
-The `hg-dataelement-NNNN` series comes from the shared ART-DECOR project; the [Dependencies](dependencies.html#relationship-with-the-elz-package) page explains how that project relates to the ELZ package and why the elements carry the `hg-` prefix.
+The `hg-dataelement-NNNN` series comes from the shared ART-DECOR project; the [Dependencies](dependencies.html#relationship-with-elz) page explains why the elements carry the `hg-` prefix.
 
 Because the CommunicatieItem wrapper was folded into `DocumentReference`, the DocumentReference root is mapped to both the CommunicatieItem (hg-dataelement-5457) and the Document inside it (hg-dataelement-5472); the document and set ids map to the two `identifier` slices (hg-dataelement-5473 and 5474) and the version number to the [`hg-ext-DocumentVersion`](StructureDefinition-hg-ext-DocumentVersion.html) extension (hg-dataelement-5475). The Bundle is a transport resource and maps only at envelope level (the timestamp). Any remaining unmapped dataset elements are tracked on the [Open Items](open-items.html) page. All mappings should be reviewed against the published dataset version.

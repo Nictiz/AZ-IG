@@ -1,0 +1,43 @@
+@startuml
+left to right direction
+
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam usecase {
+  BackgroundColor #FFF8E8
+  BorderColor #555555
+}
+skinparam actorStyle stickman
+skinparam packageStyle rectangle
+
+rectangle "uc Use Case – Ambulanceverwijzing naar HA of HAP" {
+
+  actor "Huisarts" as huisarts
+  actor "Huisartsenpost" as hap
+  actor "Ambulance" as ambulance
+
+  usecase "Ontvangen verwijzing" as ontvangen
+  usecase "Versturen verwijzing" as versturen
+  usecase "Verwijzing (PUSH)" as push
+
+  rectangle "AZP-AVO" as avo {
+    usecase "Ontvangen verwijzing" as ontvangen_avo
+  }
+
+  rectangle "AZP-AVS" as avs {
+    usecase "Sturen verwijzing" as sturen_avs
+  }
+
+  huisarts -- ontvangen
+  hap -- ontvangen
+  ambulance -- versturen
+
+  ontvangen ..> ontvangen_avo
+  versturen ..> sturen_avs
+
+  ontvangen_avo ..> push : <<include>>
+  sturen_avs ..> push : <<include>>
+}
+
+@enduml

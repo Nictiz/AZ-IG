@@ -74,7 +74,7 @@ Perform the following steps for each scenario:
 
 | No. | Scenario | Test Objective | Expected Result | Test Data |
 | ---: | --- | --- | --- | --- |
-| 1 | Minimum message | Verify that all mandatory fields are processed, sent, and received correctly. | The message is sent successfully and accepted and processed by the receiving system in accordance with the information standard. | [Scenario - Minimal](#scenario-minimal) |
+| 1 | Minimum message | Verify that all mandatory fields are processed, sent, and received correctly. Verify that when the patient’s BSN is unknown, the message includes another patient identifier to meet the mandatory patient identification requirement.| The message contains a valid patient identifier other than the BSN. The message is sent successfully and accepted and processed by the receiving system in accordance with the information standard. | [Scenario - Minimal](#scenario-minimal) |
 | 2 | Maximum message | Verify that all mandatory and optional fields are processed, sent, and received correctly. | The message is sent successfully and accepted and processed by the receiving system in accordance with the information standard. | [Scenario - Maximal](#scenario-maximal) |
 
 #### Test Data for Registering Parties Based on the Functional Mapping
@@ -97,14 +97,39 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
 
 ### Scenario Minimal
 
+<table class="grid" id="patient-table">
+  <thead>
+    <tr>
+      <th colspan="4">Patient</th>
+    </tr>
+  </thead>
+  <tr>
+    <th colspan="3">Data-element</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td colspan="4">Patient BSN_onbekend
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="2">Identificatienummer</td>
+    <td>12345576 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.999.103.4)</td>
+  </tr>
+</table>
+
+
+
 <table class="grid">
   <thead>
     <tr>
       <th colspan="7">Envelop</th>
     </tr>
     <tr>
-      <th colspan="6">Gegevenselement</th>
-      <th>Waarde</th>
+      <th colspan="6">Data-element</th>
+      <th>Value</th>
     </tr>
   </thead>
   <tr>
@@ -115,13 +140,13 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
   </tr>
   <tr>
     <td colspan="5">Patient</td>
-    <td>onbekend</td>
+    <td><a href="#patient-table">BSN_onbekend</a></td>
   </tr>
   <tr>
     <td colspan="7">Verzender</td>
   </tr>
   <tr>
-    <td rowspan="9"></td>
+    <td rowspan="12"></td>
   </tr>
   <tr>
     <td colspan="6">Zorgverlener</td>
@@ -147,40 +172,37 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
   </tr>
   <tr>
     <td colspan="2">ZorgaanbiederIdentificatienummer</td>
-    <td>25 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.60.55.15.1)</td>
-  </tr>
-  <tr>
-    <td colspan="7">Ontvanger</td>
-  </tr>
-  <tr>
-    <td rowspan="5"></td>
+    <td>24 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.60.55.15.1)</td>
   </tr>
   <tr>
     <td colspan="6">Zorgaanbieder</td>
   </tr>
   <tr>
-    <td rowspan="3"></td>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="4">ZorgaanbiederIdentificatienummer</td>
+    <td>24 (in identificerend systeem: 2.16.840.1.113883.2.4.3.11.60.55.15.1)</td>
+  </tr>
+  <tr>
+    <td colspan="7">Ontvanger</td>
+  </tr>
+  <tr>
+    <td rowspan="4"></td>
+  </tr>
+  <tr>
+    <td colspan="6">Zorgaanbieder</td>
+  </tr>
+  <tr>
+    <td rowspan="2"></td>
   </tr>
   <tr>
     <td colspan="4">ZorgaanbiederIdentificatienummer</td>
     <td>06020806 (in identificerend systeem: AGB-Z)</td>
   </tr>
   <tr>
-    <td colspan="4">OrganisatieType</td>
-    <td>
-      Huisartsenpost (t.b.v. dienstwaarneming) (code = 'N6' in codeSystem
-      '<span title="2.16.840.1.113883.2.4.15.1060">HL7 RoleCodeNL Care provider type (organizations)</span>')
-    </td>
-  </tr>
-  <tr>
-    <td colspan="7">Bestemmingsgegevens</td>
-  </tr>
-  <tr>
-    <td rowspan="2"></td>
-  </tr>
-  <tr>
-    <td colspan="5">Ritnummer</td>
-    <td>25-2020-11-1 (in identificerend systeem: 2.16.840.1.113883.2.4.3.32.5)</td>
+    <td colspan="6">Ritnummer</td>
+    <td>24-2020-11-1 (in identificerend systeem: 2.16.840.1.113883.2.4.3.32.5)</td>
   </tr>
   <tr>
     <td colspan="6">Datum en tijd</td>
@@ -194,8 +216,8 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
       <th colspan="4">Kern</th>
     </tr>
     <tr>
-      <th colspan="3">Gegevenselement</th>
-      <th>Waarde</th>
+      <th colspan="3">Data-element</th>
+      <th>Value</th>
     </tr>
   </thead>
   <tr>
@@ -216,8 +238,8 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
       <th colspan="5">Dossiergegevens</th>
     </tr>
     <tr>
-      <th colspan="4">Gegevenselement</th>
-      <th>Waarde</th>
+      <th colspan="4">Data-element</th>
+      <th>Value</th>
     </tr>
   </thead>
   <tr>
@@ -234,11 +256,11 @@ For the ART-DECOR qualification server, `T – 10D` means 10 days before the agr
   </tr>
   <tr>
     <td colspan="2">DocumentIdentificatie</td>
-    <td>9068 (in identificerend systeem: 2.25)</td>
+    <td>9069 (in identificerend systeem: 2.25)</td>
   </tr>
   <tr>
     <td colspan="2">DocumentSetIdentificatie</td>
-    <td>12 (in identificerend systeem: 2.25)</td>
+    <td>13 (in identificerend systeem: 2.25)</td>
   </tr>
   <tr>
     <td colspan="2">DocumentVersienummer</td>
@@ -334,8 +356,8 @@ huisartsenspoedpost
       <th colspan="6">Bouwstenen</th>
     </tr>
     <tr>
-      <th colspan="5">Gegevenselement</th>
-      <th>Waarde</th>
+      <th colspan="5">Data-element</th>
+      <th>Value</th>
     </tr>
   </thead>
   <tr>
@@ -495,8 +517,8 @@ huisartsenspoedpost
       <th colspan="7">Envelop</th>
     </tr>
     <tr>
-      <th colspan="6">Gegevenselement</th>
-      <th>Waarde</th>
+      <th colspan="6">Data-element</th>
+      <th>Value</th>
     </tr>
   </thead>
   <tr>
@@ -628,8 +650,8 @@ huisartsenspoedpost
       <th colspan="4">Kern</th>
     </tr>
     <tr>
-      <th colspan="3">Gegevenselement</th>
-      <th>Waarde</th>
+      <th colspan="3">Data-element</th>
+      <th>Value</th>
     </tr>
   </thead>
   <tr>
@@ -782,8 +804,8 @@ huisartsenspoedpost
       <th colspan="5">Dossiergegevens</th>
     </tr>
     <tr>
-      <th colspan="4">Gegevenselement</th>
-      <th>Waarde</th>
+      <th colspan="4">Data-element</th>
+      <th>Value</th>
     </tr>
   </thead>
   <tr>
@@ -812,11 +834,11 @@ huisartsenspoedpost
   </tr>
   <tr>
     <td colspan="2">DocumentBestandtype</td>
-    <td>application/pdf</td>
+    <td>text/plain</td>
   </tr>
   <tr>
     <td colspan="2">DocumentInhoud</td>
-    <td>voorbeeldbericht</td>
+    <td>YW1idWxhbmNlIHZlcnNsYWc=</td>
   </tr>
   <tr>
     <td colspan="2">DocumentNaam</td>

@@ -10,7 +10,7 @@ InstanceOf: ActorDefinition
 Usage: #definition
 Title: "hg referral Sender - Ambulance referral (AMBS, AZP-AVS)"
 Description: "Ambulance management system (AMBS) that produces and transmits the Ambulance referral to the HIS/HAPIS."
-* url = "http://nictiz.nl/fhir/ActorDefinition/hg-ActorSender-AmbulanceHAP"
+* url = "http://ig.nictiz.nl/az/ActorDefinition/hg-ActorSender-AmbulanceHAP"
 * insert NictizMetadataInstance
 * purpose = "Names the sending system role of the Ambulanceverwijzing so that support expectations can be bound to an actor. The obligations on the profiles reference this actor, which makes explicit what the sender has to produce, where a single mustSupport flag would only say that an element matters to someone."
 * name = "HgActorSenderAmbulanceHAP"
@@ -21,14 +21,14 @@ Description: "Ambulance management system (AMBS) that produces and transmits the
 In the Dutch functional design ([Ontwerp Acute Zorg, section 2.16](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)), this role is identified as Acute Zorg Proces - Ambulanceverwijzing Sturend with system role code AZP-AVS.
 
 An HG Referral Sender **SHALL** populate obligation-marked elements when it has a value for them (SHALL:populate-if-known)."""
-* capabilities = "http://nictiz.nl/fhir/CapabilityStatement/hg-CapabilityStatement-Sender"
+* capabilities = "http://ig.nictiz.nl/az/CapabilityStatement/hg-CapabilityStatement-Sender"
 
 Instance: hg-ActorReceiver-AmbulanceHAP
 InstanceOf: ActorDefinition
 Usage: #definition
 Title: "hg referral Receiver - Ambulance referral (HIS/HAPIS, AZP-AVO)"
 Description: "GP information system (HIS) or GP out-of-hours service information system (HAPIS) that accepts the Ambulance referral from the AMBS."
-* url = "http://nictiz.nl/fhir/ActorDefinition/hg-ActorReceiver-AmbulanceHAP"
+* url = "http://ig.nictiz.nl/az/ActorDefinition/hg-ActorReceiver-AmbulanceHAP"
 * insert NictizMetadataInstance
 * purpose = "Names the receiving system role of the Ambulanceverwijzing so that support expectations can be bound to an actor. The obligations on the profiles reference this actor, which makes explicit what the receiver has to accept without raising an error."
 * name = "HgActorReceiverAmbulanceHAP"
@@ -39,4 +39,4 @@ Description: "GP information system (HIS) or GP out-of-hours service information
 In the Dutch functional design ([Ontwerp Acute Zorg, section 2.16](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29)), this role is identified as Acute Zorg Proces - Ambulanceverwijzing Ontvangend with system role code AZP-AVO.
 
 An HG Referral Receiver **SHALL** accept obligation-marked elements without raising an error (SHALL:no-error)."""
-* capabilities = "http://nictiz.nl/fhir/CapabilityStatement/hg-CapabilityStatement-Receiver"
+* capabilities = "http://ig.nictiz.nl/az/CapabilityStatement/hg-CapabilityStatement-Receiver"

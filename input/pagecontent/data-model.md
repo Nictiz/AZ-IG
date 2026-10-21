@@ -16,17 +16,22 @@ Example messages under [Artifacts](artifacts.html) illustrate the model: a refer
 
 ### Profiles in this use case
 
+The diagram shows the use case profiles in the transaction Bundle and the references between them. Each arrow is labeled with the referencing element. The table below links each profile and the profile it is derived from.
+
+<div>{% include data-model.svg %}</div>
+<br clear="all"/>
+
 | Resource | Use case profile | Derived from | Role in the referral |
 |---|---|---|---|
-| ServiceRequest | [`hg-ReferralServiceRequest-AmbulanceHAP`](StructureDefinition-hg-ReferralServiceRequest-AmbulanceHAP.html) | [`hg-ReferralServiceRequest`](StructureDefinition-hg-ReferralServiceRequest.html) | Focal resource: the referral request |
-| Composition | [`hg-ReferralComposition-AmbulanceHAP`](StructureDefinition-hg-ReferralComposition-AmbulanceHAP.html) | [`hg-ReferralComposition`](StructureDefinition-hg-ReferralComposition.html) | Transfer summary note (treatment given, diagnosis/conclusion) |
-| DocumentReference | [`hg-ReferralDocumentReference-AmbulanceHAP`](StructureDefinition-hg-ReferralDocumentReference-AmbulanceHAP.html) | [`hg-ReferralDocumentReference`](StructureDefinition-hg-ReferralDocumentReference.html) | Attached document(s), e.g. a report (0..\*) |
+| ServiceRequest | [`hg-ReferralServiceRequest-AmbulanceHAP`](StructureDefinition-hg-ReferralServiceRequest-AmbulanceHAP.html) | [`hg-ServiceRequest`](StructureDefinition-hg-ServiceRequest.html) | Focal resource: the referral request |
+| Composition | [`hg-ReferralComposition-AmbulanceHAP`](StructureDefinition-hg-ReferralComposition-AmbulanceHAP.html) | [`hg-Composition`](StructureDefinition-hg-Composition.html) | Transfer summary note (treatment given, diagnosis/conclusion) |
+| DocumentReference | [`hg-ReferralDocumentReference-AmbulanceHAP`](StructureDefinition-hg-ReferralDocumentReference-AmbulanceHAP.html) | [`hg-DocumentReference`](StructureDefinition-hg-DocumentReference.html) | Attached document(s), e.g. a report (0..\*) |
 | Patient | [`hg-Patient-AmbulanceHAP`](StructureDefinition-hg-Patient-AmbulanceHAP.html) | [`nl-core-Patient`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-Patient) | The patient being referred |
 |       Encounter       |                                                                [`hg-Encounter-AmbulanceHAP`](StructureDefinition-hg-Encounter-AmbulanceHAP.html)                                                               |                                                                                                  [`nl-core-Encounter`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-Encounter)                                                                                                  |                         The interaction between a patient and the ambulance professionals (trip number)                         |
 | Organization | [`hg-HealthcareProvider-Organization-AmbulanceHAP`](StructureDefinition-hg-HealthcareProvider-Organization-AmbulanceHAP.html) | [`nl-core-HealthcareProvider-Organization`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthcareProvider-Organization) | Sending (RAV) and receiving (HAP) organizations |
 | PractitionerRole | [`hg-HealthProfessional-PractitionerRole-AmbulanceHAP`](StructureDefinition-hg-HealthProfessional-PractitionerRole-AmbulanceHAP.html) | [`nl-core-HealthProfessional-PractitionerRole`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthProfessional-PractitionerRole) | Role of the sending ambulance professional |
-| Practitioner | (none - nl-core directly) | [`nl-core-HealthProfessional-Practitioner`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthProfessional-Practitioner) | The ambulance professional |
-| Bundle | [`hg-ReferralBundle-AmbulanceHAP`](StructureDefinition-hg-ReferralBundle-AmbulanceHAP.html) | [`hg-ReferralBundle`](StructureDefinition-hg-ReferralBundle.html) | The transaction that is POSTed |
+| Practitioner | [`hg-HealthProfessional-Practitioner-AmbulanceHAP`](StructureDefinition-hg-HealthProfessional-Practitioner-AmbulanceHAP.html) | [`nl-core-HealthProfessional-Practitioner`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthProfessional-Practitioner) | The ambulance professional |
+| Bundle | [`hg-ReferralBundle-AmbulanceHAP`](StructureDefinition-hg-ReferralBundle-AmbulanceHAP.html) | [`hg-Bundle`](StructureDefinition-hg-Bundle.html) | The transaction that is POSTed |
 
  The free text of each *Composition* section is carried in the section's own narrative (*Composition.section.text*, whose *.div* holds plain text or the limited xhtml allowed for a Narrative).
 
@@ -43,7 +48,7 @@ Obligations are shown per element on each profile's page. The rationale for this
 
 ### Declaring conformance and validating
 
-- Validation. Validate instances with the official HL7 FHIR validator against the package `nictiz.fhir.nl.r4.acutezorg` together with its dependencies (nl-core, zib2020). A resource is conformant when it passes validation against the relevant profile.
+- Validation. Validate instances with the official HL7 FHIR validator against the package `nictiz.nl.az` together with its dependencies (nl-core, zib2020). A resource is conformant when it passes validation against the relevant profile.
 - Declaring conformance. In exchange, the nl-core profiles remain the normative basis. A sender that meets the tighter use case cardinalities **MAY** declare this by listing the use case profile canonical in *meta.profile*; a resource that conforms to a use case profile also satisfies nl-core.
 - Actor perspective. Validate from the relevant actor's perspective: a sending system against the Sender obligations, a receiving system against the Receiver obligations. Validating the `Bundle` checks the transaction as a whole; validating an individual resource checks that resource on its own.
 
@@ -53,6 +58,6 @@ The ART-DECOR dataset is Dutch-only. Each profile element carries three language
 
 - `alias` carries the Dutch dataset element name verbatim from ART-DECOR, preserving direct traceability to the source.
 - `definition` carries the Dutch *omschrijving* from ART-DECOR.
-- `short` carries an English translation authored in this IG. Where an equivalent element exists in the ELZ FHIR profiles (`nictiz.fhir.nl.r4.elz`), the same English term is used; elements specific to the AMB-HAP transaction are translated independently.
+- `short` carries an English translation authored in this IG. Where an equivalent element existed in the archived ELZ FHIR profiles (`nictiz.fhir.nl.r4.elz`), the same English term is used; elements specific to the AMB-HAP transaction are translated independently.
 
 The Dutch-to-English correspondence per element is therefore visible directly on each profile: the `alias` (Dutch dataset name) and the `short` (English term) are shown for every element on the profile pages under [Artifacts](artifacts.html).

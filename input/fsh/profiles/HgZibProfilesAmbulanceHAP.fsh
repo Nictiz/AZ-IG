@@ -28,13 +28,12 @@ Description: "Patient in the ambulance to GP out-of-hours service (HAP) referral
 * ^purpose = "A derived profile from [nl-core-Patient](http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient) to provide a version better suited for the Ambulance to HAP use case. This profile carries the cardinalities of the transaction and the obligations for sender and receiver, and states that a patient is identifiable by an identifier or a name."
 * insert NictizMetadata
 * obeys hg-pat-1
-* identifier 0..*
-  * ^comment = "0..*: a patient may carry more than one identifier (for example a BSN and a local hospital identifier), so the element is repeatable. It is optional (min 0) because an ambulance patient is not always identified yet; the populate-if-known obligation carries the expectation to send an identifier when one is known."
+* identifier 1..*
+* identifier ^comment = "1..*: a patient may carry more than one identifier (for example a BSN and a local hospital identifier), so the element is repeatable. It is optional (min 0) because an ambulance patient is not always identified yet; the populate-if-known obligation carries the expectation to send an identifier when one is known."
 * identifier insert Obligation
 * identifier[bsn] 0..1
 * name insert Obligation
 * name.text ^comment = "This element can be used to represent the full name as plain text when the name is not registered in a structured manner (i.e. without the structured `family`/`given` parts)."
-* gender 0..1
 * gender insert Obligation
 * birthDate insert Obligation
 * contact.name only HgNameInformationAmbulanceHAP
@@ -49,11 +48,6 @@ Description: "Sending (RAV) and receiving (HAP) organization in the ambulance re
 * obeys hg-org-1
 * identifier 1..*
 * identifier insert ObligationMandatory
-* identifier contains ambulanceService 0..*
-* identifier[ambulanceService] ^patternIdentifier.system = "urn:oid:2.16.840.1.113883.2.4.3.11.60.55.15.1"
-* identifier[ambulanceService] ^short = "Ambulance service"
-* identifier[ambulanceService] ^alias[0] = "Ambulancevoorziening"
-* identifier[ambulanceService] ^definition = "De organisatie verantwoordelijk voor de ambulancezorg in een regio. Dit wordt weergegeven in de naam van de RAV (regionale ambulancevoorziening)."
 * name 1..1
 * name insert ObligationMandatory
 
@@ -64,8 +58,19 @@ Title: "hg HealthProfessional PractitionerRole - Ambulance to HAP"
 Description: "Role of the sending ambulance professional in the referral. Derived from nl-core-HealthProfessional-PractitionerRole."
 * ^purpose = "A derived profile from [nl-core-HealthProfessional-PractitionerRole](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole) to provide a version better suited for the Ambulance to HAP use case. This profile adds the obligations for sender and receiver on the professional and the organization they act for."
 * insert NictizMetadata
+* practitioner only Reference(Practitioner or $nlcore-Practitioner or HgHealthProfessionalPractitionerAmbulanceHAP)
 * practitioner insert Obligation
 * organization insert Obligation
+
+Profile: HgHealthProfessionalPractitionerAmbulanceHAP
+Parent: $nlcore-Practitioner
+Id: hg-HealthProfessional-Practitioner-AmbulanceHAP
+Title: "hg HealthProfessional Practitioner - Ambulance to HAP"
+Description: "Sending ambulance professional in the referral. Derived from nl-core-HealthProfessional-Practitioner; the transaction requires at least one ZorgverlenerIdentificatienummer, so identifier is 1..*."
+* ^purpose = "A derived profile from [nl-core-HealthProfessional-Practitioner](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner) to provide a version better suited for the Ambulance to HAP use case. This profile requires an identifier for the sending professional, as the transaction does, and adds the obligations for sender and receiver."
+* insert NictizMetadata
+* identifier 1..*
+* identifier insert ObligationMandatory
 
 Profile: HgEncounterAmbulanceHAP
 Parent: $nlcore-Encounter
@@ -92,7 +97,7 @@ Het ritnummer bestaat uit een aantal onderdelen die worden gescheiden door een k
 
 **Toelichting**
 
-Indien een patiënt wordt ingestuurd naar een ziekenhuis met een verkeerd BSN, dan wordt deze rit geannuleerd. Het ritnummer heeft voor de extensie patiëntvolgnummer 1. Vanuit de ambulance wordt een nieuw bericht gestuurd met patiëntvolgnummer 2 en het nieuwe BSN, dus een “andere” patiënt. De annulering van de rit is wel belangrijk, want anders lijkt het alsof er 2 patiënten komen, wat in principe ook kan. Bij een annulering van de rit moet er een nieuw ritnummer komen waarbij het patiëntvolgnummer opgehoogd wordt met 1. Voorbeeld; Na 09-2023-1234567-1 komt 09-2023-1234567-2."""
+In case een patiënt wordt ingestuurd naar een ziekenhuis met een verkeerd BSN, dan wordt deze rit geannuleerd. Het ritnummer heeft voor de extensie patiëntvolgnummer 1. Vanuit de ambulance wordt een nieuw bericht gestuurd met patiëntvolgnummer 2 en het nieuwe BSN, dus een “andere” patiënt. De annulering van de rit is wel belangrijk, want anders lijkt het alsof er 2 patiënten komen, wat in principe ook kan. Bij een annulering van de rit moet er een nieuw ritnummer komen waarbij het patiëntvolgnummer opgehoogd wordt met 1. Voorbeeld; Na 09-2023-1234567-1 komt 09-2023-1234567-2."""
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#EMER "emergency"
 
 Profile: HgNameInformationAmbulanceHAP

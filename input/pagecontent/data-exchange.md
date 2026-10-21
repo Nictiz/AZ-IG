@@ -8,7 +8,7 @@ The exchange paradigm is RESTful: the sender POSTs the referral to the receiver'
 
 ### System context and broker
 
-In practice, ambulance/RAV systems do not produce native FHIR resources. A broker component - operated separately from both the RAV and the HAP - converts the native message format (e.g. an HL7 v2 or proprietary format) to FHIR and forwards it to the receiver. This broker is transparent from a conformance perspective: this IG defines what the FHIR content must look like and what the receiving system must be able to accept, regardless of whether the FHIR content was produced directly by the sending system or by an intermediary. The broker is not a formal actor in this IG.
+In practice, ambulance/RAV systems do not produce native FHIR resources. A broker component converts the native message format (an HL7 v3 CDA document) to FHIR and forwards it to the receiver. This broker is transparent from a conformance perspective: this IG defines what the FHIR content must look like and what the receiving system must be able to accept, regardless of whether the FHIR content was produced directly by the sending system or by an intermediary. The broker is not a formal actor in this IG. Whether a broker is used, and who operates it, is agreed between the vendors and infrastructure parties; this IG does not prescribe it.
 
 ---
 
@@ -50,11 +50,11 @@ Limitations: a document Bundle is immutable - corrections require a new document
 
 ### Decision status
 
-RESTful is the paradigm this IG designs against. The decision is recorded in [GitHub issue #14](https://github.com/Nictiz/AZ-IG/issues/14) and is not final until the agreement with the vendors and the infrastructure parties is in place for the beta release; until then it is the direction, not a commitment that binds those parties.
+RESTful is the chosen paradigm. The decision is recorded in [GitHub issue #14](https://github.com/Nictiz/AZ-IG/issues/14). It is revisited if the agreement with the vendors and the infrastructure parties leads elsewhere.
 
 What follows from it is already applied: the referral is a `transaction` Bundle, the MessageHeader profile and the message event code system have been removed, and the CapabilityStatements state the system-level `transaction` interaction next to `create` per resource type.
 
-The concrete transaction definitions a reader may expect from other Nictiz FHIR IGs - search parameters, HTTP headers, and the `Bundle.entry.fullUrl` conventions of the overarching [Nictiz FHIR R4 IG](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4) - still have to be worked out against this paradigm; see the [Open Items](open-items.html) page.
+The transport-level principles of the overarching Nictiz FHIR R4 IG apply; see [Conformance to the Nictiz FHIR R4 IG](design-decisions.html#conformance-to-the-nictiz-fhir-r4-ig).
 
 ---
 
@@ -72,6 +72,7 @@ In summary, the sender **SHALL**:
 - Produce a conformant use case Composition carrying the transfer summary note sections
 - Attach supporting documents as use case DocumentReference instances when available
 - Populate patient, organization, and professional resources conformant to the use case profiles
+- Reference the same patient, in the same reference form, as `subject` of the ServiceRequest, the Composition and every DocumentReference (invariant `hg-bundle-1`)
 - Package the referral as a `transaction` Bundle conforming to `hg-ReferralBundle-AmbulanceHAP` and POST it to the receiver's base URL, with a `urn:uuid` `fullUrl` per entry so the references between the resources resolve within the transaction.
 
 ---
@@ -88,5 +89,5 @@ In summary, the receiver **SHALL**:
 - Accept and process a referral push without raising an error on any obligation-marked element (`SHALL:no-error`)
 - Store or route the referral for clinical review
 - Handle all resource types included in the referral: `ServiceRequest`, `Composition`, `DocumentReference`, `Patient`, `Encounter`, `Organization`, `PractitionerRole`, `Practitioner`
-- Expose a FHIR endpoint that accepts a `transaction` Bundle, resolve the `urn:uuid` references between its entries, and answer with a `transaction-response` Bundle in which every entry was created.
+- Expose a FHIR endpoint that accepts a `transaction` Bundle, resolve the `urn:uuid` references between its entries, and answer with a `transaction-response` Bundle in which every entry was created, or matched to an existing resource where the receiver deduplicates a secondary resource ([§2.11 of the Nictiz FHIR R4 IG](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4#Including_.22secondary.22_resources_when_sending_information)).
 
