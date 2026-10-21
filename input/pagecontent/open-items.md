@@ -7,11 +7,10 @@ These pending items affect how the exchange is modeled or implemented; each is t
 | Profiles | `DocumentReference` identifiers (R5/R6) - confirm the local `type`-code scheme | [#4](https://github.com/Nictiz/AZ-IG/issues/4) |
 | Profiles | ART-DECOR to FHIR cardinality/conformance mapping (obligations may still change) | [#5](https://github.com/Nictiz/AZ-IG/issues/5) |
 | Profiles | `Composition.section` codes still under review | [#6](https://github.com/Nictiz/AZ-IG/issues/6) |
-| Profiles | Patient name as free text (`HumanName.text`) - dataset component needed | [#7](https://github.com/Nictiz/AZ-IG/issues/7) |
 | Profiles | ART-DECOR mapping ids to be re-verified (functional-spec changes); mapping target URL pending the new ART-DECOR publication | [#17](https://github.com/Nictiz/AZ-IG/issues/17) |
-| Profiles | `DocumentReference` - identifier slice `system`/`value` cardinality, and whether the attachment `contentType` is always PDF | [#18](https://github.com/Nictiz/AZ-IG/issues/18) |
 | Profiles | Cross-resource subject consistency (Composition/DocumentReference vs ServiceRequest) - guidance or transaction-level check | [#19](https://github.com/Nictiz/AZ-IG/issues/19) |
 | Profiles | Realign with the refreshed ART-DECOR transaction (2026-06): stale mapping ids (sender/receiver party sub-elements), new `Ritnummer` (`ServiceRequest.identifier`), receiver `OrganisatieType`, and `Patient.gender` cardinality | [#27](https://github.com/Nictiz/AZ-IG/issues/27) |
+| Profiles | `Organization.type` - location/department not specified yet in HealthcareProvider Organization for values from LSDV-list | [#106](https://github.com/Nictiz/AZ-IG/issues/106) |
 | Architecture | Message 23 (AMB → HA) out of scope for this version | [#15](https://github.com/Nictiz/AZ-IG/issues/15) |
 | Architecture | Workflow (`Task`) not supported; the beta.1 test phase uses a single transaction with all resources, how a workflow is implemented is to be determined | [#84](https://github.com/Nictiz/AZ-IG/issues/84) |
 | Tooling | Example messages are a hand-authored interpretation of the ART-DECOR ADA test data - regenerate with the ADA-to-FHIR tooling once available | [#21](https://github.com/Nictiz/AZ-IG/issues/21) |

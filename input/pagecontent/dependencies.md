@@ -26,7 +26,7 @@ Technically, this IG is a FHIR package that declares the following dependencies.
 - zib2020 (`nictiz.fhir.nl.r4.zib2020`) - the zib layer that nl-core builds on; pulled in transitively.
 - FHIR tooling (`hl7.fhir.uv.tools.r4`) - supplies the Obligations and `ActorDefinition` machinery this IG uses to express its conformance expectations.
 
-Note that the project-specific terminology (the *Bijlagen* value set and the `acutezorg-codesysteem-16` code system) is not a package dependency: it is downloaded from ART-DECOR and embedded verbatim in `input/resources`. See the [Design Decisions](design-decisions.html) page for why, and the caveats that come with it.
+Note that the project-specific terminology (e.g. the *Bijlagen* value set and the `acutezorg-codesysteem-16` code system) is not a package dependency: it is downloaded from ART-DECOR and embedded verbatim in `input/resources`. See the [Design Decisions](design-decisions.html) page for why, and the caveats that come with it.
 
 All three Nictiz packages are currently beta releases, so this IG is pre-publication and its dependencies may move as those packages stabilize.
 

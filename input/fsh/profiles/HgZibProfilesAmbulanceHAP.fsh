@@ -26,7 +26,8 @@ Id: hg-Patient-AmbulanceHAP
 Title: "hg Patient - Ambulance to HAP"
 Description: "Patient in the ambulance to GP out-of-hours service (HAP) referral. Derived from nl-core-Patient; identifiers (e.g. BSN or a local hospital identifier) should be sent when known so the HAP can match the referral to a person."
 * obeys hg-pat-1
-* identifier ^comment = "0..*: a patient may carry more than one identifier (for example a BSN and a local hospital identifier), so the element is repeatable. It is optional (min 0) because an ambulance patient is not always identified yet; the populate-if-known obligation carries the expectation to send an identifier when one is known."
+* identifier 1..*
+* identifier ^comment = "1..*: a patient may carry more than one identifier (for example a BSN and a local hospital identifier), so the element is repeatable. It is optional (min 0) because an ambulance patient is not always identified yet; the populate-if-known obligation carries the expectation to send an identifier when one is known."
 * identifier insert Obligation
 * identifier[bsn] 0..1
 * name insert Obligation
@@ -43,11 +44,6 @@ Description: "Sending (RAV) and receiving (HAP) organization in the ambulance re
 * obeys hg-org-1
 * identifier 1..*
 * identifier insert ObligationMandatory
-* identifier contains ambulanceService 0..*
-* identifier[ambulanceService] ^patternIdentifier.system = "urn:oid:2.16.840.1.113883.2.4.3.11.60.55.15.1"
-* identifier[ambulanceService] ^short = "Ambulance service"
-* identifier[ambulanceService] ^alias[0] = "Ambulancevoorziening"
-* identifier[ambulanceService] ^definition = "De organisatie verantwoordelijk voor de ambulancezorg in een regio. Dit wordt weergegeven in de naam van de RAV (regionale ambulancevoorziening)."
 * name 1..1
 * name insert ObligationMandatory
 
@@ -56,8 +52,17 @@ Parent: $nlcore-PractitionerRole
 Id: hg-HealthProfessional-PractitionerRole-AmbulanceHAP
 Title: "hg HealthProfessional PractitionerRole - Ambulance to HAP"
 Description: "Role of the sending ambulance professional in the referral. Derived from nl-core-HealthProfessional-PractitionerRole."
+* practitioner only Reference(Practitioner or $nlcore-Practitioner or HgHealthProfessionalPractitionerAmbulanceHAP)
 * practitioner insert Obligation
 * organization insert Obligation
+
+Profile: HgHealthProfessionalPractitionerAmbulanceHAP
+Parent: $nlcore-Practitioner
+Id: hg-HealthProfessional-Practitioner-AmbulanceHAP
+Title: "hg HealthProfessional Practitioner - Ambulance to HAP"
+Description: "Sending ambulance professional in the referral. Derived from nl-core-HealthProfessional-Practitioner; the transaction requires at least one ZorgverlenerIdentificatienummer, so identifier is 1..*."
+* identifier 1..*
+* identifier insert ObligationMandatory
 
 Profile: HgEncounterAmbulanceHAP
 Parent: $nlcore-Encounter
