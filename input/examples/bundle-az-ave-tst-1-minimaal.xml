@@ -13,7 +13,7 @@
          <Patient>
             <id value="patient-"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-Patient"/>
             </meta>
             <identifier>
                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.103.4"/>
@@ -32,7 +32,7 @@
          <PractitionerRole>
             <id value="pracrole-567891234"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-HealthProfessional-PractitionerRole"/>
             </meta>
             <practitioner>
                <reference value="Practitioner/prac-567891234"/>
@@ -57,7 +57,7 @@
          <Practitioner>
             <id value="prac-567891234"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-HealthProfessional-Practitioner"/>
             </meta>
             <identifier>
                <system value="http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"/>
@@ -76,7 +76,7 @@
          <Organization>
             <id value="org-24"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-HealthcareProvider-Organization"/>
             </meta>
             <identifier>
                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.55.15.1"/>
@@ -95,7 +95,7 @@
          <Organization>
             <id value="org-06020806"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-HealthcareProvider-Organization"/>
             </meta>
             <identifier>
                <system value="http://fhir.nl/fhir/NamingSystem/agb-z"/>
@@ -114,7 +114,7 @@
          <Encounter>
             <id value="encounter-24-2020-11-1"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-ambulanceHAP"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-ReferralServiceRequest-ambulanceHAP"/>
             </meta>
             <identifier>
                <system value="urn:oid:2.16.840.1.113883.2.4.3.32.5"/>
@@ -137,7 +137,7 @@
          <ServiceRequest>
             <id value="servicerequest-az-ave-tst-1-minimaal"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-ambulanceHAP"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-ReferralServiceRequest-ambulanceHAP"/>
             </meta>
             <identifier>
                <value value="az-ave-tst-1-minimaal"/>
@@ -198,7 +198,7 @@
          <Composition>
             <id value="composition-ambu-az-ave-tst-1-minimaal"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/hg-ReferralComposition-ambulanceHAP"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-ReferralComposition-ambulanceHAP"/>
             </meta>
             <identifier>
                <value value="az-ave-tst-1-minimaal"/>
@@ -250,7 +250,7 @@
          <DocumentReference>
             <id value="documentreference-9069"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/hg-DocumentReference-ambulanceHAP"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-DocumentReference-ambulanceHAP"/>
             </meta>
             <masterIdentifier>
                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.103.3"/>

@@ -12,7 +12,7 @@
          <Patient>
             <id value="patient-van-Putten-van-der-Giessen"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-Patient"/>
             </meta>
             <identifier>
                <system value="http://fhir.nl/fhir/NamingSystem/bsn"/>
@@ -120,7 +120,7 @@
          <PractitionerRole>
             <id value="pracrole-10000020"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-HealthProfessional-PractitionerRole"/>
             </meta>
             <practitioner>
                <reference value="Practitioner/prac-10000020"/>
@@ -156,7 +156,7 @@
          <Practitioner>
             <id value="prac-10000020"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-HealthProfessional-Practitioner"/>
             </meta>
             <identifier>
                <system value="http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"/>
@@ -179,7 +179,7 @@
          <Organization>
             <id value="org-00003338"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-HealthcareProvider-Organization"/>
             </meta>
             <identifier>
                <system value="http://fhir.nl/fhir/NamingSystem/agb-z"/>
@@ -199,7 +199,7 @@
          <Organization>
             <id value="org-00003336"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/nl-core-HealthcareProvider-Organization"/>
             </meta>
             <identifier>
                <system value="http://fhir.nl/fhir/NamingSystem/ura"/>
@@ -219,7 +219,7 @@
          <Encounter>
             <id value="encounter-05-2019-12345678901314-11"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-ambulanceHAP"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-ReferralServiceRequest-ambulanceHAP"/>
             </meta>
             <identifier>
                <system value="urn:oid:2.16.840.1.113883.2.4.3.32.5"/>
@@ -242,7 +242,7 @@
          <ServiceRequest>
             <id value="servicerequest-az-ave-voorbeeldbericht-AMB-HAP"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/hg-ReferralServiceRequest-ambulanceHAP"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-ReferralServiceRequest-ambulanceHAP"/>
             </meta>
             <identifier>
                <value value="az-ave-voorbeeldbericht-AMB-HAP"/>
@@ -303,7 +303,7 @@
          <Composition>
             <id value="composition-ambu-az-ave-voorbeeldbericht-AMB-HAP"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/hg-ReferralComposition-ambulanceHAP"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-ReferralComposition-ambulanceHAP"/>
             </meta>
             <identifier>
                <value value="az-ave-voorbeeldbericht-AMB-HAP"/>
@@ -396,7 +396,7 @@
          <DocumentReference>
             <id value="documentreference-3478"/>
             <meta>
-               <profile value="http://nictiz.nl/fhir/StructureDefinition/hg-DocumentReference-ambulanceHAP"/>
+               <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-DocumentReference-ambulanceHAP"/>
             </meta>
             <masterIdentifier>
                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.103.3"/>
