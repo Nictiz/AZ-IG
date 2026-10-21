@@ -10,7 +10,7 @@ All example resources use fictional test data only.
 
 | Example | Source | What it shows | Message |
 |---|---|---|---|
-| Example message | *Richtlijn Gegevensuitwisseling Acute Zorg* | A structured patient with address, telecom and a contact person; a sending nurse; the four Composition sections; and a PDF attachment. | [Bundle](bundle-az-ave-voorbeeldbericht-AMB-HAP.html) |
+| Example message | *Richtlijn Gegevensuitwisseling Acute Zorg* | A structured patient with address, telecom and a contact person; a sending nurse; the four Composition sections; and a PDF attachment. | [Bundle](Bundle-bundle-az-ave-voorbeeldbericht-AMB-HAP.html) |
 
 ### Mappings
 
