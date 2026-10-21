@@ -2,7 +2,7 @@ This page lists the example messages provided for review and testing, and gives 
 
 ### How these examples were produced
 
-The example messages are derived from the functional test scenarios maintained in ART-DECOR (the ADA test instances) and from the *Richtlijn Gegevensuitwisseling Acute Zorg*. Nictiz normally generates FHIR instances from ADA test data with the ADA-to-FHIR tooling. That tooling is not yet available for this transaction, so the examples here are a hand-authored interpretation of the ADA instances rather than a tool-generated conversion. They are provisional and should be regenerated and reconciled once ADA-to-FHIR support is in place. Where the ART-DECOR test data leaves an element empty that this IG's profiles make mandatory (for example an organization name, or a URA value), a test value has been filled in; this reflects an ART-DECOR-to-FHIR cardinality mismatch that is itself an open item (see the [Open Items](open-items.html) page).
+The example messages are generated with the Nictiz ADA-to-FHIR tooling from ADA instances in ART-DECOR: the functional test scenarios and an example message based on the *Richtlijn Gegevensuitwisseling Acute Zorg*.
 
 All example resources use fictional test data only.
 
@@ -10,7 +10,9 @@ All example resources use fictional test data only.
 
 | Example | Source | What it shows | Message |
 |---|---|---|---|
-| Example 1 | *Richtlijn Gegevensuitwisseling Acute Zorg* | Contains a structured patient with address, telecom and a contact person; a sending nurse; all four Composition sections; and a document attachment. | [Bundle](Bundle-hg-ReferralBundle-AmbulanceHAP-example.html) |
+| Example message | *Richtlijn Gegevensuitwisseling Acute Zorg* | A structured patient with address, telecom and a contact person; a sending nurse; the four Composition sections; and a PDF attachment. | [Bundle](Bundle-bundle-az-ave-voorbeeldbericht-AMB-HAP.html) |
+| Maximal | ART-DECOR ADA test `az-ave-tst-2-maximaal` | A richly populated message: structured patient with address, telecom and a contact person; the four Composition sections; and a plain text attachment. | [Bundle](Bundle-bundle-az-ave-tst-2-maximaal.html) |
+| Minimal | ART-DECOR ADA test `az-ave-tst-1-minimaal` | A lean message: a patient with a local identifier only, the *Reden bericht* section and a PDF attachment. | [Bundle](Bundle-bundle-az-ave-tst-1-minimaal.html) |
 
 ### Mappings
 
