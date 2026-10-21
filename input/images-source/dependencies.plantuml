@@ -17,8 +17,7 @@ package "FHIR packages (how it is built)" {
   [hl7.fhir.uv.tools.r4] as TOOLS
 }
 
-[This IG\nnictiz.fhir.nl.r4.acutezorg] as AZ
-[nictiz.fhir.nl.r4.elz\n(primary care)] as ELZ
+[This IG\nnictiz.nl.az] as AZ
 
 FO --> AD
 ZIB --> AD
@@ -27,6 +26,4 @@ ZIB2020 --> NLCORE
 NLCORE --> AZ
 TOOLS --> AZ
 AD ..> AZ : implemented by
-AD ..> ELZ : primary care transactions
-ELZ ..> AZ : intended dependency\n(shared generic hg-Referral* profiles)
 @enduml

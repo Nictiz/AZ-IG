@@ -1,16 +1,16 @@
-id: nictiz.fhir.nl.r4.acutezorg
-canonical: http://nictiz.nl/fhir
+id: nictiz.nl.az
+canonical: http://ig.nictiz.nl/az
 name: AcuteZorg
 title: "Acute Zorg"
-status: draft
-version: 0.1.0-alpha.1
+status: active
+version: 1.0.0-beta.1
 fhirVersion: 4.0.1
 copyrightYear: 2026+
 # CC0 across the whole IG: sets ImplementationGuide.license and renders the CC0 waiver in the
 # footer. Individual conformance resources (e.g. the CapabilityStatements) also carry an explicit
 # CC0 copyright statement.
 license: CC0-1.0
-releaseLabel: qa-preview
+releaseLabel: Beta 1
 publisher:
   name: Nictiz
   url: http://nictiz.nl
@@ -81,7 +81,7 @@ parameters:
   path-expansion-params: '../../expansion-params.json'
   # The acutezorg-codesysteem-16 code system and the Bijlagen value set are embedded verbatim as
   # ART-DECOR FHIR exports (input/resources). They keep their source canonicals (urn:oid:... for the
-  # code system, the decor.nictiz.nl URL for the value set) instead of the IG's http://nictiz.nl/fhir
+  # code system, the decor.nictiz.nl URL for the value set) instead of the IG's http://ig.nictiz.nl/az
   # base. Registering those canonicals as special-url tells the IG Publisher the mismatch is
   # intentional, and lets instances carrying system = urn:oid:...55.5.16 validate.
   special-url:

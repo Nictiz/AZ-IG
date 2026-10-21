@@ -16,5 +16,5 @@ Alias: $nlcore-NameInformation = http://nictiz.nl/fhir/StructureDefinition/nl-co
 Alias: $nlcore-Encounter = http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter
 // Obligation framework
 Alias: $obligation = http://hl7.org/fhir/StructureDefinition/obligation
-Alias: $hg-ActorSender = http://nictiz.nl/fhir/ActorDefinition/hg-ActorSender-AmbulanceHAP
-Alias: $hg-ActorReceiver = http://nictiz.nl/fhir/ActorDefinition/hg-ActorReceiver-AmbulanceHAP
+Alias: $hg-ActorSender = http://ig.nictiz.nl/az/ActorDefinition/hg-ActorSender-AmbulanceHAP
+Alias: $hg-ActorReceiver = http://ig.nictiz.nl/az/ActorDefinition/hg-ActorReceiver-AmbulanceHAP

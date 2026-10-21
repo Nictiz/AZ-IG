@@ -22,7 +22,7 @@ InstanceOf: HgPatientAmbulanceHAP
 Usage: #example
 Title: "Patient - J.H.M. van Baatenburg (maximal example)"
 Description: "Example patient for the maximal ambulance-to-HAP referral (ART-DECOR ADA test az-ave-tst-2-maximaal): BSN, structured name, gender, birth date, address, telecom and a contact person."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-Patient-AmbulanceHAP"
 * meta.profile[+] = $nlcore-Patient
 * identifier.system = $bsn
 * identifier.value = "999910589"
@@ -53,7 +53,7 @@ InstanceOf: HgHealthProfessionalPractitionerAmbulanceHAP
 Usage: #example
 Title: "Practitioner - ambulance nurse (maximal example)"
 Description: "Example sending ambulance professional (nurse) for the maximal ambulance-to-HAP referral, identified by a UZI number."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-Practitioner-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-HealthProfessional-Practitioner-AmbulanceHAP"
 * meta.profile[+] = $nlcore-Practitioner
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"
 * identifier.value = "123456789"
@@ -63,7 +63,7 @@ InstanceOf: HgHealthProfessionalPractitionerRoleAmbulanceHAP
 Usage: #example
 Title: "PractitionerRole - ambulance nurse (maximal example)"
 Description: "Example PractitionerRole linking the ambulance nurse to the sending RAV organization for the maximal ambulance-to-HAP referral."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-PractitionerRole-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-HealthProfessional-PractitionerRole-AmbulanceHAP"
 * meta.profile[+] = $nlcore-PractitionerRole
 * practitioner = Reference(hg-HealthProfessional-Practitioner-AmbulanceHAP-max)
 * practitioner.type = "Practitioner"
@@ -80,7 +80,7 @@ InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - RAV (maximal example)"
 Description: "Example sending organization (Regionale Ambulancevoorziening) for the maximal ambulance-to-HAP referral."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
 * meta.profile[+] = $nlcore-Organization
 * identifier.system = "urn:oid:2.16.840.1.113883.2.4.3.11.60.55.15.1"
 * identifier.value = "25"
@@ -91,7 +91,7 @@ InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - HAP (maximal example)"
 Description: "Example receiving organization (huisartsenpost) for the maximal ambulance-to-HAP referral, identified by an AGB code."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
 * meta.profile[+] = $nlcore-Organization
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/agb-z"
 * identifier.value = "6010860"

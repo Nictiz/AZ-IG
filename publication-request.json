@@ -1,0 +1,17 @@
+{
+   "package-id" : "nictiz.nl.az",
+   "version" : "1.0.0-beta.1",
+   "path" : "http://ig.nictiz.nl/az/1.0.0-beta.1",
+   "mode" : "milestone",
+   "status" : "release",
+   "sequence" : "1.0.0",
+   "desc" : "First beta release",
+   "first" : true,
+   "title" : "Acute Zorg IG NL",
+   "ci-build" : "http://build.fhir.org/ig/Nictiz/AZ-IG",
+   "registry-description" : "Dutch Acute Zorg (acute care) exchanges, built on nl-core. First use case: ambulance to GP out-of-hours service referral",
+   "registry-country" : "nl",
+   "registry-authority" : "Nictiz",
+   "category" : "Care Management",
+   "introduction" : "Information exchange in acute care in the Netherlands (Acute Zorg), built on nl-core. The first use case is the referral from the ambulance service to the GP out-of-hours service (AMB to HAP)."
+}

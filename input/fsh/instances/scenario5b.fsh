@@ -10,7 +10,7 @@ InstanceOf: HgPatientAmbulanceHAP
 Usage: #example
 Title: "Patient - Patrick (scenario 5b)"
 Description: "Example patient (Patrick de Vries) referred from the ambulance to the GP out-of-hours post in scenario 5b."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-Patient-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-Patient-AmbulanceHAP"
 * meta.profile[+] = $nlcore-Patient
 * identifier.system = $bsn
 * identifier.value = "999999990"
@@ -28,7 +28,7 @@ InstanceOf: HgHealthProfessionalPractitionerAmbulanceHAP
 Usage: #example
 Title: "Practitioner - ambulance nurse"
 Description: "Example ambulance nurse (the sending professional) for scenario 5b."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-Practitioner-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-HealthProfessional-Practitioner-AmbulanceHAP"
 * meta.profile[+] = $nlcore-Practitioner
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"
 * identifier.value = "987654321"
@@ -39,7 +39,7 @@ InstanceOf: HgHealthProfessionalPractitionerRoleAmbulanceHAP
 Usage: #example
 Title: "PractitionerRole - ambulance nurse"
 Description: "Example PractitionerRole linking the ambulance nurse to the sending RAV organization for scenario 5b."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-PractitionerRole-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-HealthProfessional-PractitionerRole-AmbulanceHAP"
 * meta.profile[+] = $nlcore-PractitionerRole
 * practitioner = Reference(hg-HealthProfessional-Practitioner-AmbulanceHAP-ambu)
 * practitioner.type = "Practitioner"
@@ -54,7 +54,7 @@ InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - Regionale Ambulancevoorziening"
 Description: "Example sending organization (Regionale Ambulancevoorziening, RAV) for scenario 5b."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
 * meta.profile[+] = $nlcore-Organization
 * identifier.system = $ura
 * identifier.value = "00000001"
@@ -65,7 +65,7 @@ InstanceOf: HgHealthcareProviderOrganizationAmbulanceHAP
 Usage: #example
 Title: "Organization - Huisartsenpost"
 Description: "Example receiving organization (GP out-of-hours post, HAP) for scenario 5b."
-* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
+* meta.profile[0] = "http://ig.nictiz.nl/az/StructureDefinition/hg-HealthcareProvider-Organization-AmbulanceHAP"
 * meta.profile[+] = $nlcore-Organization
 * identifier.system = $ura
 * identifier.value = "00000002"
