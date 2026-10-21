@@ -24,11 +24,14 @@ Description: "Example patient (Patrick de Vries) referred from the ambulance to 
 * birthDate = "1944-03-10"
 
 Instance: hg-HealthProfessional-Practitioner-AmbulanceHAP-ambu
-InstanceOf: Practitioner
+InstanceOf: HgHealthProfessionalPractitionerAmbulanceHAP
 Usage: #example
 Title: "Practitioner - ambulance nurse"
 Description: "Example ambulance nurse (the sending professional) for scenario 5b."
-* meta.profile = "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner"
+* meta.profile[0] = "http://nictiz.nl/fhir/StructureDefinition/hg-HealthProfessional-Practitioner-AmbulanceHAP"
+* meta.profile[+] = $nlcore-Practitioner
+* identifier.system = "http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"
+* identifier.value = "987654321"
 * name.text = "A. Ambulance"
 
 Instance: hg-HealthProfessional-PractitionerRole-AmbulanceHAP-ambu
