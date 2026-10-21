@@ -6,7 +6,7 @@
    <language value="nl"/>
    <type value="transaction"/>
    <entry>
-      <fullUrl value="Patient/patient-van-Putten-van-der-Giessen"/>
+      <fullUrl value="http://nictiz.nl/fhir/Patient/patient-van-Putten-van-der-Giessen"/>
       <resource>
          <Patient>
             <id value="patient-van-Putten-van-der-Giessen"/>
@@ -114,7 +114,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="PractitionerRole/pracrole-10000020"/>
+      <fullUrl value="http://nictiz.nl/fhir/PractitionerRole/pracrole-10000020"/>
       <resource>
          <PractitionerRole>
             <id value="pracrole-10000020"/>
@@ -150,7 +150,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="Practitioner/prac-10000020"/>
+      <fullUrl value="http://nictiz.nl/fhir/Practitioner/prac-10000020"/>
       <resource>
          <Practitioner>
             <id value="prac-10000020"/>
@@ -173,7 +173,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="Organization/org-00003338"/>
+      <fullUrl value="http://nictiz.nl/fhir/Organization/org-00003338"/>
       <resource>
          <Organization>
             <id value="org-00003338"/>
@@ -193,7 +193,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="Organization/org-00003336"/>
+      <fullUrl value="http://nictiz.nl/fhir/Organization/org-00003336"/>
       <resource>
          <Organization>
             <id value="org-00003336"/>
@@ -213,7 +213,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="Encounter/encounter-05-2019-12345678901314-11"/>
+      <fullUrl value="http://nictiz.nl/fhir/Encounter/encounter-05-2019-12345678901314-11"/>
       <resource>
          <Encounter>
             <id value="encounter-05-2019-12345678901314-11"/>
@@ -236,7 +236,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="ServiceRequest/servicerequest-az-ave-voorbeeldbericht-AMB-HAP"/>
+      <fullUrl value="http://nictiz.nl/fhir/ServiceRequest/servicerequest-az-ave-voorbeeldbericht-AMB-HAP"/>
       <resource>
          <ServiceRequest>
             <id value="servicerequest-az-ave-voorbeeldbericht-AMB-HAP"/>
@@ -297,7 +297,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="Composition/composition-ambu-az-ave-voorbeeldbericht-AMB-HAP"/>
+      <fullUrl value="http://nictiz.nl/fhir/Composition/composition-ambu-az-ave-voorbeeldbericht-AMB-HAP"/>
       <resource>
          <Composition>
             <id value="composition-ambu-az-ave-voorbeeldbericht-AMB-HAP"/>
@@ -390,7 +390,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="DocumentReference/documentreference-3478"/>
+      <fullUrl value="http://nictiz.nl/fhir/DocumentReference/documentreference-3478"/>
       <resource>
          <DocumentReference>
             <id value="documentreference-3478"/>

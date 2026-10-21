@@ -5,9 +5,9 @@
    </meta>
    <language value="nl"/>
    <type value="transaction"/>
-   <timestamp value="2000-01-01"/>
+   <timestamp value="2000-01-01T00:00:00+01:00"/>
    <entry>
-      <fullUrl value="Patient/patient-van-XXX-Baatenburg"/>
+      <fullUrl value="http://nictiz.nl/fhir/Patient/patient-van-XXX-Baatenburg"/>
       <resource>
          <Patient>
             <id value="patient-van-XXX-Baatenburg"/>
@@ -98,7 +98,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="PractitionerRole/pracrole-123456789"/>
+      <fullUrl value="http://nictiz.nl/fhir/PractitionerRole/pracrole-123456789"/>
       <resource>
          <PractitionerRole>
             <id value="pracrole-123456789"/>
@@ -134,7 +134,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="Practitioner/prac-123456789"/>
+      <fullUrl value="http://nictiz.nl/fhir/Practitioner/prac-123456789"/>
       <resource>
          <Practitioner>
             <id value="prac-123456789"/>
@@ -157,7 +157,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="Organization/org-25"/>
+      <fullUrl value="http://nictiz.nl/fhir/Organization/org-25"/>
       <resource>
          <Organization>
             <id value="org-25"/>
@@ -177,7 +177,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="Organization/org-6010860"/>
+      <fullUrl value="http://nictiz.nl/fhir/Organization/org-6010860"/>
       <resource>
          <Organization>
             <id value="org-6010860"/>
@@ -197,7 +197,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="Encounter/encounter-25-2020-10-1"/>
+      <fullUrl value="http://nictiz.nl/fhir/Encounter/encounter-25-2020-10-1"/>
       <resource>
          <Encounter>
             <id value="encounter-25-2020-10-1"/>
@@ -220,7 +220,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="ServiceRequest/servicerequest-az-ave-tst-2-maximaal"/>
+      <fullUrl value="http://nictiz.nl/fhir/ServiceRequest/servicerequest-az-ave-tst-2-maximaal"/>
       <resource>
          <ServiceRequest>
             <id value="servicerequest-az-ave-tst-2-maximaal"/>
@@ -282,7 +282,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="Composition/composition-ambu-az-ave-tst-2-maximaal"/>
+      <fullUrl value="http://nictiz.nl/fhir/Composition/composition-ambu-az-ave-tst-2-maximaal"/>
       <resource>
          <Composition>
             <id value="composition-ambu-az-ave-tst-2-maximaal"/>
@@ -796,7 +796,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="DocumentReference/documentreference-9068"/>
+      <fullUrl value="http://nictiz.nl/fhir/DocumentReference/documentreference-9068"/>
       <resource>
          <DocumentReference>
             <id value="documentreference-9068"/>
