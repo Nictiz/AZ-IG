@@ -1,6 +1,6 @@
 ### Scope
 
-This Implementation Guide provides [FHIR R4](https://hl7.org/fhir/R4/) profiles and guidance for information exchange in acute care settings in the Netherlands, following the [Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf) and the [Nictiz functional design for Acute Zorg](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg). All profiles are built on [nl-core](https://simplifier.net/nictiz-r4-zib2020) (zib2020, R4) and follow the [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4) and the [Nictiz FHIR R4 Implementation Guide](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4).
+This Implementation Guide provides [FHIR R4](https://hl7.org/fhir/R4/) profiles and guidance for information exchange in acute care settings in the Netherlands, following the [Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf) and the [functional design for Acute Zorg](functional-design.html). All profiles are built on [nl-core](https://simplifier.net/nictiz-r4-zib2020) (zib2020, R4) and follow the [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4) and the [Nictiz FHIR R4 Implementation Guide](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4).
 
 The IG is organized in two layers. A generic layer defines open-world profiles that are reusable across referral use cases. Use case layers derive from these and add the cardinalities, obligations, terminology bindings and dataset mappings specific to each transaction.
 
@@ -59,7 +59,7 @@ The authors use AI to help write and structure the narrative pages, the reposito
 ### References
 
 1. Nictiz. *Richtlijn Gegevensuitwisseling Acute Zorg versie 4*. 2022. [PDF](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf)
-2. Nictiz. *Ontwerp Acute Zorg - Functioneel ontwerp*. [https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg)
+2. Functional design Acute Zorg, part of this IG. [Functional Design](functional-design.html)
 3. Nictiz. *Nictiz FHIR Implementation Guide R4*. [https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_IG_R4)
 4. Nictiz. *FHIR Profiling Guidelines R4*. [https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4)
 5. Nictiz. *nl-core FHIR R4 package* (nictiz.fhir.nl.r4.nl-core 0.12.0-beta.4). [https://simplifier.net/packages/nictiz.fhir.nl.r4.nl-core](https://simplifier.net/packages/nictiz.fhir.nl.r4.nl-core)

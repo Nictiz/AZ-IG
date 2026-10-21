@@ -4,15 +4,21 @@ This Implementation Guide does not stand alone. It implements an exchange that i
 
 ### Specification chain (what is exchanged)
 
-Three upstream Nictiz artifacts define the content this IG implements. Each is versioned independently of this IG.
+The content this IG implements is defined by the functional design, the ART-DECOR data set and the zibs. The functional design is part of this IG. The ART-DECOR data set and the zibs are versioned independently of this IG.
 
 | Artifact | Version | Role | Source |
 |---|---|---|---|
-| Functioneel ontwerp Acute Zorg | V2.2.0 | Functional design: scenarios, parties and transactions at a functional level | [wiki](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg) |
-| ART-DECOR data set + scenario/transaction | Release V1.0.0-alpha.2 (Ambulanceverwijzing naar Huisartsenpost) | Machine-readable data set (data elements, cardinalities, value sets) and the transaction definition | [publication](https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20260317T103425/index.html) |
+| Functional design | Same as this IG | Functional design: scenarios, parties and transactions at a functional level | [Functional Design](functional-design.html) |
+| ART-DECOR data set + scenario/transaction | V1.0.0 Beta.1 (Ambulanceverwijzing naar Huisartsenpost) | Machine-readable data set (data elements, cardinalities, value sets) and the transaction definition | [ART-DECOR project](https://decor.nictiz.nl/ad/#/hg-) |
 | Zib publication 2020 | 2020 | The clinical building blocks (zibs) the data set and nl-core are built from | [zibs.nl][zib2020] |
 
-The functional design translates the *Richtlijn Gegevensuitwisseling Acute Zorg* into implementable scenarios and transactions. The ART-DECOR publication then formalizes the AMB-HAP transaction into a machine-readable data set: this is where the `hg-dataelement-NNNN` element identifiers, their cardinalities and the project value sets come from, and it is the source of truth for the terminology embedded in this IG. The ART-DECOR publication is still an alpha release and is going to be updated, so element details and cardinalities may still change - the mapping of those cardinalities and conformance onto FHIR is itself an open item (see the [Open Items](open-items.html) page).
+Versions that belong together:
+
+| IG and functional design | ART-DECOR release |
+|---|---|
+| 1.0.0-beta.1 | V1.0.0 Beta.1 |
+
+The functional design translates the *Richtlijn Gegevensuitwisseling Acute Zorg* into implementable scenarios and transactions. The ART-DECOR publication then formalizes the AMB-HAP transaction into a machine-readable data set: this is where the `hg-dataelement-NNNN` element identifiers, their cardinalities and the project value sets come from, and it is the source of truth for the terminology embedded in this IG. The ART-DECOR release is a beta, so element details and cardinalities may still change. The mapping of the ART-DECOR conformance onto FHIR obligations is an open item (see the [Open Items](open-items.html) page).
 
 The zibs (publication 2020) enter this IG twice over: implicitly through the data set, which is built from zibs, and through nl-core, the FHIR representation of the zibs that this IG's profiles derive from. The zib version is therefore not pinned directly in this IG; it follows from the data set and from the nl-core/zib2020 package versions below.
 

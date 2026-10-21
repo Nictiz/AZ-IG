@@ -163,7 +163,7 @@ Title: "hg referral DocumentReference - Ambulance to HAP"
 Description: "Attached document for the ambulance to GP out-of-hours service (HAP) referral. The folded CommunicatieItem category and sender (as modeled in ART-DECOR) are carried on `category` and `author`."
 * . ^short = "CommunicationItem"
   * ^alias[0] = "CommunicatieItem"
-  * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list) follow the [document specification for the Ambulanceverwijzing](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Specificatie_van_het_document_binnen_de_Ambulanceverwijzing_naar_de_Huisartsenpost) in the Nictiz functional design, and should be kept aligned with it as that specification is finalized."
+  * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list) follow the [handover document specification](handover-document.html)."
 // masterIdentifier is removed in R5/R6 (folded into identifier); the document and set ids are carried on the identifier slices defined in the generic layer. See the Design Decisions page.
 * masterIdentifier 0..0
 * identifier[documentId] 1..1
