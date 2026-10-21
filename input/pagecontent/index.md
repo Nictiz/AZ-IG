@@ -30,7 +30,7 @@ A number of profile decisions and architectural choices are still pending. See t
 
 Versions follow the Nictiz [Nationaal Releasebeleid](https://nationalebibliotheek.nictiz.nl/assets/uploads/2026/03/20260122_Nationaal-releasebeleid-versie-0.9.pdf) (semantic versioning). From `1.0.0` onward, incompatible changes increment the major version, compatible functional changes the minor, and compatible fixes the patch.
 
-The notable changes per version are on the [Changelog](changelog.html) page; the per-version downloadable packages and the full issue-level history are in the [GitHub repository](https://github.com/Nictiz/AZ-IG).
+The notable changes per version are on the [Changelog](changelog.html) page. The published versions are listed on the [history page](http://ig.nictiz.nl/az/history.html).
 
 ### Dependencies
 
