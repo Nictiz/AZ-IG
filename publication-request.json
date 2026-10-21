@@ -6,6 +6,7 @@
    "status" : "release",
    "sequence" : "1.0.0",
    "desc" : "First beta release",
+   "changes" : "changelog.html",
    "first" : true,
    "title" : "Acute Zorg IG NL",
    "ci-build" : "http://build.fhir.org/ig/Nictiz/AZ-IG",
