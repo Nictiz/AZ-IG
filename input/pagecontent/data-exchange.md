@@ -8,7 +8,7 @@ The exchange paradigm is RESTful: the sender POSTs the referral to the receiver'
 
 ### System context and broker
 
-In practice, ambulance/RAV systems do not produce native FHIR resources. A broker component - operated separately from both the RAV and the HAP - converts the native message format (e.g. an HL7 v2 or proprietary format) to FHIR and forwards it to the receiver. This broker is transparent from a conformance perspective: this IG defines what the FHIR content must look like and what the receiving system must be able to accept, regardless of whether the FHIR content was produced directly by the sending system or by an intermediary. The broker is not a formal actor in this IG.
+In practice, ambulance/RAV systems do not produce native FHIR resources. A broker component converts the native message format (an HL7 v3 CDA document) to FHIR and forwards it to the receiver. This broker is transparent from a conformance perspective: this IG defines what the FHIR content must look like and what the receiving system must be able to accept, regardless of whether the FHIR content was produced directly by the sending system or by an intermediary. The broker is not a formal actor in this IG. Whether a broker is used, and who operates it, is agreed between the vendors and infrastructure parties; this IG does not prescribe it.
 
 ---
 
@@ -50,7 +50,7 @@ Limitations: a document Bundle is immutable - corrections require a new document
 
 ### Decision status
 
-RESTful is the paradigm this IG designs against. The decision is recorded in [GitHub issue #14](https://github.com/Nictiz/AZ-IG/issues/14) and is not final until the agreement with the vendors and the infrastructure parties is in place for the beta release; until then it is the direction, not a commitment that binds those parties.
+RESTful is the chosen paradigm. The decision is recorded in [GitHub issue #14](https://github.com/Nictiz/AZ-IG/issues/14). It is revisited if the agreement with the vendors and the infrastructure parties leads elsewhere.
 
 What follows from it is already applied: the referral is a `transaction` Bundle, the MessageHeader profile and the message event code system have been removed, and the CapabilityStatements state the system-level `transaction` interaction next to `create` per resource type.
 
@@ -72,6 +72,7 @@ In summary, the sender **SHALL**:
 - Produce a conformant use case Composition carrying the transfer summary note sections
 - Attach supporting documents as use case DocumentReference instances when available
 - Populate patient, organization, and professional resources conformant to the use case profiles
+- Reference the same patient, in the same reference form, as `subject` of the ServiceRequest, the Composition and every DocumentReference (invariant `hg-bundle-1`)
 - Package the referral as a `transaction` Bundle conforming to `hg-ReferralBundle-AmbulanceHAP` and POST it to the receiver's base URL, with a `urn:uuid` `fullUrl` per entry so the references between the resources resolve within the transaction.
 
 ---

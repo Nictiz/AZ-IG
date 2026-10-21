@@ -14,7 +14,7 @@ RuleSet: CopiedFromServiceRequestComment
 * ^comment = "This content originates on the referral `ServiceRequest`, which is always the authoritative source. The `ServiceRequest` carries it so the receiving system can triage the referral early; the same value is copied into this Composition section so it is documented and persisted in the receiving system's record. The `ServiceRequest` value remains authoritative - this section is a documentation copy."
 
 Profile: HgReferralServiceRequestAmbulanceHAP
-Parent: HgReferralServiceRequest
+Parent: HgServiceRequest
 Id: hg-ReferralServiceRequest-AmbulanceHAP
 Title: "hg referral ServiceRequest - Ambulance to HAP"
 Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambulanceverwijzing, AMB → HAP, message 24)."
@@ -85,7 +85,7 @@ Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambul
 * patientInstruction insert Obligation
 
 Profile: HgReferralCompositionAmbulanceHAP
-Parent: HgReferralComposition
+Parent: HgComposition
 Id: hg-ReferralComposition-AmbulanceHAP
 Title: "hg referral Composition - Ambulance to HAP"
 Description: "Transfer summary note for the ambulance to GP out-of-hours service (HAP) referral."
@@ -157,13 +157,13 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours service
 * section[agreedWithPatient].text insert SectionNarrativeComment
 
 Profile: HgReferralDocumentReferenceAmbulanceHAP
-Parent: HgReferralDocumentReference
+Parent: HgDocumentReference
 Id: hg-ReferralDocumentReference-AmbulanceHAP
 Title: "hg referral DocumentReference - Ambulance to HAP"
 Description: "Attached document for the ambulance to GP out-of-hours service (HAP) referral. The folded CommunicatieItem category and sender (as modeled in ART-DECOR) are carried on `category` and `author`."
 * . ^short = "CommunicationItem"
   * ^alias[0] = "CommunicatieItem"
-  * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list, PDF content) follow the [document specification for the Ambulanceverwijzing](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Specificatie_van_het_document_binnen_de_Ambulanceverwijzing_naar_de_Huisartsenpost) in the Nictiz functional design, and should be kept aligned with it as that specification is finalized."
+  * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list) follow the [handover document specification](handover-document.html)."
 // masterIdentifier is removed in R5/R6 (folded into identifier); the document and set ids are carried on the identifier slices defined in the generic layer. See the Design Decisions page.
 * masterIdentifier 0..0
 * identifier[documentId] 1..1
@@ -171,12 +171,20 @@ Description: "Attached document for the ambulance to GP out-of-hours service (HA
   * ^alias[0] = "DocumentIdentificatie"
   * ^definition = "Het identificatienummer van het document."
 * identifier[documentId] insert ObligationMandatory
+* identifier[documentId].system 1..1
+* identifier[documentId].system insert ObligationMandatory
+* identifier[documentId].value 1..1
+* identifier[documentId].value insert ObligationMandatory
 * identifier[documentSetId] 1..1
   * ^short = "DocumentSetIdentification"
   * ^alias[0] = "DocumentSetIdentificatie"
   * ^definition = "Identificatienummer van de set waar het document toe behoort."
   * ^comment = "1..1: the dataset element DocumentSetIdentificatie (hg-dataelement-5474) prescribes a set identifier on every document, so it is required here, even though CDA externalDocument.setId is optional in the general CDA model."
 * identifier[documentSetId] insert ObligationMandatory
+* identifier[documentSetId].system 1..1
+* identifier[documentSetId].system insert ObligationMandatory
+* identifier[documentSetId].value 1..1
+* identifier[documentSetId].value insert ObligationMandatory
 * extension[documentVersion] 0..1
   * ^short = "DocumentVersion"
   * ^alias[0] = "DocumentVersienummer"
@@ -199,7 +207,7 @@ Description: "Attached document for the ambulance to GP out-of-hours service (HA
 * content.attachment.contentType 1..1
   * ^short = "DocumentMediaType"
   * ^alias[0] = "DocumentBestandtype"
-  * ^definition = "Het bestandtype als mimetype, bijvoorbeeld \"application/pdf\" of \"text/plain\". Voor de verwijzing vanuit de Ambulance naar de Huisarts of Huisartsenpost is dit een pdf."
+  * ^definition = "Het bestandtype als mimetype, bijvoorbeeld \"application/pdf\" of \"text/plain\"."
 * content.attachment.contentType insert ObligationMandatory
 * content.attachment.data 1..1
   * ^short = "DocumentContent"
@@ -216,11 +224,20 @@ Description: "Attached document for the ambulance to GP out-of-hours service (HA
   * ^definition = "Datum van het aanmaken van het document."
 * content.attachment.creation insert Obligation
 
+// Bundle-level invariant: the parts of one referral name one patient. It compares the subject
+// reference strings within the transaction, so it needs no resolve() and holds whenever the Bundle
+// is validated as a whole. A sender therefore writes the patient reference in one form.
+Invariant: hg-bundle-1
+Description: "The ServiceRequest, the Composition and every DocumentReference in the referral SHALL have the same patient as subject."
+Severity: #error
+Expression: "(entry.resource.ofType(ServiceRequest).subject.reference | entry.resource.ofType(Composition).subject.reference | entry.resource.ofType(DocumentReference).subject.reference).count() <= 1"
+
 Profile: HgReferralBundleAmbulanceHAP
-Parent: HgReferralBundle
+Parent: HgBundle
 Id: hg-ReferralBundle-AmbulanceHAP
 Title: "hg referral Bundle - Ambulance to HAP"
 Description: "Transaction bundle for the ambulance to GP out-of-hours service (HAP) referral PUSH."
+* obeys hg-bundle-1
 * type = #transaction
 * timestamp 1..1
 * entry 1..*

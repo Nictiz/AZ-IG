@@ -1,6 +1,6 @@
 ### Overview
 
-This IG covers referral transactions from the [Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf). The information exchanged covers patient identification, the reason for referral, the treatment instituted on scene, the clinical conclusion or working diagnosis, and any supporting documents such as an clinical note or ECG. Each use case maps to a specific message in the *richtlijn* and is implemented as a separate use case layer on top of the generic `hg-Referral*` profiles.
+This IG covers referral transactions from the [Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022)](https://www.nictiz.nl/document/richtlijn-gegevensuitwisseling-acute-zorg-versie-4-2022pdf). The information exchanged covers patient identification, the reason for referral, the treatment instituted on scene, the clinical conclusion or working diagnosis, and any supporting documents such as an clinical note or ECG. Each use case maps to a specific message in the *richtlijn* and is implemented as a separate use case layer on top of the generic `hg-*` profiles.
 
 | Use case | Message | Status |
 |---|---|---|
@@ -13,7 +13,7 @@ This IG covers referral transactions from the [Richtlijn Gegevensuitwisseling Ac
 
 Handover of a patient by an ambulance professional to a GP out-of-hours service (HAP, *huisartsenpost*) after on-scene care. The exchange is one-directional (PUSH): the ambulance/regionale ambulancevoorziening (RAV) sends, the HAP receives.
 
-Functional design: [Section 2.16 of the Nictiz functional design](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Ambulanceverwijzing_.28AMB_.E2.86.92_HA.2FHAP.29) - see also the [Functional Design](functional-design.html) page in this IG.
+Functional design: See the [Functional Design](functional-design.html) page in this IG.
 
 Actors:
 
