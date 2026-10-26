@@ -4,7 +4,7 @@
 
 This is the git repository for the Acute Zorg FHIR R4 Implementation Guide maintained by Nictiz. The IG covers information exchange in acute care settings in the Netherlands, following the Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022). It is built on nl-core (zib2020, R4) and authored in FHIR Shorthand (FSH).
 
-The first use case is the referral from the ambulance service to the GP out-of-hours service (Ambulanceverwijzing naar HAP, AMB to HAP).
+The first use case is the transfer from the ambulance service to the GP out-of-hours service (Ambulanceverwijzing naar HAP, AMB to HAP).
 
 The current version is 1.0.0-beta.1, for testing with vendors. It is not meant for production use.
 
