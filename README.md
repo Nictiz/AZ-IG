@@ -59,7 +59,7 @@ Official versions are published on ig.nictiz.nl through [Nictiz/IG-publications]
 |---|---|
 | `sushi-config.yaml` | Project configuration, dependencies and menu |
 | `input/fsh/aliases.fsh` | Aliases for canonical URLs and code systems |
-| `input/fsh/profiles/` | The generic `hg-*` layer on FHIR core (`HgReferralGeneric.fsh`), the use case layer for AMB to HAP derived from it (`HgReferralAmbulanceHAP.fsh`) and the use case profiles on nl-core (`HgZibProfilesAmbulanceHAP.fsh`) |
+| `input/fsh/profiles/` | The generic `hg-*` layer on FHIR core, the use case layer for AMB to HAP derived from it and the use case profiles on nl-core |
 | `input/fsh/extensions/` | `hg-ext-DocumentVersion` (document version, R5/R6 bridge) |
 | `input/fsh/terminology/` | Local code system for the DocumentReference identifier type |
 | `input/fsh/mappings/` | Mappings from the use case profiles to the ART-DECOR data set |
