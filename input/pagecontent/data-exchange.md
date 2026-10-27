@@ -28,7 +28,7 @@ Limitations: requires the sender to produce a complete, valid Bundle at the mome
 
 The sender POSTs resources to the receiver's FHIR server using a transaction Bundle. The `ServiceRequest` is the focal resource; `Composition`, `DocumentReference`, `Patient`, `Organization`, and `PractitionerRole` are included in the same `transaction`. The receiver exposes a FHIR server.
 
-Profiles used: `hg-ReferralBundle-AmbulanceHAP` for the transaction, and the use case profiles for the resources it carries. No MessageHeader and no message Bundle.
+Profiles used: `hg-Bundle-AmbulanceHAP` for the transaction, and the use case profiles for the resources it carries. No MessageHeader and no message Bundle.
 
 Fits well when: the receiver already hosts a FHIR server; query and update patterns are needed alongside the initial push; integration with standard FHIR tooling is a priority.
 
@@ -73,7 +73,7 @@ In summary, the sender **SHALL**:
 - Attach supporting documents as use case DocumentReference instances when available
 - Populate patient, organization, and professional resources conformant to the use case profiles
 - Reference the same patient, in the same reference form, as `subject` of the ServiceRequest, the Composition and every DocumentReference (invariant `hg-bundle-1`)
-- Package the referral as a `transaction` Bundle conforming to `hg-ReferralBundle-AmbulanceHAP` and POST it to the receiver's base URL, with a `urn:uuid` `fullUrl` per entry so the references between the resources resolve within the transaction.
+- Package the referral as a `transaction` Bundle conforming to `hg-Bundle-AmbulanceHAP` and POST it to the receiver's base URL, with a `urn:uuid` `fullUrl` per entry so the references between the resources resolve within the transaction.
 
 ---
 

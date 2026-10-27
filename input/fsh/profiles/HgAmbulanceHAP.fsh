@@ -1,6 +1,6 @@
 // NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
 // =============================================================================
-// Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic hg-Referral profiles, tightens cardinalities, and applies obligations with mustSupport (see HgActors.fsh). Dataset mappings live here (see DatasetMappings.fsh). Reference targets keep the core resource type alongside the transaction-specific zib profile, so the model stays open-world.
+// Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic hg- profiles, tightens cardinalities, and applies obligations with mustSupport (see HgActors.fsh). Dataset mappings live here (see DatasetMappings.fsh). Reference targets keep the core resource type alongside the transaction-specific zib profile, so the model stays open-world.
 //
 // Style: caret rules (^short/^alias/^definition/^comment/^slicing) are grouped under their element via indentation; cardinality, only, from, contains and insert stay at column 0.
 // =============================================================================
@@ -9,15 +9,15 @@
 RuleSet: SectionNarrativeComment
 * ^comment = "This section conveys its *rubriek* as free text. `text.status` is fixed to `additional` because the narrative is the source of this information, not a rendering generated from structured data: there is no expectation that `Composition.section.entry` will be populated here. The `text.div` may contain plain text or the limited xhtml subset that the FHIR specification allows for a Narrative."
 
-// Documentation note for content that is also carried on the referral ServiceRequest. Inserted on the Composition sections that duplicate a ServiceRequest value.
+// Documentation note for content that is also carried on the ServiceRequest. Inserted on the Composition sections that duplicate a ServiceRequest value.
 RuleSet: CopiedFromServiceRequestComment
-* ^comment = "This content originates on the referral `ServiceRequest`, which is always the authoritative source. The `ServiceRequest` carries it so the receiving system can triage the referral early; the same value is copied into this Composition section so it is documented and persisted in the receiving system's record. The `ServiceRequest` value remains authoritative - this section is a documentation copy."
+* ^comment = "This content originates on the hg- generic `ServiceRequest`, which is always the authoritative source. The `ServiceRequest` carries it so the receiving system can triage the referral early; the same value is copied into this Composition section so it is documented and persisted in the receiving system's record. The `ServiceRequest` value remains authoritative - this section is a documentation copy."
 
-Profile: HgReferralServiceRequestAmbulanceHAP
+Profile: HgServiceRequestAmbulanceHAP
 Parent: HgServiceRequest
-Id: hg-ReferralServiceRequest-AmbulanceHAP
-Title: "hg referral ServiceRequest - Ambulance to HAP"
-Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambulanceverwijzing, AMB → HAP, message 24)."
+Id: hg-ServiceRequest-AmbulanceHAP
+Title: "hg ServiceRequest - Ambulance to HAP"
+Description: "Ambulance to GP out-of-hours service (HAP) request (Ambulanceverwijzing, AMB → HAP, message 24)."
 * . ^short = "Envelope"
   * ^alias[0] = "Envelop"
   * ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
@@ -76,7 +76,7 @@ Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambul
   * ^alias[0] = "Kern"
   * ^alias[1] = "CommunicatieItem"
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
-* supportingInfo only Reference(Resource or HgReferralCompositionAmbulanceHAP or HgReferralDocumentReferenceAmbulanceHAP)
+* supportingInfo only Reference(Resource or HgCompositionAmbulanceHAP or HgDocumentReferenceAmbulanceHAP)
 * supportingInfo insert ObligationMandatory
 * patientInstruction
   * ^short = "AgreedWithPatient"
@@ -84,10 +84,10 @@ Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambul
   * ^definition = "In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op het veld 'Afspraken met patiënt'."
 * patientInstruction insert Obligation
 
-Profile: HgReferralCompositionAmbulanceHAP
+Profile: HgCompositionAmbulanceHAP
 Parent: HgComposition
-Id: hg-ReferralComposition-AmbulanceHAP
-Title: "hg referral Composition - Ambulance to HAP"
+Id: hg-Composition-AmbulanceHAP
+Title: "hg Composition - Ambulance to HAP"
 Description: "Transfer summary note for the ambulance to GP out-of-hours service (HAP) referral."
 * . ^short = "Core"
   * ^alias[0] = "Kern"
@@ -156,10 +156,10 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours service
 * section[agreedWithPatient].text insert ObligationMandatory
 * section[agreedWithPatient].text insert SectionNarrativeComment
 
-Profile: HgReferralDocumentReferenceAmbulanceHAP
+Profile: HgDocumentReferenceAmbulanceHAP
 Parent: HgDocumentReference
-Id: hg-ReferralDocumentReference-AmbulanceHAP
-Title: "hg referral DocumentReference - Ambulance to HAP"
+Id: hg-DocumentReference-AmbulanceHAP
+Title: "hg DocumentReference - Ambulance to HAP"
 Description: "Attached document for the ambulance to GP out-of-hours service (HAP) referral. The folded CommunicatieItem category and sender (as modeled in ART-DECOR) are carried on `category` and `author`."
 * . ^short = "CommunicationItem"
   * ^alias[0] = "CommunicatieItem"
@@ -232,10 +232,10 @@ Description: "The ServiceRequest, the Composition and every DocumentReference in
 Severity: #error
 Expression: "(entry.resource.ofType(ServiceRequest).subject.reference | entry.resource.ofType(Composition).subject.reference | entry.resource.ofType(DocumentReference).subject.reference).count() <= 1"
 
-Profile: HgReferralBundleAmbulanceHAP
+Profile: HgBundleAmbulanceHAP
 Parent: HgBundle
-Id: hg-ReferralBundle-AmbulanceHAP
-Title: "hg referral Bundle - Ambulance to HAP"
+Id: hg-Bundle-AmbulanceHAP
+Title: "hg Bundle - Ambulance to HAP"
 Description: "Transaction bundle for the ambulance to GP out-of-hours service (HAP) referral PUSH."
 * obeys hg-bundle-1
 * type = #transaction

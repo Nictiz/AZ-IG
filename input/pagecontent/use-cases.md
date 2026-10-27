@@ -25,7 +25,7 @@ CapabilityStatements:
 - [hg referral Sender CapabilityStatement](CapabilityStatement-hg-CapabilityStatement-Sender.html)
 - [hg referral Receiver CapabilityStatement](CapabilityStatement-hg-CapabilityStatement-Receiver.html)
 
-Profiles: see [Artifacts](artifacts.html#artifacts-table) for the full list of `hg-Referral*-AmbulanceHAP` profiles, and the [Data Model](data-model.html) page for the message structure, profile table, and conformance guidance.
+Profiles: see [Artifacts](artifacts.html#artifacts-table) for the full list of `hg*-AmbulanceHAP` profiles, and the [Data Model](data-model.html) page for the message structure, profile table, and conformance guidance.
 
 Examples under [Artifacts](artifacts.html): a worked referral based on scenario 5b of the *Richtlijn Gegevensuitwisseling Acute Zorg*; a maximal message modeled on the ART-DECOR test scenario (a richly populated patient and message, with a document attachment); and a minimal message modelled on the ART-DECOR  minimal test scenario.
 
@@ -35,4 +35,4 @@ Data exchange: see [Data exchange](data-exchange.html) for the exchange paradigm
 
 ### Ambulance referral to a General Practitioner (AMB → HA)
 
-Handover of a patient by an ambulance professional to a GP (HA, *huisarts*). Follows the same pattern as AMB naar HAP; will add a parallel `hg-Referral*-AmbulanceHA` use case layer. Not yet defined in this version.
+Handover of a patient by an ambulance professional to a GP (HA, *huisarts*). Follows the same pattern as AMB naar HAP; will add a parallel `hg*-AmbulanceHA` use case layer. Not yet defined in this version.
