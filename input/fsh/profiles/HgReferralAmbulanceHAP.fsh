@@ -21,8 +21,6 @@ Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambul
 * . ^short = "Envelope"
   * ^alias[0] = "Envelop"
   * ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
-* status
-  * ^comment = "The status is set to the fixed value Completed, as the referral messaging sent only once."
 * status insert ObligationMandatory
 * intent insert ObligationMandatory
 * code = $sct#11131000146102

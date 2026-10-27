@@ -87,8 +87,8 @@ Het ritnummer bestaat uit een aantal onderdelen die worden gescheiden door een k
 * patiëntvolgnummer N1..2 - Volgnummer van de patiënt binnen de rit. Dit is alleen hoger dan 1 als er meerdere patiënten vervoerd worden of als de rit is geannuleerd en vervolgens wordt de patiënt opnieuw ingestuurd (zie toelichting).
 
 **Toelichting**
-
 In case een patiënt wordt ingestuurd naar een ziekenhuis met een verkeerd BSN, dan wordt deze rit geannuleerd. Het ritnummer heeft voor de extensie patiëntvolgnummer 1. Vanuit de ambulance wordt een nieuw bericht gestuurd met patiëntvolgnummer 2 en het nieuwe BSN, dus een “andere” patiënt. De annulering van de rit is wel belangrijk, want anders lijkt het alsof er 2 patiënten komen, wat in principe ook kan. Bij een annulering van de rit moet er een nieuw ritnummer komen waarbij het patiëntvolgnummer opgehoogd wordt met 1. Voorbeeld; Na 09-2023-1234567-1 komt 09-2023-1234567-2."""
+
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#EMER "emergency"
 
 Profile: HgNameInformationAmbulanceHAP
@@ -96,4 +96,4 @@ Parent: $nlcore-NameInformation
 Id: hg-NameInformation-AmbulanceHAP
 Title: "hg NameInformation - Ambulance to HAP"
 Description: "Derived from nl-core-NameInformation."
-* ^purpose = "A derived profile from [nl-core-Encounter](http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter) to provide a version better suited for ambulance to HAP use case. This profile augments the nl-core profile with a mapping of the dataelement 'VolledigeNaam'."
+* ^purpose = "A derived profile from [nl-core-NameInformation](http://nictiz.nl/fhir/StructureDefinition/nl-core-NameInformation) to provide a version better suited for ambulance to HAP use case. This profile augments the nl-core profile with a mapping of the dataelement 'VolledigeNaam'."
