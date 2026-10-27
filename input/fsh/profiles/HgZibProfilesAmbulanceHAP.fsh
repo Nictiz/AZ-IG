@@ -79,12 +79,7 @@ Description: "An interaction between a patient and ambulance professionals. Deri
 * identifier[tripNumber] ^alias[0] = "Ritnummer"
 * identifier[tripNumber] ^definition = "Identificerend nummer van een specifieke ambulance-inzet of rit, waarmee de inzet binnen de administratie van de ambulancedienst kan worden getraceerd."
 * identifier[tripNumber] ^comment = """
-Het ritnummer bestaat uit een aantal onderdelen die worden gescheiden door een koppelteken "-". De structuur is [ambulancevoorziening-jaartal-ritvolgnummer-patiëntvolgnummer]
-
-* ambulancevoorziening N1..2 - Identificatienummer van de ambulancevoorziening
-* jaartal N4
-* ritvolgnummer N1..14 - Volgnummer van de rit, uniek binnen de ambulancevoorziening en het jaartal
-* patiëntvolgnummer N1..2 - Volgnummer van de patiënt binnen de rit."""
+Het ritnummer bestaat uit een aantal onderdelen die worden gescheiden door een koppelteken "-". De structuur is [ambulancevoorziening-jaartal-ritvolgnummer-patiëntvolgnummer]"""
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#EMER "emergency"
 
 Profile: HgNameInformationAmbulanceHAP
