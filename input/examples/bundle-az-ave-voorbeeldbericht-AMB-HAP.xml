@@ -383,7 +383,7 @@
                   </coding>
                </code>
                <text>
-                  <status value="extensions"/>
+                  <status value="additional"/>
                   <div xmlns="http://www.w3.org/1999/xhtml">Afgesproken met Patient: Signalen van toenemend oedeem besproken; bij twijfel of constatering van verergering van de klachten neemt mevrouw op eigen initiatief weer contact op.</div>
                </text>
             </section>
@@ -402,11 +402,23 @@
             <meta>
                <profile value="http://ig.nictiz.nl/az/StructureDefinition/hg-DocumentReference-AmbulanceHAP"/>
             </meta>
-            <masterIdentifier>
+            <identifier>
+               <type>
+                  <coding>
+                     <system value="http://ig.nictiz.nl/az/CodeSystem/hg-document-identifier-type"/>
+                     <code value="document-id"/>
+                  </coding>
+               </type>
                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.103.3"/>
                <value value="3478"/>
-            </masterIdentifier>
+            </identifier>
             <identifier>
+               <type>
+                  <coding>
+                     <system value="http://ig.nictiz.nl/az/CodeSystem/hg-document-identifier-type"/>
+                     <code value="document-set-id"/>
+                  </coding>
+               </type>
                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.103.3"/>
                <value value="22"/>
             </identifier>
