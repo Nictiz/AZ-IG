@@ -16,7 +16,7 @@ Parent: ServiceRequest
 Id: hg-ServiceRequest
 Title: "hg ServiceRequest"
 Description: "Generic request (workflow 'request' on FHIR core ServiceRequest) for Acute Zorg. Open-world: nl-core targets are added next to the base resources; cardinalities and mustSupport are left to the use case layer."
-* ^purpose = "A use case independent profile for the referral request itself, on FHIR core ServiceRequest. It carries the structure every Acute Zorg referral shares, without cardinality tightening or obligations, so that each transaction can derive its own use case profile from it."
+* ^purpose = "A use case independent profile for the transfer request itself, on FHIR core ServiceRequest. It carries the structure every Acute Zorg transfer shares, without cardinality tightening or obligations, so that each transaction can derive its own use case profile from it."
 * insert NictizMetadata
 // status: deliberately not fixed to #completed here. The ELZ (primary care) use case documents status as always 'completed' (transfer is done when sent), but other use cases may use different values. Status is the responsibility of the use case layer.
 //
@@ -34,7 +34,7 @@ Parent: Composition
 Id: hg-Composition
 Title: "hg Composition"
 Description: "Generic transfer summary note carrying the textual *rubrieken* as Composition sections. Open-world base for the use case layer."
-* ^purpose = "A use case independent profile for the transfer summary note that accompanies a referral, on FHIR core Composition. It carries the section structure every Acute Zorg referral shares, without cardinality tightening or obligations, so that each transaction can derive its own use case profile from it."
+* ^purpose = "A use case independent profile for the summary note that accompanies a transfer, on FHIR core Composition. It carries the section structure every Acute Zorg transfer shares, without cardinality tightening or obligations, so that each transaction can derive its own use case profile from it."
 * insert NictizMetadata
 // Document type (Composition.type) is intentionally NOT fixed here - it is use case specific. Each use case layer fixes it.
 //
@@ -48,7 +48,7 @@ Parent: DocumentReference
 Id: hg-DocumentReference
 Title: "hg DocumentReference"
 Description: "Generic attached document for a transfer (for example an ECG or photo). Open-world base for the use case layer."
-* ^purpose = "A use case independent profile for a document attached to a referral, on FHIR core DocumentReference. It carries the identifier slicing and the version extension that follow from the shared ART-DECOR dataset, without cardinality tightening or obligations, so that each transaction can derive its own use case profile from it."
+* ^purpose = "A use case independent profile for a document attached to a transfer, on FHIR core DocumentReference. It carries the identifier slicing and the version extension that follow from the shared ART-DECOR dataset, without cardinality tightening or obligations, so that each transaction can derive its own use case profile from it."
 * insert NictizMetadata
 * subject only Reference(Patient or Practitioner or Group or Device or $nlcore-Patient)
 * author only Reference(Practitioner or PractitionerRole or Organization or Device or Patient or RelatedPerson or $nlcore-PractitionerRole or $nlcore-Organization or $nlcore-Patient or $nlcore-ContactPerson)
@@ -73,7 +73,7 @@ Parent: Bundle
 Id: hg-Bundle
 Title: "hg Bundle"
 Description: "Generic transaction bundle for a transfer PUSH: the transfer ServiceRequest together with the resources it references."
-* ^purpose = "A use case independent profile for the transaction that carries a referral, on FHIR core Bundle. The referral is not one resource: the ServiceRequest references the patient, the summary note, the attachments and the parties, so it travels as one transaction. The exchange paradigm is RESTful, decided in GitHub issue #14."
+* ^purpose = "A use case independent profile for the transaction that carries a transfer, on FHIR core Bundle. The transfer is not one resource: the ServiceRequest references the patient, the summary note, the attachments and the parties, so it travels as one transaction. The exchange paradigm is RESTful, decided in GitHub issue #14."
 * insert NictizMetadata
 * type = #transaction
 

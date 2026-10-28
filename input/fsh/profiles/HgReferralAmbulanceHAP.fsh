@@ -18,7 +18,7 @@ Parent: HgServiceRequest
 Id: hg-ReferralServiceRequest-AmbulanceHAP
 Title: "hg referral ServiceRequest - Ambulance to HAP"
 Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambulanceverwijzing, AMB → HAP, message 24)."
-* ^purpose = "A derived profile from [hg-ServiceRequest](http://ig.nictiz.nl/az/StructureDefinition/hg-ServiceRequest) for the Ambulanceverwijzing (AMB naar HAP) transaction. This profile adds the cardinalities, obligations and dataset mappings of that transaction, and fixes the referral code and category."
+* ^purpose = "A derived profile from [hg-ServiceRequest](http://ig.nictiz.nl/az/StructureDefinition/hg-ServiceRequest) for the Ambulanceverwijzing (AMB naar HAP) transaction. This profile adds the cardinalities, obligations and dataset mappings of that transaction, and fixes the transfer code and category."
 * insert NictizMetadata
 * . ^short = "Envelope"
   * ^alias[0] = "Envelop"
