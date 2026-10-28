@@ -12,7 +12,7 @@ Title: "hg referral Sender - Ambulance referral (AMBS, AZP-AVS)"
 Description: "Ambulance management system (AMBS) that produces and transmits the Ambulance referral to the HIS/HAPIS."
 * url = "http://ig.nictiz.nl/az/ActorDefinition/hg-ActorSender-AmbulanceHAP"
 * name = "HgActorSenderAmbulanceHAP"
-* status = #active
+* status = #draft
 * type = #system
 * documentation = """The HG Referral Sender is the system role fulfilled by an ambulance management system (AMBS). It is responsible for the transaction Sturen Ambulanceverwijzing.
 
@@ -28,7 +28,7 @@ Title: "hg referral Receiver - Ambulance referral (HIS/HAPIS, AZP-AVO)"
 Description: "GP information system (HIS) or GP out-of-hours service information system (HAPIS) that accepts the Ambulance referral from the AMBS."
 * url = "http://ig.nictiz.nl/az/ActorDefinition/hg-ActorReceiver-AmbulanceHAP"
 * name = "HgActorReceiverAmbulanceHAP"
-* status = #active
+* status = #draft
 * type = #system
 * documentation = """The HG Referral Receiver is the system role fulfilled by a GP information system (HIS) or a GP out-of-hours service information system (HAPIS). It is responsible for the transaction Ontvangen Ambulanceverwijzing.
 
