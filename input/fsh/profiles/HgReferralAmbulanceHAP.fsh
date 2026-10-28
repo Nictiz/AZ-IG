@@ -244,7 +244,3 @@ Description: "Transaction bundle for the ambulance to GP out-of-hours service (H
 * entry.resource 1..1
 * entry.request 1..1
 * entry.request.method
-  * ^comment = """
-The method is deliberately not fixed. A first send is a `POST`. A later send for the same trip updates the referral rather than creating a second one, and that is a conditional `PUT` on the trip number, for example `PUT ServiceRequest?identifier=urn:oid:2.16.840.1.113883.2.4.3.32.5|09-2026-1234567-1`.
-
-That second case follows from *Bestemmingsstatus*: the data set states that Geannuleerd and Overgedragen are the last message of the ambulance to this destination, so there is more than one message per trip and the receiver has to end up with one referral, not three. See [#38](https://github.com/Nictiz/AZ-IG/issues/38)."""
