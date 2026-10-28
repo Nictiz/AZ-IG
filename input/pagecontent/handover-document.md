@@ -17,6 +17,7 @@ The specifications regarding the document's content are presented in the table b
           <li>Geboortedatum</li>
           <li>Adresgegevens</li>
           <li>Overige contactgegevens</li>
+          <li>Vaste huisarts</li>
           <li>Reden/hulpvraag</li>
           <li>
             Conclusie
@@ -101,6 +102,12 @@ The following ambulance data can be included within the sections. If a specific 
     <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.101 (CDA recordTarget) at the element: &lt;telecom&gt;</td>
     <td></td>
     <td>Not mandatory for qualification. The patient's telephone number is highly desirable; otherwise, it is not possible to call the patient back.</td>
+  </tr>
+    <tr>
+    <td>Vaste huisarts:  &lt;name&gt;</td>
+    <td>Template ID: 2.16.840.1.113883.2.4.3.11.60.55.10.105 (CDA participant huisarts) contains Template ID: 2.16.840.1.113883.2.4.3.11.60.2.10.9001 (PART CDA Person) at element &lt;name&gt;</td>
+    <td></td>
+    <td>If present the first name and/or last name</td>
   </tr>
   <tr>
     <td>Reden/Hulpvraag</td>
