@@ -4,17 +4,12 @@
 //
 // Per the Nictiz profiling guidelines, cardinalities and conformance for the participating zibs are applied at the use case (information standard specific) layer, derived from the nl-core profiles. These carry the cardinalities the ART-DECOR transaction puts on the building blocks (Patient, HealthProfessional, HealthcareProvider), plus obligations for sender/receiver.
 //
-// Cardinalities follow the published AMB-HAP transaction (4.145, 2025-06-10) where tightened: the organization carries identifier 1..* and name 1..1 so both parties are unambiguously addressable. The patient identifier is kept 0..* (optional and repeatable - see the element comment) rather than hard-required; gender, name and birthDate are left at nl-core cardinality with obligations.
+// Cardinalities follow the published AMB-HAP transaction (4.145, 2025-06-10) where tightened: the organization carries identifier 1..* and name 1..1 so both parties are unambiguously addressable. The patient identifier is 1..* (repeatable, with the BSN slice 0..1 - see the element comment); gender, name and birthDate are left at nl-core cardinality with obligations.
 // =============================================================================
 
-// Resource-local invariants. Severity is #warning for now (legitimate edge cases exist: a not-yet-
-// identified ambulance patient; an organization addressed other than by URA). They can be raised to
-// #error once the ART-DECOR conformance mapping confirms the requirement (see the Open Items page).
-Invariant: hg-pat-1
-Description: "The patient should be identifiable so the receiver can match the referral: an identifier or a name is present."
-Severity: #warning
-Expression: "identifier.exists() or name.exists()"
-
+// Resource-local invariant. Severity is #warning for now (legitimate edge case: an organization
+// addressed other than by URA). It can be raised to #error once the ART-DECOR conformance mapping
+// confirms the requirement (see the Open Items page).
 Invariant: hg-org-1
 Description: "The organization should be unambiguously addressable: a URA identifier is present."
 Severity: #warning
@@ -27,7 +22,6 @@ Title: "hg Patient - Ambulance to HAP"
 Description: "Patient in the ambulance to GP out-of-hours service (HAP) referral. Derived from nl-core-Patient; identifiers (e.g. BSN or a local hospital identifier) should be sent when known so the HAP can match the referral to a person."
 * ^purpose = "A derived profile from [nl-core-Patient](http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient) to provide a version better suited for the Ambulance to HAP use case. This profile carries the cardinalities of the transaction and the obligations for sender and receiver, and requires at least one identifier for the patient."
 * insert NictizMetadata
-* obeys hg-pat-1
 * identifier 1..*
 * identifier ^comment = "1..*: a patient may carry more than one identifier (for example a BSN and a local hospital identifier), so the element is repeatable. The BSN is optional (min 0) because an ambulance patient is not always identified yet. An alternative (temporary) identifier must be present when the patient identification has not yet been verified."
 * identifier insert ObligationMandatory
