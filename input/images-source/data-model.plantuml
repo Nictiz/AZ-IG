@@ -7,10 +7,10 @@ skinparam rectangle {
   BackgroundColor white
 }
 
-rectangle "hg-ReferralBundle-AmbulanceHAP\n(transaction)" as Bundle {
-  rectangle "hg-ReferralServiceRequest-AmbulanceHAP" as SR
-  rectangle "hg-ReferralComposition-AmbulanceHAP" as Comp
-  rectangle "hg-ReferralDocumentReference-AmbulanceHAP" as DocRef
+rectangle "hg-Bundle-AmbulanceHAP\n(transaction)" as Bundle {
+  rectangle "hg-ServiceRequest-AmbulanceHAP" as SR
+  rectangle "hg-Composition-AmbulanceHAP" as Comp
+  rectangle "hg-DocumentReference-AmbulanceHAP" as DocRef
   rectangle "hg-Patient-AmbulanceHAP" as Pat
   rectangle "hg-Encounter-AmbulanceHAP" as Enc
   rectangle "hg-HealthProfessional-PractitionerRole-AmbulanceHAP" as PR

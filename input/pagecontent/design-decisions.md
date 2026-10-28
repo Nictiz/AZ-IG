@@ -71,7 +71,7 @@ Because this identity model follows the shared dataset's document structure rath
 
 ### Profile layering and naming
 
-Following the [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4), profiles are organised in two layers. A generic, open-world layer on FHIR core carries the reusable referral structure with no cardinality tightening and no obligations: `hg-ServiceRequest`, `hg-Composition`, `hg-DocumentReference` and `hg-Bundle`. A use case layer derives from these for this transaction and adds cardinalities, obligations (see below) and the dataset mappings: `hg-ReferralServiceRequest-AmbulanceHAP` and its siblings. Names use the `hg-` project prefix with the use case appended; other referral transactions can reuse the generic layer and add their own use case profiles.
+Following the [Nictiz FHIR Profiling Guidelines R4](https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4), profiles are organised in two layers. A generic, open-world layer on FHIR core carries the reusable referral structure with no cardinality tightening and no obligations: `hg-ServiceRequest`, `hg-Composition`, `hg-DocumentReference` and `hg-Bundle`. A use case layer derives from these for this transaction and adds cardinalities, obligations (see below) and the dataset mappings: `hg-ServiceRequest-AmbulanceHAP` and its siblings. Names use the `hg-` project prefix with the use case appended; other referral transactions can reuse the generic layer and add their own use case profiles.
 
 Alongside these, four transaction-specific zib profiles carry the dataset's cardinalities on the participating building blocks, each derived from the corresponding nl-core profile: `hg-Patient-AmbulanceHAP` (from nl-core-Patient), `hg-HealthcareProvider-Organization-AmbulanceHAP` (from nl-core-HealthcareProvider-Organization), `hg-HealthProfessional-PractitionerRole-AmbulanceHAP` (from nl-core-HealthProfessional-PractitionerRole) and `hg-HealthProfessional-Practitioner-AmbulanceHAP` (from nl-core-HealthProfessional-Practitioner). These hold the minima needed to identify the patient, the sending professional and the sending/receiving organizations and should be reconciled against the published dataset's exact multiplicities.
 
@@ -89,16 +89,15 @@ Support expectations are expressed with the FHIR Obligations framework. Two syst
 
 ### Invariants and constraints
 
-Beyond cardinalities, bindings and slicing, the use case profiles carry a small number of FHIRPath invariants - only for rules that structure cannot express. The resource-level ones are kept resource-local so they also hold when a resource is validated standalone:
+Beyond cardinalities, bindings and slicing, the use case profiles carry a small number of FHIRPath invariants - only for rules that structure cannot express. The resource-level one is kept resource-local so it also holds when a resource is validated standalone:
 
-- `hg-pat-1` in `hg-Patient-AmbulanceHAP`: the receiver needs to match the patient against its own records, so an `identifier` or a `name` **SHOULD** be present.
 - `hg-org-1` in `hg-HealthcareProvider-Organization-AmbulanceHAP`: the organization needs to be uniquely identified, so a URA `identifier` (`system` = `http://fhir.nl/fhir/NamingSystem/ura`) **SHOULD** be present.
 
-Both are `#warning` for now, because a not-yet-identified ambulance patient and addressing other than by URA are legitimate edge cases; they can be raised to `#error` once the ART-DECOR conformance mapping confirms the requirement (see the [Open Items](open-items.html) page).
+It is `#warning` for now, because addressing other than by URA is a legitimate edge case; it can be raised to `#error` once the ART-DECOR conformance mapping confirms the requirement (see the [Open Items](open-items.html) page).
 
 One invariant sits on the transaction Bundle, because it compares resources:
 
-- `hg-bundle-1` in `hg-ReferralBundle-AmbulanceHAP`: the `subject` of the `ServiceRequest`, the `Composition` and every `DocumentReference` **SHALL** reference the same patient.
+- `hg-bundle-1` in `hg-Bundle-AmbulanceHAP`: the `subject` of the `ServiceRequest`, the `Composition` and every `DocumentReference` **SHALL** reference the same patient.
 
 It compares the `subject.reference` values within the Bundle and needs no `resolve()`, so it holds whenever the Bundle is validated as a whole. A sender therefore writes the patient reference in the same form throughout the Bundle. It is `#error`, because a referral whose parts name different patients has no legitimate use.
 
