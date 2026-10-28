@@ -1,0 +1,250 @@
+// NOTE: The explanatory comments in this file are AI-generated, for convenience and documentation.
+// =============================================================================
+// Use case layer: Ambulanceverwijzing (AMB -> HAP, message 24). Derives from the generic hg- profiles, tightens cardinalities, and applies obligations with mustSupport (see HgActors.fsh). Dataset mappings live here (see DatasetMappings.fsh). Reference targets keep the core resource type alongside the transaction-specific zib profile, so the model stays open-world.
+//
+// Style: caret rules (^short/^alias/^definition/^comment/^slicing) are grouped under their element via indentation; cardinality, only, from, contains and insert stay at column 0.
+// =============================================================================
+
+// Implementer guidance for the narrative-only sections (text.status fixed to #additional). Inserted on each section's text element so it renders on the profile page.
+RuleSet: SectionNarrativeComment
+* ^comment = "This section conveys its *rubriek* as free text. `text.status` is fixed to `additional` because the narrative is the source of this information, not a rendering generated from structured data: there is no expectation that `Composition.section.entry` will be populated here. The `text.div` may contain plain text or the limited xhtml subset that the FHIR specification allows for a Narrative."
+
+// Documentation note for content that is also carried on the ServiceRequest. Inserted on the Composition sections that duplicate a ServiceRequest value.
+RuleSet: CopiedFromServiceRequestComment
+* ^comment = "This content originates on the hg- generic `ServiceRequest`, which is always the authoritative source. The `ServiceRequest` carries it so the receiving system can triage the referral early; the same value is copied into this Composition section so it is documented and persisted in the receiving system's record. The `ServiceRequest` value remains authoritative - this section is a documentation copy."
+
+Profile: HgServiceRequestAmbulanceHAP
+Parent: HgServiceRequest
+Id: hg-ServiceRequest-AmbulanceHAP
+Title: "hg ServiceRequest - Ambulance to HAP"
+Description: "Ambulance to GP out-of-hours service (HAP) request (Ambulanceverwijzing, AMB → HAP, message 24)."
+* ^purpose = "A derived profile from [hg-ServiceRequest](http://ig.nictiz.nl/az/StructureDefinition/hg-ServiceRequest) for the Ambulanceverwijzing (AMB naar HAP) transaction. This profile adds the cardinalities, obligations and dataset mappings of that transaction, and fixes the transfer code and category."
+* insert NictizMetadata
+* . ^short = "Envelope"
+  * ^alias[0] = "Envelop"
+  * ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
+* status insert ObligationMandatory
+* intent insert ObligationMandatory
+* code = $sct#11131000146102
+* category ^slicing.discriminator[0].type = #pattern
+  * ^slicing.discriminator[0].path = "$this"
+  * ^slicing.rules = #open
+  * ^short = "MessageType"
+  * ^alias[0] = "TypeBericht"
+  * ^definition = "Geeft het type bericht dat verstuurd wordt door de verzender."
+* category contains referralType 1..1
+* category[referralType] = $sct#308292007
+* category insert ObligationMandatory
+* subject
+  * ^short = "Patient"
+  * ^alias[0] = "Patient"
+  * ^definition = "Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt."
+* subject only Reference(Patient or HgPatientAmbulanceHAP)
+* subject insert ObligationMandatory
+* encounter only Reference(Encounter or HgEncounterAmbulanceHAP)
+* authoredOn 1..1
+  * ^short = "SendDateTime"
+  * ^alias[0] = "Datum en tijd"
+  * ^definition = "Geeft het tijdstip waarop de verzender het bericht afrondt en aanbiedt voor verzending."
+* authoredOn insert ObligationMandatory
+* requester
+  * ^short = "Sender"
+  * ^alias[0] = "Verzender"
+  * ^alias[1] = "Zorgverlener"
+  * ^alias[2] = "Zorgaanbieder"
+  * ^definition = "Geeft de volledige identificatie- en contactgegevens van de verzender van het bericht."
+* requester only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
+* requester insert Obligation
+* performer 1..1
+  * ^short = "Recipient"
+  * ^alias[0] = "Ontvanger"
+  * ^alias[1] = "Zorgverlener"
+  * ^alias[2] = "Zorgaanbieder"
+  * ^definition = "Geeft de volledige identificatie- en contactgegevens van de ontvanger van het bericht."
+* performer only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
+* performer insert ObligationMandatory
+* reasonCode 1..1
+  * ^short = "MessageReason"
+  * ^alias[0] = "RedenBericht"
+  * ^alias[1] = "Context"
+  * ^definition = "Geeft de reden van de verwijzing of de update. Hierbij is de beschrijving als vrije tekst op aangeven van het NHG verplicht. Daarnaast kan er ook een ICPC-code van de episode worden meegestuurd, al dan niet aangevuld met meer details over de vastlegging van de ICPC. De ambulance legt de reden altijd vast in vrije tekst."
+* reasonCode insert ObligationMandatory
+// The NHG mandates the free-text description; coding (ICPC) stays optional and is left unconstrained here (see the Open Items page).
+* reasonCode.text 1..1
+* supportingInfo 1..*
+  * ^short = "Core"
+  * ^alias[0] = "Kern"
+  * ^alias[1] = "CommunicatieItem"
+  * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
+* supportingInfo only Reference(Resource or HgCompositionAmbulanceHAP or HgDocumentReferenceAmbulanceHAP)
+* supportingInfo insert ObligationMandatory
+* patientInstruction
+  * ^short = "AgreedWithPatient"
+  * ^alias[0] = "AfgesprokenMetPatient"
+  * ^definition = "In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op het veld 'Afspraken met patiënt'."
+* patientInstruction insert Obligation
+
+Profile: HgCompositionAmbulanceHAP
+Parent: HgComposition
+Id: hg-Composition-AmbulanceHAP
+Title: "hg Composition - Ambulance to HAP"
+Description: "Transfer summary note for the ambulance to GP out-of-hours service (HAP) referral."
+* ^purpose = "A derived profile from [hg-Composition](http://ig.nictiz.nl/az/StructureDefinition/hg-Composition) for the Ambulanceverwijzing (AMB naar HAP) transaction. This profile adds the four note sections the transaction defines, with their codes, cardinalities and obligations."
+* insert NictizMetadata
+* . ^short = "Core"
+  * ^alias[0] = "Kern"
+  * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
+* type = $loinc#101135-2
+* status insert ObligationMandatory
+* subject 1..1
+  * ^short = "Patient"
+  * ^alias[0] = "Patient"
+  * ^definition = "Geeft de gegevens van de patiënt en de eventuele gegevens over de contactpersonen van de patiënt."
+* subject only Reference(Patient or HgPatientAmbulanceHAP)
+* subject insert ObligationMandatory
+* author 1..1
+  * ^short = "Sender"
+  * ^alias[0] = "Verzender"
+  * ^definition = "Geeft de volledige identificatie- en contactgegevens van de verzender van het bericht."
+* author only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
+* author insert ObligationMandatory
+* date insert ObligationMandatory
+* title insert ObligationMandatory
+// Re-declare the section slicing (inherited from the generic parent) so the snapshot generator anchors the slice child elements (.code, .text) in this profile.
+* section ^slicing.discriminator[0].type = #pattern
+  * ^slicing.discriminator[0].path = "code"
+  * ^slicing.rules = #open
+* section contains messageReason 1..1 and treatmentGiven 0..* and diagnosisConclusion 0..1 and agreedWithPatient 0..1
+// The free-text content of each rubriek is carried in the section's own narrative (Composition.section.text). text.status is fixed to #additional and text is required (1..1) with the populate-if-known obligation; the SectionNarrativeComment RuleSet (above) renders the rationale on the profile page.
+// messageReason duplicates ServiceRequest.reasonCode (RedenBericht 1872; the free-text Context 1710 is its narrative). The section is 1..1 because reasonCode is mandatory and is always copied here for documentation. See CopiedFromServiceRequestComment for the origin/triage rationale.
+* section[messageReason] ^short = "MessageReason"
+  * ^alias[0] = "RedenBericht"
+  * ^alias[1] = "Context"
+  * ^definition = "Geeft de reden van de verwijzing of de update. De ambulance legt de reden altijd vast in vrije tekst."
+* section[messageReason].code = $loinc#46239-0
+* section[messageReason] insert ObligationMandatory
+* section[messageReason] insert CopiedFromServiceRequestComment
+* section[messageReason].text 1..1
+* section[messageReason].text.status = #additional
+* section[messageReason].text insert ObligationMandatory
+* section[messageReason].text insert SectionNarrativeComment
+* section[treatmentGiven] ^short = "SetTreatment"
+  * ^alias[0] = "IngesteldeBehandeling"
+  * ^definition = "Geeft de ingestelde behandeling in het verwijsbericht, de update en het DT-bericht."
+* section[treatmentGiven].code = $loinc#51847-2
+* section[treatmentGiven] insert Obligation
+* section[treatmentGiven].text 1..1
+* section[treatmentGiven].text.status = #additional
+* section[treatmentGiven].text insert ObligationMandatory
+* section[treatmentGiven].text insert SectionNarrativeComment
+* section[diagnosisConclusion] ^short = "DiagnosisConclusion"
+  * ^alias[0] = "Diagnose/Conclusie"
+  * ^definition = "Geeft de diagnose en/of conclusie."
+* section[diagnosisConclusion].code = $loinc#55110-1
+* section[diagnosisConclusion] insert Obligation
+* section[diagnosisConclusion].text 1..1
+* section[diagnosisConclusion].text.status = #additional
+* section[diagnosisConclusion].text insert ObligationMandatory
+* section[diagnosisConclusion].text insert SectionNarrativeComment
+// agreedWithPatient duplicates ServiceRequest.patientInstruction (AfgesprokenMetPatient 1752). It is 0..1 because patientInstruction is optional; copied here for documentation. See CopiedFromServiceRequestComment for the origin/triage rationale.
+* section[agreedWithPatient] ^short = "AgreedWithPatient"
+  * ^alias[0] = "AfgesprokenMetPatient"
+  * ^definition = "In de uitwisseling Ambulance - HAP vanuit de richtlijn NHG - Acute Zorg wordt dit veld gemapt op het veld 'Afspraken met patiënt'."
+* section[agreedWithPatient].code = $loinc#69730-0
+* section[agreedWithPatient] insert Obligation
+* section[agreedWithPatient] insert CopiedFromServiceRequestComment
+* section[agreedWithPatient].text 1..1
+* section[agreedWithPatient].text.status = #additional
+* section[agreedWithPatient].text insert ObligationMandatory
+* section[agreedWithPatient].text insert SectionNarrativeComment
+
+Profile: HgDocumentReferenceAmbulanceHAP
+Parent: HgDocumentReference
+Id: hg-DocumentReference-AmbulanceHAP
+Title: "hg DocumentReference - Ambulance to HAP"
+Description: "Attached document for the ambulance to GP out-of-hours service (HAP) referral. The sender of the folded CommunicatieItem (as modeled in ART-DECOR) is carried on `author`."
+* ^purpose = "A derived profile from [hg-DocumentReference](http://ig.nictiz.nl/az/StructureDefinition/hg-DocumentReference) for the Ambulanceverwijzing (AMB naar HAP) transaction. This profile adds the cardinalities and obligations of the transaction, and binds the document type to the ART-DECOR Bijlagen value set."
+* insert NictizMetadata
+* . ^short = "CommunicationItem"
+  * ^alias[0] = "CommunicatieItem"
+  * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list) follow the [handover document specification](handover-document.html)."
+// masterIdentifier is removed in R5/R6 (folded into identifier); the document and set ids are carried on the identifier slices defined in the generic layer. See the Design Decisions page.
+* masterIdentifier 0..0
+* identifier[documentId] 1..1
+  * ^short = "DocumentIdentification"
+  * ^alias[0] = "DocumentIdentificatie"
+  * ^definition = "Het identificatienummer van het document."
+* identifier[documentId] insert ObligationMandatory
+* identifier[documentId].system 1..1
+* identifier[documentId].system insert ObligationMandatory
+* identifier[documentId].value 1..1
+* identifier[documentId].value insert ObligationMandatory
+* identifier[documentSetId] 1..1
+  * ^short = "DocumentSetIdentification"
+  * ^alias[0] = "DocumentSetIdentificatie"
+  * ^definition = "Identificatienummer van de set waar het document toe behoort."
+  * ^comment = "1..1: the dataset element DocumentSetIdentificatie (hg-dataelement-5474) prescribes a set identifier on every document, so it is required here, even though CDA externalDocument.setId is optional in the general CDA model."
+* identifier[documentSetId] insert ObligationMandatory
+* identifier[documentSetId].system 1..1
+* identifier[documentSetId].system insert ObligationMandatory
+* identifier[documentSetId].value 1..1
+* identifier[documentSetId].value insert ObligationMandatory
+* extension[documentVersion] 0..1
+  * ^short = "DocumentVersion"
+  * ^alias[0] = "DocumentVersienummer"
+* extension[documentVersion] insert Obligation
+* type 1..1
+  * ^short = "DocumentType"
+  * ^alias[0] = "DocumentType"
+  * ^definition = "Geeft aan welk type document is toegevoegd. Op dit moment is de BSA lijst gekoppeld vanuit de Ambulance."
+* type from $vs-bijlagen (required)
+* type insert ObligationMandatory
+* author 1..1
+  * ^short = "CommunicationSender"
+  * ^alias[0] = "CommunicatieAfzender"
+* author only Reference(PractitionerRole or Organization or HgHealthProfessionalPractitionerRoleAmbulanceHAP or HgHealthcareProviderOrganizationAmbulanceHAP)
+* author insert ObligationMandatory
+* content.attachment.contentType 1..1
+  * ^short = "DocumentMediaType"
+  * ^alias[0] = "DocumentBestandtype"
+  * ^definition = "Het bestandtype als mimetype, bijvoorbeeld \"application/pdf\" of \"text/plain\"."
+* content.attachment.contentType insert ObligationMandatory
+* content.attachment.data 1..1
+  * ^short = "DocumentContent"
+  * ^alias[0] = "DocumentInhoud"
+  * ^definition = "Geeft de inhoud van de bijlage (blob)."
+* content.attachment.data insert ObligationMandatory
+* content.attachment.title 1..1
+  * ^short = "DocumentName"
+  * ^alias[0] = "DocumentNaam"
+  * ^definition = "De bestandsnaam die het document heeft bij de verzender."
+* content.attachment.title insert ObligationMandatory
+* content.attachment.creation ^short = "DocumentCreationDateTime"
+  * ^alias[0] = "DocumentCreatieDatumTijd"
+  * ^definition = "Datum van het aanmaken van het document."
+* content.attachment.creation insert Obligation
+
+// Bundle-level invariant: the parts of one referral name one patient. It compares the subject
+// reference strings within the transaction, so it needs no resolve() and holds whenever the Bundle
+// is validated as a whole. A sender therefore writes the patient reference in one form.
+Invariant: hg-bundle-1
+Description: "The ServiceRequest, the Composition and every DocumentReference in the referral SHALL have the same patient as subject."
+Severity: #error
+Expression: "(entry.resource.ofType(ServiceRequest).subject.reference | entry.resource.ofType(Composition).subject.reference | entry.resource.ofType(DocumentReference).subject.reference).count() <= 1"
+
+Profile: HgBundleAmbulanceHAP
+Parent: HgBundle
+Id: hg-Bundle-AmbulanceHAP
+Title: "hg Bundle - Ambulance to HAP"
+Description: "Transaction bundle for the ambulance to GP out-of-hours service (HAP) referral PUSH."
+* ^purpose = "A derived profile from [hg-Bundle](http://ig.nictiz.nl/az/StructureDefinition/hg-Bundle) for the Ambulanceverwijzing (AMB naar HAP) transaction. This profile adds the requirement that every entry carries a fullUrl and a request, so the references between the resources resolve within the transaction."
+* insert NictizMetadata
+* obeys hg-bundle-1
+* type = #transaction
+* timestamp 1..1
+* entry 1..*
+* entry.fullUrl 1..1
+  * ^comment = "In a transaction every entry needs a fullUrl. Use a urn:uuid, so no entry claims an identity on the receiving server and the references between the resources resolve within the transaction."
+* entry.resource 1..1
+* entry.request 1..1
+* entry.request.method

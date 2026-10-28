@@ -1,0 +1,20 @@
+Thumbs.db
+.DS_Store
+.DS_Store?
+*.bak
+.index.db
+.index.json
+/fsh-generated
+/input-cache
+/output
+/temp
+/template
+*.bat
+_updatePublisher.sh
+_gencontinuous.sh
+_build.sh
+/Requirements-fromNarrative.json
+
+# Local Claude Code files, never in the repo
+CLAUDE.md
+.claude/
