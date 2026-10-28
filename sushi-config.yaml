@@ -75,6 +75,10 @@ applyExtensionMetadataToRoot: false
 parameters:
   show-inherited-invariants: false
   excludettl: true
+  # Report wrong display names as warnings instead of errors. They come from the ART-DECOR
+  # export of the logical model and from the ADA to FHIR conversion of the example, and are to be
+  # fixed there. The warnings stay visible in the QA report.
+  display-warnings: true
   # Validate SNOMED CT against the Netherlands edition (module 11000146104) so NL-edition
   # codes such as 11131000146102 resolve on tx.fhir.org instead of the International edition.
   # The edition/version is set in the referenced expansion Parameters resource.
