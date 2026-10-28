@@ -89,3 +89,8 @@ parameters:
     - http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.31--20250820144948
 instanceOptions:
   manualSliceOrdering: true
+resources:
+  Bundle/bundle-az-ave-voorbeeldbericht-AMB-HAP:
+    name: Example message AMB to HAP
+    description: "Example message based on the Richtlijn Gegevensuitwisseling Acute Zorg, generated from an ADA instance in ART-DECOR: a structured patient with address, telecom and a contact person, a sending nurse, the four Composition sections and a PDF attachment."
+    exampleCanonical: http://ig.nictiz.nl/az/StructureDefinition/hg-Bundle-AmbulanceHAP

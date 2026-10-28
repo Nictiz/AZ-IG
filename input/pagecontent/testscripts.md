@@ -320,7 +320,7 @@ This is an example of a handover from the ambulance. This example sets out the e
   </style>
 
 
-  <article class="brief">
+  <div class="brief">
     <header class="briefhoofd">
       <div class="afzender">
         <strong>Betreft</strong><br>
@@ -346,7 +346,7 @@ huisartsenspoedpost
       <p><strong>Lichamelijk onderzoek</strong></p>
       <p><strong>Meetwaarden</strong></p>
     </main>
-  </article>
+  </div>
 
 ### Scenario Maximal
 
@@ -858,7 +858,7 @@ huisartsenspoedpost
 #### Example document handover maximal
 This is an example of a handover from the ambulance. This example sets out the end-user requirements and makes no statements regarding technical realization or implementation. Following a careful process analysis with healthcare providers, the end users determined the sequence of chapters and the content of the medical information.
 
-<article class="brief">
+<div class="brief">
     <header class="briefhoofd">
       <div class="afzender">
         <strong>Betreft</strong><br>
@@ -1180,4 +1180,4 @@ Naam: huisarts J.T Test <br>
 Toelichting/afspraken: terugbellen<br>
 <br>
   </main>
-</article>
+</div>
