@@ -23,8 +23,6 @@ Description: "Ambulance to GP out-of-hours service (HAP) referral request (Ambul
 * . ^short = "Envelope"
   * ^alias[0] = "Envelop"
   * ^definition = "Geeft alle relevante gegevens in de envelop conform de richtlijn."
-* status
-  * ^comment = "The status is set to the fixed value Completed, as the referral messaging sent only once."
 * status insert ObligationMandatory
 * intent insert ObligationMandatory
 * code = $sct#11131000146102
@@ -169,7 +167,7 @@ Description: "Attached document for the ambulance to GP out-of-hours service (HA
 * insert NictizMetadata
 * . ^short = "CommunicationItem"
   * ^alias[0] = "CommunicatieItem"
-  * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list) follow the [document specification for the Ambulanceverwijzing](https://informatiestandaarden.nictiz.nl/wiki/az:Ontwerp_Acute_Zorg#Specificatie_van_het_document_binnen_de_Ambulanceverwijzing_naar_de_Huisartsenpost) in the Nictiz functional design, and should be kept aligned with it as that specification is finalized."
+  * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list) follow the [handover document specification](handover-document.html)."
 // masterIdentifier is removed in R5/R6 (folded into identifier); the document and set ids are carried on the identifier slices defined in the generic layer. See the Design Decisions page.
 * masterIdentifier 0..0
 * identifier[documentId] 1..1
@@ -254,7 +252,3 @@ Description: "Transaction bundle for the ambulance to GP out-of-hours service (H
 * entry.resource 1..1
 * entry.request 1..1
 * entry.request.method
-  * ^comment = """
-The method is deliberately not fixed. A first send is a `POST`. A later send for the same trip updates the referral rather than creating a second one, and that is a conditional `PUT` on the trip number, for example `PUT ServiceRequest?identifier=urn:oid:2.16.840.1.113883.2.4.3.32.5|09-2026-1234567-1`.
-
-That second case follows from *Bestemmingsstatus*: the data set states that Geannuleerd and Overgedragen are the last message of the ambulance to this destination, so there is more than one message per trip and the receiver has to end up with one referral, not three. See [#38](https://github.com/Nictiz/AZ-IG/issues/38)."""

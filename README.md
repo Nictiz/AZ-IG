@@ -1,61 +1,89 @@
-# Acute Zorg - FHIR R4 Implementation Guide
+# Repo for the Acute Zorg IG
 
-FHIR R4 Implementation Guide for information exchange in acute care settings in the Netherlands, following the Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022). Built on nl-core (zib2020, R4) and authored in FHIR Shorthand (FSH).
+## Introduction
 
-The first use case is the ambulance to GP out-of-hours service referral (AMB → HAP, message 24). Message 23 (AMB → HA) follows the same pattern and is planned as a parallel use case layer.
+This is the git repository for the Acute Zorg FHIR R4 Implementation Guide maintained by Nictiz. The IG covers information exchange in acute care settings in the Netherlands, following the Richtlijn Gegevensuitwisseling Acute Zorg versie 4 (2022). It is built on nl-core (zib2020, R4) and authored in FHIR Shorthand (FSH).
 
-Status: under development - no official release yet. This is the first Nictiz IG published as a proper HL7 FHIR Implementation Guide (using the HL7 IG Publisher and FHIR Shorthand), rather than as a specification on the Nictiz wiki. It therefore looks and works differently from earlier Nictiz FHIR documentation. The canonical output is a browsable IG with structured profiles, examples, and conformance resources - not a wiki page.
+The first use case is the transfer from the ambulance service to the GP out-of-hours service (Ambulanceverwijzing naar HAP, AMB to HAP).
 
-## Identity
+The current version is 1.0.0-beta.1, for testing with vendors. It is not meant for production use.
 
-- Package id: `nictiz.nl.az`
-- Canonical base: `http://ig.nictiz.nl/az` (e.g. `http://ig.nictiz.nl/az/StructureDefinition/hg-ServiceRequest`); the `hg-` id prefix is the ART-DECOR project prefix
+| | |
+|---|---|
+| Published versions | <http://ig.nictiz.nl/az/history.html> |
+| CI build (`develop`) | <https://build.fhir.org/ig/Nictiz/AZ-IG/branches/develop/> |
+| Package id | `nictiz.nl.az` |
+| Canonical base | `http://ig.nictiz.nl/az` |
 
-## Layout
+The `hg-` prefix in the resource ids is the ART-DECOR project prefix. Profiles from nl-core and zib2020 keep their own canonical `http://nictiz.nl/fhir`.
 
-- `sushi-config.yaml` - project configuration, dependencies, and menu
-- `input/fsh/aliases.fsh` - canonical URL and code system aliases
-- `input/fsh/profiles/` - generic `hg-*` layer (FHIR core based) and the `hg-Referral*-AmbulanceHAP` use case layer derived from it
-- `input/fsh/extensions/` - `hg-ext-DocumentVersion` (document version, R5/R6 bridge)
-- `input/fsh/terminology/` - local code systems and value sets (message events, destination status, document-identifier type)
-- `input/fsh/mappings/` - dataset traceability mappings attached to the use case profiles
-- `input/fsh/instances/` - scenario 5b example set including the message bundle
-- `input/fsh/actors/` - ActorDefinition resources for sender and receiver
-- `input/fsh/capabilities/` - CapabilityStatement resources
-- `input/resources/` - terminology downloaded from ART-DECOR and embedded verbatim (do not hand-edit; see the folder README)
-- `input/images-source/` - PlantUML diagram sources (rendered to SVG by the IG Publisher)
-- `input/pagecontent/index.md` - scope and audience
-- `input/pagecontent/use-cases.md` - use case overview
-- `input/pagecontent/functional-design.md` - functional design reference
-- `input/pagecontent/dependencies.md` - upstream specifications and FHIR package dependencies
-- `input/pagecontent/data-model.md` - data model
-- `input/pagecontent/data-exchange.md` - exchange paradigm options
-- `input/pagecontent/workflow.md` - workflow pattern
-- `input/pagecontent/design-decisions.md` - modeling and conformance decisions
-- `input/pagecontent/open-items.md` - pending decisions
-- `input/pagecontent/changelog.md` - per-version changes
-- `docs/review-manual.md` - reviewer guide (Dutch): the patterns and open decisions where Nictiz review input is most valuable. Repo documentation, not part of the built IG.
+## Sources
+
+This repo is not the source of truth for all content in the IG:
+
+- The data set, the transaction and the project terminology are maintained in [ART-DECOR](https://decor.nictiz.nl/ad/#/hg-) (project `hg-`). The terminology and the logical model are downloaded from ART-DECOR into `input/resources/` and must not be edited by hand; see the README in that folder.
+- The example instances are generated from the ADA test instances in ART-DECOR with the Nictiz ADA-to-FHIR tooling.
+- The functional design is part of this IG, on the Functional Design page.
+- The TestScripts for Conformancelab are maintained in [Nictiz/Nictiz-testscripts](https://github.com/Nictiz/Nictiz-testscripts).
 
 ## Building
 
-This IG is built automatically by the [HL7 auto IG builder](https://github.com/FHIR/auto-ig-builder) on every push. Builds for all branches are available at: https://build.fhir.org/ig/Nictiz/AZ-IG/branches/
+### Local
 
-To build locally, run the standard IG Publisher scripts included in the repository:
+Local building uses the `_genonce.sh` script in the root folder, like any other FHIR IG build. This requires Node and Java, and [SUSHI](https://github.com/FHIR/sushi):
 
-```
-# On macOS/Linux
-./_genonce.sh
+    $ npm install -g fsh-sushi
 
-# On Windows
-_genonce.bat
-```
+To only compile the FSH, which is much faster, run:
 
-This runs Sushi (FSH compilation) followed by the HL7 IG Publisher. No separate Sushi step or snapshot pre-generation is needed.
+    $ sushi .
+
+The full build writes the QA report to `output/qa.html`.
+
+### Remote
+
+Every push is built by the [HL7 auto IG builder](https://github.com/FHIR/auto-ig-builder). The builds of all branches are at <https://build.fhir.org/ig/Nictiz/AZ-IG/branches/>.
+
+Official versions are published on ig.nictiz.nl through [Nictiz/IG-publications](https://github.com/Nictiz/IG-publications).
+
+## Branching and releases
+
+- `develop` holds the current state. New and changed content is added on a branch and merged into `develop` through a pull request.
+- For a release, a branch `release-[version]` is created from `develop`. Nictiz/IG-publications builds the published version from that branch.
+- After publication, the release branch is merged into `main` and tagged with the version, for example `1.0.0-beta.1`.
+- Versions follow the Nictiz Nationaal Releasebeleid (semantic versioning). Notable changes per version are on the Changelog page of the IG.
+
+## Content
+
+| Folder or file | Content |
+|---|---|
+| `sushi-config.yaml` | Project configuration, dependencies and menu |
+| `input/fsh/aliases.fsh` | Aliases for canonical URLs and code systems |
+| `input/fsh/profiles/` | The generic `hg-*` layer on FHIR core, the use case layer for AMB to HAP derived from it and the use case profiles on nl-core |
+| `input/fsh/extensions/` | Extensions used by the profiles |
+| `input/fsh/terminology/` | Local code systems |
+| `input/fsh/mappings/` | Mappings from the use case profiles to the ART-DECOR data set |
+| `input/fsh/actors/` | ActorDefinitions for sender and receiver |
+| `input/fsh/capabilities/` | CapabilityStatements for sender and receiver |
+| `input/resources/` | Terminology and the logical model from ART-DECOR, embedded as is |
+| `input/images-source/` | PlantUML sources of the diagrams, rendered by the IG Publisher |
+| `input/pagecontent/` | The narrative pages, one Markdown file per page; the menu is in `sushi-config.yaml` |
+| `publication-request.json` | Version information for the publication on ig.nictiz.nl |
+
+## Quality control
+
+The IG Publisher writes all validation messages to `output/qa.html`, with a summary in `output/qa.txt`. Broken links are reported separately from errors.
+
+The [Nictiz QA tooling](https://github.com/Nictiz/Nictiz-tooling-R4-QA), as used by GBB-IG, is not set up for this IG yet (#10, #109).
 
 ## Dependencies
 
 | Package | Version | Purpose |
 |---|---|---|
 | `nictiz.fhir.nl.r4.nl-core` | 0.12.0-beta.4 | nl-core base profiles |
-| `nictiz.fhir.nl.r4.zib2020` | 0.12.0-beta.4 | zib2020 profiles (declared explicitly - Sushi does not pull this transitive dependency on its own) |
+| `nictiz.fhir.nl.r4.zib2020` | 0.12.0-beta.4 | zib2020 profiles (declared explicitly, because SUSHI does not pull this transitive dependency on its own) |
 | `hl7.fhir.uv.tools.r4` | 1.1.2 | Required for `ActorDefinition` to resolve in R4 |
+
+## Use of AI
+
+How the authors use AI is described in the Authoring note on the Home page of the IG.

@@ -11,8 +11,6 @@ All example resources use fictional test data only.
 | Example | Source | What it shows | Message |
 |---|---|---|---|
 | Example message | *Richtlijn Gegevensuitwisseling Acute Zorg* | A structured patient with address, telecom and a contact person; a sending nurse; the four Composition sections; and a PDF attachment. | [Bundle](Bundle-bundle-az-ave-voorbeeldbericht-AMB-HAP.html) |
-| Maximal | ART-DECOR ADA test `az-ave-tst-2-maximaal` | A richly populated message: structured patient with address, telecom and a contact person; the four Composition sections; and a plain text attachment. | [Bundle](Bundle-bundle-az-ave-tst-2-maximaal.html) |
-| Minimal | ART-DECOR ADA test `az-ave-tst-1-minimaal` | A lean message: a patient with a local identifier only, the *Reden bericht* section and a PDF attachment. | [Bundle](Bundle-bundle-az-ave-tst-1-minimaal.html) |
 
 ### Mappings
 

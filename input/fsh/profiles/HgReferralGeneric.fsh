@@ -16,7 +16,7 @@ Parent: ServiceRequest
 Id: hg-ServiceRequest
 Title: "hg ServiceRequest"
 Description: "Generic request (workflow 'request' on FHIR core ServiceRequest) for Acute Zorg. Open-world: nl-core targets are added next to the base resources; cardinalities and mustSupport are left to the use case layer."
-* ^purpose = "A use case independent profile for the referral request itself, on FHIR core ServiceRequest. It carries the structure every Acute Zorg referral shares, without cardinality tightening or obligations, so that each transaction can derive its own use case profile from it. Constraints belong on that derived profile, not here."
+* ^purpose = "A use case independent profile for the referral request itself, on FHIR core ServiceRequest. It carries the structure every Acute Zorg referral shares, without cardinality tightening or obligations, so that each transaction can derive its own use case profile from it."
 * insert NictizMetadata
 // status: deliberately not fixed to #completed here. The ELZ (primary care) use case documents status as always 'completed' (transfer is done when sent), but other use cases may use different values. Status is the responsibility of the use case layer.
 //

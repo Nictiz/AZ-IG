@@ -25,12 +25,12 @@ Parent: $nlcore-Patient
 Id: hg-Patient-AmbulanceHAP
 Title: "hg Patient - Ambulance to HAP"
 Description: "Patient in the ambulance to GP out-of-hours service (HAP) referral. Derived from nl-core-Patient; identifiers (e.g. BSN or a local hospital identifier) should be sent when known so the HAP can match the referral to a person."
-* ^purpose = "A derived profile from [nl-core-Patient](http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient) to provide a version better suited for the Ambulance to HAP use case. This profile carries the cardinalities of the transaction and the obligations for sender and receiver, and states that a patient is identifiable by an identifier or a name."
+* ^purpose = "A derived profile from [nl-core-Patient](http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient) to provide a version better suited for the Ambulance to HAP use case. This profile carries the cardinalities of the transaction and the obligations for sender and receiver, and requires at least one identifier for the patient."
 * insert NictizMetadata
 * obeys hg-pat-1
 * identifier 1..*
-* identifier ^comment = "1..*: a patient may carry more than one identifier (for example a BSN and a local hospital identifier), so the element is repeatable. It is optional (min 0) because an ambulance patient is not always identified yet; the populate-if-known obligation carries the expectation to send an identifier when one is known."
-* identifier insert Obligation
+* identifier ^comment = "1..*: a patient may carry more than one identifier (for example a BSN and a local hospital identifier), so the element is repeatable. The BSN is optional (min 0) because an ambulance patient is not always identified yet. An alternative (temporary) identifier must be present when the patient identification has not yet been verified."
+* identifier insert ObligationMandatory
 * identifier[bsn] 0..1
 * name insert Obligation
 * name.text ^comment = "This element can be used to represent the full name as plain text when the name is not registered in a structured manner (i.e. without the structured `family`/`given` parts)."
@@ -77,7 +77,7 @@ Parent: $nlcore-Encounter
 Id: hg-Encounter-AmbulanceHAP
 Title: "hg Encounter - Ambulance to HAP"
 Description: "An interaction between a patient and ambulance professionals. Derived from nl-core-Encounter."
-* ^purpose = "A derived profile from [nl-core-Encounter](http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter) to provide a version better suited for the Ambulance to HAP use case. This profile carries the ambulance trip number."
+* ^purpose = "A derived profile from [nl-core-Encounter](http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter) to provide a version better suited for the Ambulance to HAP use case. This profile carries the mapping of the data element 'Ritnummer'."
 * insert NictizMetadata
 * identifier ^slicing.discriminator[0].type = #pattern
 * identifier ^slicing.discriminator[0].path = "$this"
@@ -88,16 +88,7 @@ Description: "An interaction between a patient and ambulance professionals. Deri
 * identifier[tripNumber] ^alias[0] = "Ritnummer"
 * identifier[tripNumber] ^definition = "Identificerend nummer van een specifieke ambulance-inzet of rit, waarmee de inzet binnen de administratie van de ambulancedienst kan worden getraceerd."
 * identifier[tripNumber] ^comment = """
-Het ritnummer bestaat uit een aantal onderdelen die worden gescheiden door een koppelteken "-". De structuur is [ambulancevoorziening-jaartal-ritvolgnummer-patiëntvolgnummer]
-
-* ambulancevoorziening N1..2 - Identificatienummer van de ambulancevoorziening
-* jaartal N4
-* ritvolgnummer N1..14 - Volgnummer van de rit, uniek binnen de ambulancevoorziening en het jaartal
-* patiëntvolgnummer N1..2 - Volgnummer van de patiënt binnen de rit. Dit is alleen hoger dan 1 als er meerdere patiënten vervoerd worden of als de rit is geannuleerd en vervolgens wordt de patiënt opnieuw ingestuurd (zie toelichting).
-
-**Toelichting**
-
-In case een patiënt wordt ingestuurd naar een ziekenhuis met een verkeerd BSN, dan wordt deze rit geannuleerd. Het ritnummer heeft voor de extensie patiëntvolgnummer 1. Vanuit de ambulance wordt een nieuw bericht gestuurd met patiëntvolgnummer 2 en het nieuwe BSN, dus een “andere” patiënt. De annulering van de rit is wel belangrijk, want anders lijkt het alsof er 2 patiënten komen, wat in principe ook kan. Bij een annulering van de rit moet er een nieuw ritnummer komen waarbij het patiëntvolgnummer opgehoogd wordt met 1. Voorbeeld; Na 09-2023-1234567-1 komt 09-2023-1234567-2."""
+Het ritnummer bestaat uit een aantal onderdelen die worden gescheiden door een koppelteken "-". De structuur is [ambulancevoorziening-jaartal-ritvolgnummer-patiëntvolgnummer]"""
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#EMER "emergency"
 
 Profile: HgNameInformationAmbulanceHAP
@@ -105,5 +96,5 @@ Parent: $nlcore-NameInformation
 Id: hg-NameInformation-AmbulanceHAP
 Title: "hg NameInformation - Ambulance to HAP"
 Description: "Derived from nl-core-NameInformation."
-* ^purpose = "A derived profile from [nl-core-NameInformation](http://nictiz.nl/fhir/StructureDefinition/nl-core-NameInformation) to provide a version better suited for the Ambulance to HAP use case. This profile carries the mapping of the dataelement VolledigeNaam."
+* ^purpose = "A derived profile from [nl-core-NameInformation](http://nictiz.nl/fhir/StructureDefinition/nl-core-NameInformation) to provide a version better suited for the Ambulance to HAP use case. This profile carries the mapping of the data element 'VolledigeNaam'."
 * insert NictizMetadata

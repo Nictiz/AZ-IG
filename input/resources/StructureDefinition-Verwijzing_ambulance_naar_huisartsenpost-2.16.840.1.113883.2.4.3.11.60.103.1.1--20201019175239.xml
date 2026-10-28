@@ -1720,9 +1720,7 @@
                 <min value="1"/>
                 <max value="1"/>
             </base>
-            <type>
-                <code value="http://decor.nictiz.nl/fhir/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.103.2.2--20201021093202"/>
-            </type>
+            <contentReference value="#Verwijzingambulancenaarhuisartsenpost.bouwstenen.patient"/>
             <mustSupport value="true"/>
         </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5309--20230329152109">
@@ -1760,9 +1758,7 @@
                 <min value="0"/>
                 <max value="*"/>
             </base>
-            <type>
-                <code value="http://decor.nictiz.nl/fhir/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.103.2.3.5253--20221130122929"/>
-            </type>
+            <contentReference value="#Verwijzingambulancenaarhuisartsenpost.bouwstenen.contactpersoon"/>
             <mustSupport value="true"/>
         </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5089--20220921200553">
@@ -4577,9 +4573,7 @@
                 <min value="1"/>
                 <max value="1"/>
             </base>
-            <type>
-                <code value="http://decor.nictiz.nl/fhir/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.103.2.2--20201021093202"/>
-            </type>
+            <contentReference value="#Verwijzingambulancenaarhuisartsenpost.bouwstenen.patient"/>
             <mustSupport value="true"/>
         </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5309--20230329152109">
@@ -4617,9 +4611,7 @@
                 <min value="0"/>
                 <max value="*"/>
             </base>
-            <type>
-                <code value="http://decor.nictiz.nl/fhir/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.103.2.3.5253--20221130122929"/>
-            </type>
+            <contentReference value="#Verwijzingambulancenaarhuisartsenpost.bouwstenen.contactpersoon"/>
             <mustSupport value="true"/>
         </element>
         <element id="2.16.840.1.113883.2.4.3.11.60.103.2.3.5089--20220921200553">
