@@ -14,7 +14,7 @@ Description: "Ambulance management system (AMBS) that produces and transmits the
 * insert NictizMetadataInstance
 * purpose = "Names the sending system role of the Ambulanceverwijzing so that support expectations can be bound to an actor. The obligations on the profiles reference this actor, which makes explicit what the sender has to produce, where a single mustSupport flag would only say that an element matters to someone."
 * name = "HgActorSenderAmbulanceHAP"
-* status = #active
+* status = #draft
 * type = #system
 * documentation = """The HG Referral Sender is the system role fulfilled by an ambulance management system (AMBS). It is responsible for the transaction Sturen Ambulanceverwijzing.
 
@@ -32,7 +32,7 @@ Description: "GP information system (HIS) or GP out-of-hours service information
 * insert NictizMetadataInstance
 * purpose = "Names the receiving system role of the Ambulanceverwijzing so that support expectations can be bound to an actor. The obligations on the profiles reference this actor, which makes explicit what the receiver has to accept without raising an error."
 * name = "HgActorReceiverAmbulanceHAP"
-* status = #active
+* status = #draft
 * type = #system
 * documentation = """The HG Referral Receiver is the system role fulfilled by a GP information system (HIS) or a GP out-of-hours service information system (HAPIS). It is responsible for the transaction Ontvangen Ambulanceverwijzing.
 

@@ -162,7 +162,7 @@ Profile: HgDocumentReferenceAmbulanceHAP
 Parent: HgDocumentReference
 Id: hg-DocumentReference-AmbulanceHAP
 Title: "hg DocumentReference - Ambulance to HAP"
-Description: "Attached document for the ambulance to GP out-of-hours service (HAP) referral. The folded CommunicatieItem category and sender (as modeled in ART-DECOR) are carried on `category` and `author`."
+Description: "Attached document for the ambulance to GP out-of-hours service (HAP) referral. The sender of the folded CommunicatieItem (as modeled in ART-DECOR) is carried on `author`."
 * ^purpose = "A derived profile from [hg-DocumentReference](http://ig.nictiz.nl/az/StructureDefinition/hg-DocumentReference) for the Ambulanceverwijzing (AMB naar HAP) transaction. This profile adds the cardinalities and obligations of the transaction, and binds the document type to the ART-DECOR Bijlagen value set."
 * insert NictizMetadata
 * . ^short = "CommunicationItem"
@@ -199,10 +199,6 @@ Description: "Attached document for the ambulance to GP out-of-hours service (HA
   * ^definition = "Geeft aan welk type document is toegevoegd. Op dit moment is de BSA lijst gekoppeld vanuit de Ambulance."
 * type from $vs-bijlagen (required)
 * type insert ObligationMandatory
-* category ^short = "CommunicationCategory"
-  * ^alias[0] = "CommunicatieCategorie"
-  * ^comment = "Maps to dataset element CommunicatieCategorie (hg-dataelement-5463). No value set is bound yet - the terminology is still open (see the Open Items page)."
-* category insert Obligation
 * author 1..1
   * ^short = "CommunicationSender"
   * ^alias[0] = "CommunicatieAfzender"
