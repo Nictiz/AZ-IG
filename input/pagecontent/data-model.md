@@ -6,11 +6,11 @@ This page describes the data model for the Ambulanceverwijzing (AMB → HAP) ref
 
 A referral carries the following clinical core (see [Data Exchange](data-exchange.html) for how it travels):
 
-- *hg-ReferralServiceRequest-AmbulanceHAP* is the focal resource. It references the patient (*subject*), the sending ambulance (*requester*) and the receiving HAP (*performer*), and carries the clinical content through `supportingInfo`.
-- *supportingInfo* points to a *hg-ReferralComposition-AmbulanceHAP* for the transfer summary note (reason, instituted treatment, diagnosis or conclusion) and, when documents are attached, to one or more *hg-ReferralDocumentReference-AmbulanceHAP* resources.
+- *hg-ServiceRequest-AmbulanceHAP* is the focal resource. It references the patient (*subject*), the sending ambulance (*requester*) and the receiving HAP (*performer*), and carries the clinical content through `supportingInfo`.
+- *supportingInfo* points to a *hg-Composition-AmbulanceHAP* for the transfer summary note (reason, instituted treatment, diagnosis or conclusion) and, when documents are attached, to one or more *hg-DocumentReference-AmbulanceHAP* resources.
 - The dataset's CommunicationItem wrapper is folded into *DocumentReference* (its category on *category*, its sender on *author*); the recipient is the *performer* of the referral.
 
-One wrapper sits on top of this core: *hg-ReferralBundle-AmbulanceHAP*, the `transaction` Bundle the sender POSTs. It carries the resources above as `POST` entries with a `urn:uuid` `fullUrl` each, so the references between them resolve within the transaction and no entry claims an identity on the receiving server.
+One wrapper sits on top of this core: *hg-Bundle-AmbulanceHAP*, the `transaction` Bundle the sender POSTs. It carries the resources above as `POST` entries with a `urn:uuid` `fullUrl` each, so the references between them resolve within the transaction and no entry claims an identity on the receiving server.
 
 Example messages under [Artifacts](artifacts.html) illustrate the model: a referral based on scenario 5b of the *Richtlijn Gegevensuitwisseling Acute Zorg*; a maximal message modelled on the ART-DECOR ADA test scenario, showing all participating resources and a document attachment; and a minimal message modelled on the ART-DECOR ADA minimal test scenario.
 
@@ -23,15 +23,15 @@ The diagram shows the use case profiles in the transaction Bundle and the refere
 
 | Resource | Use case profile | Derived from | Role in the referral |
 |---|---|---|---|
-| ServiceRequest | [`hg-ReferralServiceRequest-AmbulanceHAP`](StructureDefinition-hg-ReferralServiceRequest-AmbulanceHAP.html) | [`hg-ServiceRequest`](StructureDefinition-hg-ServiceRequest.html) | Focal resource: the referral request |
-| Composition | [`hg-ReferralComposition-AmbulanceHAP`](StructureDefinition-hg-ReferralComposition-AmbulanceHAP.html) | [`hg-Composition`](StructureDefinition-hg-Composition.html) | Transfer summary note (treatment given, diagnosis/conclusion) |
-| DocumentReference | [`hg-ReferralDocumentReference-AmbulanceHAP`](StructureDefinition-hg-ReferralDocumentReference-AmbulanceHAP.html) | [`hg-DocumentReference`](StructureDefinition-hg-DocumentReference.html) | Attached document(s), e.g. a report (0..\*) |
+| ServiceRequest | [`hg-ServiceRequest-AmbulanceHAP`](StructureDefinition-hg-ServiceRequest-AmbulanceHAP.html) | [`hg-ServiceRequest`](StructureDefinition-hg-ServiceRequest.html) | Focal resource: the referral request |
+| Composition | [`hg-Composition-AmbulanceHAP`](StructureDefinition-hg-Composition-AmbulanceHAP.html) | [`hg-Composition`](StructureDefinition-hg-Composition.html) | Transfer summary note (treatment given, diagnosis/conclusion) |
+| DocumentReference | [`hg-DocumentReference-AmbulanceHAP`](StructureDefinition-hg-DocumentReference-AmbulanceHAP.html) | [`hg-DocumentReference`](StructureDefinition-hg-DocumentReference.html) | Attached document(s), e.g. a report (0..\*) |
 | Patient | [`hg-Patient-AmbulanceHAP`](StructureDefinition-hg-Patient-AmbulanceHAP.html) | [`nl-core-Patient`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-Patient) | The patient being referred |
 |       Encounter       |                                                                [`hg-Encounter-AmbulanceHAP`](StructureDefinition-hg-Encounter-AmbulanceHAP.html)                                                               |                                                                                                  [`nl-core-Encounter`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-Encounter)                                                                                                  |                         The interaction between a patient and the ambulance professionals (trip number)                         |
 | Organization | [`hg-HealthcareProvider-Organization-AmbulanceHAP`](StructureDefinition-hg-HealthcareProvider-Organization-AmbulanceHAP.html) | [`nl-core-HealthcareProvider-Organization`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthcareProvider-Organization) | Sending (RAV) and receiving (HAP) organizations |
 | PractitionerRole | [`hg-HealthProfessional-PractitionerRole-AmbulanceHAP`](StructureDefinition-hg-HealthProfessional-PractitionerRole-AmbulanceHAP.html) | [`nl-core-HealthProfessional-PractitionerRole`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthProfessional-PractitionerRole) | Role of the sending ambulance professional |
 | Practitioner | [`hg-HealthProfessional-Practitioner-AmbulanceHAP`](StructureDefinition-hg-HealthProfessional-Practitioner-AmbulanceHAP.html) | [`nl-core-HealthProfessional-Practitioner`](https://simplifier.net/resolve?fhirVersion=r4&canonical=http%3A%2F%2Fnictiz.nl%2Ffhir%2FStructureDefinition%2Fnl-core-HealthProfessional-Practitioner) | The ambulance professional |
-| Bundle | [`hg-ReferralBundle-AmbulanceHAP`](StructureDefinition-hg-ReferralBundle-AmbulanceHAP.html) | [`hg-Bundle`](StructureDefinition-hg-Bundle.html) | The transaction that is POSTed |
+| Bundle | [`hg-Bundle-AmbulanceHAP`](StructureDefinition-hg-Bundle-AmbulanceHAP.html) | [`hg-Bundle`](StructureDefinition-hg-Bundle.html) | The transaction that is POSTed |
 
  The free text of each *Composition* section is carried in the section's own narrative (*Composition.section.text*, whose *.div* holds plain text or the limited xhtml allowed for a Narrative).
 
