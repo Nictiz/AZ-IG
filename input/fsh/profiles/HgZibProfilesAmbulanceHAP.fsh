@@ -4,7 +4,7 @@
 //
 // Per the Nictiz profiling guidelines, cardinalities and conformance for the participating zibs are applied at the use case (information standard specific) layer, derived from the nl-core profiles. These carry the cardinalities the ART-DECOR transaction puts on the building blocks (Patient, HealthProfessional, HealthcareProvider), plus obligations for sender/receiver.
 //
-// Cardinalities follow the published AMB-HAP transaction (4.145, 2025-06-10) where tightened: the organization carries identifier 1..* and name 1..1 so both parties are unambiguously addressable. The patient identifier is kept 0..* (optional and repeatable - see the element comment) rather than hard-required; gender, name and birthDate are left at nl-core cardinality with obligations.
+// Cardinalities follow the published AMB-HAP transaction (4.145, 2025-06-10) where tightened: the organization carries identifier 1..* and name 1..1 so both parties are unambiguously addressable. The patient identifier is 1..* (repeatable, with the BSN slice 0..1 - see the element comment); gender, name and birthDate are left at nl-core cardinality with obligations.
 // =============================================================================
 
 // Resource-local invariant. Severity is #warning for now (legitimate edge case: an organization
