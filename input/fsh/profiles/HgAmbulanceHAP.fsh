@@ -94,7 +94,7 @@ Description: "Transfer summary note for the ambulance to GP out-of-hours service
 * . ^short = "Core"
   * ^alias[0] = "Kern"
   * ^definition = "Geeft de zorginhoudelijke kerngegevens van de berichten die worden uitgewisseld."
-* type = $loinc#28651-8
+* type = $loinc#101135-2
 * status insert ObligationMandatory
 * subject 1..1
   * ^short = "Patient"
