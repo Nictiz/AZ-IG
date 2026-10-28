@@ -158,7 +158,7 @@ Profile: HgReferralDocumentReferenceAmbulanceHAP
 Parent: HgDocumentReference
 Id: hg-ReferralDocumentReference-AmbulanceHAP
 Title: "hg referral DocumentReference - Ambulance to HAP"
-Description: "Attached document for the ambulance to GP out-of-hours service (HAP) referral. The folded CommunicatieItem category and sender (as modeled in ART-DECOR) are carried on `category` and `author`."
+Description: "Attached document for the ambulance to GP out-of-hours service (HAP) referral. The sender of the folded CommunicatieItem (as modeled in ART-DECOR) is carried on `author`."
 * . ^short = "CommunicationItem"
   * ^alias[0] = "CommunicatieItem"
   * ^comment = "This DocumentReference represents the folded *CommunicatieItem* wrapper (hg-dataelement-5457) and the *Document* it contains (hg-dataelement-5472); both are mapped at root level. The attached document and its constraints (DocumentType bound to the Bijlagen/BSA list) follow the [handover document specification](handover-document.html)."
@@ -193,10 +193,6 @@ Description: "Attached document for the ambulance to GP out-of-hours service (HA
   * ^definition = "Geeft aan welk type document is toegevoegd. Op dit moment is de BSA lijst gekoppeld vanuit de Ambulance."
 * type from $vs-bijlagen (required)
 * type insert ObligationMandatory
-* category ^short = "CommunicationCategory"
-  * ^alias[0] = "CommunicatieCategorie"
-  * ^comment = "Maps to dataset element CommunicatieCategorie (hg-dataelement-5463). No value set is bound yet - the terminology is still open (see the Open Items page)."
-* category insert Obligation
 * author 1..1
   * ^short = "CommunicationSender"
   * ^alias[0] = "CommunicatieAfzender"

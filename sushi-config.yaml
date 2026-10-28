@@ -2,7 +2,7 @@ id: nictiz.nl.az
 canonical: http://ig.nictiz.nl/az
 name: AcuteZorg
 title: "Acute Zorg"
-status: active
+status: draft
 version: 1.0.0-beta.1
 fhirVersion: 4.0.1
 copyrightYear: 2026+

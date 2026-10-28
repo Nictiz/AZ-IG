@@ -8,11 +8,11 @@ A referral carries the following clinical core (see [Data Exchange](data-exchang
 
 - *hg-ReferralServiceRequest-AmbulanceHAP* is the focal resource. It references the patient (*subject*), the sending ambulance (*requester*) and the receiving HAP (*performer*), and carries the clinical content through `supportingInfo`.
 - *supportingInfo* points to a *hg-ReferralComposition-AmbulanceHAP* for the transfer summary note (reason, instituted treatment, diagnosis or conclusion) and, when documents are attached, to one or more *hg-ReferralDocumentReference-AmbulanceHAP* resources.
-- The dataset's CommunicationItem wrapper is folded into *DocumentReference* (its category on *category*, its sender on *author*); the recipient is the *performer* of the referral.
+- The dataset's CommunicationItem wrapper is folded into *DocumentReference* (its sender on *author*); the recipient is the *performer* of the referral.
 
 One wrapper sits on top of this core: *hg-ReferralBundle-AmbulanceHAP*, the `transaction` Bundle the sender POSTs. It carries the resources above as `POST` entries with a `urn:uuid` `fullUrl` each, so the references between them resolve within the transaction and no entry claims an identity on the receiving server.
 
-Example messages under [Artifacts](artifacts.html) illustrate the model: a referral based on scenario 5b of the *Richtlijn Gegevensuitwisseling Acute Zorg*; a maximal message modelled on the ART-DECOR ADA test scenario, showing all participating resources and a document attachment; and a minimal message modelled on the ART-DECOR ADA minimal test scenario.
+The example message under [Artifacts](artifacts.html) illustrates the model: a message based on the *Richtlijn Gegevensuitwisseling Acute Zorg*, generated from an ADA instance in ART-DECOR. The [Testing](testing.html) page describes it.
 
 ### Profiles in this use case
 
