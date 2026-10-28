@@ -27,7 +27,7 @@ Title: "hg Patient - Ambulance to HAP"
 Description: "Patient in the ambulance to GP out-of-hours service (HAP) referral. Derived from nl-core-Patient; identifiers (e.g. BSN or a local hospital identifier) should be sent when known so the HAP can match the referral to a person."
 * obeys hg-pat-1
 * identifier 1..*
-* identifier ^comment = "1..*: a patient may carry more than one identifier (for example a BSN and a local hospital identifier), so the element is repeatable. The BSN is optional (min 0) because an ambulance patient is not always identified yet. An alternative (temporary) identifier must be present when the patient identification is not yet been verified."
+* identifier ^comment = "1..*: a patient may carry more than one identifier (for example a BSN and a local hospital identifier), so the element is repeatable. The BSN is optional (min 0) because an ambulance patient is not always identified yet. An alternative (temporary) identifier must be present when the patient identification has not yet been verified."
 * identifier insert ObligationMandatory
 * identifier[bsn] 0..1
 * name insert Obligation
