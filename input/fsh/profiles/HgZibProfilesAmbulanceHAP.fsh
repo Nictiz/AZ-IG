@@ -4,17 +4,12 @@
 //
 // Per the Nictiz profiling guidelines, cardinalities and conformance for the participating zibs are applied at the use case (information standard specific) layer, derived from the nl-core profiles. These carry the cardinalities the ART-DECOR transaction puts on the building blocks (Patient, HealthProfessional, HealthcareProvider), plus obligations for sender/receiver.
 //
-// Cardinalities follow the published AMB-HAP transaction (4.145, 2025-06-10) where tightened: the organization carries identifier 1..* and name 1..1 so both parties are unambiguously addressable. The patient identifier is kept 0..* (optional and repeatable - see the element comment) rather than hard-required; gender, name and birthDate are left at nl-core cardinality with obligations.
+// Cardinalities follow the published AMB-HAP transaction (4.145, 2025-06-10) where tightened: the organization carries identifier 1..* and name 1..1 so both parties are unambiguously addressable. The patient identifier is 1..* (repeatable, with the BSN slice 0..1 - see the element comment); gender, name and birthDate are left at nl-core cardinality with obligations.
 // =============================================================================
 
-// Resource-local invariants. Severity is #warning for now (legitimate edge cases exist: a not-yet-
-// identified ambulance patient; an organization addressed other than by URA). They can be raised to
-// #error once the ART-DECOR conformance mapping confirms the requirement (see the Open Items page).
-Invariant: hg-pat-1
-Description: "The patient should be identifiable so the receiver can match the referral: an identifier or a name is present."
-Severity: #warning
-Expression: "identifier.exists() or name.exists()"
-
+// Resource-local invariant. Severity is #warning for now (legitimate edge case: an organization
+// addressed other than by URA). It can be raised to #error once the ART-DECOR conformance mapping
+// confirms the requirement (see the Open Items page).
 Invariant: hg-org-1
 Description: "The organization should be unambiguously addressable: a URA identifier is present."
 Severity: #warning
@@ -25,7 +20,8 @@ Parent: $nlcore-Patient
 Id: hg-Patient-AmbulanceHAP
 Title: "hg Patient - Ambulance to HAP"
 Description: "Patient in the ambulance to GP out-of-hours service (HAP) referral. Derived from nl-core-Patient; identifiers (e.g. BSN or a local hospital identifier) should be sent when known so the HAP can match the referral to a person."
-* obeys hg-pat-1
+* ^purpose = "A derived profile from [nl-core-Patient](http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient) to provide a version better suited for the Ambulance to HAP use case. This profile carries the cardinalities of the transaction and the obligations for sender and receiver, and requires at least one identifier for the patient."
+* insert NictizMetadata
 * identifier 1..*
 * identifier ^comment = "1..*: a patient may carry more than one identifier (for example a BSN and a local hospital identifier), so the element is repeatable. The BSN is optional (min 0) because an ambulance patient is not always identified yet. An alternative (temporary) identifier must be present when the patient identification has not yet been verified."
 * identifier insert ObligationMandatory
@@ -41,6 +37,8 @@ Parent: $nlcore-Organization
 Id: hg-HealthcareProvider-Organization-AmbulanceHAP
 Title: "hg HealthcareProvider Organization - Ambulance to HAP"
 Description: "Sending (RAV) and receiving (HAP) organization in the ambulance referral. Derived from nl-core-HealthcareProvider-Organization; an identifier (e.g. URA) is required so the organization is unambiguously addressable."
+* ^purpose = "A derived profile from [nl-core-HealthcareProvider-Organization](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization) to provide a version better suited for the Ambulance to HAP use case. This profile requires an identifier so that both the sending and the receiving organization are unambiguously addressable."
+* insert NictizMetadata
 * obeys hg-org-1
 * identifier 1..*
 * identifier insert ObligationMandatory
@@ -52,6 +50,8 @@ Parent: $nlcore-PractitionerRole
 Id: hg-HealthProfessional-PractitionerRole-AmbulanceHAP
 Title: "hg HealthProfessional PractitionerRole - Ambulance to HAP"
 Description: "Role of the sending ambulance professional in the referral. Derived from nl-core-HealthProfessional-PractitionerRole."
+* ^purpose = "A derived profile from [nl-core-HealthProfessional-PractitionerRole](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole) to provide a version better suited for the Ambulance to HAP use case. This profile adds the obligations for sender and receiver on the professional and the organization they act for."
+* insert NictizMetadata
 * practitioner only Reference(Practitioner or $nlcore-Practitioner or HgHealthProfessionalPractitionerAmbulanceHAP)
 * practitioner insert Obligation
 * organization insert Obligation
@@ -61,6 +61,8 @@ Parent: $nlcore-Practitioner
 Id: hg-HealthProfessional-Practitioner-AmbulanceHAP
 Title: "hg HealthProfessional Practitioner - Ambulance to HAP"
 Description: "Sending ambulance professional in the referral. Derived from nl-core-HealthProfessional-Practitioner; the transaction requires at least one ZorgverlenerIdentificatienummer, so identifier is 1..*."
+* ^purpose = "A derived profile from [nl-core-HealthProfessional-Practitioner](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner) to provide a version better suited for the Ambulance to HAP use case. This profile requires an identifier for the sending professional, as the transaction does, and adds the obligations for sender and receiver."
+* insert NictizMetadata
 * identifier 1..*
 * identifier insert ObligationMandatory
 
@@ -69,7 +71,8 @@ Parent: $nlcore-Encounter
 Id: hg-Encounter-AmbulanceHAP
 Title: "hg Encounter - Ambulance to HAP"
 Description: "An interaction between a patient and ambulance professionals. Derived from nl-core-Encounter."
-* ^purpose = "A derived profile from [nl-core-Encounter](http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter) to provide a version better suited for ambulance to HAP use case. This profile augments the nl-core profile to support the exchange of the ambulance trip number."
+* ^purpose = "A derived profile from [nl-core-Encounter](http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter) to provide a version better suited for the Ambulance to HAP use case. This profile carries the mapping of the data element 'Ritnummer'."
+* insert NictizMetadata
 * identifier ^slicing.discriminator[0].type = #pattern
 * identifier ^slicing.discriminator[0].path = "$this"
 * identifier ^slicing.rules = #open
@@ -86,4 +89,5 @@ Parent: $nlcore-NameInformation
 Id: hg-NameInformation-AmbulanceHAP
 Title: "hg NameInformation - Ambulance to HAP"
 Description: "Derived from nl-core-NameInformation."
-* ^purpose = "A derived profile from [nl-core-NameInformation](http://nictiz.nl/fhir/StructureDefinition/nl-core-NameInformation) to provide a version better suited for ambulance to HAP use case. This profile augments the nl-core profile with a mapping of the dataelement 'VolledigeNaam'."
+* ^purpose = "A derived profile from [nl-core-NameInformation](http://nictiz.nl/fhir/StructureDefinition/nl-core-NameInformation) to provide a version better suited for the Ambulance to HAP use case. This profile carries the mapping of the data element 'VolledigeNaam'."
+* insert NictizMetadata

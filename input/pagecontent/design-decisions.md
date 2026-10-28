@@ -89,12 +89,11 @@ Support expectations are expressed with the FHIR Obligations framework. Two syst
 
 ### Invariants and constraints
 
-Beyond cardinalities, bindings and slicing, the use case profiles carry a small number of FHIRPath invariants - only for rules that structure cannot express. The resource-level ones are kept resource-local so they also hold when a resource is validated standalone:
+Beyond cardinalities, bindings and slicing, the use case profiles carry a small number of FHIRPath invariants - only for rules that structure cannot express. The resource-level one is kept resource-local so it also holds when a resource is validated standalone:
 
-- `hg-pat-1` in `hg-Patient-AmbulanceHAP`: the receiver needs to match the patient against its own records, so an `identifier` or a `name` **SHOULD** be present.
 - `hg-org-1` in `hg-HealthcareProvider-Organization-AmbulanceHAP`: the organization needs to be uniquely identified, so a URA `identifier` (`system` = `http://fhir.nl/fhir/NamingSystem/ura`) **SHOULD** be present.
 
-Both are `#warning` for now, because a not-yet-identified ambulance patient and addressing other than by URA are legitimate edge cases; they can be raised to `#error` once the ART-DECOR conformance mapping confirms the requirement (see the [Open Items](open-items.html) page).
+It is `#warning` for now, because addressing other than by URA is a legitimate edge case; it can be raised to `#error` once the ART-DECOR conformance mapping confirms the requirement (see the [Open Items](open-items.html) page).
 
 One invariant sits on the transaction Bundle, because it compares resources:
 
