@@ -91,3 +91,27 @@ Title: "hg NameInformation - Ambulance to HAP"
 Description: "Derived from nl-core-NameInformation."
 * ^purpose = "A derived profile from [nl-core-NameInformation](http://nictiz.nl/fhir/StructureDefinition/nl-core-NameInformation) to provide a version better suited for the Ambulance to HAP use case. This profile carries the mapping of the data element 'VolledigeNaam'."
 * insert NictizMetadata
+// The comment is taken over from nl-core-NameInformation (0.12.0-beta.4), with the heading
+// "## Zib compatibility" written as bold text. As a heading it gives the definitions page a
+// second top level heading, which the IG Publisher reports as a WCAG error. Remove this rule
+// once nl-core has fixed the heading.
+* given ^comment = """This element can be used to represent full given names or initials. `extension:givenOrInitial` SHALL be used on each repretition to specifiy if it's a full name (_BR_) or an initial (_IN_).
+
+**Zib compatibility**
+
+Tthis element is used to represent the FirstNames and Initials concepts of zib NameInformation, but the FHIR implementation deviates from the zib model. The zib defines these concepts as a list of official first names (as a single string) and a list of initials (as a single string), both optional. They both represent the official name(s) of a person and thus represent the same concept. In FHIR however, each first name is either a complete name or an initial, but not both. In addition, each name may be defined separately.
+
+Therefore, the zib concepts are implemented here in the following way:
+
+* Systems SHOULD use a `.given` element for each official first name that they know of (either as a full name or an initial), in order of appearance (as specified by FHIR).
+* Each of these elements:
+  * SHOULD be populated with the complete name if it is known, or with the initial if no more information is available.
+  * As noted, it SHALL be augmented with `extension:givenOrInitial`.
+
+Initials should thus not be communicated for each complete first name that is known, in contrast to what is specified by the zib. Receiving systems can recreate initials from the full names if needed.
+
+If a system _does_ however only have a list of official first names and a separate list of official initials, without knowing the relationship between these two, only the full names SHOULD be communicated, while an additional `.name` instance MAY be used to communicate the initials. It is expected that the second instance just contains the initials and no other information from the zib. Receiving systems MAY ignore the second instance.
+
+**Note 1:** The GivenName concept should not be included here but in a separate `.name` instance where `.use` = _usual_.
+
+**Note 2**: As specified by FHIR, multiple official first names MAY be combined in a single `.given` element (separated by spaces), as long as the `.given` elements can be concatenated to form the full first name representation, and the 'extension:givenOrInitial` is used to mark the element as containing either full names or the initials. This pattern is strongly discouraged as it is hard to determine if the value pertains multiple names or a single combined name containing spaces."""

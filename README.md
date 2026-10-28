@@ -82,7 +82,6 @@ The [Nictiz QA tooling](https://github.com/Nictiz/Nictiz-tooling-R4-QA), as used
 |---|---|---|
 | `nictiz.fhir.nl.r4.nl-core` | 0.12.0-beta.4 | nl-core base profiles |
 | `nictiz.fhir.nl.r4.zib2020` | 0.12.0-beta.4 | zib2020 profiles (declared explicitly, because SUSHI does not pull this transitive dependency on its own) |
-| `hl7.fhir.uv.tools.r4` | 1.1.2 | Required for `ActorDefinition` to resolve in R4 |
 
 ## Use of AI
 
