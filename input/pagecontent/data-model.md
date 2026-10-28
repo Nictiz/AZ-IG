@@ -35,7 +35,12 @@ The diagram shows the use case profiles in the transaction Bundle and the refere
 
  The free text of each *Composition* section is carried in the section's own narrative (*Composition.section.text*, whose *.div* holds plain text or the limited xhtml allowed for a Narrative).
 
- The R4 resource _Encounter_ has two mandatory elements: *status* and *class*. In current stage of the use case the patient is present when the data is exchanged. Therefore *Encounter.status* to be used is 'in-progress'. Encounters of a patient with an ambulance are classified as emergencies, thus the code 'EMER' should be used for *Encounter.class*.
+The R4 resources *Encounter* and *ServiceRequest* both contain the mandatory element `status`. In the current use case, the patient is present at the time the data is exchanged, and the transaction is performed only once. Therefore, the status values are fixed for this use case:
+
+- `Encounter.status` SHALL be `finished`.
+- `ServiceRequest.status` SHALL be `completed`.
+
+These fixed values reflect the current, one-time nature of the transaction. In future use cases involving ongoing or repeatable service requests, other `ServiceRequest.status` values may be applicable.
 
 ### Reading obligations
 
