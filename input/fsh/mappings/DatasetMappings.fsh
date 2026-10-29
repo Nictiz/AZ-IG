@@ -4,14 +4,14 @@
 
 Mapping: HgEncounterAmbulanceHAPDataset
 Source: HgEncounterAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261021T122928/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261029T133226/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * identifier[tripNumber] -> "hg-dataelement-6034" "Ritnummer"
 
 Mapping: HgServiceRequestAmbulanceHAPDataset
 Source: HgServiceRequestAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261021T122928/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261029T133226/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1673" "Envelop"
@@ -33,7 +33,7 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 
 Mapping: HgCompositionAmbulanceHAPDataset
 Source: HgCompositionAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261021T122928/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261029T133226/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1709" "Kern"
@@ -51,7 +51,7 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 
 Mapping: HgDocumentReferenceAmbulanceHAPDataset
 Source: HgDocumentReferenceAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261021T122928/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261029T133226/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 // DocumentReference represents the folded CommunicatieItem wrapper (5457) and the Document it contains (5472). Both are mapped at root level.
@@ -69,14 +69,14 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 
 Mapping: HgBundleAmbulanceHAPDataset
 Source: HgBundleAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261021T122928/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261029T133226/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * timestamp -> "hg-dataelement-1684" "Datum en tijd (transportniveau)"
 
 Mapping: HgPatientAmbulanceHAPDataset
 Source: HgPatientAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261021T122928/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261029T133226/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * -> "hg-dataelement-1676" "Patient"
@@ -84,7 +84,7 @@ Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 
 Mapping: HgNameInformationAmbulanceHAPDataset
 Source: HgNameInformationAmbulanceHAP
-Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261021T122928/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
+Target: "https://decor.nictiz.nl/pub/eerstelijnszorg/hg-html-20261029T133226/ds-2.16.840.1.113883.2.4.3.11.60.103.1.1-2020-10-19T175239.html"
 Id: hg-dataset-20201019
 Title: "ART-DECOR Dataset Verwijzing ambulance naar huisartsenpost 2020-10-19"
 * text -> "hg-dataelement-5785" "VolledigeNaam"
